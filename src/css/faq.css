@@ -1,10 +1,71 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+﻿*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+    letter-spacing: 1.1px;
+}
 
-</body>
-</html>
+body,
+html {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    font-family: "Cambiaso", sans-serif;
+}
+
+.menu {
+
+    display: flex;
+    position: absolute;
+    top: 0px;
+    justify-content: center;
+    align-items: center;
+    max-width: 2600px;
+    margin: 0 auto;
+    list-style: none;
+}
+
+    .menu li {
+        width: 2600px;
+        height: 50px;
+        text-align: center;
+        background-color: #f7eeff;
+        a
+
+{
+    font-size: 22px;
+    color: #777;
+    text-decoration: none;
+    transition: all 0.45s;
+}
+
+&:hover {
+    background: url("../../images/faq_onde.svg");
+    animation: line 1s;
+    background-color: #f7eeff;
+}
+
+    &:hover a {
+        color: #d94f5c;
+    }
+
+&:not(:last-child) {
+    margin-right: 30px;
+}
+
+}
+
+@keyframes line {
+    0% {
+        background-position-x: 390px;
+    }
+}
+
+
+img {
+
+
+
+}
