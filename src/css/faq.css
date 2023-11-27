@@ -40,7 +40,7 @@ html {
         a
 
 {
-    font-size: 22px;
+    font-size: 30px;
     color: #777;
     text-decoration: none;
     transition: all 0.45s;
@@ -57,7 +57,7 @@ html {
     }
 
 &:not(:last-child) {
-    margin-right: 30px;
+    margin: 0 auto;
 }
 
 }
@@ -68,9 +68,3 @@ html {
     }
 }
 
-
-img {
-
-
-
-}
