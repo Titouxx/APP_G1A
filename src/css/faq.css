@@ -1,4 +1,4 @@
-﻿*,
+﻿*,/* css Barre de menu */
 *:before,
 *:after {
     box-sizing: inherit;
@@ -69,7 +69,7 @@ html {
 }
 
 
-
+/* css Questions génériques */
 * {
   box-sizing: border-box;
   &::before, &::after {

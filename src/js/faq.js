@@ -1,4 +1,4 @@
-﻿const items = document.querySelectorAll(".accordion button");
+﻿const items = document.querySelectorAll(".accordion button"); //js questions génériques
 
 function toggleAccordion() {
   const itemToggle = this.getAttribute('aria-expanded');
