@@ -26,7 +26,24 @@
           />
         </td>
         <td style="padding-left: 40px">
-          Consulter le répertoire de fichier téléchargés
+          <select name="file" id="file-select" onchange="printSelectedItem()">
+            <option value="">Choississez un fichier téléchargé</option>
+            <script>
+              const fileInput = document.querySelector("#file-input");
+              fileInput.addEventListener(
+                "change",
+                function addOptionInSelect() {
+                  var x = document.getElementById("file-select");
+                  var option = document.createElement("option");
+                  for (const file of fileInput.files) {
+                    option.value = file.name;
+                    option.innerHTML = file.name;
+                    x.appendChild(option);
+                  }
+                }
+              );
+            </script>
+          </select>
         </td>
         <td>
           <img id="icon" src="../../images/loupe.png" alt="Icone d'une loupe" />
@@ -34,16 +51,13 @@
       </tr>
       <tr>
         <td>
-          <p class="sortie">Fichiers sélectionnés :</p>
+          <p>Fichier sélectionné</p>
+          <p id="sortie"></p>
           <script>
-            const sortie = document.querySelector(".sortie");
-            const fileInput = document.querySelector("#file-input");
-
-            fileInput.addEventListener("change", () => {
-              for (const file of fileInput.files) {
-                sortie.innerText += `\n${file.name}`;
-              }
-            });
+            function printSelectedItem() {
+              const sortie = document.getElementById("sortie");
+              sortie.innerText = $("#file-select : selected").text();
+            }
           </script>
         </td>
       </tr>
