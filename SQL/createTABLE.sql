@@ -23,7 +23,7 @@ CREATE Table salle(
     id_salle SERIAL NOT NULL;
     nom varchar(20) NOT NULL;
     adresse varchar NOT NULL;
-    -- DIMENSION
+    DIMENSION varchar(20);
     PRIMARY KEY(id_salle)
 
 );
@@ -34,7 +34,7 @@ CREATE Table ENREGISTREMENT(
     titre varchar NOT NULL;
     ---taille --prof
     duree time NOT NULL;
-    --Diagnostic
+    Diagnostic VARCHAR (50);
     PRIMARY KEY(id_audio);
     FOREIGN KEY(id_nom_artiste)
 );
