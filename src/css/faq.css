@@ -1,0 +1,219 @@
+﻿*,/* css Barre de menu */
+*:before,
+*:after {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+    letter-spacing: 1.1px;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Maven Pro";
+}
+
+.menu {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    position: absolute;
+    top: 0px;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+
+    margin: 0;
+    list-style: none;
+}
+
+    .menu li {
+        width:100%;
+        list-style: none;
+        height: 50px;
+        text-align: center;
+        background-color: #f7eeff;
+        a
+
+{
+    font-size: 30px;
+    color: #777;
+    text-decoration: none;
+    transition: all 0.45s;
+}
+
+&:hover {
+    background: url("../../images/faq_onde.svg");
+    animation: line 1s;
+    background-color: #f7eeff;
+}
+
+    &:hover a {
+        color: #d94f5c;
+    }
+
+&:not(:last-child) {
+    margin: 0 auto;
+}
+
+}
+
+@keyframes line {
+    0% {
+        background-position-x: 390px;
+    }
+}
+
+
+/* css Questions génériques */
+* {
+  box-sizing: border-box;
+  &::before, &::after {
+    box-sizing: border-box;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  padding: 4rem;
+  width: 48rem;
+}
+
+.accordion {
+  .accordion-item {
+    border-bottom: 1px solid #e5e5e5;
+    button[aria-expanded='true'] {
+      border-bottom: 1px solid #d94f5c;
+    }
+  }
+  button {
+    position: relative;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 1em 0;
+    color: #7288a2;
+    font-size: 1.15rem;
+    font-weight: 400;
+    border: none;
+    background: none;
+    outline: none;
+    &:hover, &:focus {
+      cursor: pointer;
+      color: #d94f5c;
+      &::after {
+        cursor: pointer;
+        color: #d94f5c;
+        border: 1px solid #d94f5c;
+      }
+    }
+    .accordion-title {
+      padding: 1em 1.5em 1em 0;
+    }
+    .icon {
+      display: inline-block;
+      position: absolute;
+      top: 18px;
+      right: 0;
+      width: 22px;
+      height: 22px;
+      border: 1px solid;
+      border-radius: 22px;
+      &::before {
+        display: block;
+        position: absolute;
+        content: '';
+        top: 9px;
+        left: 5px;
+        width: 10px;
+        height: 2px;
+        background: currentColor;
+      }
+      &::after {
+        display: block;
+        position: absolute;
+        content: '';
+        top: 5px;
+        left: 9px;
+        width: 2px;
+        height: 10px;
+        background: currentColor;
+      }
+    }
+  }
+  button[aria-expanded='true'] {
+    color: #d94f5c;
+    .icon {
+      &::after {
+        width: 0;
+      }
+    }
+    + .accordion-content {
+      opacity: 1;
+      max-height: 9em;
+      transition: all 200ms linear;
+      will-change: opacity, max-height;
+    }
+  }
+  .accordion-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 200ms linear, max-height 200ms linear;
+    will-change: opacity, max-height;
+    p {
+      font-size: 1rem;
+      font-weight: 300;
+      margin: 2em 0;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+/* css Barre de recherche */
+.wrapper {
+  width: 100%;
+  max-width: 31.25rem;
+  margin: 2rem auto;
+}
+
+.searchBar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#searchQueryInput {
+  width: 100%;
+  height: 2.8rem;
+  background: #f5f5f5;
+  outline: none;
+  border: none;
+  border-radius: 1.625rem;
+  padding: 0 3.5rem 0 1.5rem;
+  font-size: 1rem;
+}
+
+#searchQuerySubmit {
+  width: 3.5rem;
+  height: 2.8rem;
+  margin-left: -3.5rem;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+#searchQuerySubmit:hover {
+  cursor: pointer;
+}
