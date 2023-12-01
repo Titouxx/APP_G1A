@@ -76,3 +76,19 @@ html {
     background-position-x: 390px;
   }
 }
+
+.titre {
+  padding: 0 0 10px;
+}
+
+.information {
+  font-size: large;
+  text-align: center;
+  border-radius: 15px;
+  position: relative;
+  top: 250px;
+  background-color: #f7eeff;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 20px;
+}
