@@ -4,11 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link href="../css/faq.css" rel="stylesheet">
- 
+    <script src="../js/jquery.min.js"></script>
+
     <link rel="icon" type="../../images/TransNoise.icon" href="../../images/TransNoise.ico">
     <title>TransNoise - EchoKey</title>
-
-
 
     <nav>
       <ul class="menu">
@@ -30,24 +29,53 @@
 
 
 
-
-
-<div class="container">
 <!--barre de recherche-->
 <div class="container">
   <h2><center><FONT SIZE=+7>Posez votre question:</FONT></center></h2> <!--titre question-->
 
-<!--barre de recherche permettant de poser une question a l'assistance-->
+<!-- Barre de recherche -->
 <div class="wrapper"> 
-<div class="searchBar">
-  <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="Posez votre question ici" value="" />
-  <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
-    <svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#666666" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
-    </svg>
-  </button>
-</div>
+  <div class="searchBar">
+      <form id="searchForm">
+          <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="Posez votre question ici" value="" />
+          <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
+              <svg style="width:24px;height:23px" viewBox="0 0 24 24">
+                  <path fill="#666666" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+              </svg>
+          </button>
+      </form>
+  </div>
 </div>
 
+<!-- Script pour gérer la requête de recherche -->
+<script>
+$(document).ready(function(){
+  $('#searchForm').submit(function(event){
+      event.preventDefault(); // Empêcher le comportement par défaut du formulaire
+
+      // Récupérer la valeur du champ de recherche
+      var query = $('#searchQueryInput').val();
+
+      // Envoyer la valeur à un fichier PHP pour traitement
+      $.ajax({
+          url: '../php/faq.php', // Chemin vers le fichier PHP à exécuter
+          method: 'POST', // Utilisation de la méthode POST pour envoyer les données
+          data: { query: query }, // Données à envoyer (dans cet exemple, la requête de recherche)
+          success: function(response){
+              // Traiter la réponse après exécution réussie du fichier PHP
+              alert('E-mail envoyé à l\'utilisateur avec succès !');
+              console.log(response); // Afficher la réponse dans la console (facultatif)
+          },
+          error: function(){
+              // Gestion des erreurs
+              alert('Erreur lors de l\'envoi de l\'e-mail.');
+          }
+      });
+  });
+});
+</script>
+
+  
 <!--questions génériques-->
     <h4><br /><center>Ou consultez les questions suivantes:</center></h4><!--questions génériques-->
     <div class="accordion">

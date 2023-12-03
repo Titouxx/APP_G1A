@@ -70,6 +70,7 @@ html {
 
 
 /* css Questions génériques */
+body,
 * {
   box-sizing: border-box;
   &::before, &::after {
@@ -186,6 +187,10 @@ html {
   max-width: 31.25rem;
   margin: 2rem auto;
 }
+#searchForm {
+  display: flex; /* Utilisation de flexbox pour aligner les éléments */
+  width: 100%;
+}
 
 .searchBar {
   width: 100%;
@@ -203,6 +208,7 @@ html {
   border-radius: 1.625rem;
   padding: 0 3.5rem 0 1.5rem;
   font-size: 1rem;
+  flex: 1;/* Fait en sorte que le champ de saisie prenne autant d'espace que possible */
 }
 
 #searchQuerySubmit {
@@ -212,8 +218,10 @@ html {
   background: none;
   border: none;
   outline: none;
+  flex-shrink: 0; /* Empêche le bouton de réduire la taille du champ de saisie */
 }
 
 #searchQuerySubmit:hover {
   cursor: pointer;
 }
+
