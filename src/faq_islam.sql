@@ -4,6 +4,6 @@
     NomDeFamille nvarchar(255),
     email nvarchar(320),
     utilisateur_id INT,
-    FOREIGN KEY (utilisateur_id) REFERENCES Utilisateurs(ID)
+    FOREIGN KEY (utilisateur_id) REFERENCES Utilisateurs(ID),
     );
     
