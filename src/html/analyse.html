@@ -30,7 +30,7 @@
           />
         </td>
         <td style="padding-left: 40px">
-          <select name="file" id="file-select" onchange="printSelectedItem()">
+          <select name="file" id="file-select">
             <option value="">Choississez un fichier téléchargé</option>
             <script>
               const fileInput = document.querySelector("#file-input");
@@ -41,6 +41,8 @@
                   var option = document.createElement("option");
                   for (const file of fileInput.files) {
                     option.value = file.name;
+                    option.lastmodified = file.lastmodified;
+                    option.size = file.size;
                     option.innerHTML = file.name;
                     x.appendChild(option);
                   }
@@ -54,15 +56,22 @@
         </td>
       </tr>
       <tr>
-        <td>
-          <p>Fichier sélectionné :</p>
-          <p id="sortie"></p>
-          <script>
-            function printSelectedItem() {
-              const sortie = document.getElementById("sortie");
-              sortie.innerText = $("#file-select : selected").text();
-            }
-          </script>
+        <td colspan="4">
+          <p id="selected">
+            Fichier sélectionné :
+            <script>
+              const select = document.querySelector("#file-select");
+              const selected = document.querySelector("#selected");
+              select.addEventListener("change", function printSelectedItem() {
+                selected.innerHTML =
+                  "Fichier sélectionné : " +
+                  select.options[select.selectedIndex].value +
+                  " " +
+                  Math.round(select.options[select.selectedIndex].size / 1000) +
+                  " ko";
+              });
+            </script>
+          </p>
         </td>
       </tr>
     </table>
