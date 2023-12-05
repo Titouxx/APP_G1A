@@ -1,4 +1,16 @@
-﻿*,/* css Barre de menu */
+﻿/* Exemple de styles CSS pour l'espace entre les éléments */
+nav {
+  margin-bottom: 20px; /* Ajoute de l'espace en bas de la balise <nav> */
+}
+
+img {
+  margin-top: 30px; /* Ajoute de l'espace au-dessus de l'image */
+}
+
+
+
+
+*,/* css Barre de menu */
 *:before,
 *:after {
     box-sizing: inherit;
