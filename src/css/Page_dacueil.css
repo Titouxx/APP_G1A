@@ -1,0 +1,94 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 1.1px;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url("../../images/fond_ecran_accueil.jpeg") center center
+    no-repeat;
+  background-size: cover;
+  z-index: -10;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Maven Pro";
+}
+
+.menu {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  position: absolute;
+  top: 0px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  margin: 0;
+  list-style: none;
+}
+
+.menu li {
+  width: 100%;
+  list-style: none;
+  height: 50px;
+  text-align: center;
+  background-color: #f7eeff;
+  a {
+    font-size: 30px;
+    color: #777;
+    text-decoration: none;
+    transition: all 0.45s;
+  }
+
+  &:hover {
+    background: url("../../images/faq_onde.svg");
+    animation: line 1s;
+    background-color: #f7eeff;
+  }
+
+  &:hover a {
+    color: #d94f5c;
+  }
+
+  &:not(:last-child) {
+    margin: 0 auto;
+  }
+}
+
+@keyframes line {
+  0% {
+    background-position-x: 390px;
+  }
+}
+
+.titre {
+  padding: 0 0 10px;
+}
+
+.information {
+  font-size: large;
+  text-align: center;
+  border-radius: 15px;
+  position: relative;
+  top: 250px;
+  background-color: #f7eeff;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 20px;
+}
