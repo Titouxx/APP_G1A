@@ -4,4 +4,3 @@ CREATE TABLE ACTUALITES (
     content TEXT NOT NULL,
     publication_date DATE,
 );
-
