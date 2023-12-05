@@ -7,7 +7,7 @@
     letter-spacing: 1.1px;
 }
 
-head,
+body,
 html {
     width: 100%;
     height: 100%;
@@ -37,26 +37,35 @@ html {
         height: 50px;
         text-align: center;
         background-color: #f7eeff;
+        a
 
-a {
+{
     font-size: 30px;
     color: #777;
     text-decoration: none;
     transition: all 0.45s;
-  }
-      
-  a:hover {
-     background: url("../../images/faq_onde.svg");
+}
+
+&:hover {
+    background: url("../../images/faq_onde.svg");
     animation: line 1s;
     background-color: #f7eeff;
-    color: #d94f5c; /* La couleur du texte lors du survol peut être ajoutée ici */
-   }
-      
-/* Si vous souhaitez appliquer des styles différents à tous les liens sauf le dernier */
-a:not(:last-child):hover {
-margin: 0 auto;
- }
-      
+}
+
+    &:hover a {
+        color: #d94f5c;
+    }
+
+&:not(:last-child) {
+    margin: 0 auto;
+}
+
+}
+
+@keyframes line {
+    0% {
+        background-position-x: 390px;
+    }
 }
 
 @keyframes line {
