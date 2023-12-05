@@ -1,4 +1,4 @@
-﻿/* Exemple de styles CSS pour l'espace entre les éléments */
+﻿/* Espace entre menu et logo EchoKey */
 nav {
   margin-bottom: 20px; /* Ajoute de l'espace en bas de la balise <nav> */
 }
@@ -6,9 +6,6 @@ nav {
 img {
   margin-top: 30px; /* Ajoute de l'espace au-dessus de l'image */
 }
-
-
-
 
 *,/* css Barre de menu */
 *:before,
