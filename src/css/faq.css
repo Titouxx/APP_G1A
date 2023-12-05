@@ -31,36 +31,35 @@ html {
     list-style: none;
 }
 
-    .menu li {
-        width:100%;
-        list-style: none;
-        height: 50px;
-        text-align: center;
-        background-color: #f7eeff;
-        a
-
-{
-    font-size: 30px;
-    color: #777;
-    text-decoration: none;
-    transition: all 0.45s;
+.menu li {
+  width: 100%;
+  list-style: none;
+  height: 50px;
+  text-align: center;
+  background-color: #f7eeff;
 }
 
-&:hover {
+.menu li a {
+  font-size: 30px;
+  color: #777;
+  text-decoration: none;
+  transition: all 0.45s;
+}
+
+.menu li:hover {
     background: url("../../images/faq_onde.svg");
     animation: line 1s;
     background-color: #f7eeff;
 }
 
-    &:hover a {
+.menu li:hover a {
         color: #d94f5c;
     }
 
-&:not(:last-child) {
+.menu li:not(:last-child) {
     margin: 0 auto;
 }
 
-}
 
 @keyframes line {
     0% {
@@ -77,12 +76,12 @@ html {
 
 /* css Questions génériques */
 body,
-* {
+* /* Utilisation des pseudo-éléments ::before et ::after */
+.menu li::before,
+.menu li::after {
   box-sizing: border-box;
-  &::before, &::after {
-    box-sizing: border-box;
-  }
 }
+
 
 .container {
   margin: 0 auto;
