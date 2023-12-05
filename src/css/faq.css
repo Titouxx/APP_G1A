@@ -1,4 +1,12 @@
-﻿/* Espace entre menu et logo EchoKey */
+﻿@font-face {
+  font-family: 'Maven Pro';
+  src: url('../../fonts/Maven_Pro/Maven-Pro-regular.woff') format('woff'),
+  /* Ajoutez d'autres formats si nécessaire */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Espace entre menu et logo EchoKey */
 nav {
   margin-bottom: 20px; /* Ajoute de l'espace en bas de la balise <nav> */
 }
