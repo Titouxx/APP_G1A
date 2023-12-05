@@ -1,6 +1,6 @@
 ﻿@font-face {
   font-family: 'Maven Pro';
-  src: url('../../fonts/Maven_Pro/Maven-Pro-regular.woff') format('woff'),
+  src: url('../../fonts/Maven_Pro/Maven-Pro-regular.woff') format('woff');
   /* Ajoutez d'autres formats si nécessaire */
   font-weight: normal;
   font-style: normal;
@@ -43,7 +43,6 @@ html {
     justify-content: center;
     align-items: center;
     width:100%;
-
     margin: 0;
     list-style: none;
 }
@@ -260,3 +259,28 @@ body,
   cursor: pointer;
 }
 
+/* Définissez les styles pour les appareils mobiles avec une largeur maximale de 767px */
+@media screen and (max-width: 767px) {
+  .menu {
+    flex-direction: row; /* Change la direction des éléments en colonne */
+    display: flex;
+    justify-content: space-around; /* Espacement égal entre les éléments */
+    width: 767px; /* Pour occuper toute la largeur */
+  }
+
+  .menu li {
+    flex: 1 1 calc(50% - 10px); /* Redimensionne la largeur des éléments pour s'adapter au contenu */
+    height: auto; /* Ajuste la hauteur en fonction du contenu */
+    text-align: center; /* Aligne le texte à gauche */
+    padding: 10px; /* Ajoute un peu d'espace autour des éléments */
+    border-bottom: 1px solid #ddd; /* Ajoute une séparation entre les éléments */
+  }
+
+  .menu li:last-child {
+    border-bottom: none; /* Supprime la bordure en bas du dernier élément */
+  }
+
+  .menu li a {
+    font-size: 18px; /* Réduit la taille de la police */
+  }
+}
