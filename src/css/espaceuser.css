@@ -81,7 +81,7 @@ body {
 }
 
 h1 {
-  color: #d94f5c;
+  color: rgb(91, 11, 91);
   font-size: 3em;
   margin-bottom: 10px;
   animation: slideIn 1s ease-in-out;
