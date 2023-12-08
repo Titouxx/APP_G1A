@@ -29,6 +29,10 @@ html {
   font-family: "Maven Pro";
 }
 
+nav {
+  margin-bottom: 20px; /* Ajoute de l'espace en bas de la balise <nav> */
+}
+
 .menu {
   padding: 0;
   margin: 0;
@@ -38,7 +42,6 @@ html {
   justify-content: center;
   align-items: center;
   width: 100%;
-
   margin: 0;
   list-style: none;
 }
@@ -49,25 +52,32 @@ html {
   height: 50px;
   text-align: center;
   background-color: #f7eeff;
-  a {
-    font-size: 30px;
-    color: #777;
-    text-decoration: none;
-    transition: all 0.45s;
-  }
+}
 
-  &:hover {
-    background: url("../../images/faq_onde.svg");
-    animation: line 1s;
-    background-color: #f7eeff;
-  }
+.menu li a {
+  font-size: 30px;
+  color: #777;
+  text-decoration: none;
+  transition: all 0.45s;
+}
 
-  &:hover a {
-    color: #d94f5c;
-  }
+.menu li:hover {
+  background: url("../../images/faq_onde.svg");
+  animation: line 1s;
+  background-color: #f7eeff;
+}
 
-  &:not(:last-child) {
-    margin: 0 auto;
+.menu li:hover a {
+  color: #d94f5c;
+}
+
+.menu li:not(:last-child) {
+  margin: 0 auto;
+}
+
+@keyframes line {
+  0% {
+    background-position-x: 390px;
   }
 }
 
@@ -91,4 +101,12 @@ html {
   margin: 0 auto;
   max-width: 600px;
   padding: 20px;
+}
+
+.logo {
+  border: solid 2px;
+  border-color: #d94f5c;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
 }
