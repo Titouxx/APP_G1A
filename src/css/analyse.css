@@ -1,6 +1,14 @@
 #icon {
   padding-top: 5px;
   cursor: pointer;
+  background-color: transparent;
+  border: 1px solid transparent;
+  transition: 0.3s;
+}
+
+#icon:hover {
+  border-color: lightgray;
+  background-color: lightgray;
 }
 
 table {
