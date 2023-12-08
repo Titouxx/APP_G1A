@@ -18,5 +18,14 @@ function toggleAccordion() {
 
 items.forEach(item => item.addEventListener('click', toggleAccordion));
 
+const arrowIcon = document.getElementById('hoverImage');// Hover pour l'image
+
+arrowIcon.addEventListener('mouseover', function() {
+  this.setAttribute('href', '../../images/arrow_hover.png'); //URL de l'image au survol
+});
+
+arrowIcon.addEventListener('mouseout', function() {
+  this.setAttribute('href', '../../images/arrow.png'); // L'image initiale
+});
 
 
