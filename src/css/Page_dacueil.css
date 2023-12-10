@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Maven Pro";
+  src: url("../../fonts/Maven_Pro/Maven-Pro-regular.woff") format("woff");
+  /* Ajoutez d'autres formats si nécessaire */
+  font-weight: normal;
+  font-style: normal;
+}
+
 *,
 *::before,
 *::after {
@@ -7,7 +15,7 @@
 }
 
 .background {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -87,26 +95,51 @@ nav {
   }
 }
 
-.titre {
-  padding: 0 0 10px;
-}
-
-.information {
-  font-size: large;
-  text-align: center;
-  border-radius: 15px;
+.content {
+  color: beige;
+  height: auto;
+  width: 1200px;
+  margin: 100px auto 0;
   position: relative;
-  top: 250px;
-  background-color: #f7eeff;
-  margin: 0 auto;
-  max-width: 600px;
-  padding: 20px;
 }
 
-.logo {
-  border: solid 2px;
-  border-color: #d94f5c;
-  max-width: 100%;
-  display: block;
-  margin: 0 auto;
+.content .par {
+  padding-left: 20px;
+  padding-bottom: 25px;
+  letter-spacing: 1.2px;
+  line-height: 30px;
+}
+
+.content h1 {
+  font-family: "Times New Roman";
+  font-size: 50px;
+  padding-left: 20px;
+  margin-top: 9%;
+  letter-spacing: 2px;
+}
+
+.content .cn {
+  width: 200px;
+  height: 40px;
+  background: #f7eeff;
+  border: none;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.content .cn a {
+  text-decoration: none;
+  color: gray;
+  transition: 0.5s ease;
+}
+
+.cn:hover {
+  background-color: beige;
+}
+
+.content span {
+  color: #f7eeff;
 }
