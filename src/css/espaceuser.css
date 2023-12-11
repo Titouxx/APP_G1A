@@ -68,7 +68,7 @@ body {
 
 /* Header Styles */
 .header {
-  background-color: #f7eeff;
+  background-color: #ffffff;
   color: #fff;
   padding: 50px 0;
   text-align: center;
@@ -86,8 +86,7 @@ h1 {
   margin-bottom: 10px;
   animation: slideIn 1s ease-in-out;
 }
-
-@keyframes slideIn {
+/* @keyframes slideIn {
   from {
     opacity: 0;
     transform: translateY(-50px);
@@ -105,7 +104,7 @@ h1 {
   to {
     opacity: 1;
   }
-}
+} */
 
 /* Body Styles */
 .body {
