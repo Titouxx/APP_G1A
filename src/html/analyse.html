@@ -27,7 +27,7 @@
       title="Logo EchoKey"
     />
     <!--logo EchoKey-->
-    <h1>Analyse de votre performances</h1>
+    <h1>Analyse de vos performances</h1>
     <table>
       <tr>
         <td>Télécharger un fichier audio</td>
@@ -79,12 +79,16 @@
               const select = document.querySelector("#file-select");
               const selected = document.querySelector("#selected");
               select.addEventListener("change", function printSelectedItem() {
-                selected.innerHTML =
-                  "Fichier sélectionné : " +
-                  select.options[select.selectedIndex].value +
-                  " " +
-                  Math.round(select.options[select.selectedIndex].size / 1000) +
-                  " ko";
+                if (select.options[select.selectedIndex].size >= 1) {
+                  selected.innerHTML =
+                    "Fichier sélectionné : " +
+                    select.options[select.selectedIndex].value +
+                    " " +
+                    Math.round(
+                      select.options[select.selectedIndex].size / 1000
+                    ) +
+                    " ko";
+                }
               });
             </script>
           </p>
