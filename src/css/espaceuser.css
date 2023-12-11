@@ -86,49 +86,34 @@ h1 {
   margin-bottom: 10px;
   animation: slideIn 1s ease-in-out;
 }
-/* @keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-} */
-
-/* Body Styles */
-.body {
-  display: flex;
-}
-
-.icons {
-  width: 80%;
-  padding: 20px;
-  text-align: left;
-}
-
-.news {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-
-.pics {
-  display: flex;
-  justify-content: space-between; /* To space images equally */
-  margin-top: 20px;
-}
-
-.pics img {
-  width: 200px; /* Adjust size as needed */
+img {
+  width: 200px;
   height: 200px;
+}
+
+.main {
+  display: flex;
+  justify-content: space-around;
+}
+
+.img1 {
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 15px;
+  border-color: rgb(91, 11, 91);
+}
+
+.img2 {
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 15px;
+  border-color: rgb(91, 11, 91);
+}
+
+.img3 {
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 15px;
+  border-color: rgb(91, 11, 91);
 }
