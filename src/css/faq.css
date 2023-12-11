@@ -6,12 +6,19 @@
   font-style: normal;
 }
 
+body {
+  background-image: url('../../images/backgroundfhdtest.png');
+  background-size: cover;
+  background-repeat: repeat; /* Empêche la répétition de l'image */
+  background-attachment: fixed; /* Fixe l'image pour qu'elle reste en place lorsque l'utilisateur fait défiler la page */
+}
+
 /* Espace entre menu et logo EchoKey */
 nav {
   margin-bottom: 20px; /* Ajoute de l'espace en bas de la balise <nav> */
 }
 
-img {
+#Logo1 {
   margin-top: 30px; /* Ajoute de l'espace au-dessus de l'image */
 }
 
@@ -276,5 +283,12 @@ body,
 
   .menu li a {
     font-size: 18px; /* Réduit la taille de la police */
+  }
+  body {
+    /* Arrière-plan spécifique pour les appareils mobiles */
+    background-image: url('../../images/backgroundfhdtest.png');
+    background-size: cover;
+    background-repeat: repeat; /* Active la répétition de l'arrière-plan */
+    background-attachment: scroll;
   }
 }
