@@ -1,25 +1,39 @@
-/* Global Reset */
-*,
-*::before,
-*::after {
+@font-face {
+  font-family: "Maven Pro";
+  src: url("../../fonts/Maven_Pro/Maven-Pro-regular.woff") format("woff");
+  /* Ajoutez d'autres formats si nécessaire */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Espace entre menu et logo EchoKey */
+nav {
+  margin-bottom: 20px; /* Ajoute de l'espace en bas de la balise <nav> */
+}
+
+img {
+  margin-top: 30px; /* Ajoute de l'espace au-dessus de l'image */
+}
+
+*,/* css Barre de menu */
+  *:before,
+  *:after {
   box-sizing: inherit;
   padding: 0;
   margin: 0;
   letter-spacing: 1.1px;
 }
 
-/* Body and HTML styles */
-html,
-body {
+body,
+html {
   width: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Maven Pro";
 }
 
-/* Menu Styles */
 .menu {
   padding: 0;
   margin: 0;
@@ -29,11 +43,13 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin: 0;
   list-style: none;
 }
 
 .menu li {
   width: 100%;
+  list-style: none;
   height: 50px;
   text-align: center;
   background-color: #f7eeff;
@@ -66,6 +82,38 @@ body {
   }
 }
 
+@keyframes line {
+  0% {
+    background-position-x: 390px;
+  }
+}
+
+/* Définissez les styles pour les appareils mobiles avec une largeur maximale de 767px */
+@media screen and (max-width: 767px) {
+  .menu {
+    flex-direction: row; /* Change la direction des éléments en colonne */
+    display: flex;
+    justify-content: space-around; /* Espacement égal entre les éléments */
+    width: 767px; /* Pour occuper toute la largeur */
+  }
+
+  .menu li {
+    flex: 1 1 calc(50% - 10px); /* Redimensionne la largeur des éléments pour s'adapter au contenu */
+    height: auto; /* Ajuste la hauteur en fonction du contenu */
+    text-align: center; /* Aligne le texte à gauche */
+    padding: 10px; /* Ajoute un peu d'espace autour des éléments */
+    border-bottom: 1px solid #ddd; /* Ajoute une séparation entre les éléments */
+  }
+
+  .menu li:last-child {
+    border-bottom: none; /* Supprime la bordure en bas du dernier élément */
+  }
+
+  .menu li a {
+    font-size: 18px; /* Réduit la taille de la police */
+  }
+}
+
 /* Header Styles */
 .header {
   background-color: #ffffff;
@@ -86,49 +134,34 @@ h1 {
   margin-bottom: 10px;
   animation: slideIn 1s ease-in-out;
 }
-/* @keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-} */
-
-/* Body Styles */
-.body {
-  display: flex;
-}
-
-.icons {
-  width: 80%;
-  padding: 20px;
-  text-align: left;
-}
-
-.news {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-
-.pics {
-  display: flex;
-  justify-content: space-between; /* To space images equally */
-  margin-top: 20px;
-}
-
-.pics img {
-  width: 200px; /* Adjust size as needed */
+img {
+  width: 200px;
   height: 200px;
+}
+
+.main {
+  display: flex;
+  justify-content: space-around;
+}
+
+.img1 {
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 15px;
+  border-color: rgb(91, 11, 91);
+}
+
+.img2 {
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 15px;
+  border-color: rgb(91, 11, 91);
+}
+
+.img3 {
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 15px;
+  border-color: rgb(91, 11, 91);
 }
