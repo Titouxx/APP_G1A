@@ -83,12 +83,6 @@ html {
     }
 }
 
-@keyframes line {
-    0% {
-        background-position-x: 390px;
-    }
-}
-
 
 /* css Questions génériques */
 body,
