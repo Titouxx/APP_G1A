@@ -81,27 +81,3 @@ html {
     background-position-x: 390px;
   }
 }
-
-/* Css de la page */
-#icon {
-  padding-top: 5px;
-  cursor: pointer;
-  background-color: transparent;
-  border: 1px solid transparent;
-  transition: 0.3s;
-}
-
-#icon:hover {
-  border-color: lightgray;
-  background-color: lightgray;
-}
-
-table {
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 20px;
-}
-
-h1 {
-  text-align: center;
-}
