@@ -86,6 +86,9 @@ html {
 
 body {
   font-family: Arial, sans-serif;
+  background: url("../images/fond_ecran_accueil.jpeg") no-repeat;
+  background-position: center;
+  background-size: 1590px;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -93,7 +96,6 @@ body {
 
 .background {
   position: fixed;
-  background-image: url("Users\\bedad\\Documents\\GitHub\\APP_G1A\\images\\fond_ecran_accueil.jpeg");
   background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la fenêtre */
   background-position: center; /* Centre l'image */
   background-repeat: no-repeat; /* Empêche la répétition de l'image */
@@ -107,14 +109,31 @@ body {
   align-items: center;
   height: 100vh;
 }
+.sidebar {
+  width: 200px;
+  box-sizing: border-box; /* Pour inclure le padding dans la largeur totale */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Fond transparent avec la même couleur que le contenu */
+  border-right: 1px solid #ccc; /* Ajoute une bordure à droite de la sidebar */
+  height: 500px;
+
+  padding: 20px;
+}
 
 .content {
   background-color: rgba(255, 255, 255, 0.9); /* Fond transparent */
+  flex-grow: 1; /* Pour occuper tout l'espace restant dans le conteneur */
+
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   width: 80%;
   max-width: 800px;
+  height: 600px;
 }
 
 h1 {
@@ -134,6 +153,26 @@ h1 {
 .menu2 li {
   margin-bottom: 10px; /* Ajoutez une marge inférieure pour espacer verticalement */
   display: block;
+}
+/* Ajoutez vos styles CSS ici */
+
+#coordonnees form {
+  display: flex;
+  flex-direction: column; /* Aligner les éléments en colonne */
+  align-items: center; /* Centrer les éléments horizontalement */
+  margin-top: 20px; /* Ajouter une marge en haut du formulaire */
+  max-width: 400px; /* Ajouter une largeur maximale au formulaire si nécessaire */
+  margin-left: auto; /* Centre le formulaire horizontalement */
+  margin-right: auto; /* Centre le formulaire horizontalement */
+}
+
+#coordonnees label {
+  margin-bottom: 5px; /* Ajouter une marge inférieure pour espacer les labels */
+  text-align: right; /* Aligner le texte à droite */
+}
+
+#coordonnees button {
+  margin-top: 10px; /* Ajouter une marge au-dessus du bouton */
 }
 
 button {
