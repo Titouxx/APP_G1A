@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Édition du Profil</title>
+    <link rel="stylesheet" href="Profil.css" />
+  </head>
+  <body>
+    <nav>
+      <ul class="menu">
+        <li><a href="Page_dacueil.html">Home</a></li>
+        <li><a href="analyse.html">Analyse</a></li>
+        <li><a href="faq.html">Faq</a></li>
+        <li><a href="espaceuser.html">Profil</a></li>
+      </ul>
+    </nav>
+
+    <div class="background"></div>
+    <div class="container">
+      <div class="content">
+        <h1>Édition du Profil</h1>
+        <ul class="menu2">
+          <li>
+            <button onclick="showSection('coordonnees')">Coordonnées</button>
+          </li>
+          <li>
+            <button onclick="showSection('parametres')">Paramètres</button>
+          </li>
+        </ul>
+
+        <div id="parametres" class="section profile" style="display: none">
+          <h2>Paramètres</h2>
+          <h3>fjeznzpfnzpfipznefipzfnzf</h3>
+          <!-- Champs pour les paramètres -->
+        </div>
+      </div>
+    </div>
+    <script src="Profil.js"></script>
+  </body>
+</html>
