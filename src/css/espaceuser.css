@@ -123,6 +123,10 @@ html {
   animation: fadeIn 1s ease-in-out;
 }
 
+#logo {
+  position: absolute;
+}
+
 .header-content {
   max-width: 800px;
   margin: 0 auto;
