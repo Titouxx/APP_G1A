@@ -264,7 +264,7 @@ body,
 .footer {
   position: fixed;
   right: 0;
-  bottom: 0;
+  bottom: 0px;
   left: 0;
   padding-top: 0.5rem; /* Augmenter la hauteur en ajustant le padding */
   padding-bottom: 1px; /* Vous pouvez ajuster ces valeurs selon vos besoins */
