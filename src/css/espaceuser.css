@@ -120,11 +120,10 @@ html {
   color: #fff;
   padding: 50px 0;
   text-align: center;
-  animation: fadeIn 1s ease-in-out;
 }
 
-#logo {
-  position: absolute;
+.logo {
+  background-color: white;
 }
 
 .header-content {
