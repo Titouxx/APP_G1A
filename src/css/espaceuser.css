@@ -116,8 +116,6 @@ html {
 
 /* Header Styles */
 .header {
-  background-color: #ffffff;
-  color: #fff;
   padding: 50px 0;
   text-align: center;
 }
@@ -137,7 +135,17 @@ h1 {
   margin-bottom: 10px;
 }
 
-img {
+#img-analyse {
+  width: 220px;
+  height: 200px;
+}
+
+#img-forum {
+  width: 200px;
+  height: 200px;
+}
+
+#img-profil {
   width: 200px;
   height: 200px;
 }
@@ -145,27 +153,6 @@ img {
 .main {
   display: flex;
   justify-content: space-around;
-}
-
-.img1 {
-  border-width: 5px;
-  border-style: solid;
-  border-radius: 15px;
-  border-color: rgb(91, 11, 91);
-}
-
-.img2 {
-  border-width: 5px;
-  border-style: solid;
-  border-radius: 15px;
-  border-color: rgb(91, 11, 91);
-}
-
-.img3 {
-  border-width: 5px;
-  border-style: solid;
-  border-radius: 15px;
-  border-color: rgb(91, 11, 91);
 }
 
 .news {
