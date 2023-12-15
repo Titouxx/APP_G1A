@@ -1,41 +1,198 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EchoKey Accueil</title>
-    <link rel="stylesheet" href="../css/Page_dacueil.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="../css/faq.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <script src="../js/jquery.min.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="../../images/TransNoise.ico" />
+    <title>TransNoise - EchoKey</title>
   </head>
   <body>
-    <div class="background"></div>
-    <div>
+    <header>
       <nav>
         <ul class="menu">
-          <li>
-            <a href="Page_dacueil.html">Home</a>
-          </li>
+          <li><a href="Page_dacueil.html">Home</a></li>
           <li><a href="analyse.html">Analyse</a></li>
           <li><a href="faq.html">Faq</a></li>
-
           <li><a href="espaceuser.html">Profil</a></li>
         </ul>
       </nav>
+    </header>
+
+    <img
+      src="../../images/EchoKey_extrude.png"
+      id="Logo1"
+      alt="Logo EchoKey"
+      title="Logo EchoKey"
+    />
+    <!--logo EchoKey-->
+
+    <div class="container">
+      <!--barre de recherche-->
+      <h2 style="text-align: center; font-size: 50px">Posez votre question:</h2>
+      <!--titre question-->
+
+      <div class="wrapper">
+        <!-- Barre de recherche -->
+        <div class="searchBar">
+          <form id="searchForm">
+            <input
+              id="searchQueryInput"
+              type="text"
+              name="searchQueryInput"
+              placeholder="Posez votre question ici"
+              value=""
+            />
+            <button
+              id="searchQuerySubmit"
+              type="submit"
+              name="searchQuerySubmit"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="23"
+                viewBox="8 4 24 23"
+              >
+                <!--Cela utilise l'élément <image> de SVG pour inclure une image (dans ce cas, "arrow.png") à l'intérieur de l'élément <svg>.-->
+                <image
+                  class="arrow-icon"
+                  id="hoverImage"
+                  xlink:href="../../images/arrow.png"
+                  width="40"
+                  height="30"
+                />
+                <!--Un élément Javascript s'occupe lui de détecter le survol de la souris et charge une image grisée de celle-ci.-->
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <script>
+        <!-- Script pour gérer la requête de recherche -->
+        $(document).ready(function () {
+          $("#searchForm").submit(function (event) {
+            event.preventDefault(); // Empêcher le comportement par défaut du formulaire
+
+            var query = $("#searchQueryInput").val(); // Récupérer la valeur du champ de recherche
+
+            $.ajax({
+              // Envoyer la valeur à un fichier PHP pour traitement
+              url: "../php/faq.php", // Chemin vers le fichier PHP à exécuter
+              method: "POST", // Utilisation de la méthode POST pour envoyer les données
+              data: { query: query }, // Données à envoyer (dans cet exemple, la requête de recherche)
+              success: function (response) {
+                alert("E-mail envoyé à l'utilisateur avec succès !"); // Traiter la réponse après exécution réussie du fichier PHP
+                console.log(response); // Afficher la réponse dans la console (facultatif)
+              },
+              error: function () {
+                alert("Erreur lors de l'envoi de l'e-mail."); // Gestion des erreurs
+              },
+            });
+          });
+        });
+      </script>
+
+      <h4 style="text-align: center">
+        <br />Ou consultez les questions suivantes:
+      </h4>
+      <!--questions génériques-->
+      <div class="accordion">
+        <div class="accordion-item">
+          <button id="accordion-button-1" aria-expanded="false">
+            <span class="accordion-title"
+              >Comment comparer deux enregistrements?</span
+            ><span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra
+              suspendisse potenti.
+            </p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button id="accordion-button-2" aria-expanded="false">
+            <span class="accordion-title"
+              >Peut-on importer son propre enregistrement?</span
+            ><span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra
+              suspendisse potenti.
+            </p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button id="accordion-button-3" aria-expanded="false">
+            <span class="accordion-title">Autre question?</span
+            ><span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra
+              suspendisse potenti.
+            </p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button id="accordion-button-4" aria-expanded="false">
+            <span class="accordion-title">Autre question?</span
+            ><span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra
+              suspendisse potenti.
+            </p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button id="accordion-button-5" aria-expanded="false">
+            <span class="accordion-title">Autre question?</span
+            ><span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra
+              suspendisse potenti.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="content">
-      <h1>
-        Trouvez <span>Votre </span>
-        Voix
-      </h1>
-      <p class="par">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt <br />
-        corrupti tempore nisi, tempora dolor, cumque quam unde accusantium,
-        <br />
-        mollitia eveniet repellendus distinctio. Fugit incidunt necessitatibus
-        <br />
-        est maiores, non quam consectetur?
-      </p>
-      <button class="cn"><a href="Connexion.html">Connectez Vous !</a></button>
-    </div>
+    <footer>
+      <div class="footer">
+        <nav>
+          <ul>
+            <li><a href="CGU.html" target="_blank">C.G.U</a></li>
+            <li>
+              <a href="https://www.isep.fr/" target="_blank"
+                >Nos investisseurs</a
+              >
+            </li>
+            <li><a href="faq.html" target="_blank">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="../js/faq.js"></script>
   </body>
 </html>
