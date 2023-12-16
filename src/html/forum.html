@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>TransNoise - EchoKey</title>
+    <link rel="stylesheet" href="../css/forum.css" />
+
     <link rel="stylesheet" href="../css/normalize.css" />
     <link rel="stylesheet" href="../css/espaceuser.css" />
     <link rel="icon" type="image/x-icon" href="../../images/TransNoise.ico" />
@@ -18,5 +20,27 @@
         <li><a href="espaceuser.html">Profil</a></li>
       </ul>
     </nav>
+
+    <header>
+      <h1>Mon Forum</h1>
+    </header>
+    <section id="posts">
+      <!-- La section où les messages du forum seront affichés -->
+    </section>
+
+    <section id="post-form">
+      <h2>Ajouter un message</h2>
+      <form id="messageForm">
+        <label for="username">Nom d'utilisateur:</label>
+        <input type="text" id="username" required />
+
+        <label for="message">Message:</label>
+        <textarea id="message" rows="4" required></textarea>
+
+        <button type="submit">Envoyer</button>
+      </form>
+    </section>
+
+    <script src="../JS/forum.js"></script>
   </body>
 </html>
