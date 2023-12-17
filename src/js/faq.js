@@ -29,3 +29,18 @@ arrowIcon.addEventListener('mouseout', function() {
 });
 
 
+
+
+document.getElementById('searchInput').addEventListener('input', function() {
+  var searchValue = this.value.toLowerCase();
+  var elementsToSearch = document.querySelectorAll('.menu a, footer a, .accordion-title, p, h1, h2, h3, h4, h5, h6, #searchQuerySubmit');
+
+  elementsToSearch.forEach(function(element) {
+    var elementText = element.textContent.toLowerCase();
+
+    var regex = new RegExp(searchValue, 'gi');
+    var highlightedText = elementText.replace(regex, match => `<span class="highlight">${match}</span>`);
+    element.innerHTML = highlightedText;
+  });
+});
+
