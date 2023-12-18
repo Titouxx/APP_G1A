@@ -109,25 +109,15 @@ body {
   align-items: center;
   height: 100vh;
 }
-.sidebar {
-  width: 200px;
-  box-sizing: border-box; /* Pour inclure le padding dans la largeur totale */
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.1
-  ); /* Fond transparent avec la même couleur que le contenu */
-  border-right: 1px solid #ccc; /* Ajoute une bordure à droite de la sidebar */
-  height: 500px;
 
-  padding: 20px;
-}
+//* ... (autres styles) ... */
 
 .content {
-  background-color: rgba(255, 255, 255, 0.9); /* Fond transparent */
-  flex-grow: 1; /* Pour occuper tout l'espace restant dans le conteneur */
-
+  background-color: rgba(255, 255, 255, 0.9);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* Ajustement pour aligner en haut */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -136,10 +126,35 @@ body {
   height: 600px;
 }
 
+.sidebar {
+  width: 200px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-right: 1px solid #ccc;
+  height: 500px;
+  padding: 20px;
+  margin-right: 20px;
+}
+
+.profile-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 h1 {
   color: #6a0dad;
   text-align: center;
+  margin: 0;
 }
+
+/* ... (autres styles) ... */
+
+/* ... (autres styles) ... */
+
+/* ... (autres styles) ... */
 
 .menu2 {
   text-align: left;
@@ -195,4 +210,7 @@ button:hover {
 
 .section.profile {
   display: block;
+}
+
+.flex {
 }
