@@ -31,6 +31,7 @@ nav {
   letter-spacing: 1.1px;
 }
 
+/*Gere la globalité du body*/
 body,
 html {
   width: 100%;
@@ -129,128 +130,17 @@ body,
   background: #f7eeff;
 
   border: none;
-  background: none;
   outline: none;
 }
 
-/* Styles pour les boutons au survol ou focus */
-.accordion button:hover,
-.accordion button:focus {
-  cursor: pointer;
-  color: #d94f5c;
-}
-
-.accordion button:hover::after,
-.accordion button:focus::after {
-  cursor: pointer;
-  color: #d94f5c;
-  border: 1px solid #d94f5c;
-}
-
-/* Styles pour .accordion-title */
-.accordion .accordion-title {
-  padding: 1em 1.5em 1em 0;
-}
-
-/* Styles pour l'élément .icon */
-.accordion .icon {
-  display: inline-block;
-  position: absolute;
-  top: 18px;
-  right: 0;
-  width: 22px;
-  height: 22px;
-  border: 1px solid;
-  border-radius: 22px;
-}
-
-.accordion .icon::before {
+.content .cn a {
   display: block;
-  position: absolute;
-  content: "";
-  top: 9px;
-  left: 5px;
-  width: 10px;
-  height: 2px;
-  background: currentColor;
-}
-
-.accordion .icon::after {
-  display: block;
-  position: absolute;
-  content: "";
-  top: 5px;
-  left: 9px;
-  width: 2px;
-  height: 10px;
-  background: currentColor;
-}
-
-/* Styles pour le contenu lorsque aria-expanded='true' */
-.accordion button[aria-expanded="true"] + .accordion-content {
-  opacity: 1;
-  max-height: 9em;
-  transition: all 200ms linear;
-  will-change: opacity, max-height;
-}
-
-/* Styles pour .accordion-content */
-.accordion .accordion-content {
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: opacity 200ms linear, max-height 200ms linear;
-  will-change: opacity, max-height;
-}
-
-.accordion .accordion-content p {
-  font-size: 1rem;
-  font-weight: 300;
-  margin: 2em 0;
-}
-
-/* css Barre de recherche */
-.wrapper {
   width: 100%;
-  max-width: 31.25rem;
-  margin: 2rem auto;
-}
-#searchForm {
-  display: flex; /* Utilisation de flexbox pour aligner les éléments */
-  width: 100%;
-}
-
-.searchBar {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-#searchQueryInput {
-  width: 100%;
-  height: 2.8rem;
-  background: #f5f5f5;
-  outline: none;
-  border: none;
-  border-radius: 1.625rem;
-  padding: 0 3.5rem 0 1.5rem;
-  font-size: 1rem;
-  flex: 1; /* Fait en sorte que le champ de saisie prenne autant d'espace que possible */
-}
-
-#searchQuerySubmit {
-  width: 3.5rem;
-  height: 2.8rem;
-  margin-left: -3.5rem;
-  background: none;
-  border: none;
-  outline: none;
-  flex-shrink: 0; /* Empêche le bouton de réduire la taille du champ de saisie */
-}
-
-#searchQuerySubmit:hover {
-  cursor: pointer;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  line-height: 40px;
 }
 
 /* Footer */
