@@ -30,16 +30,16 @@ arrowIcon.addEventListener('mouseout', function() {
 
 
 
-
+/* Barre de recherche type CTRL+F */
 document.getElementById('searchInput').addEventListener('input', function() {
   var searchValue = this.value.toLowerCase();
-  var elementsToSearch = document.querySelectorAll('.menu a, footer a, .accordion-title, p, h1, h2, h3, h4, h5, h6, #searchQuerySubmit');
+  var elementsToSearch = document.querySelectorAll('.menu a, footer a, .accordion-title, p, h1, h2, h3, h4, h5, h6, #searchQuerySubmit');//Tout ce qui est sélectionné par le code
 
   elementsToSearch.forEach(function(element) {
     var elementText = element.textContent.toLowerCase();
 
     var regex = new RegExp(searchValue, 'gi');
-    var highlightedText = elementText.replace(regex, match => `<span class="highlight">${match}</span>`);
+    var highlightedText = elementText.replace(regex, match => `<span class="highlight">${match}</span>`);//surligne les caractères
     element.innerHTML = highlightedText;
   });
 });
