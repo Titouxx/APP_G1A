@@ -1,5 +1,3 @@
-/* Ajoutez vos styles CSS ici */
-
 @font-face {
   font-family: "Maven Pro";
   src: url("../../fonts/Maven_Pro/Maven-Pro-regular.woff") format("woff");
@@ -8,12 +6,19 @@
   font-style: normal;
 }
 
+body {
+  background-image: url("../../images/backgroundfhdtest.png");
+  background-size: cover;
+  background-repeat: repeat; /* Empêche la répétition de l'image */
+  background-attachment: fixed; /* Fixe l'image pour qu'elle reste en place lorsque l'utilisateur fait défiler la page */
+}
+
 /* Espace entre menu et logo EchoKey */
 nav {
   margin-bottom: 20px; /* Ajoute de l'espace en bas de la balise <nav> */
 }
 
-img {
+#Logo1 {
   margin-top: 30px; /* Ajoute de l'espace au-dessus de l'image */
 }
 
@@ -26,6 +31,7 @@ img {
   letter-spacing: 1.1px;
 }
 
+/*Gere la globalité du body*/
 body,
 html {
   width: 100%;
@@ -85,6 +91,8 @@ html {
 }
 
 body {
+  display: flex;
+  align-items: center;
   font-family: Arial, sans-serif;
   background: url("../images/fond_ecran_accueil.jpeg") no-repeat;
   background-position: center;
@@ -104,50 +112,43 @@ body {
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-//* ... (autres styles) ... */
-
-.content {
   background-color: rgba(255, 255, 255, 0.9);
-  flex-grow: 1;
+  width: 540px;
+  height: 420px;
   display: flex;
-  flex-direction: row;
-  align-items: flex-start; /* Ajustement pour aligner en haut */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 80%;
-  max-width: 800px;
-  height: 600px;
+  margin: auto; /* Ajoutez cette ligne pour centrer le conteneur */
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 
 .sidebar {
-  width: 200px;
+  width: 30%;
   box-sizing: border-box;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #6a0dad;
   border-right: 1px solid #ccc;
-  height: 500px;
-  padding: 20px;
-  margin-right: 20px;
+  height: 100%;
+  padding: 10px;
 }
 
 .profile-info {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
   justify-content: flex-start;
+  width: 70%;
   align-items: center;
+  height: 100%;
+
+  padding: 20px; /* Ajoutez une marge intérieure */
 }
 
 h1 {
   color: #6a0dad;
   text-align: center;
-  margin: 0;
 }
 
 /* ... (autres styles) ... */
@@ -169,16 +170,13 @@ h1 {
   margin-bottom: 10px; /* Ajoutez une marge inférieure pour espacer verticalement */
   display: block;
 }
-/* Ajoutez vos styles CSS ici */
 
 #coordonnees form {
   display: flex;
-  flex-direction: column; /* Aligner les éléments en colonne */
-  align-items: center; /* Centrer les éléments horizontalement */
-  margin-top: 20px; /* Ajouter une marge en haut du formulaire */
-  max-width: 400px; /* Ajouter une largeur maximale au formulaire si nécessaire */
-  margin-left: auto; /* Centre le formulaire horizontalement */
-  margin-right: auto; /* Centre le formulaire horizontalement */
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  margin: auto;
 }
 
 #coordonnees label {
@@ -202,15 +200,4 @@ button {
 
 button:hover {
   background-color: #4d077d;
-}
-
-.section {
-  display: none;
-}
-
-.section.profile {
-  display: block;
-}
-
-.flex {
 }
