@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Édition du Profil</title>
+    <link rel="stylesheet" href="Profil.css" />
+  </head>
+  <body>
+    <div class="background"></div>
+
+    <div class="container">
+      <!-- ... (autres parties du code) ... -->
+
+      <!-- Section principale avec barre latérale et contenu -->
+      <div class="content">
+        <div class="sidebar">
+          <ul class="menu2">
+            <li>
+              <button onclick="showSection('coordonnees')">Coordonnées</button>
+            </li>
+            <li>
+              <button onclick="showSection('parametres')">Paramètres</button>
+            </li>
+            <!-- ... Ajoutez d'autres sections au besoin -->
+          </ul>
+        </div>
+        <div class="profile-info">
+          <h1>Édition du Profil</h1>
+
+          <!-- Section de coordonnées (formulaire) -->
+          <div id="coordonnees" class="section profile" style="display: none">
+            <form>
+              <label for="nom">Nom :</label>
+              <input type="text" id="nom" name="nom" value="VotreNom" readonly>
+
+              <label for="prenom">Prénom :</label>
+              <input
+                type="text"
+                id="prenom"
+                name="prenom"
+                value="VotrePrénom"
+                readonly
+              />
+
+              <label for="email">Email :</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value="Votre email"
+                readonly
+              />
+
+              <label for="telephone">Téléphone :</label>
+              <input
+                type="tel"
+                id="telephone"
+                name="telephone"
+                value="Votre numéro de téléphone"
+                readonly
+              />
+
+
+              <button type="button" id="Modifier" onclick="activerEdition()">Modifier</button>
+              <button type="button" id="Enregistrer" onclick="enregistrerEdition()" style="display: none;">Enregistrer</button>
+
+
+            </form>
+          </div>
+          </div>
+
+          <!-- Section des paramètres (vide dans le code fourni) -->
+          <div id="parametres" class="section profile" style="display: none">
+            <!-- Champs pour les paramètres -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="Profil.js"></script>
+  </body>
+</html>
