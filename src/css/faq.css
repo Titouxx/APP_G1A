@@ -300,9 +300,14 @@ will-change: opacity, max-height;
   color: #d94f5c;
 }
 
-
-
-
+#imgdeco {
+  float: right; /* Pour placer l'image à droite */
+  height: 10%; /* Taille de l'image par rapport à la hauteur du footer */
+  width: 05%; /* Largeur automatique pour conserver les proportions */
+  margin-bottom: 0.5rem;/* Marge en dessous de l'image */
+  margin-right: 1rem; /* Marge à droite de l'image */
+  cursor: pointer;
+}
 
 
 /*barre controle f test d'integration */
