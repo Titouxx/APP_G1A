@@ -300,6 +300,7 @@ will-change: opacity, max-height;
   color: #d94f5c;
 }
 
+/*CSS image de déconnexion*/
 #imgdeco {
   float: right; /* Pour placer l'image à droite */
   height: 10%; /* Taille de l'image par rapport à la hauteur du footer */

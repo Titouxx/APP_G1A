@@ -87,6 +87,7 @@ else {
 }
 }
 
+//JS Hover bouton déconnexion
 function changerImage(etat) {
   var img = document.getElementById("imgdeco");
   if (etat === "survol") {
