@@ -73,12 +73,15 @@ body {
 }
 
 header {
-  background-color: #333;
+  background-color: #a394d3;
   color: #fff;
   padding: 1em;
   text-align: center;
 }
 
+h1 {
+  margin: 0;
+}
 section {
   max-width: 800px;
   margin: 20px auto;
