@@ -75,3 +75,23 @@ document.getElementById('searchInput').addEventListener('blur', function() {
   this.value = '';
 });
 
+//popup servant a la deconnexion
+function deconnexion(){
+  var result = confirm("Voulez-vous vraiment vous déconnecter?");
+if (result == true) {
+alert("Merci de votre visite");
+//+Insérer ici code permettant la déconnexion
+}
+else {
+//On ferme juste la popup puisqu'on ne se deconnecte pas en cliquant sur annuler
+}
+}
+
+function changerImage(etat) {
+  var img = document.getElementById("imgdeco");
+  if (etat === "survol") {
+    img.src = "../../images/déconnexion-hover.png"; // Chemin vers l'image au survol
+  } else {
+    img.src = "../../images/déconnexion.png"; // Chemin vers l'image normale
+  }
+}
