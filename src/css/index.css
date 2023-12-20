@@ -1,7 +1,7 @@
+/**/
 @font-face {
   font-family: "Maven Pro";
   src: url("../../fonts/Maven_Pro/Maven-Pro-regular.woff") format("woff");
-  /* Ajoutez d'autres formats si nécessaire */
   font-weight: normal;
   font-style: normal;
 }
@@ -41,7 +41,7 @@ html {
   box-sizing: border-box;
   font-family: "Maven Pro";
 }
-
+/*gere le menu dans l'index*/
 .menu {
   padding: 0;
   margin: 0;
@@ -70,6 +70,7 @@ html {
   transition: all 0.45s;
 }
 
+/*l'animation de vague*/
 .menu li:hover {
   background: url("../../images/faq_onde.svg");
   animation: line 1s;
@@ -98,7 +99,6 @@ body,
   box-sizing: border-box;
 }
 
-/* Styles pour la nouvelle section "content" */
 /* Styles pour la nouvelle section "content" */
 .content {
   margin: 20px auto 0; /* Ajustez la marge supérieure pour remonter la classe */
@@ -220,14 +220,14 @@ body,
     color: #d94f5c;
   }
 
-  /* Définissez les styles pour les appareils mobiles avec une largeur maximale de 767px */
-  @media screen and (max-width: 767px) {
-    .menu {
-      flex-direction: row; /* Change la direction des éléments en colonne */
-      display: flex;
-      justify-content: space-around; /* Espacement égal entre les éléments */
-      width: 767px; /* Pour occuper toute la largeur */
-    }
+/* Définissez les styles pour les appareils mobiles avec une largeur maximale de 767px */
+@media screen and (max-width: 767px) {
+  .menu {
+    flex-direction: row; /* Change la direction des éléments en colonne */
+    display: flex;
+    justify-content: space-around; /* Espacement égal entre les éléments */
+    width: 767px; /* Pour occuper toute la largeur */
+  }
 
     .menu li {
       flex: 1 1 calc(50% - 10px); /* Redimensionne la largeur des éléments pour s'adapter au contenu */
@@ -237,19 +237,18 @@ body,
       border-bottom: 1px solid #ddd; /* Ajoute une séparation entre les éléments */
     }
 
-    .menu li:last-child {
-      border-bottom: none; /* Supprime la bordure en bas du dernier élément */
-    }
+  .menu li:last-child {
+    border-bottom: none; /* Supprime la bordure en bas du dernier élément */
+  }
 
-    .menu li a {
-      font-size: 18px; /* Réduit la taille de la police */
-    }
-    body {
-      /* Arrière-plan spécifique pour les appareils mobiles */
-      background-image: url("../../images/backgroundfhdtest.png");
-      background-size: cover;
-      background-repeat: repeat; /* Active la répétition de l'arrière-plan */
-      background-attachment: scroll;
-    }
+  .menu li a {
+    font-size: 18px; /* Réduit la taille de la police */
+  }
+  body {
+    /* Arrière-plan spécifique pour les appareils mobiles */
+    background-image: url("../../images/backgroundfhdtest.png");
+    background-size: cover;
+    background-repeat: repeat; /* Active la répétition de l'arrière-plan */
+    background-attachment: scroll;
   }
 }
