@@ -1,5 +1,21 @@
 <?php
-include 'dataBase.php';
+// include 'dataBase.php';
+
+ 
+$servername = "localhost";
+$username = "root";
+$password = "";
+
+try{
+    $conn = new PDO("mysql:host=$servername; dbname=siteweb", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // echo "Connexion Réussie !";
+}
+catch(PDOException $e){
+    echo "Erreur : ".$e->getMessage();
+}
+
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['registerEmail'];
@@ -29,4 +45,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $conn = null;
+
 ?>

@@ -12,12 +12,13 @@
   </head>
   <body>
 
+    
     <!--Formulaire de connexion-->
     <div class="wrapper" id="loginWrapper">
       <form id="loginForm" action="login.php" method="post">
         <h1>Login</h1>
         <div class="input-box">
-          <input type="text" id="loginEmail" placeholder="Email" required /><i
+          <input type="text" id="loginEmail" name="loginEmail" placeholder="Email" required /><i
             class="bx bxs-user"
           ></i>
         </div>
@@ -25,6 +26,7 @@
           <input
             type="password"
             id="loginPassword"
+            name="loginPassword"
             placeholder="Password"
             required
           /><i class="bx bxs-lock-alt"></i>
@@ -40,6 +42,7 @@
         <button type="button" id="registerBtn" class="btn">Register</button>
       </form>
     </div>
+
 
     <div class="wrapper2" id="registerWrapper" style="display: none">
       <form id="registerForm" action="register.php" method="post">
@@ -66,7 +69,7 @@
           <input
             type="password"
             id="RepeatPassword"
-            name="ReapeatPassword"
+            name="RepeatPassword"
             placeholder="Repeat Password"
             required
           /><i class="bx bxs-lock-alt"></i>
@@ -77,7 +80,6 @@
         <button type="button" id="loginBtn" class="btn">Sign in</button>
       </form>
     </div>
-
     <script>
       document.addEventListener("DOMContentLoaded", function () {
           // Bascule entre les formulaires
@@ -90,78 +92,26 @@
               document.getElementById("loginWrapper").style.display = "block";
               document.getElementById("registerWrapper").style.display = "none";
           });
-  
-          // Validation et soumission AJAX du formulaire de connexion
-          document.getElementById("loginForm").addEventListener("submit", function(event) {
-              event.preventDefault();
-              var email = document.getElementById("loginEmail").value;
-              var password = document.getElementById("loginPassword").value;
-              var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
-              if (!emailRegex.test(email)) {
-                  alert("Veuillez saisir une adresse email valide.");
-                  return;
-              }
-  
-              if (!password) {
-                  alert("Veuillez saisir un mot de passe.");
-                  return;
-              }
-  
-              var xhr = new XMLHttpRequest();
-              xhr.open("POST", "/APP_G1A/src/php/login.php", true);              xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-              xhr.onload = function() {
-                  if (this.status == 200 && this.responseText == "success") {
-                      window.location.href = "index.html"; // Redirection vers la page d'accueil
-                  } else {
-                      alert("Identifiants incorrects ou problème de connexion.");
-                  }
-              };
-              xhr.send("loginEmail=" + encodeURIComponent(email) + "&loginPassword=" + encodeURIComponent(password));
-          });
-  
-          // Validation et soumission du formulaire d'enregistrement
-
-          document.getElementById("registerForm").addEventListener("submit", function(event) {
+        });
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
             event.preventDefault();
-            var email = document.getElementById("registerEmail").value;
-            var password = document.getElementById("registerPassword").value;
-            var repeatPassword = document.getElementById("RepeatPassword").value;
-            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-            if (!emailRegex.test(email)) {
-                alert("Veuillez saisir une adresse email valide.");
-                return;
-            }
-
-            if (password !== repeatPassword) {
-                alert("Les mots de passe ne correspondent pas.");
-                return;
-            }
-
-            if (!password || password.length < 6) {
-                alert("Le mot de passe doit contenir au moins 6 caractères.");
-                return;
-            }
+            var email = document.getElementById("loginEmail").value;
+            var password = document.getElementById("loginPassword").value;
 
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "/APP_G1A/src/php/register.php", true);
+            xhr.open("POST", "login.php", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.onload = function() {
-                if (this.status == 200) {
-                    if (this.responseText == "Utilisateur enregistré avec succès") {
-                        window.location.href = "../index.html"; // Redirection vers la page d'accueil
-                    } else {
-                        alert(this.responseText); // Affiche le message d'erreur
-                    }
+                var response = JSON.parse(this.responseText);
+                if (response.status === "success") {
+                    window.location.href = "../html/index.html"; // Redirection vers une nouvelle page
+                } else {
+                    alert(response.message); // Afficher le message d'erreur
                 }
             };
-            xhr.send("registerEmail=" + encodeURIComponent(email) + "&registerPassword=" + encodeURIComponent(password));
+            xhr.send("loginEmail=" + encodeURIComponent(email) + "&loginPassword=" + encodeURIComponent(password));
         });
-
-
-      });
-    </script>  
+    </script>
   </body>
 </html>
 
