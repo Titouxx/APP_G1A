@@ -241,10 +241,11 @@ body,
       border-bottom: none; /* Supprime la bordure en bas du dernier élément */
     }
 
-  body {
-    background-image: url("../../images/backgroundfhdtest.png");
-    background-size: cover;
-    background-repeat: repeat;
-    background-attachment: scroll;
+    body {
+      background-image: url("../../images/backgroundfhdtest.png");
+      background-size: cover;
+      background-repeat: repeat;
+      background-attachment: scroll;
+    }
   }
 }
