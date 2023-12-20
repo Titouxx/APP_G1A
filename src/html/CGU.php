@@ -13,10 +13,10 @@
 
 <nav>
     <ul class="menu">
-    <li><a href="Page_dacueil.html">Home</a></li>
-    <li><a href="analyse.html">Analyse</a></li>
-    <li><a href="faq.html">Faq</a></li>
-    <li><a href="espaceuser.html">Profil</a></li>    
+    <li><a href="Page_dacueil.php">Home</a></li>
+    <li><a href="analyse.php">Analyse</a></li>
+    <li><a href="faq.php">Faq</a></li>
+    <li><a href="espaceuser.php">Profil</a></li>    
     </ul>
 </nav>
 
@@ -55,14 +55,25 @@
         <br><br><br><br><br><br>
     </footer>
 
-    <div class="footer">
-    <nav>
-      <ul>
-        <li><a href="CGU.html">C.G.U</a></li>
-        <li><a href="https://www.isep.fr/">Nos investisseurs</a></li>
-        <li><a href="faq.html">Contact</a></li>
-      </ul>
-    </nav>
+    <a href="https://www.isep.fr/" target="_blank"> <img src="../../images/logo_isep.png" id="LISEP" alt="Logo ISEP" title="Logo ISEP"> </a>
+  <img src="../../images/logo-events-IT.png" id="LEVENTS" alt="Logo EVENTS-IT" title="Logo EVENTS-IT"> <!--logo EVENTS-IT-->
+  <img src="../../images/TransNoise.png" id="LTransnoise" alt="Logo Transnoise" title="Logo Transnoise"> <!--logo Transnoise-->
+  <a href="index.php"><img src="../../images/EchoKey_extrude.png" id="LEchokey" alt="Logo EchoKey" title="Logo EchoKey"></a> <!--logo EchoKey-->
+  <li>
+    <!--logo déconnexion-->
+    <img src="../../images/déconnexion.png" id="imgdeco" alt="logo déconnexion" title="logo déconnexion" onmouseover="changerImage('survol')" onmouseout="changerImage('normal')" onclick="deconnexion()"onclick="deconnexion()">
+  </li>
+
+  <div class="footer">
+  <nav>
+    <ul>
+      <li><a href="CGU.php" id="ga" target="_blank">C.G.U</a></li>
+      <li><a href="https://www.isep.fr/" id="ga" target="_blank">Nos investisseurs</a></li>
+      <li><a href="faq.php" id="ga" target="_blank">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+
 </div>
 </body>
 </html>
