@@ -195,7 +195,7 @@ body,
 /* Styles pour l'affichage du contenu lorsqu'aria-expanded est true */
   .accordion button[aria-expanded='true'] + .accordion-content {
   opacity: 1;
-  max-height: 9em;
+  max-height: 25em;
   transition: all 200ms linear;
   will-change: opacity, max-height;
 }
