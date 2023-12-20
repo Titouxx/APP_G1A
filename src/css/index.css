@@ -193,10 +193,6 @@ body,
     border-bottom: 1px solid #ddd; /* Ajoute une séparation entre les éléments */
   }
 
-<<<<<<< Updated upstream
-  .menu li:last-child {
-    border-bottom: none; /* Supprime la bordure en bas du dernier élément */
-=======
   /* Footer */
   .footer {
     position: fixed;
@@ -206,19 +202,11 @@ body,
     padding: 0.5rem 0 1px;
     background-color: #f7eeff;
     text-align: center;
->>>>>>> Stashed changes
   }
 
   .menu li a {
     font-size: 18px; /* Réduit la taille de la police */
   }
-<<<<<<< Updated upstream
-  body {
-    /* Arrière-plan spécifique pour les appareils mobiles */
-    background-image: url("../../images/backgroundfhdtest.png");
-    background-size: cover;
-    background-repeat: repeat; /* Active la répétition de l'arrière-plan */
-=======
 
   .footer nav ul li {
     display: inline;
@@ -256,7 +244,6 @@ body,
     background-image: url("../../images/backgroundfhdtest.png");
     background-size: cover;
     background-repeat: repeat;
->>>>>>> Stashed changes
     background-attachment: scroll;
   }
 }
