@@ -141,10 +141,24 @@
                 return;
             }
 
-            this.submit();
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/APP_G1A/src/php/register.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onload = function() {
+                if (this.status == 200) {
+                    if (this.responseText == "Utilisateur enregistré avec succès") {
+                        window.location.href = "../index.html"; // Redirection vers la page d'accueil
+                    } else {
+                        alert(this.responseText); // Affiche le message d'erreur
+                    }
+                }
+            };
+            xhr.send("registerEmail=" + encodeURIComponent(email) + "&registerPassword=" + encodeURIComponent(password));
         });
+
 
       });
     </script>  
   </body>
 </html>
+
