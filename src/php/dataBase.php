@@ -12,6 +12,5 @@ try{
 catch(PDOExeption $e){
     echo "Erreur : ".$e->getMessage();
 }
-
 ?>
 
