@@ -10,15 +10,19 @@
 
 </head>
 <body>
-
+<header>
 <nav>
     <ul class="menu">
-    <li><a href="Page_dacueil.php">Home</a></li>
-    <li><a href="analyse.php">Analyse</a></li>
-    <li><a href="faq.php">Faq</a></li>
-    <li><a href="espaceuser.php">Profil</a></li>    
+      <li><a href="Page_dacueil.php">Home</a></li>
+      <li><a href="analyse.php">Analyse</a></li>
+      <li><a href="faq.php">Faq</a></li>
+      <li><a href="espaceuser.php">Profil</a></li>    
     </ul>
 </nav>
+<div class="loupebar"> <input type="text" id="searchInput" placeholder="Search..."> <div class="search"></div></div>
+</header>
+
+<a href="index.php"><img src="../../images/EchoKey_extrude.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey"></a> <!--logo EchoKey-->
 
     <h1>Conditions Générales d'Utilisation - EchoKey</h1>
 
@@ -63,7 +67,7 @@
     <!--logo déconnexion-->
     <img src="../../images/déconnexion.png" id="imgdeco" alt="logo déconnexion" title="logo déconnexion" onmouseover="changerImage('survol')" onmouseout="changerImage('normal')" onclick="deconnexion()"onclick="deconnexion()">
   </li>
-
+<footer>
   <div class="footer">
   <nav>
     <ul>
@@ -73,7 +77,8 @@
     </ul>
   </nav>
 </div>
-
+</footer>
 </div>
+<script src="../js/CGU.js"></script>
 </body>
 </html>
