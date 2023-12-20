@@ -27,7 +27,6 @@ nav {
 *:after {
     box-sizing: inherit;
     padding: 0;
-    margin: 0;
     letter-spacing: 1.1px;
 }
 
@@ -93,6 +92,7 @@ html {
 }
 
 
+
 /* css Questions génériques */
 body,
 * /* Utilisation des pseudo-éléments ::before et ::after */
@@ -154,7 +154,7 @@ body,
 }
 
 /* Styles pour l'élément .icon */
-.accordion .icon {
+.icon {
   display: inline-block;
   position: absolute;
   top: 18px;
@@ -164,47 +164,52 @@ body,
   border: 1px solid;
   border-radius: 22px;
 }
+/* Styles pour l'icône */
+   .icon::before {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 9px;
+    left: 5px;
+    width: 10px;
+    height: 2px;
+    background: currentColor;
+  }
 
-.accordion .icon::before {
-  display: block;
-  position: absolute;
-  content: '';
-  top: 9px;
-  left: 5px;
-  width: 10px;
-  height: 2px;
-  background: currentColor;
-}
+  .icon::after {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 5px;
+    left: 9px;
+    width: 2px;
+    height: 10px;
+    background: currentColor;
+  }
 
-.accordion .icon::after {
-  display: block;
-  position: absolute;
-  content: '';
-  top: 5px;
-  left: 9px;
-  width: 2px;
-  height: 10px;
-  background: currentColor;
-}
-
-/* Styles pour le contenu lorsque aria-expanded='true' */
-.accordion button[aria-expanded='true'] + .accordion-content {
+  /* Styles pour le bouton lorsque aria-expanded est true */
+  button[aria-expanded='true'] .icon::after {
+    width: 0;
+  }
+/* Styles pour l'affichage du contenu lorsqu'aria-expanded est true */
+  .accordion button[aria-expanded='true'] + .accordion-content {
   opacity: 1;
-  max-height: 9em;
+  max-height: 25em;
   transition: all 200ms linear;
   will-change: opacity, max-height;
 }
 
-/* Styles pour .accordion-content */
-.accordion .accordion-content {
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: opacity 200ms linear, max-height 200ms linear;
-  will-change: opacity, max-height;
+/* Styles pour le contenu de l'accordéon */
+.accordion-content {
+opacity: 0;
+max-height: 0;
+overflow: hidden;
+transition: opacity 200ms linear, max-height 200ms linear;
+will-change: opacity, max-height;
 }
 
-.accordion .accordion-content p {
+/* Styles pour les paragraphes à l'intérieur du contenu de l'accordéon */
+.accordion-content p {
   font-size: 1rem;
   font-weight: 300;
   margin: 2em 0;
@@ -215,10 +220,6 @@ body,
   display: inline-block; /* Permet d'aligner le texte à gauche à l'intérieur du conteneur centré */
   text-align: left; /* Aligne le texte à gauche à l'intérieur de son conteneur */
 }
-
-
-
-
 
 
 /* css Barre de recherche */
@@ -265,11 +266,12 @@ body,
   cursor: pointer;
 }
 
+
 /* Footer */
 .footer {
   position: fixed;
   right: 0;
-  bottom: 0px;
+  bottom: 0;
   left: 0;
   padding-top: 0.5rem; /* Augmenter la hauteur en ajustant le padding */
   padding-bottom: 1px; /* Vous pouvez ajuster ces valeurs selon vos besoins */
@@ -294,11 +296,66 @@ body,
   font-size: 15px;
   transition: all 0.45s;
 }
+
 .footer li:hover a {
   color: #d94f5c;
 }
 
+/*CSS image de déconnexion*/
+#imgdeco {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: auto;
+  width: auto; /* Utilisez 'auto' pour conserver les proportions de l'image */
+  max-width: 5%; /* Définissez la largeur maximale pour éviter qu'elle ne devienne trop grande */
+  margin-bottom: 0.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  z-index: 5;
+}
 
+
+/*CSS logos de marques*/
+
+#LISEP, #LEVENTS, #LTransnoise, #LEchokey {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 0.5rem; /* Ajoutez une marge en bas pour espacer les images */
+  margin-left: 0.5rem; /* Ajoutez une marge à gauche pour espacer les images */
+  z-index: 5;
+}
+
+#LISEP{
+  height: 55px;
+  width: auto; /* Utilisez 'auto' pour conserver les proportions de l'image */
+  max-width: 5%; /* Définissez la largeur maximale pour éviter qu'elle ne devienne trop grande */
+  margin-left: 150px;
+}
+
+#LEVENTS, #LTransnoise {
+  height: 55px;
+  width: auto;
+  max-width: 60px;
+}
+
+#LEchokey{
+  height: 62px;
+  width: auto; /* Utilisez 'auto' pour conserver les proportions de l'image */
+  max-width: 5%; /* Définissez la largeur maximale pour éviter qu'elle ne devienne trop grande */
+  margin-left: 280px;/* Ajoutez une marge à gauche pour espacer cette image */
+  
+}
+
+
+#LEVENTS {
+  margin-left: 75px; /* Ajoutez une marge à gauche pour espacer cette image */
+}
+
+#LTransnoise {
+  margin-left: 5px; /* Ajoutez une marge à gauche pour espacer cette image */
+}
 
 
 
