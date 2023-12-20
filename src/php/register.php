@@ -1,26 +1,32 @@
 <?php
-include 'config.php';
+include 'dataBase.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $conn->real_escape_string($_POST['registerEmail']);
-    $password = $conn->real_escape_string($_POST['registerPassword']);
-    $repeatPassword = $conn->real_escape_string($_POST['RepeatPassword']);
+    $email = $_POST['registerEmail'];
+    $password = $_POST['registerPassword'];
+    $repeatPassword = $_POST['RepeatPassword'];
 
-    if ($password != $repeatPassword) {
+    if ($password !== $repeatPassword) {
         echo "Les mots de passe ne correspondent pas.";
         exit;
     }
 
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO utilisateurs (email, password) VALUES ('$email', '$hashed_password')";
+    $sql = "INSERT INTO users (email, password) VALUES (:email, :password)";
+    $stmt = $conn->prepare($sql);
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Nouvel enregistrement créé avec succès";
-    } else {
-        echo "Erreur : " . $sql . "<br>" . $conn->error;
+    try {
+        $stmt->execute(['email' => $email, 'password' => $hashed_password]);
+        echo "Utilisateur enregistré avec succès";
+    } catch (PDOException $e) {
+        if ($e->getCode() == 23000) {
+            echo "L'adresse email est déjà utilisée.";
+        } else {
+            echo "Erreur lors de l'enregistrement : " . $e->getMessage();
+        }
     }
 }
 
-$conn->close();
+$conn = null;
 ?>

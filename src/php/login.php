@@ -1,25 +1,22 @@
 <?php
-include 'config.php';
+include 'dataBase.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $conn->real_escape_string($_POST['loginEmail']);
-    $password = $conn->real_escape_string($_POST['loginPassword']);
+    $email = $_POST['loginEmail'];
+    $password = $_POST['loginPassword'];
 
-    $sql = "SELECT id, password FROM utilisateurs WHERE email = '$email'";
-    $result = $conn->query($sql);
+    $sql = "SELECT id, password FROM users WHERE email = :email";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute(['email' => $email]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        if (password_verify($password, $row['password'])) {
-            echo "Connexion réussie";
-            // Configurez ici les variables de session
-        } else {
-            echo "Mot de passe invalide";
-        }
+    if ($user && password_verify($password, $user['password'])) {
+        echo "success";
+        // Configurez ici les variables de session
     } else {
-        echo "Email invalide";
+        echo "Identifiants invalides";
     }
 }
 
-$conn->close();
+$conn = null;
 ?>
