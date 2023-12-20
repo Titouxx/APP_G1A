@@ -1,7 +1,7 @@
+/**/
 @font-face {
   font-family: "Maven Pro";
   src: url("../../fonts/Maven_Pro/Maven-Pro-regular.woff") format("woff");
-  /* Ajoutez d'autres formats si nécessaire */
   font-weight: normal;
   font-style: normal;
 }
@@ -41,7 +41,7 @@ html {
   box-sizing: border-box;
   font-family: "Maven Pro";
 }
-
+/*gere le menu dans l'index*/
 .menu {
   padding: 0;
   margin: 0;
@@ -70,6 +70,7 @@ html {
   transition: all 0.45s;
 }
 
+/*l'animation de vague*/
 .menu li:hover {
   background: url("../../images/faq_onde.svg");
   animation: line 1s;
@@ -98,7 +99,6 @@ body,
   box-sizing: border-box;
 }
 
-/* Styles pour la nouvelle section "content" */
 /* Styles pour la nouvelle section "content" */
 .content {
   margin: 20px auto 0; /* Ajustez la marge supérieure pour remonter la classe */
@@ -174,13 +174,15 @@ body,
   color: #d94f5c;
 }
 
-/* Définissez les styles pour les appareils mobiles avec une largeur maximale de 767px */
+/* Styles généraux */
+
+/* gere le footer*/
 @media screen and (max-width: 767px) {
   .menu {
-    flex-direction: row; /* Change la direction des éléments en colonne */
+    flex-direction: row;
     display: flex;
-    justify-content: space-around; /* Espacement égal entre les éléments */
-    width: 767px; /* Pour occuper toute la largeur */
+    justify-content: space-around;
+    width: 100%;
   }
 
   .menu li {
@@ -191,18 +193,70 @@ body,
     border-bottom: 1px solid #ddd; /* Ajoute une séparation entre les éléments */
   }
 
+<<<<<<< Updated upstream
   .menu li:last-child {
     border-bottom: none; /* Supprime la bordure en bas du dernier élément */
+=======
+  /* Footer */
+  .footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0.5rem 0 1px;
+    background-color: #f7eeff;
+    text-align: center;
+>>>>>>> Stashed changes
   }
 
   .menu li a {
     font-size: 18px; /* Réduit la taille de la police */
   }
+<<<<<<< Updated upstream
   body {
     /* Arrière-plan spécifique pour les appareils mobiles */
     background-image: url("../../images/backgroundfhdtest.png");
     background-size: cover;
     background-repeat: repeat; /* Active la répétition de l'arrière-plan */
+=======
+
+  .footer nav ul li {
+    display: inline;
+  }
+
+  .footer nav ul li a {
+    text-decoration: none;
+    color: #777;
+    margin-left: 75px;
+    font-size: 15px;
+    transition: all 0.45s;
+  }
+
+  .footer li:hover a {
+    color: #d94f5c;
+  }
+
+  .menu li {
+    flex: 1 1 calc(50% - 10px);
+    height: auto;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .menu li:last-child {
+    border-bottom: none;
+  }
+
+  .menu li a {
+    font-size: 18px;
+  }
+
+  body {
+    background-image: url("../../images/backgroundfhdtest.png");
+    background-size: cover;
+    background-repeat: repeat;
+>>>>>>> Stashed changes
     background-attachment: scroll;
   }
 }
