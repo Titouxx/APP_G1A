@@ -11,8 +11,9 @@
     />
   </head>
   <body>
+    <!--Formulaire de connexion-->
     <div class="wrapper" id="loginWrapper">
-      <form id="loginForm">
+      <form id="loginForm" action="login.php" method="post">
         <h1>Login</h1>
         <div class="input-box">
           <input type="text" id="loginEmail" placeholder="Email" required /><i
@@ -40,7 +41,7 @@
     </div>
 
     <div class="wrapper2" id="registerWrapper" style="display: none">
-      <form id="registerForm">
+      <form id="registerForm" action="register.php" method="post">
         <h1>Register</h1>
         <div class="input-box">
           <input
@@ -74,64 +75,76 @@
     </div>
 
     <script>
-      // src = "../js/connexion.js";
-
       document.addEventListener("DOMContentLoaded", function () {
-        // Toggle to registration form
-        document
-          .getElementById("registerBtn")
-          .addEventListener("click", function () {
-            document.getElementById("loginWrapper").style.display = "none";
-            document.getElementById("registerWrapper").style.display = "block";
+          // Bascule entre les formulaires
+          document.getElementById("registerBtn").addEventListener("click", function () {
+              document.getElementById("loginWrapper").style.display = "none";
+              document.getElementById("registerWrapper").style.display = "block";
           });
+  
+          document.getElementById("loginBtn").addEventListener("click", function () {
+              document.getElementById("loginWrapper").style.display = "block";
+              document.getElementById("registerWrapper").style.display = "none";
+          });
+  
+          // Validation et soumission AJAX du formulaire de connexion
+          document.getElementById("loginForm").addEventListener("submit", function(event) {
+              event.preventDefault();
+              var email = document.getElementById("loginEmail").value;
+              var password = document.getElementById("loginPassword").value;
+              var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+              if (!emailRegex.test(email)) {
+                  alert("Veuillez saisir une adresse email valide.");
+                  return;
+              }
+  
+              if (!password) {
+                  alert("Veuillez saisir un mot de passe.");
+                  return;
+              }
+  
+              var xhr = new XMLHttpRequest();
+              xhr.open("POST", "login.php", true);
+              xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+              xhr.onload = function() {
+                  if (this.status == 200 && this.responseText == "success") {
+                      window.location.href = "accueil.html"; // Redirection vers la page d'accueil
+                  } else {
+                      alert("Identifiants incorrects ou problème de connexion.");
+                  }
+              };
+              xhr.send("loginEmail=" + encodeURIComponent(email) + "&loginPassword=" + encodeURIComponent(password));
+          });
+  
+          // Validation et soumission du formulaire d'enregistrement
 
-        // Toggle to login form
-        document
-          .getElementById("loginBtn")
-          .addEventListener("click", function () {
-            document.getElementById("loginWrapper").style.display = "block";
-            document.getElementById("registerWrapper").style.display = "none";
-          });
+          document.getElementById("registerForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var email = document.getElementById("registerEmail").value;
+            var password = document.getElementById("registerPassword").value;
+            var repeatPassword = document.getElementById("RepeatPassword").value;
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailRegex.test(email)) {
+                alert("Veuillez saisir une adresse email valide.");
+                return;
+            }
+
+            if (password !== repeatPassword) {
+                alert("Les mots de passe ne correspondent pas.");
+                return;
+            }
+
+            if (!password || password.length < 6) {
+                alert("Le mot de passe doit contenir au moins 6 caractères.");
+                return;
+            }
+
+            this.submit();
+        });
+
       });
-
-      document
-        .getElementById("loginForm")
-        .addEventListener("submit", function (event) {
-          var email = document.getElementById("loginEmail").value;
-          var password = document.getElementById("loginPassword").value;
-
-          if (!email || !password) {
-            alert("Veuillez remplir tous les champs.");
-            event.preventDefault(); // Empêche la soumission du formulaire
-          } else {
-            // Ajoutez ici le code de validation et de traitement pour le formulaire de connexion
-          }
-        });
-      document
-        .getElementById("registerForm")
-        .addEventListener("submit", function (event) {
-          var registerEmail = document.getElementById("registerEmail").value;
-          var registerPassword =
-            document.getElementById("registerPassword").value;
-          var repeatPasseword = document.getElementById("repeatPassword").value;
-
-          var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-          // Vérifier du format de l'adresse email
-          if (!emailRegex.test(registerEmail)) {
-            alert("Veuillez saisir une adresse email valide.");
-            event.preventDefault(); // Empêche la soumission du formulaire
-            return;
-          }
-
-          //Vérifier si l'espace est remplie
-          if (!registerEmail || !registerPassword) {
-            alert("Veuillez remplir tous les champs.");
-            event.preventDefault(); // Empêche la soumission du formulaire
-          } else {
-            // Ajoutez ici le code de validation et de traitement pour le formulaire d'inscription
-          }
-        });
-    </script>
+    </script>  
   </body>
 </html>
