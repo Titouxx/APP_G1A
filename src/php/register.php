@@ -1,49 +1,45 @@
 <?php
-// include 'dataBase.php';
+header('Content-Type: application/json');
 
- 
+// Paramètres de connexion à la base de données
 $servername = "localhost";
 $username = "root";
 $password = "";
+$dbname = "siteweb";
 
-try{
-    $conn = new PDO("mysql:host=$servername; dbname=siteweb", $username, $password);
+try {
+    // Connexion à la base de données
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // Définir le mode d'erreur de PDO à Exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // echo "Connexion Réussie !";
-}
-catch(PDOException $e){
-    echo "Erreur : ".$e->getMessage();
-}
 
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Récupération des données du formulaire
+        $email = $_POST['registerEmail'];
+        $password = $_POST['registerPassword'];
+        $repeatPassword = $_POST['RepeatPassword'];
 
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['registerEmail'];
-    $password = $_POST['registerPassword'];
-    $repeatPassword = $_POST['RepeatPassword'];
-
-    if ($password !== $repeatPassword) {
-        echo "Les mots de passe ne correspondent pas.";
-        exit;
-    }
-
-    // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-    $sql = "INSERT INTO users (email, password) VALUES (:email, :password)";
-    $stmt = $conn->prepare($sql);
-
-    try {
-        $stmt->execute(['email' => $email, 'password' => $password]);
-        echo "Utilisateur enregistré avec succès";
-    } catch (PDOException $e) {
-        if ($e->getCode() == 23000) {
-            echo "L'adresse email est déjà utilisée.";
-        } else {
-            echo "Erreur lors de l'enregistrement : " . $e->getMessage();
+        // Vérifier si les mots de passe correspondent
+        if ($password !== $repeatPassword) {
+            echo json_encode(["status" => "error", "message" => "Les mots de passe ne correspondent pas."]);
+            exit;
         }
+
+        // Création de la requête SQL
+        $sql = "INSERT INTO users (email, password) VALUES (:email, :password)";
+        $stmt = $conn->prepare($sql);
+
+        // Exécution de la requête
+        $stmt->execute(['email' => $email, 'password' => $password]);
+
+        // Réponse de succès
+        echo json_encode(["status" => "success"]);
     }
+} catch(PDOException $e) {
+    // Gestion des erreurs
+    echo json_encode(["status" => "error", "message" => "Erreur lors de l'enregistrement : " . $e->getMessage()]);
 }
 
+// Fermeture de la connexion
 $conn = null;
-
 ?>

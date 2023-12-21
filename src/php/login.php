@@ -1,4 +1,6 @@
 <?php
+header('Content-Type: application/json');
+
 // include 'dataBase.php';
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -14,7 +16,8 @@ try{
     // echo "Connexion Réussie !";
 }
 catch(PDOException $e){
-    echo "Erreur : " . $e->getMessage();
+    echo json_encode(["status" => "error", "message" => $e->getMessage()]);
+    exit(); // Assurez-vous de quitter le script après une erreur
 }
 
 
@@ -27,26 +30,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute(['email' => $email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // var_dump($user); // Pour voir le résultat de la requête
-
-
-    // if ($user && password_verify($password, $user['password'])) {
-    //     echo "success";
-    //     // Configurez ici les variables de session
-    // } else {
-    //      echo "Identifiants invalides";
-    //     // echo "Mot de passe de la base de données : " . $user['password'];
-    //     // echo "\nMot de passe fourni haché : " . password_hash($password, PASSWORD_DEFAULT);
-    //     // echo "\nIdentifiants invalides";
-    // }
     if ($user && $password === $user['password']) {
-        // echo "success";
-        // Configurez ici les variables de session
-        echo json_encode(["statue" => "success"]);
+        echo json_encode(["status" => "success"]);
+        exit();
 
     } else {
-        // echo "Identifiants invalides";
         echo json_encode(["status" => "error", "message" => "Identifiants invalides"]);
+        exit();
     }
 
 }
