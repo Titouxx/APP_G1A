@@ -11,6 +11,12 @@ body {
   background-size: cover;
   background-repeat: repeat; /* Empêche la répétition de l'image */
   background-attachment: fixed; /* Fixe l'image pour qu'elle reste en place lorsque l'utilisateur fait défiler la page */
+  display: flex;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 /* Espace entre menu et logo EchoKey */
@@ -90,18 +96,6 @@ html {
   }
 }
 
-body {
-  display: flex;
-  align-items: center;
-  font-family: Arial, sans-serif;
-  background: url("../images/fond_ecran_accueil.jpeg") no-repeat;
-  background-position: center;
-  background-size: 1590px;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
 .background {
   position: fixed;
   background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la fenêtre */
@@ -111,44 +105,56 @@ body {
   z-index: -1;
 }
 
-.container {
-  background-color: rgba(255, 255, 255, 0.9);
-  width: 540px;
+.ii {
+  position: relative;
+  float: left;
+  max-width: auto;
+  width: 100%;
+}
+
+.container1 {
+  position: relative;
+  float: left;
+  background-color: #f7eeff;
+
+  width: 50%;
   height: 420px;
-  display: flex;
-  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  margin: auto; /* Ajoutez cette ligne pour centrer le conteneur */
+  left: 25%;
 }
 
 .content {
-  display: flex;
+  float: left;
   width: 100%;
   height: 100%;
 }
 
 .sidebar {
-  width: 30%;
+  position: relative;
+  float: left;
+  left: 10%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
   background-color: #6a0dad;
   border-right: 1px solid #ccc;
-  height: 100%;
-  padding: 10px;
+  height: 120%;
+  bottom: 42px;
 }
 
 .profile-info {
-  justify-content: flex-start;
+  position: relative;
+  float: left;
   width: 70%;
-  align-items: center;
-  height: 100%;
+  height: 400%;
+  left: 30%;
 
-  padding: 20px; /* Ajoutez une marge intérieure */
+  padding: 10px; /* Ajoutez une marge intérieure */
 }
 
 h1 {
-  color: #6a0dad;
-  text-align: center;
+  color: #000000;
 }
 
 /* ... (autres styles) ... */
@@ -160,6 +166,7 @@ h1 {
 .menu2 {
   text-align: left;
   margin-bottom: 20px;
+  top: 42px;
 }
 .menu2 ul {
   list-style: none;
@@ -172,16 +179,15 @@ h1 {
 }
 
 #coordonnees form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 400px;
-  margin: auto;
+  position: relative;
+  float: left;
+}
+# #Modifier {
+  margin-top: auto; /* Place le bouton en bas de #profile-info */
 }
 
 #coordonnees label {
-  margin-bottom: 5px; /* Ajouter une marge inférieure pour espacer les labels */
-  text-align: right; /* Aligner le texte à droite */
+  text-align: left; /* Aligner le texte à droite */
 }
 
 #coordonnees button {
@@ -189,12 +195,12 @@ h1 {
 }
 
 button {
-  background-color: #6a0dad;
+  background-color: #777;
   color: #ffffff;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  margin: 0 10px;
+  margin: 0px;
   cursor: pointer;
 }
 
