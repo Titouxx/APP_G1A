@@ -158,13 +158,12 @@ html {
   width: 70%;
   height: 100%;
   left: 70px;
-  display: block;
-
-  padding: 10px; /* Ajoutez une marge intérieure */
 }
 
 h1 {
   color: #000000;
+  position: relative;
+  left: 15%;
 }
 
 /* ... (autres styles) ... */
@@ -192,19 +191,40 @@ h1 {
   position: relative;
   float: left;
 }
+
+#coordonnees .form-group {
+  display: flex;
+  align-items: center;
+}
+
 #coordonnees .form-control {
   width: 80%;
 }
 #Modifier {
   position: relative;
   float: left;
-  left: 25%;
-  top: 200px;
+  left: 36%;
+  top: 10px;
+}
+
+#Enregistrer {
+  position: relative;
+  float: left;
+  left: 36%;
+  top: 10px;
 }
 
 #coordonnees label {
   position: relative;
   float: left;
+}
+#coordonnees .form-control {
+  height: 34px; /* Ajustez la valeur selon vos préférences */
+}
+
+#coordonnees .form-group label {
+  margin-bottom: 10px; /* Ajustez la valeur selon vos préférences */
+  line-height: 0px; /* Ajustez la valeur selon vos préférences pour aligner verticalement */
 }
 
 #coordonnees button {
