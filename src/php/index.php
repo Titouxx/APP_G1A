@@ -16,10 +16,10 @@
   <header>
     <nav>
       <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="analyse.html">Analyse</a></li>
-        <li><a href="faq.html">Faq</a></li>
-        <li><a href="espaceuser.html">Profil</a></li>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="analyse.php">Analyse</a></li>
+        <li><a href="faq.php">Faq</a></li>
+        <li><a href="espaceuser.php">Profil</a></li>
       </ul>
     </nav>
   </header>
@@ -47,7 +47,7 @@
         parisienne nous anaylsons la justesse des sons.
       </p>
       <button class="cn">
-        <a href="Connexion.html">Connectez Vous !</a>
+        <a href="Connexion.php">Connectez Vous !</a>
       </button>
     </div>
   </body>
@@ -57,11 +57,11 @@
     <div class="footer">
       <nav>
         <ul>
-          <li><a href="CGU.html" target="_blank">C.G.U</a></li>
+          <li><a href="CGU.php" target="_blank">C.G.U</a></li>
           <li>
             <a href="https://www.isep.fr/" target="_blank">Nos investisseurs</a>
           </li>
-          <li><a href="faq.html" target="_blank">Contact</a></li>
+          <li><a href="faq.php" target="_blank">Contact</a></li>
         </ul>
       </nav>
     </div>
