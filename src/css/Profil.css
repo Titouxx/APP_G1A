@@ -24,10 +24,6 @@ nav {
   margin-bottom: 20px; /* Ajoute de l'espace en bas de la balise <nav> */
 }
 
-#Logo1 {
-  margin-top: 30px; /* Ajoute de l'espace au-dessus de l'image */
-}
-
 *,/* css Barre de menu */
 *:before,
 *:after {
@@ -111,23 +107,37 @@ html {
   max-width: auto;
   width: 100%;
 }
-
+/*#Logo1 {
+  position: relative;
+  float: left;
+  top: 0%;
+}
+*/
+.logo-container {
+  position: relative;
+  float: left;
+  height: 100%;
+  margin-top: 45px;
+}
 .container1 {
   position: relative;
   float: left;
   background-color: #f7eeff;
-
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
   width: 50%;
+  border-radius: 10px;
+
   height: 420px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 100px rgb(113, 53, 99);
   left: 25%;
 }
 
 .content {
   float: left;
   width: 100%;
-  height: 100%;
+  height: 420px;
 }
 
 .sidebar {
@@ -137,8 +147,7 @@ html {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
-  background-color: #6a0dad;
-  border-right: 1px solid #ccc;
+  background-color: #9763bc;
   height: 120%;
   bottom: 42px;
 }
@@ -147,8 +156,9 @@ html {
   position: relative;
   float: left;
   width: 70%;
-  height: 400%;
-  left: 30%;
+  height: 100%;
+  left: 70px;
+  display: block;
 
   padding: 10px; /* Ajoutez une marge intérieure */
 }
@@ -182,12 +192,19 @@ h1 {
   position: relative;
   float: left;
 }
-# #Modifier {
-  margin-top: auto; /* Place le bouton en bas de #profile-info */
+#coordonnees .form-control {
+  width: 80%;
+}
+#Modifier {
+  position: relative;
+  float: left;
+  left: 25%;
+  top: 200px;
 }
 
 #coordonnees label {
-  text-align: left; /* Aligner le texte à droite */
+  position: relative;
+  float: left;
 }
 
 #coordonnees button {
@@ -195,8 +212,7 @@ h1 {
 }
 
 button {
-  background-color: #777;
-  color: #ffffff;
+  background-color: #9763bc;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -205,5 +221,37 @@ button {
 }
 
 button:hover {
-  background-color: #4d077d;
+  background-color: #bfa0d4;
+}
+
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-top: 0.5rem; /* Augmenter la hauteur en ajustant le padding */
+  padding-bottom: 1px; /* Vous pouvez ajuster ces valeurs selon vos besoins */
+  background-color: #f7eeff;
+  text-align: center;
+}
+
+.footer nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer nav ul li {
+  display: inline;
+}
+
+.footer nav ul li a {
+  text-decoration: none;
+  color: #777; /* Couleur du texte pour les liens */
+  margin-left: 75px;
+  font-size: 15px;
+  transition: all 0.45s;
+}
+
+.footer li:hover a {
+  color: #d94f5c;
 }
