@@ -150,7 +150,7 @@ h2 {
 }
 
 #img-news {
-  cursor:pointer;
+  cursor: pointer;
   width: 180px;
   height: 160px;
 }
@@ -224,4 +224,91 @@ body {
   right: 0;
 }
 
-/* text on hover*/
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-top: 0.5rem; /* Augmenter la hauteur en ajustant le padding */
+  padding-bottom: 1px; /* Vous pouvez ajuster ces valeurs selon vos besoins */
+  background-color: #f7eeff;
+  text-align: center;
+}
+
+.footer nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer nav ul li {
+  display: inline;
+}
+
+.footer nav ul li a {
+  text-decoration: none;
+  color: #777; /* Couleur du texte pour les liens */
+  margin-left: 75px;
+  font-size: 15px;
+  transition: all 0.45s;
+}
+
+.footer li:hover a {
+  color: #d94f5c;
+}
+
+/*CSS image de déconnexion*/
+#imgdeco {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: auto;
+  width: auto; /* Utilisez 'auto' pour conserver les proportions de l'image */
+  max-width: 3%; /* Définissez la largeur maximale pour éviter qu'elle ne devienne trop grande */
+  margin-bottom: 0.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  z-index: 5;
+}
+
+/*CSS logos de marques*/
+
+#LISEP,
+#LEVENTS,
+#LTransnoise,
+#LEchokey {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 0.5rem; /* Ajoutez une marge en bas pour espacer les images */
+  margin-left: 0.5rem; /* Ajoutez une marge à gauche pour espacer les images */
+  z-index: 5;
+}
+
+#LISEP {
+  height: 35px;
+  width: auto; /* Utilisez 'auto' pour conserver les proportions de l'image */
+  max-width: 5%; /* Définissez la largeur maximale pour éviter qu'elle ne devienne trop grande */
+  margin-left: 150px;
+}
+
+#LEVENTS,
+#LTransnoise {
+  height: 35px;
+  width: auto;
+  max-width: 60px;
+}
+
+#LEchokey {
+  height: 32px;
+  width: auto; /* Utilisez 'auto' pour conserver les proportions de l'image */
+  max-width: 5%; /* Définissez la largeur maximale pour éviter qu'elle ne devienne trop grande */
+  margin-left: 280px; /* Ajoutez une marge à gauche pour espacer cette image */
+}
+
+#LEVENTS {
+  margin-left: 75px; /* Ajoutez une marge à gauche pour espacer cette image */
+}
+
+#LTransnoise {
+  margin-left: 5px; /* Ajoutez une marge à gauche pour espacer cette image */
+}
