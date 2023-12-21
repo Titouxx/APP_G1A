@@ -27,13 +27,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO users (email, password) VALUES (:email, :password)";
     $stmt = $conn->prepare($sql);
 
     try {
-        $stmt->execute(['email' => $email, 'password' => $hashed_password]);
+        $stmt->execute(['email' => $email, 'password' => $password]);
         echo "Utilisateur enregistré avec succès";
     } catch (PDOException $e) {
         if ($e->getCode() == 23000) {
