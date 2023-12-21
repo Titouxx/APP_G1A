@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body background="../../images/background.png">
 
     
     <!--Formulaire de connexion-->
