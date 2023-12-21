@@ -25,23 +25,21 @@
       <img src="../../images/forum.png" />
     </header>
 
-    <section id="post-form">
-      <h2>...commencer une nouvelle discussion !</h2>
-      <form id="messageForm">
-        <label for="title">Titre de la discussion:</label>
-        <input type="text" id="username" required />
-
-        <label for="message">Message:</label>
-        <textarea id="message" rows="4" required></textarea>
-
-        <button type="submit">Envoyer</button>
-      </form>
-    </section>
-    <section id="posts">
-      <!-- La section où les messages du forum seront affichés -->
-    </section>
+    <!-- forum section -->
+    <div class="forum-section">
+      <div class="post-form">
+        <h1>...commencer une nouvelle discussion !</h1>
+        <input type="text" id="discussionTitle" placeholder="Titre" />
+        <textarea id="discussionContent" placeholder="Message"></textarea>
+        <input type="text" id="username" placeholder="Votre Username" />
+        <button onclick="createDiscussion()">Créer Discussion</button>
+      </div>
+      <div class="discussion-list" id="discussionList">
+        <h1>...ou rejoindre une discussion en cours !</h1>
+      </div>
+    </div>
 
     <!--à enlever quand on aura une base de donnée-->
-    <!--<script src="../js/forum.js"></script>-->
+    <script src="../js/forum.js"></script>
   </body>
 </html>

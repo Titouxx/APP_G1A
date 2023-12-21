@@ -1,44 +1,80 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const messageForm = document.getElementById("messageForm");
-  const postsSection = document.getElementById("posts");
+// Sample discussion data
+let discussions = [
+  {
+    id: 1,
+    title: "Concert Angèle Paris Oct.2023",
+    content: "Details about the concert...",
+    username: "MusicLover99",
+  },
+  {
+    id: 2,
+    title: "QUAND NOUVEL ALBUM DAMSO ? 2025 ?",
+    content: "Discussion about Damso's new album...",
+    username: "Rap03",
+  },
+  {
+    id: 3,
+    title: "Meilleur chanteur d'opéra 2023?",
+    content: "Debate on the best opera singer...",
+    username: "Ariaaa",
+  },
+];
 
-  // Simule l'identifiant de session (vous devez implémenter cela côté serveur)
-  const sessionUsername = "utilisateur1";
+// Function to populate the discussion list
+function populateDiscussionList() {
+  const discussionList = document.getElementById("discussionList");
 
-  // Vérifie si l'utilisateur est connecté
-  if (!isUserLoggedIn()) {
-    // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
-    window.location.href = "Connexion.html";
-  }
+  discussions.forEach((discussion) => {
+    const discussionItem = document.createElement("div");
+    discussionItem.classList.add("discussion-item");
+    discussionItem.textContent =
+      discussion.title + " by " + discussion.username;
 
-  messageForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+    // Event listener to handle clicking on discussion items
+    discussionItem.addEventListener("click", () => {
+      openDiscussionModal(discussion);
+    });
 
-    const usernameInput = document.getElementById("username");
-    const message = document.getElementById("message").value;
-
-    // Vérifie si l'identifiant de session correspond à l'identifiant saisi
-    if (usernameInput.value === sessionUsername && message) {
-      // Créer un nouvel élément de message
-      const post = document.createElement("div");
-      post.className = "post";
-      post.innerHTML = `<strong>${sessionUsername}:</strong> ${message}`;
-
-      // Ajouter le message à la section des messages
-      postsSection.appendChild(post);
-
-      // Effacer le formulaire
-      messageForm.reset();
-    } else {
-      // Gérer le cas où l'identifiant de session ne correspond pas
-      alert("Identifiant de session incorrect ou message vide");
-    }
+    discussionList.appendChild(discussionItem);
   });
+}
 
-  // Fonction de simulation de la connexion de l'utilisateur (à remplacer par une vérification côté serveur)
-  function isUserLoggedIn() {
-    // Implémentez la logique de vérification côté serveur
-    // Pour cet exemple, renvoyons simplement true si la session existe
-    return true;
+// Function to open discussion in modal
+function openDiscussionModal(discussion) {
+  // Implementation of the modal opening goes here
+  console.log("Clicked on discussion:", discussion.title);
+}
+
+// Function to create a discussion
+function createDiscussion() {
+  const titleInput = document.getElementById("discussionTitle").value;
+  const contentInput = document.getElementById("discussionContent").value;
+  const usernameInput = document.getElementById("username").value;
+
+  if (titleInput && contentInput && usernameInput) {
+    const newDiscussion = {
+      id: discussions.length + 1,
+      title: titleInput,
+      content: contentInput,
+      username: usernameInput,
+    };
+
+    discussions.push(newDiscussion);
+
+    // Clear input fields after creating discussion
+    document.getElementById("discussionTitle").value = "";
+    document.getElementById("discussionContent").value = "";
+    document.getElementById("username").value = "";
+
+    // Repopulate the discussion list with the updated data
+    document.getElementById("discussionList").innerHTML = "";
+    populateDiscussionList();
+  } else {
+    alert(
+      "Veuillez remplir les champs suivants (titre, message, and username)!"
+    );
   }
-});
+}
+
+// Call the function to populate the discussion list when the page loads
+window.addEventListener("DOMContentLoaded", populateDiscussionList);
