@@ -83,6 +83,13 @@ html {
 }
 
 /* Css de la page */
+body {
+  background-image: url("../../images/backgroundfhdtest.png");
+  background-size: cover;
+  background-repeat: repeat; /* Empêche la répétition de l'image */
+  background-attachment: fixed; /* Fixe l'image pour qu'elle reste en place lorsque l'utilisateur fait défiler la page */
+}
+
 #icon {
   padding-top: 5px;
   cursor: pointer;
@@ -104,4 +111,36 @@ table {
 
 h1 {
   text-align: center;
+}
+
+/* Footer */
+footer {
+  position: fixed;
+  right: 0;
+  bottom: 0px;
+  left: 0;
+  padding-top: 0.5rem; /* Augmenter la hauteur en ajustant le padding */
+  padding-bottom: 1px; /* Vous pouvez ajuster ces valeurs selon vos besoins */
+  background-color: #f7eeff;
+  text-align: center;
+}
+
+footer nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer nav ul li {
+  display: inline;
+}
+
+footer nav ul li a {
+  text-decoration: none;
+  color: #777; /* Couleur du texte pour les liens */
+  margin-left: 75px;
+  font-size: 15px;
+  transition: all 0.45s;
+}
+footer li:hover a {
+  color: #d94f5c;
 }
