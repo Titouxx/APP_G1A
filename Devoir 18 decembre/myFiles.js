@@ -15,7 +15,7 @@ function fonction2() {
   x = "5" + 5 + 1;
   document.write(x + "<br/>");
 }
-function fonction() {
+function fonction3() {
   var animals = new Array();
   animals[0] = "Dog";
   animals[1] = "Cat";
