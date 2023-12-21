@@ -181,23 +181,6 @@ body {
 .img1 figure:hover img {
   opacity: 0.5;
 }
-.img1 figure::after {
-  content: "profil";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  color: rgb(72, 26, 99);
-  font-size: 20px;
-  font-weight: bold;
-  transition: opacity 0.3s ease-in-out;
-  pointer-events: none; /* Allows hover through the text */
-}
-
-.img1 figure:hover::after {
-  opacity: 1;
-}
 
 .img2 figure img {
   opacity: 1;
