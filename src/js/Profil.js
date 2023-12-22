@@ -7,6 +7,19 @@ function showSection(sectionId) {
       section.style.display = "none";
     }
   });
+
+  // Mettre à jour l'état du bouton "Modifier"
+  updateModifierButtonState(sectionId);
+}
+
+function updateModifierButtonState(sectionId) {
+  var modifierButton = document.getElementById("Modifier");
+
+  // Afficher le bouton "Modifier" uniquement si une section est sélectionnée
+  modifierButton.style.display = sectionId ? "inline-block" : "none";
+
+  // Masquer le bouton "Enregistrer" lors de la sélection d'une nouvelle section
+  document.getElementById("Enregistrer").style.display = "none";
 }
 
 function activerEdition() {
