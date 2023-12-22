@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="../css/index.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <script src="../js/jquery.min.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="../../images/TransNoise.ico" />
+    <title>TransNoise - EchoKey</title>
+  </head>
+
+  <!--header gere la barre du haut de l'écran-->
+
+  <header>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.php">Home</a></li>
+        <li><a href="analyse.php">Analyse</a></li>
+        <li><a href="faq.php">Faq</a></li>
+        <li><a href="espaceuser.php">Profil</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!--body gere le corp de la page-->
+  <body>
+    <!--le logo en haut à gauche-->
+    <img
+      src="../../images/EchoKey_extrude.png"
+      id="Logo1"
+      alt="Logo EchoKey"
+      title="Logo EchoKey"
+    />
+
+    <!--gere le texte au milieu de la page-->
+    <div class="content">
+      <h1>
+        Trouvez <span>Votre </span>
+        Voix
+      </h1>
+      <p class="par">
+        Nous sommes une start up ayant pour but d'aider les artistes à améliorer
+        leur parformances.
+        <br />
+        À l'aide de capteurs diséminer dans plusieurs salles en région
+        parisienne nous anaylsons la justesse des sons.
+      </p>
+      <button class="cn">
+        <a href="Connexion.php">Connectez Vous !</a>
+      </button>
+    </div>
+  </body>
+
+  <!--footer gere le bas de page-->
+  <footer>
+    <div class="footer">
+      <nav>
+        <ul>
+          <li><a href="CGU.php" target="_blank">C.G.U</a></li>
+          <li>
+            <a href="https://www.isep.fr/" target="_blank">Nos investisseurs</a>
+          </li>
+          <li><a href="faq.php" target="_blank">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</html>

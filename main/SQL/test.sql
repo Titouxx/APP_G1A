@@ -1,0 +1,27 @@
+CREATE TABLE USER (
+    ID_user INT AUTO_INCREMENT PRIMARY KEY,
+    Nom VARCHAR(255),
+    Prenom VARCHAR(255),
+    Adresse_mail VARCHAR(255) UNIQUE,
+    Mot_de_passe VARCHAR(255)
+);
+
+CREATE TABLE SALLE (
+    ID_salle INT AUTO_INCREMENT PRIMARY KEY,
+    Nom VARCHAR(255),
+    Adresse VARCHAR(255),
+    Dimensions VARCHAR(255)
+);
+
+CREATE TABLE ACCEDER (
+    ID_user INT,
+    ID_salle INT,
+    FOREIGN KEY (ID_user) REFERENCES USER(ID_user),
+    FOREIGN KEY (ID_salle) REFERENCES SALLE(ID_salle),
+    PRIMARY KEY (ID_user, ID_salle)
+);
+
+SELECT USER.Nom, USER.Prenom, SALLE.Nom, SALLE.Adresse
+FROM USER
+JOIN ACCEDER ON USER.ID_user = ACCEDER.ID_user
+JOIN SALLE ON ACCEDER.ID_salle = SALLE.ID_salle;
