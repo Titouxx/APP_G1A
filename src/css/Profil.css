@@ -11,15 +11,17 @@ body {
   background-size: cover;
   background-repeat: repeat; /* Empêche la répétition de l'image */
   background-attachment: fixed; /* Fixe l'image pour qu'elle reste en place lorsque l'utilisateur fait défiler la page */
+  display: flex;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 /* Espace entre menu et logo EchoKey */
 nav {
   margin-bottom: 20px; /* Ajoute de l'espace en bas de la balise <nav> */
-}
-
-#Logo1 {
-  margin-top: 30px; /* Ajoute de l'espace au-dessus de l'image */
 }
 
 *,/* css Barre de menu */
@@ -90,18 +92,6 @@ html {
   }
 }
 
-body {
-  display: flex;
-  align-items: center;
-  font-family: Arial, sans-serif;
-  background: url("../images/fond_ecran_accueil.jpeg") no-repeat;
-  background-position: center;
-  background-size: 1590px;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
 .background {
   position: fixed;
   background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la fenêtre */
@@ -111,44 +101,69 @@ body {
   z-index: -1;
 }
 
-.container {
-  background-color: rgba(255, 255, 255, 0.9);
-  width: 540px;
-  height: 420px;
-  display: flex;
-  padding: 20px;
+.ii {
+  position: relative;
+  float: left;
+  max-width: auto;
+  width: 100%;
+}
+/*#Logo1 {
+  position: relative;
+  float: left;
+  top: 0%;
+}
+*/
+.logo-container {
+  position: relative;
+  float: left;
+  height: 100%;
+  margin-top: 45px;
+}
+.container1 {
+  position: relative;
+  float: left;
+  background-color: #f7eeff;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  width: 50%;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  margin: auto; /* Ajoutez cette ligne pour centrer le conteneur */
+
+  height: 420px;
+  border-radius: 10px;
+  box-shadow: 0 0 100px rgb(113, 53, 99);
+  left: 25%;
 }
 
 .content {
-  display: flex;
+  float: left;
   width: 100%;
-  height: 100%;
+  height: 420px;
 }
 
 .sidebar {
-  width: 30%;
+  position: relative;
+  float: left;
+  left: 10%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
-  background-color: #6a0dad;
-  border-right: 1px solid #ccc;
-  height: 100%;
-  padding: 10px;
+  background-color: #9763bc;
+  height: 120%;
+  bottom: 42px;
 }
 
 .profile-info {
-  justify-content: flex-start;
+  position: relative;
+  float: left;
   width: 70%;
-  align-items: center;
   height: 100%;
-
-  padding: 20px; /* Ajoutez une marge intérieure */
+  left: 70px;
 }
 
 h1 {
-  color: #6a0dad;
-  text-align: center;
+  color: #000000;
+  position: relative;
+  left: 15%;
 }
 
 /* ... (autres styles) ... */
@@ -160,6 +175,7 @@ h1 {
 .menu2 {
   text-align: left;
   margin-bottom: 20px;
+  top: 42px;
 }
 .menu2 ul {
   list-style: none;
@@ -172,16 +188,44 @@ h1 {
 }
 
 #coordonnees form {
+  position: relative;
+  float: left;
+}
+
+#coordonnees .form-group {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  max-width: 400px;
-  margin: auto;
+}
+
+#coordonnees .form-control {
+  width: 80%;
+}
+#Modifier {
+  position: fixed;
+  float: left;
+  left: 60%;
+  top: 87%;
+  display: none;
+}
+
+#Enregistrer {
+  position: fixed;
+  float: left;
+  left: 60%;
+  top: 87%;
 }
 
 #coordonnees label {
-  margin-bottom: 5px; /* Ajouter une marge inférieure pour espacer les labels */
-  text-align: right; /* Aligner le texte à droite */
+  position: relative;
+  float: left;
+}
+#coordonnees .form-control {
+  height: 34px; /* Ajustez la valeur selon vos préférences */
+}
+
+#coordonnees .form-group label {
+  margin-bottom: 10px; /* Ajustez la valeur selon vos préférences */
+  line-height: 0px; /* Ajustez la valeur selon vos préférences pour aligner verticalement */
 }
 
 #coordonnees button {
@@ -189,15 +233,46 @@ h1 {
 }
 
 button {
-  background-color: #6a0dad;
-  color: #ffffff;
+  background-color: #9763bc;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  margin: 0 10px;
+  margin: 0px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #4d077d;
+  background-color: #bfa0d4;
+}
+
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-top: 0.5rem; /* Augmenter la hauteur en ajustant le padding */
+  padding-bottom: 1px; /* Vous pouvez ajuster ces valeurs selon vos besoins */
+  background-color: #f7eeff;
+  text-align: center;
+}
+
+.footer nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer nav ul li {
+  display: inline;
+}
+
+.footer nav ul li a {
+  text-decoration: none;
+  color: #777; /* Couleur du texte pour les liens */
+  margin-left: 75px;
+  font-size: 15px;
+  transition: all 0.45s;
+}
+
+.footer li:hover a {
+  color: #d94f5c;
 }

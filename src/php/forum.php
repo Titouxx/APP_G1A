@@ -14,10 +14,10 @@
   <body background="../../images/bgtest2.png">
     <nav>
       <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="analyse.html">Analyse</a></li>
-        <li><a href="faq.html">Faq</a></li>
-        <li><a href="espaceuser.html">Profil</a></li>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="analyse.php">Analyse</a></li>
+        <li><a href="faq.php">Faq</a></li>
+        <li><a href="espaceuser.php">Profil</a></li>
       </ul>
     </nav>
 

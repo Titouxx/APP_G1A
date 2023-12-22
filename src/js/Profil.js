@@ -7,14 +7,27 @@ function showSection(sectionId) {
       section.style.display = "none";
     }
   });
+
+  // Mettre à jour l'état du bouton "Modifier"
+  updateModifierButtonState(sectionId);
+}
+
+function updateModifierButtonState(sectionId) {
+  var modifierButton = document.getElementById("Modifier");
+
+  // Afficher le bouton "Modifier" uniquement si une section est sélectionnée
+  modifierButton.style.display = sectionId ? "inline-block" : "none";
+
+  // Masquer le bouton "Enregistrer" lors de la sélection d'une nouvelle section
+  document.getElementById("Enregistrer").style.display = "none";
 }
 
 function activerEdition() {
   var champsEditable = document.querySelectorAll(
-    "#coordonnees input[readonly]"
+    "#coordonnees input[disabled]"
   );
   champsEditable.forEach(function (champ) {
-    champ.removeAttribute("readonly");
+    champ.removeAttribute("disabled");
   });
 
   // Afficher le bouton "Enregistrer" et masquer le bouton "Modifier"
@@ -25,7 +38,7 @@ function activerEdition() {
 function enregistrerEdition() {
   var champsEditable = document.querySelectorAll("#coordonnees input");
   champsEditable.forEach(function (champ) {
-    champ.setAttribute("readonly", "true");
+    champ.setAttribute("disabled", "true");
   });
 
   // Afficher le bouton "Modifier" et masquer le bouton "Enregistrer"

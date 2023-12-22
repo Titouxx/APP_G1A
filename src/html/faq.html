@@ -15,16 +15,16 @@
   <header>
     <nav>
         <ul class="menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="analyse.html">Analyse</a></li>
-            <li><a href="faq.html">Faq</a></li>
-            <li><a href="espaceuser.html">Profil</a></li>  
+            <li><a href="index.php">Home</a></li>
+            <li><a href="analyse.php">Analyse</a></li>
+            <li><a href="faq.php">Faq</a></li>
+            <li><a href="espaceuser.php">Profil</a></li>  
         </ul>
     </nav>
     <div class="loupebar"> <input type="text" id="searchInput" placeholder="Search..."> <div class="search"></div></div>
     </header>
 
-<img src="../../images/EchoKey_extrude.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey"> <!--logo EchoKey-->
+    <a href="index.php"><img src="../../images/EchoKey_extrude.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey"></a> <!--logo EchoKey-->
 
 <div class="container"><!--barre de recherche-->
   <h2 style="text-align: center; font-size: 50px;">Posez votre question:</h2>  <!--titre question-->
@@ -51,7 +51,7 @@ $(document).ready(function(){
       var query = $('#searchQueryInput').val();// Récupérer la valeur du champ de recherche
 
       $.ajax({// Envoyer la valeur à un fichier PHP pour traitement
-          url: '../php/faq.php', // Chemin vers le fichier PHP à exécuter
+          url: '../php/faq_fonctions.php', // Chemin vers le fichier PHP à exécuter
           method: 'POST', // Utilisation de la méthode POST pour envoyer les données
           data: { query: query }, // Données à envoyer (dans cet exemple, la requête de recherche)
           success: function(response){
@@ -72,7 +72,7 @@ $(document).ready(function(){
         <button id="accordion-button-1" aria-expanded="false"><span class="accordion-title">Comment fonctionne l'enregistrement?</span><span class="icon" aria-hidden="true"></span></button>
         <div class="accordion-content">
           <p>C'est très simple. <br><br>Si la salle où l'artiste performe est équipée du matériel EchoKey™, qu'il est connecté a son compte utilisateur et qu'il a lancé une session d'enregistrement, sa performance est enregistrée par notre materiel et directement envoyée sur sa session utilisateur Echokey™.
-            <br><br>Si l'utilisateur est lui même en possession d'un fichier audio compatible, il peut l'uploader directement depuis la page d'<a href="analyse.html">Analyse</a>.<br></p>
+            <br><br>Si l'utilisateur est lui même en possession d'un fichier audio compatible, il peut l'uploader directement depuis la page d'<a href="analyse.php">Analyse</a>.<br></p>
         </div>
       </div>
       <div class="accordion-item">
@@ -86,7 +86,7 @@ $(document).ready(function(){
       <div class="accordion-item">
         <button id="accordion-button-3" aria-expanded="false"><span class="accordion-title">Comment comparer deux enregistrements?</span><span class="icon" aria-hidden="true"></span></button>
         <div class="accordion-content">
-          <p>C'est assez trivial a vrai dire!<br><br>Pour commencer, une fois connecté a son compte utilisateur EchoKey™, l'utilisateur a accès depuis sa page <a href="espaceuser.html">Profil</a> a différentes options dont celle de pouvoir accéder a ses anciens enregistrements et / ou comparer ses anciennes analyses de performances.
+          <p>C'est assez trivial a vrai dire!<br><br>Pour commencer, une fois connecté a son compte utilisateur EchoKey™, l'utilisateur a accès depuis sa page <a href="espaceuser.php">Profil</a> a différentes options dont celle de pouvoir accéder a ses anciens enregistrements et / ou comparer ses anciennes analyses de performances.
             <br><br>Ainsi, l'utilisateur pourra ainsi constater l'évolution ou la regression de la justesse de ses performances au fur et a mesure du temps.
             <br><br>Enfin, un "classement global" affiche un classement du pourcentage de justesse global des utilisateurs du service EchoKey™ et permet aux utilisateurs d'avoir un indicateur de sa justesse par rapport aux autres utilisateurs.
             <br><br>Cette fonctionnalité est cependant a prendre au second degré car l'on peut s'y retrouver a comparer les performances d'un rappeur et d'un percussionniste.</p>
@@ -95,7 +95,7 @@ $(document).ready(function(){
       <div class="accordion-item">
         <button id="accordion-button-4" aria-expanded="false"><span class="accordion-title">Peut-on importer son propre enregistrement?</span><span class="icon" aria-hidden="true"></span></button>
         <div class="accordion-content">
-          <p>Evidemment!<br><br>Sous certaines conditions à respecter (fonctionnalité encore en cours de développement), n'importe que utilisateur d'EchoKey™ connecté a sa session utilisateur peut le faire depuis dans l'onglet <a href="analyse.html">Analyse</a> accessible depuis ce lien, le menu en haut de cette page, ou alors directement depuis son <a href="espaceuser.html">Profil</a>.
+          <p>Evidemment!<br><br>Sous certaines conditions à respecter (fonctionnalité encore en cours de développement), n'importe que utilisateur d'EchoKey™ connecté a sa session utilisateur peut le faire depuis dans l'onglet <a href="analyse.php">Analyse</a> accessible depuis ce lien, le menu en haut de cette page, ou alors directement depuis son <a href="espaceuser.php">Profil</a>.
             <br><br> Depuis cette page il pourra effectivement accéder via un volet coulissant à toutes ces performances passées s'il en a ou en importer sous couvert du respect des conditions à définir plus tôt évoquées.
           </p>
         </div>
@@ -111,18 +111,21 @@ $(document).ready(function(){
     </div>
   </div>
 
+  <a href="https://www.isep.fr/" target="_blank"> <img src="../../images/logo_isep.png" id="LISEP" alt="Logo ISEP" title="Logo ISEP"> </a>
+  <img src="../../images/logo-events-IT.png" id="LEVENTS" alt="Logo EVENTS-IT" title="Logo EVENTS-IT"> <!--logo EVENTS-IT-->
+  <img src="../../images/TransNoise.png" id="LTransnoise" alt="Logo Transnoise" title="Logo Transnoise"> <!--logo Transnoise-->
+  <a href="index.php"><img src="../../images/EchoKey_extrude.png" id="LEchokey" alt="Logo EchoKey" title="Logo EchoKey"></a> <!--logo EchoKey-->
+  <li>
+    <!--logo déconnexion-->
+    <img src="../../images/déconnexion.png" id="imgdeco" alt="logo déconnexion" title="logo déconnexion" onmouseover="changerImage('survol')" onmouseout="changerImage('normal')" onclick="deconnexion()"onclick="deconnexion()">
+  </li>
 <footer>
   <div class="footer">
   <nav>
     <ul>
-      <li><a href="CGU.html" target="_blank">C.G.U</a></li>
-      <li><a href="https://www.isep.fr/" target="_blank">Nos investisseurs</a></li>
-      <li><a href="faq.html" target="_blank">Contact</a></li>
-      <li>
-        <!--logo déconnexion-->
-        <img src="../../images/déconnexion.png" id="imgdeco" alt="logo déconnexion" title="logo déconnexion" onmouseover="changerImage('survol')" onmouseout="changerImage('normal')" onclick="deconnexion()"onclick="deconnexion()">
-      </li>
-      
+      <li><a href="CGU.php" id="ga" target="_blank">C.G.U</a></li>
+      <li><a href="https://www.isep.fr/" id="ga" target="_blank">Nos investisseurs</a></li>
+      <li><a href="faq.php" id="ga" target="_blank">Contact</a></li>
     </ul>
   </nav>
 </div>
