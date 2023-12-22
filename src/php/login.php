@@ -1,7 +1,6 @@
 <?php
 header('Content-Type: application/json');
 
-// include 'dataBase.php';
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
@@ -25,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['loginEmail'];
     $password = $_POST['loginPassword'];
 
-    $sql = "SELECT password FROM users WHERE email = :email";
+    $sql = "SELECT password FROM user WHERE email = :email";
     $stmt = $conn->prepare($sql);
     $stmt->execute(['email' => $email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
