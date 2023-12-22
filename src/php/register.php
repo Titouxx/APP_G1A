@@ -24,6 +24,13 @@ try {
             echo json_encode(["status" => "error", "message" => "Les mots de passe ne correspondent pas."]);
             exit;
         }
+        // Vérifier si l'email existe déjà
+        $checkEmail = $conn->prepare("SELECT email FROM user WHERE email = :email");
+        $checkEmail->execute(['email' => $email]);
+        if ($checkEmail->rowCount() > 0) {
+            echo json_encode(["status" => "error", "message" => "email_exists"]);
+            exit;
+        }
 
         // Création de la requête SQL
         $sql = "INSERT INTO user (email, password) VALUES (:email, :password)";
