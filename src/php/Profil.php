@@ -44,7 +44,9 @@
                 </button>
               </li>
               <li>
-                <button onclick="showSection('parametres')">Paramètres</button>
+                <button onclick="showSection('parametres')">
+                  . Paramètres .
+                </button>
               </li>
               <!-- ... Ajoutez d'autres sections au besoin -->
             </ul>
