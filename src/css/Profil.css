@@ -44,6 +44,10 @@ html {
   font-family: "Maven Pro";
 }
 
+#Logo1 {
+  margin-top: 30px; /* Ajoute de l'espace au-dessus de l'image */
+}
+
 .menu {
   padding: 0;
   margin: 0;
@@ -158,13 +162,12 @@ html {
   width: 70%;
   height: 100%;
   left: 70px;
-  display: block;
-
-  padding: 10px; /* Ajoutez une marge intérieure */
 }
 
 h1 {
   color: #000000;
+  position: relative;
+  left: 15%;
 }
 
 /* ... (autres styles) ... */
@@ -192,19 +195,41 @@ h1 {
   position: relative;
   float: left;
 }
+
+#coordonnees .form-group {
+  display: flex;
+  align-items: center;
+}
+
 #coordonnees .form-control {
   width: 80%;
 }
 #Modifier {
-  position: relative;
+  position: fixed;
   float: left;
-  left: 25%;
-  top: 200px;
+  left: 60%;
+  top: 87%;
+  display: none;
+}
+
+#Enregistrer {
+  position: fixed;
+  float: left;
+  left: 60%;
+  top: 87%;
 }
 
 #coordonnees label {
   position: relative;
   float: left;
+}
+#coordonnees .form-control {
+  height: 34px; /* Ajustez la valeur selon vos préférences */
+}
+
+#coordonnees .form-group label {
+  margin-bottom: 10px; /* Ajustez la valeur selon vos préférences */
+  line-height: 0px; /* Ajustez la valeur selon vos préférences pour aligner verticalement */
 }
 
 #coordonnees button {
