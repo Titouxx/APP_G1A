@@ -26,7 +26,7 @@ try {
         }
 
         // Création de la requête SQL
-        $sql = "INSERT INTO users (email, password) VALUES (:email, :password)";
+        $sql = "INSERT INTO user (email, password) VALUES (:email, :password)";
         $stmt = $conn->prepare($sql);
 
         // Exécution de la requête

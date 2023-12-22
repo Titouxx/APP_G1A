@@ -108,7 +108,11 @@
                     var response = JSON.parse(this.responseText);
                     console.log(response); // Afficher l'objet réponse
                     if (response.status === "success") {
+<<<<<<< Updated upstream
                         window.location.href = "../html/index.html"; // Redirection vers une nouvelle page
+=======
+                        window.location.href = "../php/index.php"; // Redirection vers une nouvelle page
+>>>>>>> Stashed changes
                     } else {
                         // Afficher le message d'erreur
                         alert(response.message || "Une erreur est survenue");
@@ -134,7 +138,11 @@
                     var response = JSON.parse(this.responseText);
                     console.log(response); // Afficher l'objet réponse
                     if (response.status === "success") {
+<<<<<<< Updated upstream
                         window.location.href = "../html/index.html"; // Redirection vers la même page que "login"
+=======
+                        window.location.href = "../php/index.php"; // Redirection vers la même page que "login"
+>>>>>>> Stashed changes
                     } else {
                         alert(response.message || "Une erreur est survenue lors de l'enregistrement");
                     }
