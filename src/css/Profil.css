@@ -201,17 +201,18 @@ h1 {
   width: 80%;
 }
 #Modifier {
-  position: relative;
+  position: fixed;
   float: left;
-  left: 36%;
-  top: 10px;
+  left: 60%;
+  top: 87%;
+  display: none;
 }
 
 #Enregistrer {
-  position: relative;
+  position: fixed;
   float: left;
-  left: 36%;
-  top: 10px;
+  left: 60%;
+  top: 87%;
 }
 
 #coordonnees label {
