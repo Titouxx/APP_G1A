@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link href="../css/index.css" rel="stylesheet" />
+    <link href="../css/index.css" />
     
     <script src="../js/jquery.min.js"></script>
 
