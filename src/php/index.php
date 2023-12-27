@@ -36,8 +36,9 @@
     <!--gere le texte au milieu de la page-->
     <div class="content">
       <h1>
-        Trouvez <span>Votre </span>
-        Voix
+        Trouvez 
+        <br>Votre 
+        <br>Voix
       </h1>
       <p class="par">
         Nous sommes une start up ayant pour but d'aider les artistes à améliorer
@@ -50,6 +51,7 @@
         <a href="Connexion.php">Connectez Vous !</a>
       </button>
     </div>
+    
   </body>
 
   <!--footer gere le bas de page-->
