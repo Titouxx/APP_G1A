@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 /**/
 @font-face {
   font-family: "Maven Pro";
@@ -103,9 +102,6 @@ body,
 /* Styles pour la nouvelle section "content" */
 .content {
   display: flex;
-  flex-direction: row; /* Aligne les éléments horizontalement */
-  justify-content: space-between; /* Espace équitable entre les éléments */
-  align-items: center; /* Centre les éléments verticalement */
   margin: 20px auto 0;
   padding: 4rem;
   width: 48rem;
@@ -157,38 +153,34 @@ body,
   color: #d94f5c;
 }
 
-/* Styles généraux */
-
-/* gere le footer*/
+/* Définissez les styles pour les appareils mobiles avec une largeur maximale de 767px */
 @media screen and (max-width: 767px) {
   .menu {
-    flex-direction: row;
+    flex-direction: row; /* Change la direction des éléments en colonne */
     display: flex;
-    justify-content: space-around;
-    width: 100%;
+    justify-content: space-around; /* Espacement égal entre les éléments */
+    width: 767px; /* Pour occuper toute la largeur */
   }
 
-  .menu li {
-    flex: 1 1 calc(50% - 10px); /* Redimensionne la largeur des éléments pour s'adapter au contenu */
-    height: auto; /* Ajuste la hauteur en fonction du contenu */
-    text-align: center; /* Aligne le texte à gauche */
-    padding: 10px; /* Ajoute un peu d'espace autour des éléments */
-    border-bottom: 1px solid #ddd; /* Ajoute une séparation entre les éléments */
+  .content span {
+    color: #530404;
   }
 
   /* Footer */
   .footer {
     position: fixed;
     right: 0;
-    bottom: 0;
+    bottom: 0px;
     left: 0;
-    padding: 0.5rem 0 1px;
+    padding-top: 0.5rem; /* Augmenter la hauteur en ajustant le padding */
+    padding-bottom: 1px; /* Vous pouvez ajuster ces valeurs selon vos besoins */
     background-color: #f7eeff;
     text-align: center;
   }
 
-  .menu li a {
-    font-size: 18px; /* Réduit la taille de la police */
+  .footer nav ul {
+    list-style: none;
+    padding: 0;
   }
 
   .footer nav ul li {
@@ -197,38 +189,41 @@ body,
 
   .footer nav ul li a {
     text-decoration: none;
-    color: #777;
+    color: #777; /* Couleur du texte pour les liens */
     margin-left: 75px;
     font-size: 15px;
     transition: all 0.45s;
   }
-
   .footer li:hover a {
     color: #d94f5c;
   }
 
-  .menu li {
-    flex: 1 1 calc(50% - 10px);
-    height: auto;
-    text-align: center;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-  }
+  /* Définissez les styles pour les appareils mobiles avec une largeur maximale de 767px */
+  @media screen and (max-width: 767px) {
+    .menu {
+      flex-direction: row; /* Change la direction des éléments en colonne */
+      display: flex;
+      justify-content: space-around; /* Espacement égal entre les éléments */
+      width: 767px; /* Pour occuper toute la largeur */
+    }
 
-  .menu li:last-child {
-    border-bottom: none;
-  }
+    .menu li {
+      flex: 1 1 calc(50% - 10px); /* Redimensionne la largeur des éléments pour s'adapter au contenu */
+      height: auto; /* Ajuste la hauteur en fonction du contenu */
+      text-align: center; /* Aligne le texte à gauche */
+      padding: 10px; /* Ajoute un peu d'espace autour des éléments */
+      border-bottom: 1px solid #ddd; /* Ajoute une séparation entre les éléments */
+    }
 
-  .menu li a {
-    font-size: 18px;
-  }
+    .menu li:last-child {
+      border-bottom: none; /* Supprime la bordure en bas du dernier élément */
+    }
 
-  body {
-    background-image: url("../../images/backgroundfhdtest.png");
-    background-size: cover;
-    background-repeat: repeat;
-    background-attachment: scroll;
+    body {
+      background-image: url("../../images/backgroundfhdtest.png");
+      background-size: cover;
+      background-repeat: repeat;
+      background-attachment: scroll;
+    }
   }
 }
-=======
->>>>>>> Stashed changes
