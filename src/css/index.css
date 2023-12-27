@@ -118,7 +118,7 @@ body,
 }
 
 .content h1 {
-  font-family: "Times New Roman", serif;
+  font-weight: bold;
   font-size: 36px;
   padding-left: 20px;
   letter-spacing: 2px;
@@ -140,6 +140,18 @@ body,
   color: inherit;
   text-align: center;
   line-height: 40px;
+}
+
+/*Image bas à gauche*/
+.left-image {
+  float: left;
+  margin-right: 20px;
+  height: 50px;
+}
+
+/* Styles pour le paragraphe à droite */
+.content p {
+  margin-left: 20px;
 }
 
 /* Footer */
