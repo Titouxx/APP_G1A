@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link href="../css/index.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/normalize.css" />
+    
     <script src="../js/jquery.min.js"></script>
 
     <link rel="icon" type="image/x-icon" href="../../images/TransNoise.ico" />
@@ -36,11 +36,11 @@
     <!--gere le texte au milieu de la page-->
     <div class="content">
       <h1>
-        Trouvez 
+        Trouvez
         <br>Votre 
         <br>Voix
       </h1>
-      <img src="../../images/Image_index.jpeg" alt="chanteur">
+      <img src="../../images/Image_index.jpeg" alt="chanteur" height=100px >
     </div>
     
     <div class="buton">
