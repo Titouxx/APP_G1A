@@ -40,18 +40,14 @@
         <br>Votre 
         <br>Voix
       </h1>
-      <p class="par">
-        Nous sommes une start up ayant pour but d'aider les artistes à améliorer
-        leur parformances.
-        <br />
-        À l'aide de capteurs diséminer dans plusieurs salles en région
-        parisienne nous anaylsons la justesse des sons.
-      </p>
-      <button class="cn">
-        <a href="Connexion.php">Connectez Vous !</a>
-      </button>
+      <img src="../../images/Image_index.jpeg" alt="chanteur">
     </div>
     
+    <div class="buton">
+    <button class="cn">
+        <a href="Connexion.php">Connectez Vous !</a>
+      </button>
+      </div>
   </body>
 
   <!--footer gere le bas de page-->
