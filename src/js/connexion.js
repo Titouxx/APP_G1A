@@ -1,71 +1,72 @@
+
 document.addEventListener("DOMContentLoaded", function () {
-  // Toggle to registration form
+  // Bascule entre les formulaires
   document.getElementById("registerBtn").addEventListener("click", function () {
-    document.getElementById("loginWrapper").style.display = "none";
-    document.getElementById("registerWrapper").style.display = "block";
+      document.getElementById("loginWrapper").style.display = "none";
+      document.getElementById("registerWrapper").style.display = "block";
   });
 
-  // Toggle to login form
   document.getElementById("loginBtn").addEventListener("click", function () {
-    document.getElementById("loginWrapper").style.display = "block";
-    document.getElementById("registerWrapper").style.display = "none";
+      document.getElementById("loginWrapper").style.display = "block";
+      document.getElementById("registerWrapper").style.display = "none";
   });
 });
-
-document
-  .getElementById("loginForm")
-  .addEventListener("submit", function (event) {
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
     var email = document.getElementById("loginEmail").value;
     var password = document.getElementById("loginPassword").value;
 
-    if (!email || !password) {
-      alert("Veuillez remplir tous les champs.");
-      event.preventDefault(); // Empêche la soumission du formulaire
-    } else {
-      // Ajoutez ici le code de validation et de traitement pour le formulaire de connexion
-    }
-  });
-document
-  .getElementById("registerForm")
-  .addEventListener("submit", function (event) {
-    var registerEmail = document.getElementById("registerEmail").value;
-    var registerPassword = document.getElementById("registerPassword").value;
-    var repeatPasseword = document.getElementById("repeatPassword").value;
-
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    // Vérifier du format de l'adresse email
-    if (!emailRegex.test(registerEmail)) {
-      alert("Veuillez saisir une adresse email valide.");
-      event.preventDefault(); // Empêche la soumission du formulaire
-      return;
-    }
-
-    //Vérifier si l'espace est remplie
-    if (!registerEmail || !registerPassword) {
-      alert("Veuillez remplir tous les champs.");
-      event.preventDefault(); // Empêche la soumission du formulaire
-    } else {
-      // Ajoutez ici le code de validation et de traitement pour le formulaire d'inscription
-    }
-  });
-
-  document.getElementById("registerForm").addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    var registerEmail = document.getElementById("registerEmail").value;
-    var registerPassword = document.getElementById("registerPassword").value;
-
-    // Envoi des données au serveur PHP pour inscription
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "database.php", true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            // Traitement de la réponse du serveur (peut inclure un message de confirmation ou d'erreur)
-            var response = xhr.responseText;
-            // Mettez ici le code pour traiter la réponse
+    xhr.open("POST", "login.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onload = function() {
+        console.log(this.responseText); // Afficher la réponse brute du serveur
+        try {
+
+            var response = JSON.parse(this.responseText);
+            console.log(response); // Afficher l'objet réponse
+            if (response.status === "success") {
+
+                window.location.href = "../php/index.php"; // Redirection vers une nouvelle page
+
+            } else {
+                // Afficher le message d'erreur
+                alert(response.message || "Une erreur est survenue");
+            }
+        } catch (e){
+            console.error("Erreur de parsing JSON: ", e);
         }
-    };
-    xhr.send("action=register&email=" + registerEmail + "&password=" + registerPassword);
+    }   
+    xhr.send("loginEmail=" + encodeURIComponent(email) + "&loginPassword=" + encodeURIComponent(password));
+});
+document.getElementById("registerForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  var emailField = document.getElementById("registerEmail");
+  var password = document.getElementById("registerPassword").value;
+  var repeatPassword = document.getElementById("RepeatPassword").value;
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "register.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onload = function() {
+      console.log(this.responseText); // Afficher la réponse brute du serveur
+      try {
+          var response = JSON.parse(this.responseText);
+          console.log(response); // Afficher l'objet réponse
+          if (response.status === "success") {
+              window.location.href = "../php/index.php"; // Redirection
+          } else if (response.status === "error" && response.message === "email_exists") {
+              // Afficher le champ email en rouge
+              emailField.style.color = 'red';
+              alert("Cet email est déjà utilisé.");
+          } else {
+              // Réinitialiser la couleur du champ email
+              emailField.style.color = 'initial';
+              alert(response.message || "Une erreur est survenue lors de l'enregistrement");
+          }
+      } catch (e) {
+          console.error("Erreur de parsing JSON: ", e);
+      }
+  };
+  xhr.send("registerEmail=" + encodeURIComponent(emailField.value) + "&registerPassword=" + encodeURIComponent(password) + "&RepeatPassword=" + encodeURIComponent(repeatPassword));
 });
