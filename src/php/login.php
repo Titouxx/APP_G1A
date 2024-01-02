@@ -1,24 +1,19 @@
 <?php
 header('Content-Type: application/json');
-
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
- 
 $servername = "localhost";
 $username = "root";
 $password = "";
 
-try{
+try {
     $conn = new PDO("mysql:host=$servername;dbname=siteweb", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // echo "Connexion Réussie !";
-}
-catch(PDOException $e){
+} catch (PDOException $e) {
     echo json_encode(["status" => "error", "message" => $e->getMessage()]);
-    exit(); // Assurez-vous de quitter le script après une erreur
+    exit();
 }
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['loginEmail'];
@@ -29,16 +24,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute(['email' => $email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && $password === $user['password']) {
+    if ($user && password_verify($password, $user['password'])) {
         echo json_encode(["status" => "success"]);
         exit();
-
     } else {
         echo json_encode(["status" => "error", "message" => "Identifiants invalides"]);
         exit();
     }
-
 }
 
 $conn = null;
-?> 
+?>

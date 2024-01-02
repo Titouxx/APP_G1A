@@ -1,6 +1,5 @@
 
 document.addEventListener("DOMContentLoaded", function () {
-<<<<<<< Updated upstream
     // Bascule entre les formulaires
     document.getElementById("registerBtn").addEventListener("click", function () {
         document.getElementById("loginWrapper").style.display = "none";
@@ -48,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
   
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "register.php", true);
-=======
   // Bascule entre les formulaires
   document.getElementById("registerBtn").addEventListener("click", function () {
       document.getElementById("loginWrapper").style.display = "none";
@@ -67,12 +65,10 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
 
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "login.php", true);
->>>>>>> Stashed changes
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onload = function() {
         console.log(this.responseText); // Afficher la réponse brute du serveur
         try {
-<<<<<<< Updated upstream
             var response = JSON.parse(this.responseText);
             console.log(response); // Afficher l'objet réponse
             if (response.status === "success") {
@@ -92,7 +88,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     };
     xhr.send("registerEmail=" + encodeURIComponent(emailField.value) + "&registerPassword=" + encodeURIComponent(password) + "&RepeatPassword=" + encodeURIComponent(repeatPassword));
   });
-=======
+
 
             var response = JSON.parse(this.responseText);
             console.log(response); // Afficher l'objet réponse
@@ -141,4 +137,4 @@ document.getElementById("registerForm").addEventListener("submit", function(even
   };
   xhr.send("registerEmail=" + encodeURIComponent(emailField.value) + "&registerPassword=" + encodeURIComponent(password) + "&RepeatPassword=" + encodeURIComponent(repeatPassword));
 });
->>>>>>> Stashed changes
+
