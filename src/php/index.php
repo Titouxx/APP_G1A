@@ -4,9 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link href="../css/index.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/normalize.css" />
     <script src="../js/jquery.min.js"></script>
-
     <link rel="icon" type="image/x-icon" href="../../images/TransNoise.ico" />
     <title>TransNoise - EchoKey</title>
   </head>
@@ -36,17 +34,34 @@
     <!--gere le texte au milieu de la page-->
     <div class="content">
       <h1>
-        Trouvez <span>Votre </span>
+        Trouvez
+        <br />
+        Votre <br />
         Voix
       </h1>
-      <p class="par">
-        Nous sommes une start up ayant pour but d'aider les artistes à améliorer
-        leur parformances.
-        <br />
-        À l'aide de capteurs diséminer dans plusieurs salles en région
-        parisienne nous anaylsons la justesse des sons.
-      </p>
-      <button class="cn">
+      <img src="../../images/Image_index.jpeg" alt="chanteur" height="300px" />
+    </div>
+    <div class="content-container">
+      <div class="left">
+        <h1 class="Echokey">Echokey</h1>
+        <p class="paragraphe">
+          Beaucoup d'artiste ne dispose pas d'analyse précise de leur
+          performance. Echokey propose une solution innovante, en plaçant des
+          capteurs dernier cri dans les plus grandes salle parisiennes tel que
+          l'Olympia, l'Opera Garnier ou encore le Bataclan. Ces données ainsi
+          collecté par nos capteurs sont analysé et un rapport graphique est
+          directement envoyé a nos clients.
+        </p>
+      </div>
+      <div class="right">
+        <h1>
+          Déjà plus de<br /><span>7 098 personnes </span><br />ont confiance
+          en notre expertise
+        </h1>
+      </div>
+    </div>
+    <div class="buton">
+      <button class="cn" id="scrollButton">
         <a href="Connexion.php">Connectez Vous !</a>
       </button>
     </div>
