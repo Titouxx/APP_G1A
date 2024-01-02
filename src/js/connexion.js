@@ -1,105 +1,140 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     // Bascule entre les formulaires
-    var registerBtn = document.getElementById("registerBtn");
-    var loginBtn = document.getElementById("loginBtn");
-    var loginWrapper = document.getElementById("loginWrapper");
-    var registerWrapper = document.getElementById("registerWrapper");
-  
-    registerBtn.addEventListener("click", function () {
-      loginWrapper.style.display = "none";
-      registerWrapper.style.display = "block";
+    document.getElementById("registerBtn").addEventListener("click", function () {
+        document.getElementById("loginWrapper").style.display = "none";
+        document.getElementById("registerWrapper").style.display = "block";
     });
   
-    loginBtn.addEventListener("click", function () {
-      loginWrapper.style.display = "block";
-      registerWrapper.style.display = "none";
+    document.getElementById("loginBtn").addEventListener("click", function () {
+        document.getElementById("loginWrapper").style.display = "block";
+        document.getElementById("registerWrapper").style.display = "none";
     });
-  
-    // Formulaire de connexion
-    var loginForm = document.getElementById("loginForm");
-    loginForm.addEventListener("submit", function (event) {
+  });
+  document.getElementById("loginForm").addEventListener("submit", function(event) {
       event.preventDefault();
       var email = document.getElementById("loginEmail").value;
       var password = document.getElementById("loginPassword").value;
   
-      // Hacher le mot de passe avant de l'envoyer au serveur
-      bcrypt.hash(password, 10, function (err, hash) {
-        if (err) {
-          console.error("Erreur de hachage du mot de passe : ", err);
-          return;
-        }
-  
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "login.php", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.onload = function () {
-          console.log(this.responseText);
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "login.php", true);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.onload = function() {
+          console.log(this.responseText); // Afficher la réponse brute du serveur
           try {
-            var response = JSON.parse(this.responseText);
-            console.log(response);
-            if (response.status === "success") {
-              window.location.href = "../php/index.php";
-            } else {
-              alert(response.message || "Une erreur est survenue");
-            }
-          } catch (e) {
-            console.error("Erreur de parsing JSON : ", e);
+  
+              var response = JSON.parse(this.responseText);
+              console.log(response); // Afficher l'objet réponse
+              if (response.status === "success") {
+  
+                  window.location.href = "../php/index.php"; // Redirection vers une nouvelle page
+  
+              } else {
+                  // Afficher le message d'erreur
+                  alert(response.message || "Une erreur est survenue");
+              }
+          } catch (e){
+              console.error("Erreur de parsing JSON: ", e);
           }
-        };
+      }   
+      xhr.send("loginEmail=" + encodeURIComponent(email) + "&loginPassword=" + encodeURIComponent(password));
+  });
+  document.getElementById("registerForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    var emailField = document.getElementById("registerEmail");
+    var password = document.getElementById("registerPassword").value;
+    var repeatPassword = document.getElementById("RepeatPassword").value;
   
-        // Utilisez le mot de passe haché dans la requête
-        xhr.send("loginEmail=" + encodeURIComponent(email) + "&loginPassword=" + encodeURIComponent(hash));
-      });
-    });
-  
-    // Formulaire d'enregistrement
-    var registerForm = document.getElementById("registerForm");
-    registerForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-      var emailField = document.getElementById("registerEmail");
-      var password = document.getElementById("registerPassword").value;
-      var repeatPassword = document.getElementById("RepeatPassword").value;
-  
-      // Vérifiez si les mots de passe correspondent
-      if (password !== repeatPassword) {
-        alert("Les mots de passe ne correspondent pas.");
-        return;
-      }
-  
-      // Hachez le mot de passe avant de l'envoyer au serveur
-      bcrypt.hash(password, 10, function (err, hash) {
-        if (err) {
-          console.error("Erreur de hachage du mot de passe : ", err);
-          return;
-        }
-  
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "register.php", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.onload = function () {
-          console.log(this.responseText);
-          try {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "register.php", true);
+  // Bascule entre les formulaires
+  document.getElementById("registerBtn").addEventListener("click", function () {
+      document.getElementById("loginWrapper").style.display = "none";
+      document.getElementById("registerWrapper").style.display = "block";
+  });
+
+  document.getElementById("loginBtn").addEventListener("click", function () {
+      document.getElementById("loginWrapper").style.display = "block";
+      document.getElementById("registerWrapper").style.display = "none";
+  });
+});
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    var email = document.getElementById("loginEmail").value;
+    var password = document.getElementById("loginPassword").value;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "login.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onload = function() {
+        console.log(this.responseText); // Afficher la réponse brute du serveur
+        try {
             var response = JSON.parse(this.responseText);
-            console.log(response);
+            console.log(response); // Afficher l'objet réponse
             if (response.status === "success") {
-              window.location.href = "../php/index.php";
+                window.location.href = "../php/index.php"; // Redirection
             } else if (response.status === "error" && response.message === "email_exists") {
+                // Afficher le champ email en rouge
+                emailField.style.color = 'red';
+                alert("Cet email est déjà utilisé.");
+            } else {
+                // Réinitialiser la couleur du champ email
+                emailField.style.color = 'initial';
+                alert(response.message || "Une erreur est survenue lors de l'enregistrement");
+            }
+        } catch (e) {
+            console.error("Erreur de parsing JSON: ", e);
+        }
+    };
+    xhr.send("registerEmail=" + encodeURIComponent(emailField.value) + "&registerPassword=" + encodeURIComponent(password) + "&RepeatPassword=" + encodeURIComponent(repeatPassword));
+  });
+
+
+            var response = JSON.parse(this.responseText);
+            console.log(response); // Afficher l'objet réponse
+            if (response.status === "success") {
+
+                window.location.href = "../php/index.php"; // Redirection vers une nouvelle page
+
+            } else {
+                // Afficher le message d'erreur
+                alert(response.message || "Une erreur est survenue");
+            }
+        } catch (e){
+            console.error("Erreur de parsing JSON: ", e);
+        }
+    }   
+    xhr.send("loginEmail=" + encodeURIComponent(email) + "&loginPassword=" + encodeURIComponent(password));
+});
+document.getElementById("registerForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  var emailField = document.getElementById("registerEmail");
+  var password = document.getElementById("registerPassword").value;
+  var repeatPassword = document.getElementById("RepeatPassword").value;
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "register.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onload = function() {
+      console.log(this.responseText); // Afficher la réponse brute du serveur
+      try {
+          var response = JSON.parse(this.responseText);
+          console.log(response); // Afficher l'objet réponse
+          if (response.status === "success") {
+              window.location.href = "../php/index.php"; // Redirection
+          } else if (response.status === "error" && response.message === "email_exists") {
               // Afficher le champ email en rouge
               emailField.style.color = 'red';
               alert("Cet email est déjà utilisé.");
-            } else {
+          } else {
               // Réinitialiser la couleur du champ email
               emailField.style.color = 'initial';
               alert(response.message || "Une erreur est survenue lors de l'enregistrement");
-            }
-          } catch (e) {
-            console.error("Erreur de parsing JSON : ", e);
           }
-        };
-  
-        // Utilisez le mot de passe haché dans la requête
-        xhr.send("registerEmail=" + encodeURIComponent(emailField.value) + "&registerPassword=" + encodeURIComponent(hash));
-      });
-    });
-  });
-  
+      } catch (e) {
+          console.error("Erreur de parsing JSON: ", e);
+      }
+  };
+  xhr.send("registerEmail=" + encodeURIComponent(emailField.value) + "&registerPassword=" + encodeURIComponent(password) + "&RepeatPassword=" + encodeURIComponent(repeatPassword));
+});
+
