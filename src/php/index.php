@@ -55,7 +55,7 @@
       </div>
       <div class="right">
         <h1>
-          Déjà plus de<br /><span>167 098 personnes </span><br />ont confiance
+          Déjà plus de<br /><span>7 098 personnes </span><br />ont confiance
           en notre expertise
         </h1>
       </div>
