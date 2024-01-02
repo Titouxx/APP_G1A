@@ -19,7 +19,6 @@ catch(PDOException $e){
     exit(); // Assurez-vous de quitter le script après une erreur
 }
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['loginEmail'];
     $password = $_POST['loginPassword'];

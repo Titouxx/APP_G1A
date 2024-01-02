@@ -31,7 +31,6 @@ try {
             echo json_encode(["status" => "error", "message" => "email_exists"]);
             exit;
         }
-
         // Création de la requête SQL
         $sql = "INSERT INTO user (email, password) VALUES (:email, :password)";
         $stmt = $conn->prepare($sql);
