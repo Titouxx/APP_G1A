@@ -39,8 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Erreur de parsing JSON : ", e);
       }
     };
-    xhr.send("registerEmail=" + encodeURIComponent(emailField.value) + "&registerPassword=" + encodeURIComponent(password) + "&RepeatPassword=" + encodeURIComponent(repeatPassword));
-  });
 
     // Envoyer le mot de passe en clair dans la requête (non recommandé en production)
     xhr.send("loginEmail=" + encodeURIComponent(email) + "&loginPassword=" + encodeURIComponent(password));
