@@ -225,7 +225,7 @@ body {
   top: 0;
   right: -50%; /* Adjust to hide the tab initially */
   width: 50%;
-  height: 100%;
+  height: auto;
   background-color: #f7eeff;
   transition: 0.3s ease-out;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
