@@ -1,4 +1,7 @@
 <?php
+
+//*********************************************Code à copier********************************
+//****************************************connexion base de données********************************  
 header('Content-Type: application/json');
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -14,6 +17,8 @@ try {
     echo json_encode(["status" => "error", "message" => $e->getMessage()]);
     exit();
 }
+//******************************************Code à copier au dessus********************************  
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['loginEmail'];
