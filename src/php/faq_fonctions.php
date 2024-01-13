@@ -1,4 +1,11 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'chemin/vers/PHPMailer/src/Exception.php';
+require 'chemin/vers/PHPMailer/src/PHPMailer.php';
+require 'chemin/vers/PHPMailer/src/SMTP.php';
+
 // Récupérer la valeur de la recherche (dans cet exemple, elle est envoyée en tant que 'query')
 if(isset($_POST['query'])) {
     $query = $_POST['query'];
@@ -28,22 +35,39 @@ if(isset($_POST['query'])) {
             $email_utilisateur = $row['email'];
 
             // Envoi de l'e-mail à l'utilisateur
-            $to = $email_utilisateur;
-            $subject = "Sujet de l'e-mail";
-            $message = "Contenu de l'e-mail pour l'utilisateur";
-            $headers = "thegamer0092130@gmail.com"; // Remplacez par votre adresse e-mail
+            $mail = new PHPMailer(true);
 
-            // Envoyer l'e-mail
-            mail($to, $subject, $message, $headers);
-            
-            // Message de réussite avec indicateur de connexion
-            echo "E-mail envoyé à l'utilisateur : ".$to."\n";
-            echo "Statut de connexion : connected";
+            try {
+                // Configuration du serveur SMTP
+                $mail->isSMTP();
+                $mail->Host       = 'smtp.example.com'; // Remplacez par le serveur SMTP approprié
+                $mail->SMTPAuth   = true;
+                $mail->Username   = 'votre_adresse_email@example.com';
+                $mail->Password   = 'votre_mot_de_passe';
+                $mail->SMTPSecure = 'tls'; // ou 'ssl' si vous utilisez le port 465
+                $mail->Port       = 587;
+
+                // Autres configurations
+                $mail->setFrom('votre_adresse_email@example.com', 'Votre Nom');
+                $mail->addAddress($email_utilisateur);
+                $mail->isHTML(true);
+                $mail->Subject = 'Sujet du message';
+                $mail->Body    = 'Contenu du message';
+
+                // Envoyer l'e-mail
+                $mail->send();
+                
+                // Message de réussite avec indicateur de connexion
+                echo "E-mail envoyé à l'utilisateur : ".$email_utilisateur."\n";
+                echo "Statut de connexion : connected";
+            } catch (Exception $e) {
+                echo "Erreur lors de l'envoi de l'e-mail : {$mail->ErrorInfo}";
+            }
         }
     } else {
         // Aucun utilisateur trouvé pour cette recherche
         echo "Aucun utilisateur trouvé pour cette recherche.\n";
-        echo "Statut de connexion : connected"; // Vous pouvez ajuster ce message en fonction de votre logique
+        echo "Statut de connexion : connected";
     }
 
     // Fermer la connexion à la base de données
@@ -51,6 +75,6 @@ if(isset($_POST['query'])) {
 } else {
     // Aucune donnée de recherche reçue
     echo "Aucune donnée de recherche reçue.\n";
-    echo "Statut de connexion : connected"; // Vous pouvez ajuster ce message en fonction de votre logique
+    echo "Statut de connexion : connected";
 }
 ?>
