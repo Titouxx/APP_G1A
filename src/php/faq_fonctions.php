@@ -14,7 +14,7 @@ if(isset($_POST['query'])) {
     // Remplacer les paramètres suivants par vos propres informations de connexion
     $serveur = "localhost";
     $utilisateur = "siteweb";
-    $motdepasse = "";
+    $motdepasse = '';
     $basededonnees = "siteweb";
 
     $connexion = new mysqli($serveur, $utilisateur, $motdepasse, $basededonnees);
