@@ -43,6 +43,10 @@
   </div>
 </div>
 
+<!-- message de bienvenue -->
+<div id="welcomeMessage"></div>
+
+
 <script>
 $(document).ready(function(){
   $('#searchForm').submit(function(event){

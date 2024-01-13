@@ -2,16 +2,15 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'C:\xampp\htdocs\APP_G1A\src\php\PHPMailer-master\src\Exception.php';
-require 'C:\xampp\htdocs\APP_G1A\src\php\PHPMailer-master\src\PHPMailer.php';
-require 'C:\xampp\htdocs\APP_G1A\src\php\PHPMailer-master\src\SMTP.php';
+require 'PHPMailer-master/src/Exception.php';
+require 'PHPMailer-master/src/PHPMailer.php';
+require 'PHPMailer-master/src/SMTP.php';
 
 // Récupérer la valeur de la recherche (dans cet exemple, elle est envoyée en tant que 'query')
 if(isset($_POST['query'])) {
     $query = $_POST['query'];
 
     // Connexion à la base de données
-    // Remplacer les paramètres suivants par vos propres informations de connexion
     $serveur = "localhost";
     $utilisateur = "siteweb";
     $motdepasse = '';
@@ -25,14 +24,17 @@ if(isset($_POST['query'])) {
     }
 
     // Requête SQL pour récupérer l'e-mail de l'utilisateur en fonction de la recherche
-    $sql = "SELECT email FROM user WHERE email = '$query'"; // Utilisez la colonne correcte de votre base de données
-
-    $resultat = $connexion->query($sql);
+    $stmt = $connexion->prepare("SELECT email, prenom, nom FROM user WHERE email = ?");
+    $stmt->bind_param("s", $query);
+    $stmt->execute();
+    $resultat = $stmt->get_result();
 
     if ($resultat->num_rows > 0) {
         // Récupérer l'e-mail de l'utilisateur
         while($row = $resultat->fetch_assoc()) {
             $email_utilisateur = $row['email'];
+            $prenom_utilisateur = $row['prenom'];
+            $nom_utilisateur = $row['nom'];
 
             // Envoi de l'e-mail à l'utilisateur
             $mail = new PHPMailer(true);
@@ -51,8 +53,8 @@ if(isset($_POST['query'])) {
                 $mail->setFrom('transnoiseechokey@gmail.com', 'TransNoise - Echokey');
                 $mail->addAddress($email_utilisateur);
                 $mail->isHTML(true);
-                $mail->Subject = 'Sujet du message';
-                $mail->Body    = 'Contenu du message';
+                $mail->Subject = 'Bienvenue sur notre site';
+                $mail->Body    = 'Bonjour '.$prenom_utilisateur.' '.$nom_utilisateur.' ! Merci de visiter notre site.';
 
                 // Niveau de débogage
                 $mail->SMTPDebug = 2;
@@ -63,6 +65,9 @@ if(isset($_POST['query'])) {
                 // Message de réussite avec indicateur de connexion
                 echo "E-mail envoyé à l'utilisateur : ".$email_utilisateur."\n";
                 echo "Statut de connexion : connected";
+
+                // Ajout du message de bienvenue dans la balise div
+                echo '<script>document.getElementById("welcomeMessage").innerHTML = "Bonjour '.$prenom_utilisateur.' '.$nom_utilisateur.' !";</script>';
             } catch (Exception $e) {
                 echo "Erreur lors de l'envoi de l'e-mail : {$mail->ErrorInfo}";
             }
