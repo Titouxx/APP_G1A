@@ -63,11 +63,13 @@ if(isset($_POST['query'])) {
                 $mail->send();
                 
                 // Message de réussite avec indicateur de connexion
-                echo "E-mail envoyé à l'utilisateur : ".$email_utilisateur."\n";
-                echo "Statut de connexion : connected";
-
-                // Ajout du message de bienvenue dans la balise div
-                echo '<script>document.getElementById("welcomeMessage").innerHTML = "Bonjour '.$prenom_utilisateur.' '.$nom_utilisateur.' !";</script>';
+                $response = array(
+                    'status' => 'success',
+                    'message' => 'E-mail envoyé à l\'utilisateur : ' . $email_utilisateur,
+                    'welcomeMessage' => 'Bonjour ' . $prenom_utilisateur . ' ' . $nom_utilisateur . ' !'
+                );
+                echo json_encode($response);
+                
             } catch (Exception $e) {
                 echo "Erreur lors de l'envoi de l'e-mail : {$mail->ErrorInfo}";
             }

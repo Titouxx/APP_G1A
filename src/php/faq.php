@@ -1,4 +1,17 @@
-﻿<!DOCTYPE html>
+﻿<?php
+session_start(); // Démarrez la session au début de chaque page PHP
+
+// Vérifiez la dernière activité et déconnectez l'utilisateur après 1 heure d'inactivité
+if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 3600)) {
+    // Déconnecter l'utilisateur après 1 heure d'inactivité
+    session_unset();
+    session_destroy();
+}
+
+$_SESSION['last_activity'] = time();
+?>
+
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="utf-8">
@@ -60,10 +73,16 @@ $(document).ready(function(){
           method: 'POST',
           data: { query: query },
           success: function(response){
-              // Traiter la réponse après exécution réussie du fichier PHP
-              alert('E-mail envoyé à l\'utilisateur avec succès !');
-              console.log(response); // Afficher la réponse dans la console (facultatif)
-          },
+    // Traiter la réponse après exécution réussie du fichier PHP
+    alert('E-mail envoyé à l\'utilisateur avec succès !');
+    console.log(response); // Afficher la réponse dans la console (facultatif)
+
+    // Vérifier si la réponse contient un message de bienvenue
+    if (response.welcomeMessage) {
+        document.getElementById("welcomeMessage").innerHTML = response.welcomeMessage;
+    }
+},
+
           error: function(){
               // Gestion des erreurs
               alert('Erreur lors de l\'envoi de l\'e-mail.');
