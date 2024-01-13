@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 09 jan. 2024 à 22:30
+-- Généré le : sam. 13 jan. 2024 à 23:22
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -43,7 +43,7 @@ INSERT INTO `user` (`id_User`, `prenom`, `nom`, `email`, `password`) VALUES
 (1, 'kelyan', 'taverny', 'kelyan@gmail.com', 'kelyantaverny'),
 (2, '', '', 'marie@gmail.com', 'mariemarie'),
 (3, '', '', 'pierre@gmail.com', 'pierre'),
-(4, '', '', 'islam61886@gmail.com', 'azertyui');
+(4, 'Islam', 'AIT-SLIMANE', 'islam61886@gmail.com', 'azertyui');
 
 --
 -- Index pour les tables déchargées
