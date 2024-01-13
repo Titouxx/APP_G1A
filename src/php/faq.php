@@ -56,7 +56,7 @@ $(document).ready(function(){
 
       // Envoyer la valeur à un fichier PHP pour traitement
       $.ajax({
-          url: '../php/faq_fonctions.php',
+          url: 'faq_fonctions.php',
           method: 'POST',
           data: { query: query },
           success: function(response){
