@@ -2,9 +2,9 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'chemin/vers/PHPMailer/src/Exception.php';
-require 'chemin/vers/PHPMailer/src/PHPMailer.php';
-require 'chemin/vers/PHPMailer/src/SMTP.php';
+require 'C:\xampp\htdocs\APP_G1A\src\php\PHPMailer-master\src\Exception.php';
+require 'C:\xampp\htdocs\APP_G1A\src\php\PHPMailer-master\src\PHPMailer.php';
+require 'C:\xampp\htdocs\APP_G1A\src\php\PHPMailer-master\src\SMTP.php';
 
 // Récupérer la valeur de la recherche (dans cet exemple, elle est envoyée en tant que 'query')
 if(isset($_POST['query'])) {
@@ -40,11 +40,11 @@ if(isset($_POST['query'])) {
             try {
                 // Configuration du serveur SMTP
                 $mail->isSMTP();
-                $mail->Host       = 'smtp.gmail.com'; // Remplacez par le serveur SMTP approprié
+                $mail->Host       = 'smtp.gmail.com';
                 $mail->SMTPAuth   = true;
                 $mail->Username   = 'transnoiseechokey@gmail.com';
                 $mail->Password   = 'azertyui1234*';
-                $mail->SMTPSecure = 'tls'; // ou 'ssl' si vous utilisez le port 465
+                $mail->SMTPSecure = 'tls';
                 $mail->Port       = 587;
 
                 // Autres configurations
@@ -53,6 +53,9 @@ if(isset($_POST['query'])) {
                 $mail->isHTML(true);
                 $mail->Subject = 'Sujet du message';
                 $mail->Body    = 'Contenu du message';
+
+                // Niveau de débogage
+                $mail->SMTPDebug = 2;
 
                 // Envoyer l'e-mail
                 $mail->send();
