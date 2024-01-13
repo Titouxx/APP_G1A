@@ -43,28 +43,32 @@
   </div>
 </div>
 
-<script><!-- Script pour gérer la requête de recherche -->
+<script>
 $(document).ready(function(){
   $('#searchForm').submit(function(event){
       event.preventDefault(); // Empêcher le comportement par défaut du formulaire
 
       var query = $('#searchQueryInput').val();// Récupérer la valeur du champ de recherche
 
-      $.ajax({// Envoyer la valeur à un fichier PHP pour traitement
-          url: '../php/faq_fonctions.php', // Chemin vers le fichier PHP à exécuter
-          method: 'POST', // Utilisation de la méthode POST pour envoyer les données
-          data: { query: query }, // Données à envoyer (dans cet exemple, la requête de recherche)
+      // Envoyer la valeur à un fichier PHP pour traitement
+      $.ajax({
+          url: '../php/faq_fonctions.php',
+          method: 'POST',
+          data: { query: query },
           success: function(response){
-              alert('E-mail envoyé à l\'utilisateur avec succès !');// Traiter la réponse après exécution réussie du fichier PHP
+              // Traiter la réponse après exécution réussie du fichier PHP
+              alert('E-mail envoyé à l\'utilisateur avec succès !');
               console.log(response); // Afficher la réponse dans la console (facultatif)
           },
           error: function(){
-              alert('Erreur lors de l\'envoi de l\'e-mail.');// Gestion des erreurs
+              // Gestion des erreurs
+              alert('Erreur lors de l\'envoi de l\'e-mail.');
           }
       });
   });
 });
 </script>
+
 
 <h4 style="text-align: center;"><br>Ou consultez les questions suivantes:</h4> <!--questions génériques-->
     <div class="accordion">
