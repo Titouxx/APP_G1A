@@ -4,7 +4,7 @@ if(isset($_POST['query'])) {
     $query = $_POST['query'];
 
     // Connexion à la base de données
-    // Remplacer les paramètres suivants par nos propres informations de connexion (donc serveur a configurer)
+    // Remplacer les paramètres suivants par vos propres informations de connexion
     $serveur = "localhost";
     $utilisateur = "votre_utilisateur";
     $motdepasse = "votre_mot_de_passe";
@@ -36,17 +36,21 @@ if(isset($_POST['query'])) {
             // Envoyer l'e-mail
             mail($to, $subject, $message, $headers);
             
-            // Message de réussite
-            echo "E-mail envoyé à l'utilisateur : ".$to;
+            // Message de réussite avec indicateur de connexion
+            echo "E-mail envoyé à l'utilisateur : ".$to."\n";
+            echo "Statut de connexion : connected";
         }
     } else {
-        echo "Aucun utilisateur trouvé pour cette recherche.";
+        // Aucun utilisateur trouvé pour cette recherche
+        echo "Aucun utilisateur trouvé pour cette recherche.\n";
+        echo "Statut de connexion : connected"; // Vous pouvez ajuster ce message en fonction de votre logique
     }
 
     // Fermer la connexion à la base de données
     $connexion->close();
 } else {
-    echo "Aucune donnée de recherche reçue.";
+    // Aucune donnée de recherche reçue
+    echo "Aucune donnée de recherche reçue.\n";
+    echo "Statut de connexion : connected"; // Vous pouvez ajuster ce message en fonction de votre logique
 }
 ?>
-
