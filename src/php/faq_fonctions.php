@@ -4,11 +4,11 @@ if(isset($_POST['query'])) {
     $query = $_POST['query'];
 
     // Connexion à la base de données
-    // Remplacer les paramètres suivants par nos propres informations de connexion (donc serveur a configurer)
+    // Remplacer les paramètres suivants par vos propres informations de connexion
     $serveur = "localhost";
-    $utilisateur = "votre_utilisateur";
-    $motdepasse = "votre_mot_de_passe";
-    $basededonnees = "votre_base_de_donnees";
+    $utilisateur = "siteweb";
+    $motdepasse = "";
+    $basededonnees = "siteweb";
 
     $connexion = new mysqli($serveur, $utilisateur, $motdepasse, $basededonnees);
 
@@ -18,7 +18,7 @@ if(isset($_POST['query'])) {
     }
 
     // Requête SQL pour récupérer l'e-mail de l'utilisateur en fonction de la recherche
-    $sql = "SELECT email FROM utilisateurs WHERE recherche_colonne = '$query'"; // Remplacez 'recherche_colonne' par la colonne utilisée pour la recherche
+    $sql = "SELECT email FROM user WHERE email = '$query'"; // Utilisez la colonne correcte de votre base de données
 
     $resultat = $connexion->query($sql);
 
@@ -31,22 +31,26 @@ if(isset($_POST['query'])) {
             $to = $email_utilisateur;
             $subject = "Sujet de l'e-mail";
             $message = "Contenu de l'e-mail pour l'utilisateur";
-            $headers = "From: votre_email@example.com"; // Remplacez par votre adresse e-mail
+            $headers = "thegamer0092130@gmail.com"; // Remplacez par votre adresse e-mail
 
             // Envoyer l'e-mail
             mail($to, $subject, $message, $headers);
             
-            // Message de réussite
-            echo "E-mail envoyé à l'utilisateur : ".$to;
+            // Message de réussite avec indicateur de connexion
+            echo "E-mail envoyé à l'utilisateur : ".$to."\n";
+            echo "Statut de connexion : connected";
         }
     } else {
-        echo "Aucun utilisateur trouvé pour cette recherche.";
+        // Aucun utilisateur trouvé pour cette recherche
+        echo "Aucun utilisateur trouvé pour cette recherche.\n";
+        echo "Statut de connexion : connected"; // Vous pouvez ajuster ce message en fonction de votre logique
     }
 
     // Fermer la connexion à la base de données
     $connexion->close();
 } else {
-    echo "Aucune donnée de recherche reçue.";
+    // Aucune donnée de recherche reçue
+    echo "Aucune donnée de recherche reçue.\n";
+    echo "Statut de connexion : connected"; // Vous pouvez ajuster ce message en fonction de votre logique
 }
 ?>
-
