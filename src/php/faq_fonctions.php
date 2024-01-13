@@ -40,15 +40,15 @@ if(isset($_POST['query'])) {
             try {
                 // Configuration du serveur SMTP
                 $mail->isSMTP();
-                $mail->Host       = 'smtp.example.com'; // Remplacez par le serveur SMTP approprié
+                $mail->Host       = 'smtp.gmail.com'; // Remplacez par le serveur SMTP approprié
                 $mail->SMTPAuth   = true;
-                $mail->Username   = 'votre_adresse_email@example.com';
-                $mail->Password   = 'votre_mot_de_passe';
+                $mail->Username   = 'transnoiseechokey@gmail.com';
+                $mail->Password   = 'azertyui1234*';
                 $mail->SMTPSecure = 'tls'; // ou 'ssl' si vous utilisez le port 465
                 $mail->Port       = 587;
 
                 // Autres configurations
-                $mail->setFrom('votre_adresse_email@example.com', 'Votre Nom');
+                $mail->setFrom('transnoiseechokey@gmail.com', 'TransNoise - Echokey');
                 $mail->addAddress($email_utilisateur);
                 $mail->isHTML(true);
                 $mail->Subject = 'Sujet du message';
