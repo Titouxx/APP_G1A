@@ -18,7 +18,7 @@ if(isset($_POST['query'])) {
     }
 
     // Requête SQL pour récupérer l'e-mail de l'utilisateur en fonction de la recherche
-    $sql = "SELECT email FROM utilisateurs WHERE recherche_colonne = '$query'"; // Remplacez 'recherche_colonne' par la colonne utilisée pour la recherche
+    $sql = "SELECT email FROM user WHERE email = '$query'"; // Utilisez la colonne correcte de votre base de données
 
     $resultat = $connexion->query($sql);
 
@@ -31,7 +31,7 @@ if(isset($_POST['query'])) {
             $to = $email_utilisateur;
             $subject = "Sujet de l'e-mail";
             $message = "Contenu de l'e-mail pour l'utilisateur";
-            $headers = "From: votre_email@example.com"; // Remplacez par votre adresse e-mail
+            $headers = "thegamer0092130@gmail.com"; // Remplacez par votre adresse e-mail
 
             // Envoyer l'e-mail
             mail($to, $subject, $message, $headers);
