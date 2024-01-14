@@ -1,13 +1,12 @@
 ﻿<?php
-session_start(); // Démarrez la session au début de chaque page PHP
-
+// Démarrez la session au début de chaque page PHP
+session_start();
 // Vérifiez la dernière activité et déconnectez l'utilisateur après 1 heure d'inactivité
 if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 3600)) {
     // Déconnecter l'utilisateur après 1 heure d'inactivité
     session_unset();
     session_destroy();
 }
-
 $_SESSION['last_activity'] = time();
 ?>
 
