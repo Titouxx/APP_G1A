@@ -95,6 +95,7 @@
         </td>
       </tr>
     </table>
+    <script src = "../js/analyse.js"> </script>
   </body>
   <footer>
     <div>
