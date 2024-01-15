@@ -27,6 +27,7 @@
         <figure>
           <a href="profil.html">
             <img src="../../images/img-profil.png" id="img-profil"/>
+            <div class="image-text">profil</div>
           </a>
         </figure>
         <span></span>
@@ -36,6 +37,7 @@
         <figure>
           <a href="analyse.html">
             <img src="../../images/img-analyse.png" id="img-analyse"/>
+            <div class="image-text2">analyse</div>
           </a>
         </figure>
         <span></span>
@@ -45,6 +47,7 @@
         <figure>
           <a href="forum.html">
             <img src="../../images/img-forum.png" id="img-forum" />
+            <div class="image-text3">forum</div>
           </a>
         </figure>
         <span></span>
