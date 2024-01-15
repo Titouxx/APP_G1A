@@ -11,10 +11,10 @@
   <body background="../../images/bgtest2.png">
     <nav>
       <ul class="menu">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="analyse.php">Analyse</a></li>
-        <li><a href="faq.php">Faq</a></li>
-        <li><a href="espaceuser.php">Profil</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="analyse.html">Analyse</a></li>
+        <li><a href="faq.html">Faq</a></li>
+        <li><a href="espaceuser.html">Profil</a></li>
       </ul>
     </nav>
 
@@ -25,7 +25,7 @@
     <div class="main" style="width: 100%;height: 80%;float: left">
       <div class="img1" style="margin-top: 200px">
         <figure>
-          <a href="profil.php">
+          <a href="profil.html">
             <img src="../../images/img-profil.png" id="img-profil"/>
           </a>
         </figure>
@@ -34,7 +34,7 @@
 
       <div class="img2" style="margin-top: 200px">
         <figure>
-          <a href="analyse.php">
+          <a href="analyse.html">
             <img src="../../images/img-analyse.png" id="img-analyse"/>
           </a>
         </figure>
@@ -43,7 +43,7 @@
 
       <div class="img3" style="margin-top: 200px">
         <figure>
-          <a href="forum.php">
+          <a href="forum.html">
             <img src="../../images/img-forum.png" id="img-forum" />
           </a>
         </figure>

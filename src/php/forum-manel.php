@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>TransNoise - EchoKey</title>
-    <link rel="stylesheet" href="../css/forum.css" />
+    <link rel="stylesheet" href="../css/forum-manel.css" />
 
     <link rel="stylesheet" href="../css/normalize.css" />
     <link rel="stylesheet" href="../css/espaceuser.css" />
@@ -22,7 +22,7 @@
     </nav>
 
     <header>
-      <img src="../../images/forumpic2.png" />
+      <img src="../../images/forum.png" />
     </header>
 
     <!-- forum section -->
@@ -39,7 +39,6 @@
       </div>
     </div>
 
-    <!--à enlever quand on aura une base de donnée-->
-    <script src="../js/forum.js"></script>
+    <script src="../js/forum-manel.js"></script>
   </body>
 </html>
