@@ -181,23 +181,6 @@ body {
 .img1 figure:hover img {
   opacity: 0.5;
 }
-.img1 figure::after {
-  content: "profil";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  color: rgb(72, 26, 99);
-  font-size: 20px;
-  font-weight: bold;
-  transition: opacity 0.3s ease-in-out;
-  pointer-events: none; /* Allows hover through the text */
-}
-
-.img1 figure:hover::after {
-  opacity: 1;
-}
 
 .img2 figure img {
   opacity: 1;
@@ -327,4 +310,66 @@ body {
 
 #LTransnoise {
   margin-left: 5px; /* Ajoutez une marge à gauche pour espacer cette image */
+}
+
+/* Hover sur les icones*/
+.img1 {
+  position: relative;
+  display: inline-block;
+}
+
+.image-text {
+  position: absolute;
+  top: 45%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  opacity: 0; /* initially hidden */
+  transition: opacity 0.3s ease;
+}
+
+.img1:hover .image-text {
+  opacity: 1; /* show text on hover */
+}
+
+.img2 {
+  position: relative;
+  display: inline-block;
+}
+.image-text2 {
+  position: absolute;
+  top: 50%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  opacity: 0; /* initially hidden */
+  transition: opacity 0.3s ease;
+}
+
+.img2:hover .image-text2 {
+  opacity: 1; /* show text on hover */
+}
+
+.img3 {
+  position: relative;
+  display: inline-block;
+}
+.image-text3 {
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  opacity: 0; /* initially hidden */
+  transition: opacity 0.3s ease;
+}
+
+.img3:hover .image-text3 {
+  opacity: 1; /* show text on hover */
 }
