@@ -20,6 +20,10 @@
       </ul>
     </nav>
 
+    <?php
+      header('Location: connexion.php');
+    ?>
+
     <img
       id="Logo"
       src="../../images/EchoKey.png"
