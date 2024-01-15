@@ -374,3 +374,9 @@ body {
 .img3:hover .image-text3 {
   opacity: 1; /* show text on hover */
 }
+
+.art1 {
+  .p {
+    text-align: left;
+  }
+}
