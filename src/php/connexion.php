@@ -16,7 +16,7 @@
     <!--Formulaire de connexion-->
     <div class="wrapper" id="loginWrapper">
       <form id="loginForm" action="login.php" method="post">
-        <h1>Login</h1>
+        <h1>Se connecter</h1>
         <div class="input-box">
           <input type="text" id="loginEmail" name="loginEmail" placeholder="Email" required /><i
             class="bx bxs-user"
@@ -27,26 +27,26 @@
             type="password"
             id="loginPassword"
             name="loginPassword"
-            placeholder="Password"
+            placeholder="Mot de passe"
             required
           /><i class="bx bxs-lock-alt"></i>
         </div>
 
         <div class="remember-forgot">
-          <label><input type="checkbox" /> Remember me</label>
-          <a href="#">Forgot password?</a>
+          <label><input type="checkbox" /> Se souvenir de moi</label>
+          <a href="#">Mot de passe oublié ?</a>
         </div>
 
-        <button type="submit" class="btn">Login</button>
-        <p>Don't have an account?</p>
-        <button type="button" id="registerBtn" class="btn">Register</button>
+        <button type="submit" class="btn">Se connecter</button>
+        <p>Compte inexistant ?</p>
+        <button type="button" id="registerBtn" class="btn">S'enregistrer</button>
       </form>
     </div>
 
 
     <div class="wrapper2" id="registerWrapper" style="display: none">
       <form id="registerForm" action="register.php" method="post">
-        <h1>Register</h1>
+        <h1>Enregistrement</h1>
         <div class="input-box">
           <input
             type="text"
@@ -61,7 +61,7 @@
             type="password"
             id="registerPassword"
             name="registerPassword"
-            placeholder="Password"
+            placeholder="Mot de passe"
             required
           /><i class="bx bxs-lock-alt"></i>
         </div>
@@ -75,9 +75,9 @@
           /><i class="bx bxs-lock-alt"></i>
         </div>
 
-        <button type="submit" class="btn">Register</button>
-        <p>Already have an account?</p>
-        <button type="button" id="loginBtn" class="btn">Sign in</button>
+        <button type="submit" class="btn">S'enregistrer</button>
+        <p>J'ai déjà un compte</p>
+        <button type="button" id="loginBtn" class="btn">Se connecter</button>
       </form>
     </div>
      <script src = "../js/connexion.js"> </script>
