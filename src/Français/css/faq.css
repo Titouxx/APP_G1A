@@ -491,15 +491,6 @@ will-change: opacity, max-height;
   font-weight: bold;
 }
 
-/*message de bienvenue */
-#welcomeMessage {
-  position: fixed;
-  top: 50%;
-  left: 10px; /* mise en page */
-  font-size: 50px;
-  transform: translateY(-50%);
-  color: #ff0000;
-}
 
 
 /* Définissez les styles pour les appareils mobiles avec une largeur maximale de 767px */

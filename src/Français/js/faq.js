@@ -22,15 +22,21 @@ function toggleAccordion() {
 // Ajoute un écouteur d'événement pour chaque élément, déclenchant la fonction toggleAccordion lors d'un clic
 items.forEach(item => item.addEventListener('click', toggleAccordion));
 
-const arrowIcon = document.getElementById('hoverImage'); // Hover pour l'image
+
+
+
+
+const arrowIcon = document.getElementById('hoverImage');// Hover pour l'image
 
 arrowIcon.addEventListener('mouseover', function() {
-  this.setAttribute('href', '../../images/arrow_hover.png'); // URL de l'image au survol
+  this.setAttribute('href', '../../images/arrow_hover.png'); //URL de l'image au survol
 });
 
 arrowIcon.addEventListener('mouseout', function() {
   this.setAttribute('href', '../../images/arrow.png'); // L'image initiale
 });
+
+
 
 /* Barre de recherche type CTRL+F */
 // Code pour la recherche avec surlignage
@@ -49,7 +55,7 @@ document.getElementById('searchInput').addEventListener('input', function() {
 
     var regex = new RegExp(searchValue, 'gi');
     var highlightedText = elementText.replace(regex, match => `<span class="highlight">${match}</span>`);
-
+  
     element.innerHTML = highlightedText;
   });
 });
@@ -69,18 +75,19 @@ document.getElementById('searchInput').addEventListener('blur', function() {
   this.value = '';
 });
 
-// Popup servant à la déconnexion
-function deconnexion() {
+//popup servant a la deconnexion
+function deconnexion(){
   var result = confirm("Voulez-vous vraiment vous déconnecter?");
-  if (result == true) {
-    alert("Merci de votre visite");
-    // +Insérer ici le code permettant la déconnexion
-  } else {
-    // On ferme juste la popup puisqu'on ne se déconnecte pas en cliquant sur annuler
-  }
+if (result == true) {
+alert("Merci de votre visite");
+//+Insérer ici code permettant la déconnexion
+}
+else {
+//On ferme juste la popup puisqu'on ne se deconnecte pas en cliquant sur annuler
+}
 }
 
-// JS Hover bouton déconnexion
+//JS Hover bouton déconnexion
 function changerImage(etat) {
   var img = document.getElementById("imgdeco");
   if (etat === "survol") {

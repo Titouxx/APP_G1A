@@ -22,7 +22,7 @@
     </nav>
 
     <header>
-      <img src="../../images/forumpic2.png" />
+      <img src="../../images/forum.png" />
     </header>
 
     <!-- forum section -->

@@ -27,6 +27,7 @@ document.addEventListener("click", (event) => {
 tab.addEventListener("click", (event) => {
   event.stopPropagation();
 });
+
 //popup servant a la deconnexion
 function deconnexion() {
   var result = confirm("Voulez-vous vraiment vous déconnecter?");
@@ -47,14 +48,3 @@ function changerImage(etat) {
     img.src = "../../images/déconnexion.png"; // Chemin vers l'image normale
   }
 }
-
-var container = document.getElementById("image1");
-var text = document.getElementById("imageText");
-
-container.addEventListener("mouseover", function () {
-  text.style.display = "block";
-});
-
-container.addEventListener("mouseout", function () {
-  text.style.display = "none";
-});
