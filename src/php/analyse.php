@@ -20,10 +20,6 @@
       </ul>
     </nav>
 
-    <?php
-      header('Location: connexion.php');
-    ?>
-
     <img
       id="Logo"
       src="../../images/EchoKey.png"
@@ -99,6 +95,7 @@
         </td>
       </tr>
     </table>
+    <script src = "../js/analyse.js"> </script>
   </body>
   <footer>
     <div>
