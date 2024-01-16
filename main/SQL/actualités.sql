@@ -1,6 +1,0 @@
-CREATE TABLE ACTUALITES (
-    ACTUALITES_id INT PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(100) NOT NULL,
-    content TEXT NOT NULL,
-    publication_date DATE,
-);
