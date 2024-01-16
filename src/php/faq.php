@@ -46,13 +46,7 @@ $_SESSION['last_activity'] = time();
       <form id="searchForm">
         <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="Posez votre question ici" value="">
           <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
-          <div>
-    <img src="../../images/fleche.png" id="fleche" alt="fleche" title="fleche"><!--logofleche-->
-    <!-- Un élément Javascript s'occupe de détecter le survol de la souris et charge une image grisée de celle-ci. -->
-    <img class="arrow-icon" id="hoverImage" src="../../images/arrow.png" width="40" height="30"/>
-</div>
-
-                       
+            <img class="arrow-icon" id="hoverImage" src="../../images/arrow.png" width="30" height="30"/><!--Un élément Javascript s'occupe lui de détecter le survol de la souris et charge une image grisée de celle-ci.-->
           </button>
       </form>
   </div>
@@ -148,7 +142,6 @@ $(document).ready(function(){
     <!--logo déconnexion-->
     <img src="../../images/déconnexion.png" id="imgdeco" alt="logo déconnexion" title="logo déconnexion" onmouseover="changerImage('survol')" onmouseout="changerImage('normal')" onclick="deconnexion()"onclick="deconnexion()">
   </li>
-
 <footer>
   <div class="footer">
   <nav>

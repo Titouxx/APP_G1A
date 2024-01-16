@@ -20,17 +20,19 @@ function toggleAccordion() {
 }
 
 // Ajoute un écouteur d'événement pour chaque élément, déclenchant la fonction toggleAccordion lors d'un clic
-items.forEach(item => item.addEventListener('click', toggleAccordion));
-
-const arrowIcon = document.getElementById('hoverImage'); // Hover pour l'image
+const arrowIcon = document.getElementById('hoverImage');
 
 arrowIcon.addEventListener('mouseover', function() {
-  this.setAttribute('href', '../../images/arrow_hover.png'); // URL de l'image au survol
+  console.log('Mouseover event');
+  this.setAttribute('src', '../../images/arrow_hover.png');
 });
 
 arrowIcon.addEventListener('mouseout', function() {
-  this.setAttribute('href', '../../images/arrow.png'); // L'image initiale
+  console.log('Mouseout event');
+  this.setAttribute('src', '../../images/arrow.png');
 });
+
+
 
 /* Barre de recherche type CTRL+F */
 // Code pour la recherche avec surlignage
