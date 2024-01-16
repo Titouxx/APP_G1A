@@ -1,4 +1,16 @@
-﻿<!DOCTYPE html>
+﻿<?php
+// Démarrez la session au début de chaque page PHP
+session_start();
+// Vérifiez la dernière activité et déconnectez l'utilisateur après 1 heure d'inactivité
+if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 3600)) {
+    // Déconnecter l'utilisateur après 1 heure d'inactivité
+    session_unset();
+    session_destroy();
+}
+$_SESSION['last_activity'] = time();
+?>
+
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="utf-8">
@@ -43,40 +55,54 @@
   </div>
 </div>
 
-<script><!-- Script pour gérer la requête de recherche -->
+<!-- message de bienvenue -->
+<div id="welcomeMessage"></div>
+
+
+<script>
 $(document).ready(function(){
   $('#searchForm').submit(function(event){
       event.preventDefault(); // Empêcher le comportement par défaut du formulaire
 
       var query = $('#searchQueryInput').val();// Récupérer la valeur du champ de recherche
 
-      $.ajax({// Envoyer la valeur à un fichier PHP pour traitement
-          url: 'faq_fonctions.php', // Chemin vers le fichier PHP à exécuter
-          method: 'POST', // Utilisation de la méthode POST pour envoyer les données
-          data: { query: query }, // Données à envoyer (dans cet exemple, la requête de recherche)
+      // Envoyer la valeur à un fichier PHP pour traitement
+      $.ajax({ 
+          url: '../php/faq_fonctions.php',
+          method: 'POST',
+          data: { query: query },
           success: function(response){
-              alert('E-mail envoyé à l\'utilisateur avec succès !');// Traiter la réponse après exécution réussie du fichier PHP
-              console.log(response); // Afficher la réponse dans la console (facultatif)
-          },
+    // Traiter la réponse après exécution réussie du fichier PHP
+    alert('E-mail envoyé à l\'utilisateur avec succès !');
+    console.log(response); // Afficher la réponse dans la console (facultatif)
+
+    // Vérifier si la réponse contient un message de bienvenue
+    if (response.welcomeMessage) {
+        document.getElementById("welcomeMessage").innerHTML = response.welcomeMessage;
+    }
+},
+
           error: function(){
-              alert('Erreur lors de l\'envoi de l\'e-mail.');// Gestion des erreurs
+              // Gestion des erreurs
+              alert('Erreur lors de l\'envoi de l\'e-mail.');
           }
       });
   });
 });
 </script>
 
+
 <h4 style="text-align: center;"><br>Ou consultez les questions suivantes:</h4> <!--questions génériques-->
     <div class="accordion">
       <div class="accordion-item">
-        <button id="accordion-button-1" aria-expanded="false"><span class="accordion-title">Comment fonctionne l'enregistrement?</span><span class="icon" aria-hidden="true"></span></button>
+        <button id="accordion-button-1" aria-expanded="false"><span class="accordion-title">Comment fonctionne l'enregistrement ?</span><span class="icon" aria-hidden="true"></span></button>
         <div class="accordion-content">
           <p>C'est très simple. <br><br>Si la salle où l'artiste performe est équipée du matériel EchoKey™, qu'il est connecté a son compte utilisateur et qu'il a lancé une session d'enregistrement, sa performance est enregistrée par notre materiel et directement envoyée sur sa session utilisateur Echokey™.
             <br><br>Si l'utilisateur est lui même en possession d'un fichier audio compatible, il peut l'uploader directement depuis la page d'<a href="analyse.php">Analyse</a>.<br></p>
         </div>
       </div>
       <div class="accordion-item">
-        <button id="accordion-button-2" aria-expanded="false"><span class="accordion-title">Comment fonctionne l'analyse d'un enregistrement?</span><span class="icon" aria-hidden="true"></span></button>
+        <button id="accordion-button-2" aria-expanded="false"><span class="accordion-title">Comment fonctionne l'analyse d'un enregistrement ?</span><span class="icon" aria-hidden="true"></span></button>
         <div class="accordion-content">
           <p>En collaboration avec Events-IT™, l'équipe TransNoise™ a mis au point une toute nouvelle technologie ultra performante au service de son service EchoKey™.<br><br>
           En effet, notre technologie analyse les données audio d'un enregistrement par notre materiel Echokey™ ou fourni par l'utilisateur.<br><br>Son surpuissant algorithme analyse alors la justesse des notes de l'audio.<br><br>
@@ -84,7 +110,7 @@ $(document).ready(function(){
         </div>
       </div>
       <div class="accordion-item">
-        <button id="accordion-button-3" aria-expanded="false"><span class="accordion-title">Comment comparer deux enregistrements?</span><span class="icon" aria-hidden="true"></span></button>
+        <button id="accordion-button-3" aria-expanded="false"><span class="accordion-title">Comment comparer deux enregistrements ?</span><span class="icon" aria-hidden="true"></span></button>
         <div class="accordion-content">
           <p>C'est assez trivial a vrai dire!<br><br>Pour commencer, une fois connecté a son compte utilisateur EchoKey™, l'utilisateur a accès depuis sa page <a href="espaceuser.php">Profil</a> a différentes options dont celle de pouvoir accéder a ses anciens enregistrements et / ou comparer ses anciennes analyses de performances.
             <br><br>Ainsi, l'utilisateur pourra ainsi constater l'évolution ou la regression de la justesse de ses performances au fur et a mesure du temps.
@@ -93,7 +119,7 @@ $(document).ready(function(){
         </div>
       </div>
       <div class="accordion-item">
-        <button id="accordion-button-4" aria-expanded="false"><span class="accordion-title">Peut-on importer son propre enregistrement?</span><span class="icon" aria-hidden="true"></span></button>
+        <button id="accordion-button-4" aria-expanded="false"><span class="accordion-title">Peut-on importer son propre enregistrement ?</span><span class="icon" aria-hidden="true"></span></button>
         <div class="accordion-content">
           <p>Evidemment!<br><br>Sous certaines conditions à respecter (fonctionnalité encore en cours de développement), n'importe que utilisateur d'EchoKey™ connecté a sa session utilisateur peut le faire depuis dans l'onglet <a href="analyse.php">Analyse</a> accessible depuis ce lien, le menu en haut de cette page, ou alors directement depuis son <a href="espaceuser.php">Profil</a>.
             <br><br> Depuis cette page il pourra effectivement accéder via un volet coulissant à toutes ces performances passées s'il en a ou en importer sous couvert du respect des conditions à définir plus tôt évoquées.
@@ -101,7 +127,7 @@ $(document).ready(function(){
         </div>
       </div>
       <div class="accordion-item">
-        <button id="accordion-button-5" aria-expanded="false"><span class="accordion-title">Autre question?</span><span class="icon" aria-hidden="true"></span></button>
+        <button id="accordion-button-5" aria-expanded="false"><span class="accordion-title">Autre question ?</span><span class="icon" aria-hidden="true"></span></button>
         <div class="accordion-content">
           <p>Vous avez une question mais vous n'avez pas trouvé la réponse dans cette FAQ?<br><br>Pas de problème!!!<br><br>Connecté à votre session utilisateur, vous n'avez qu'à poser votre question dans la barre dédiée et un mail sera envoyé a notre équipe d'EchoKey™.
             <br><br>De nos bureaux EchoKey™ à Events-IT™, un membre de notre équipe se fera alors un immense plaisir de répondre à votre mail et vous recevrez alors une réponse sur la boite mail que vous nous avez communiquée lors de votre inscription.
