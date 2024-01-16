@@ -225,7 +225,7 @@ will-change: opacity, max-height;
 /* css Barre de recherche */
 .wrapper {
   width: 100%;
-  max-width: 31.25rem;
+  max-width: 33.5rem;
   margin: 2rem auto;
 }
 #searchForm {
