@@ -6,18 +6,18 @@
     <link rel="stylesheet" href="../css/Profil.css" />
     <link
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstraps"
-    />.min.cs
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   </head>
 
   <body>
     <nav>
       <ul class="menu">
-        <li><a href="Page_dacueil.php">Home</a></li>
-        <li><a href="analyse.php">Analyse</a></li>
-        <li><a href="faq.php">Faq</a></li>
-        <li><a href="espaceuser.php">Profil</a></li>
+        <li><a href="Page_dacueil.html">Home</a></li>
+        <li><a href="analyse.html">Analyse</a></li>
+        <li><a href="faq.html">Faq</a></li>
+        <li><a href="espaceuser.html">Profil</a></li>
       </ul>
     </nav>
 
@@ -156,6 +156,7 @@
                 </div>
               </div>
             </div>
+            
 
             <!-- Section des paramètres (vide dans le code fourni) -->
             <div id="parametres" class="section profile" style="display: none">
