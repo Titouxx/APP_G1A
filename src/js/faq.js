@@ -23,15 +23,12 @@ function toggleAccordion() {
 const arrowIcon = document.getElementById('hoverImage');
 
 arrowIcon.addEventListener('mouseover', function() {
-  console.log('Mouseover event');
-  this.setAttribute('src', '../../images/arrow_hover.png');
+  this.setAttribute('src', '../../images/arrow_hover.png'); // Utilisez src pour changer l'image
 });
 
 arrowIcon.addEventListener('mouseout', function() {
-  console.log('Mouseout event');
-  this.setAttribute('src', '../../images/arrow.png');
+  this.setAttribute('src', '../../images/arrow.png'); // L'image initiale
 });
-
 
 
 /* Barre de recherche type CTRL+F */
