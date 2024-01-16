@@ -7,6 +7,20 @@
     <script src="../js/jquery.min.js"></script>
     <link rel="icon" type="image/x-icon" href="../../images/TransNoise.ico" />
     <title>TransNoise - EchoKey</title>
+    <style>
+      #scrollButton{
+        visibility: visible;
+      }
+    </style>
+    <?php
+    if(isset($_SESSION['user_id'])) {
+      echo 'la variable existe';
+      echo "<script>
+          console.log('Script exécuté');
+          document.getElementById('scrollButton').style.visibility = 'hidden';
+      </script>";
+  }
+    ?>
   </head>
 
   <!--header gere la barre du haut de l'écran-->
