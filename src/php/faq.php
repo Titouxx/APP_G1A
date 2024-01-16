@@ -51,7 +51,7 @@ $(document).ready(function(){
       var query = $('#searchQueryInput').val();// Récupérer la valeur du champ de recherche
 
       $.ajax({// Envoyer la valeur à un fichier PHP pour traitement
-          url: '../php/faq_fonctions.php', // Chemin vers le fichier PHP à exécuter
+          url: 'faq_fonctions.php', // Chemin vers le fichier PHP à exécuter
           method: 'POST', // Utilisation de la méthode POST pour envoyer les données
           data: { query: query }, // Données à envoyer (dans cet exemple, la requête de recherche)
           success: function(response){
