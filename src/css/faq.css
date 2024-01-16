@@ -176,6 +176,29 @@ body,
     background: currentColor;
   }
 
+  #fleche {
+    width: 4px;
+    height: 3px;
+    /* Ajoutez d'autres styles si nécessaire */
+}
+
+/* Style pour l'image lors du survol */
+#hoverImage {
+    display: none; /* Par défaut, l'image de survol est masquée */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 30px;
+    /* Ajoutez d'autres styles si nécessaire */
+}
+
+/* Lorsque la div est survolée, affichez l'image de survol */
+div:hover #hoverImage {
+    display: inline-block;
+}
+
+
   .icon::after {
     display: block;
     position: absolute;
