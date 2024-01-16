@@ -67,7 +67,7 @@ $(document).ready(function(){
       var query = $('#searchQueryInput').val();// Récupérer la valeur du champ de recherche
 
       // Envoyer la valeur à un fichier PHP pour traitement
-      $.ajax({
+      $.ajax({ 
           url: '../php/faq_fonctions.php',
           method: 'POST',
           data: { query: query },
