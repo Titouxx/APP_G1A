@@ -1,11 +1,26 @@
 <?php
-// Establish a database connection
-$db = new mysqli('localhost', 'root', '', 'siteweb');
+header('Content-Type: application/json');
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-// Check the connection
-if ($db->connect_error) {
-    die("Connection failed: " . $db->connect_error);
+$servername = "localhost";
+$username = "root";
+$password = "";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=siteweb", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo json_encode(["status" => "error", "message" => $e->getMessage()]);
+    exit();
 }
+// // Establish a database connection
+// $db = new mysqli('localhost', 'root', '', 'siteweb');
+
+// // Check the connection 
+// if ($db->connect_error) {
+//     die("Connection failed: " . $db->connect_error);
+// }
 
 // Create a new topic
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create_topic'])) {
