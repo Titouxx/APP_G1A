@@ -152,8 +152,7 @@ html {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
   background-color: #9763bc;
-  height: 120%;
-  bottom: 42px;
+  height: 100%;
 }
 
 .profile-info {
