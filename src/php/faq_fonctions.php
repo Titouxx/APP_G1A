@@ -18,8 +18,9 @@ require 'PHPMailer-master/src/PHPMailer.php';
 require 'PHPMailer-master/src/SMTP.php';
 
 // Récupérer la valeur de la recherche (dans cet exemple, elle est envoyée en tant que 'query')
-if(isset($_POST['query'])) {
-    $query = $_POST['query'];
+if (isset($_POST['searchQueryInput']) && !empty($_POST['searchQueryInput'])) {
+    // Récupérer la valeur du champ de recherche
+    $query = $_POST['searchQueryInput'];
 
     // Connexion à la base de données
     $serveur = "localhost";
@@ -44,8 +45,8 @@ if(isset($_POST['query'])) {
         // Récupérer l'e-mail de l'utilisateur
         while($row = $resultat->fetch_assoc()) {
             $email_utilisateur = $row['email'];
-            $prenom_utilisateur = $row['prenom'];
-            $nom_utilisateur = $row['nom'];
+            $prenom_utilisateur = $row['prenom']; // Ajoutez cette ligne
+            $nom_utilisateur = $row['nom']; // Ajoutez cette ligne
 
             // Envoi de l'e-mail à l'utilisateur
             $mail = new PHPMailer(true);
@@ -56,19 +57,20 @@ if(isset($_POST['query'])) {
                 $mail->Host       = 'smtp.gmail.com';
                 $mail->SMTPAuth   = true;
                 $mail->Username   = 'transnoiseechokey@gmail.com';
-                $mail->Password   = 'azertyui1234*';
+                $mail->Password   = 'omah cbun dcto zesr ';
                 $mail->SMTPSecure = 'tls';
                 $mail->Port       = 587;
+                echo "Bien connecté";
 
                 // Autres configurations
                 $mail->setFrom('transnoiseechokey@gmail.com', 'TransNoise - Echokey');
                 $mail->addAddress($email_utilisateur);
                 $mail->isHTML(true);
-                $mail->Subject = 'Bienvenue sur notre site';
+                $mail->Subject = 'Contact - Question TransNoise';
                 $mail->Body    = 'Bonjour '.$prenom_utilisateur.' '.$nom_utilisateur.' ! Merci de visiter notre site.';
 
                 // Niveau de débogage
-                $mail->SMTPDebug = 2;
+                $mail->SMTPDebug = 3;
 
                 // Envoyer l'e-mail
                 $mail->send();
@@ -83,12 +85,15 @@ if(isset($_POST['query'])) {
                 
             } catch (Exception $e) {
                 echo "Erreur lors de l'envoi de l'e-mail : {$mail->ErrorInfo}";
+
             }
         }
     } else {
         // Aucun utilisateur trouvé pour cette recherche
-        echo "Aucun utilisateur trouvé pour cette recherche.\n";
-        echo "Statut de connexion : connected";
+        echo "Aucune donnée de recherche reçue ou la recherche est vide.\n";
+        echo "Valeur de la requête : " . $query;
+        echo "\nErreur SQL : " . $stmt->error;
+        echo "\nStatut de connexion : connected";
     }
 
     // Fermer la connexion à la base de données
@@ -96,6 +101,6 @@ if(isset($_POST['query'])) {
 } else {
     // Aucune donnée de recherche reçue
     echo "Aucune donnée de recherche reçue.\n";
-    echo "Statut de connexion : connected";
+    echo "Statut de connexion : connected \n";
+    var_dump($_POST);
 }
-

@@ -1,16 +1,4 @@
-﻿<?php
-// Démarrez la session au début de chaque page PHP
-session_start();
-// Vérifiez la dernière activité et déconnectez l'utilisateur après 1 heure d'inactivité
-if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 3600)) {
-    // Déconnecter l'utilisateur après 1 heure d'inactivité
-    session_unset();
-    session_destroy();
-}
-$_SESSION['last_activity'] = time();
-?>
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="utf-8">
@@ -18,6 +6,7 @@ $_SESSION['last_activity'] = time();
     <link href="../css/faq.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/normalize.css">
     <script src="../js/jquery.min.js"></script>
+    
 
 
     <link rel="icon" type="image/x-icon" href="../../images/TransNoise.ico">
@@ -53,35 +42,37 @@ $_SESSION['last_activity'] = time();
 </div>
 
 <script>
-$(document).ready(function(){
-  $('#searchForm').submit(function(event){
-      event.preventDefault(); // Empêcher le comportement par défaut du formulaire
+  $(document).ready(function(){
+    // Déclarez la variable query en dehors du gestionnaire de soumission
+    var query;
 
-      var query = $('#searchQueryInput').val();// Récupérer la valeur du champ de recherche
+    $('#searchForm').submit(function(event){
+        event.preventDefault(); // Empêcher le comportement par défaut du formulaire
 
-      // Envoyer la valeur à un fichier PHP pour traitement
-      $.ajax({ 
-          url: '../php/faq_fonctions.php',
-          method: 'POST',
-          data: { query: query },
-          success: function(response){
-    // Traiter la réponse après exécution réussie du fichier PHP
-    alert('E-mail envoyé à l\'utilisateur avec succès !');
-    console.log(response); // Afficher la réponse dans la console (facultatif)
+        // Utilisez la variable déjà déclarée à l'extérieur
+        query = $('#searchQueryInput').val(); // Récupérer la valeur du champ de recherche
 
-    // Vérifier si la réponse contient un message de bienvenue
-    if (response.welcomeMessage) {
-        document.getElementById("welcomeMessage").innerHTML = response.welcomeMessage;
-    }
-},
+        // Envoyer la valeur à un fichier PHP pour traitement
+        $.ajax({ 
+            url: 'faq_fonctions.php',
+            method: 'POST',
+            data: { query: query },
+            success: function(response){
+                // Traiter la réponse après exécution réussie du fichier PHP
+                alert('E-mail envoyé à l\'utilisateur avec succès !');
+                console.log(response); // Afficher la réponse dans la console (facultatif)
 
-          error: function(){
-              // Gestion des erreurs
-              alert('Erreur lors de l\'envoi de l\'e-mail.');
-          }
-      });
+                // Vérifier si la réponse contient un message de bienvenue
+                if (response.welcomeMessage) {
+                    document.getElementById("welcomeMessage").innerHTML = response.welcomeMessage;
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("Erreur Ajax :", status, error); // Gestion des erreurs
+            }
+        });
+    });
   });
-});
 </script>
 
 
