@@ -56,16 +56,11 @@
         $.ajax({ 
             url: 'faq_fonctions.php',
             method: 'POST',
-            data: { query: query },
+            data: { searchQueryInput: query },
             success: function(response){
                 // Traiter la réponse après exécution réussie du fichier PHP
                 alert('E-mail envoyé à l\'utilisateur avec succès !');
                 console.log(response); // Afficher la réponse dans la console (facultatif)
-
-                // Vérifier si la réponse contient un message de bienvenue
-                if (response.welcomeMessage) {
-                    document.getElementById("welcomeMessage").innerHTML = response.welcomeMessage;
-                }
             },
             error: function(xhr, status, error) {
                 console.error("Erreur Ajax :", status, error); // Gestion des erreurs
