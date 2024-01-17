@@ -98,4 +98,4 @@ if(isset($_POST['query'])) {
     echo "Aucune donnée de recherche reçue.\n";
     echo "Statut de connexion : connected";
 }
-?>
+

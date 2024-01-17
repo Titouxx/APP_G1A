@@ -20,6 +20,8 @@ function toggleAccordion() {
 }
 
 // Ajoute un écouteur d'événement pour chaque élément, déclenchant la fonction toggleAccordion lors d'un clic
+items.forEach(item => item.addEventListener('click', toggleAccordion));
+
 const arrowIcon = document.getElementById('hoverImage');
 
 arrowIcon.addEventListener('mouseover', function() {
@@ -83,8 +85,8 @@ function deconnexion() {
 function changerImage(etat) {
   var img = document.getElementById("imgdeco");
   if (etat === "survol") {
-    img.src = "../../images/déconnexion-hover.png"; // Chemin vers l'image au survol
+    img.src = "../../images/déconnexion-hover_test.png"; // Chemin vers l'image au survol
   } else {
-    img.src = "../../images/déconnexion.png"; // Chemin vers l'image normale
+    img.src = "../../images/déconnexion_test.png"; // Chemin vers l'image normale
   }
 }
