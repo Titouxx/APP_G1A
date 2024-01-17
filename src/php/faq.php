@@ -36,28 +36,21 @@ $_SESSION['last_activity'] = time();
     <div class="loupebar"> <input type="text" id="searchInput" placeholder="Search..."> <div class="search"></div></div>
     </header>
 
-    <a href="index.php"><img src="../../images/EchoKey_extrude.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey"></a> <!--logo EchoKey-->
+    <img src="../../images/EchoKey_extrude.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey"><!--logo EchoKey-->
 
 <div class="container"><!--barre de recherche-->
-  <h2 style="text-align: center; font-size: 50px;">Posez votre question:</h2>  <!--titre question-->
+  <h2 style="text-align: center; font-size: 60.724px;">Posez votre question:</h2>  <!--titre question-->
 
 <div class="wrapper"> <!-- Barre de recherche -->
   <div class="searchBar">
       <form id="searchForm">
         <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="Posez votre question ici" value="">
           <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23" viewBox="8 4 24 23"><!--Cela utilise l'élément <image> de SVG pour inclure une image (dans ce cas, "arrow.png") à l'intérieur de l'élément <svg>.-->
-              <image class="arrow-icon" id="hoverImage" xlink:href="../../images/arrow.png" width="40" height="30"/><!--Un élément Javascript s'occupe lui de détecter le survol de la souris et charge une image grisée de celle-ci.-->
-            </svg>
-                       
+            <img class="arrow-icon" id="hoverImage" src="../../images/arrow.png" width="30" height="30"/><!--Un élément Javascript s'occupe lui de détecter le survol de la souris et charge une image grisée de celle-ci.-->
           </button>
       </form>
   </div>
 </div>
-
-<!-- message de bienvenue -->
-<div id="welcomeMessage"></div>
-
 
 <script>
 $(document).ready(function(){
@@ -137,13 +130,10 @@ $(document).ready(function(){
     </div>
   </div>
 
-  <a href="https://www.isep.fr/" target="_blank"> <img src="../../images/logo_isep.png" id="LISEP" alt="Logo ISEP" title="Logo ISEP"> </a>
-  <img src="../../images/logo-events-IT.png" id="LEVENTS" alt="Logo EVENTS-IT" title="Logo EVENTS-IT"> <!--logo EVENTS-IT-->
-  <img src="../../images/TransNoise.png" id="LTransnoise" alt="Logo Transnoise" title="Logo Transnoise"> <!--logo Transnoise-->
-  <a href="index.php"><img src="../../images/EchoKey_extrude.png" id="LEchokey" alt="Logo EchoKey" title="Logo EchoKey"></a> <!--logo EchoKey-->
+  <img src="../../images/collage.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter"> <!--logo Transnoise-->
   <li>
     <!--logo déconnexion-->
-    <img src="../../images/déconnexion.png" id="imgdeco" alt="logo déconnexion" title="logo déconnexion" onmouseover="changerImage('survol')" onmouseout="changerImage('normal')" onclick="deconnexion()"onclick="deconnexion()">
+    <img src="../../images/déconnexion_test.png" id="imgdeco" alt="logo déconnexion" title="logo déconnexion" onmouseover="changerImage('survol')" onmouseout="changerImage('normal')" onclick="deconnexion()">
   </li>
 <footer>
   <div class="footer">

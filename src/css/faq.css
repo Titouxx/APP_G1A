@@ -225,7 +225,7 @@ will-change: opacity, max-height;
 /* css Barre de recherche */
 .wrapper {
   width: 100%;
-  max-width: 31.25rem;
+  max-width: 40rem;
   margin: 2rem auto;
 }
 #searchForm {
@@ -307,8 +307,8 @@ will-change: opacity, max-height;
   bottom: 0;
   right: 0;
   height: auto;
-  width: auto; /* Utilisez 'auto' pour conserver les proportions de l'image */
-  max-width: 5%; /* Définissez la largeur maximale pour éviter qu'elle ne devienne trop grande */
+  width: 8%; /* Utilisez 'auto' pour conserver les proportions de l'image */
+  max-width: 100%; /* Définissez la largeur maximale pour éviter qu'elle ne devienne trop grande */
   margin-bottom: 0.5rem;
   margin-right: 1rem;
   cursor: pointer;
@@ -318,47 +318,18 @@ will-change: opacity, max-height;
 
 /*CSS logos de marques*/
 
-#LISEP, #LEVENTS, #LTransnoise, #LEchokey {
+#LogosFooter {
   position: fixed;
   bottom: 0;
   left: 0;
-  margin-bottom: 0.5rem; /* Ajoutez une marge en bas pour espacer les images */
-  margin-left: 0.5rem; /* Ajoutez une marge à gauche pour espacer les images */
+  height: 50px; /* Hauteur fixe */
+  max-width: 100%;
+  width: 14.9%;
+  height: auto;
+  margin-bottom: 0.01rem;
+  margin-left: 0.5rem;
   z-index: 5;
 }
-
-#LISEP{
-  height: 55px;
-  width: auto; /* Utilisez 'auto' pour conserver les proportions de l'image */
-  max-width: 5%; /* Définissez la largeur maximale pour éviter qu'elle ne devienne trop grande */
-  margin-left: 150px;
-}
-
-#LEVENTS, #LTransnoise {
-  height: 55px;
-  width: auto;
-  max-width: 60px;
-}
-
-#LEchokey{
-  height: 62px;
-  width: auto; /* Utilisez 'auto' pour conserver les proportions de l'image */
-  max-width: 5%; /* Définissez la largeur maximale pour éviter qu'elle ne devienne trop grande */
-  margin-left: 280px;/* Ajoutez une marge à gauche pour espacer cette image */
-  
-}
-
-
-#LEVENTS {
-  margin-left: 75px; /* Ajoutez une marge à gauche pour espacer cette image */
-}
-
-#LTransnoise {
-  margin-left: 5px; /* Ajoutez une marge à gauche pour espacer cette image */
-}
-
-
-
 
 /*barre controle f test d'integration */
 /* Styles for the loupebar */
