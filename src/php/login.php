@@ -17,14 +17,14 @@ try {
         $email = $_POST['loginEmail'];
         $password = $_POST['loginPassword'];
 
-        $sql = "SELECT id, password FROM user WHERE email = :email";
+        $sql = "SELECT id_User, password FROM user WHERE email = :email";
         $stmt = $conn->prepare($sql);
         $stmt->execute(['email' => $email]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user && $password === $user['password']) {
             // Stocker les informations de l'utilisateur dans la session
-            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['user_id'] = $user['id_User'];
             $_SESSION['email'] = $email;
             $_SESSION['logged_in'] = true;
 
