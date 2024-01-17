@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
+<<<<<<< Updated upstream
 -- Généré le : dim. 14 jan. 2024 à 00:10
+=======
+-- Généré le : mer. 17 jan. 2024 à 16:03
+>>>>>>> Stashed changes
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -43,7 +47,11 @@ INSERT INTO `user` (`id_User`, `prenom`, `nom`, `email`, `password`) VALUES
 (1, 'kelyan', 'taverny', 'kelyan@gmail.com', 'kelyantaverny'),
 (2, '', '', 'marie@gmail.com', 'mariemarie'),
 (3, '', '', 'pierre@gmail.com', 'pierre'),
+<<<<<<< Updated upstream
 (4, 'Islam', 'AIT-SLIMANE', 'islam61886@gmail.com', 'azertyui');
+=======
+(5, 'Islam', 'AIT-SLIMANE', 'islam61886@gmail.com', '$2y$10$9fREBhPAKzHgBHNhXYbdl.aR5cOK1msmJPQP/cJUMHCMw0i3spNpW');
+>>>>>>> Stashed changes
 
 --
 -- Index pour les tables déchargées
@@ -63,7 +71,11 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
+<<<<<<< Updated upstream
   MODIFY `id_User` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+=======
+  MODIFY `id_User` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+>>>>>>> Stashed changes
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
