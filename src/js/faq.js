@@ -90,3 +90,18 @@ function changerImage(etat) {
     img.src = "../../images/déconnexion_test.png"; // Chemin vers l'image normale
   }
 }
+
+
+// Récupérer la hauteur du footer
+var footerHeight = document.querySelector('.footer').offsetHeight;
+
+// Appliquer la hauteur du footer comme max-height au LogosFooter
+var logosFooter = document.getElementById('LogosFooter');
+logosFooter.style.maxHeight = footerHeight + 'px';
+
+// Récupérer la hauteur du footer
+var footerHeight = document.querySelector('.footer').offsetHeight;
+
+// Appliquer la hauteur du footer comme max-height à l'élément avec l'id "imgdeco"
+var imgDeco = document.getElementById('imgdeco');
+imgDeco.style.maxHeight = footerHeight + 'px';
