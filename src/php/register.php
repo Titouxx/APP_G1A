@@ -1,5 +1,5 @@
 <?php
-session_start(); // Démarre la session au début du script
+session_start();
 
 header('Content-Type: application/json');
 
@@ -30,11 +30,12 @@ try {
             exit;
         }
 
-        $sql = "INSERT INTO user (email, password) VALUES (:email, :password)";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute(['email' => $email, 'password' => $password]);
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        // Stocker les informations de l'utilisateur dans la session après l'inscription
+        $sql = "INSERT INTO user (email, password) VALUES (:email, :hashed_password)";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(['email' => $email, 'hashed_password' => $hashed_password]);
+
         $_SESSION['user_id'] = $conn->lastInsertId();
         $_SESSION['email'] = $email;
         $_SESSION['logged_in'] = true;

@@ -1,5 +1,5 @@
 <?php
-session_start(); // Démarre la session au début du script
+session_start();
 
 header('Content-Type: application/json');
 ini_set('display_errors', 1);
@@ -22,22 +22,18 @@ try {
         $stmt->execute(['email' => $email]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($user && $password === $user['password']) {
-            // Stocker les informations de l'utilisateur dans la session
+        if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id_User'];
             $_SESSION['email'] = $email;
             $_SESSION['logged_in'] = true;
 
             echo json_encode(["status" => "success"]);
-            exit();
         } else {
             echo json_encode(["status" => "error", "message" => "Identifiants invalides"]);
-            exit();
         }
     }
 } catch (PDOException $e) {
     echo json_encode(["status" => "error", "message" => $e->getMessage()]);
-    exit();
 }
 
 $conn = null;
