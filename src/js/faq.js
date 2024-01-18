@@ -75,11 +75,14 @@ function deconnexion() {
   var result = confirm("Voulez-vous vraiment vous déconnecter?");
   if (result == true) {
     alert("Merci de votre visite");
-    // +Insérer ici le code permettant la déconnexion
+    
+    // Effectuer une redirection vers le script PHP de déconnexion
+    window.location.href = 'logout.php';
   } else {
     // On ferme juste la popup puisqu'on ne se déconnecte pas en cliquant sur annuler
   }
 }
+
 
 // JS Hover bouton déconnexion
 function changerImage(etat) {
