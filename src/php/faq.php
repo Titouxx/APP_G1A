@@ -25,7 +25,7 @@
     <div class="loupebar"> <input type="text" id="searchInput" placeholder="Search..."> <div class="search"></div></div>
     </header>
 
-    <img src="../../images/EchoKey_extrude.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey"><!--logo EchoKey-->
+    <a href="index.php"><img src="../../images/EchoKey_extrude.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey"></a> <!--logo EchoKey-->
 
 <div class="container"><!--barre de recherche-->
   <h2 style="text-align: center; font-size: 60.724px;">Posez votre question:</h2>  <!--titre question-->
