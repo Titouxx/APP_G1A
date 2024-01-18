@@ -39,17 +39,51 @@
           <div class="sidebar">
             <ul class="menu2">
               <li>
-                <button onclick="showSection('coordonnees')">
-                  Coordonnées
-                </button>
+                <label for="Coordonnées">
+                  <img
+                    class="menu-icon"
+                    src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/users.png"
+                    alt="Users Icon"
+                  />
+                  <button onclick="showSection('coordonnees')">
+                    Coordonnées
+                  </button>
+                </label>
               </li>
               <li>
-                <button onclick="showSection('parametres')">
-                  . Paramètres .
-                </button>
+                <label for="Paramètres">
+                  <img
+                    class="menu-icon"
+                    src="../../images/parametres-des-engrenages.png"
+                    alt="Paramètres des engrenages"
+                  />
+                  <button onclick="showSection('parametres')">
+                    . Paramètres
+                  </button>
+                </label>
               </li>
-              <!-- ... Ajoutez d'autres sections au besoin -->
+              <li>
+                <label for="Vos Enregistrement">
+                  <img
+                    class="menu-icon"
+                    src="../../images/message-vocal.png"
+                    alt="Exit Icon"
+                  />
+                  <button onclick="showSection('Enregistrement')">
+                    Enregistrement
+                  </button>
+                </label>
+              </li>
+              <li></li>
             </ul>
+            <button class="Déconnexion">
+              <img
+                class="menu-icon"
+                src="../../images/se-deconnecter.png"
+                alt="Exit Icon"
+              />
+              Déconnexion
+            </button>
           </div>
           <div class="profile-info">
             <h1>Édition du Profil</h1>

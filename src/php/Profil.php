@@ -36,20 +36,54 @@
     <div class="ii">
       <div class="container1">
         <div class="content">
-          <div class="sidebar">
+        <div class="sidebar">
             <ul class="menu2">
               <li>
-                <button onclick="showSection('coordonnees')">
-                  Coordonnées
-                </button>
+                <label for="Coordonnées">
+                  <img
+                    class="menu-icon"
+                    src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/users.png"
+                    alt="Users Icon"
+                  />
+                  <button onclick="showSection('coordonnees')">
+                    Coordonnées
+                  </button>
+                </label>
               </li>
               <li>
-                <button onclick="showSection('parametres')">
-                  . Paramètres .
-                </button>
+                <label for="Paramètres">
+                  <img
+                    class="menu-icon"
+                    src="../../images/parametres-des-engrenages.png"
+                    alt="Paramètres des engrenages"
+                  />
+                  <button onclick="showSection('parametres')">
+                   Paramètres
+                  </button>
+                </label>
               </li>
-              <!-- ... Ajoutez d'autres sections au besoin -->
+              <li>
+                <label for="Vos Enregistrement">
+                  <img
+                    class="menu-icon"
+                    src="../../images/message-vocal.png"
+                    alt="Exit Icon"
+                  />
+                  <button onclick="showSection('Enregistrement')">
+                    Enregistrement
+                  </button>
+                </label>
+              </li>
+              <li></li>
             </ul>
+            <button class="Déconnexion">
+              <img
+                class="menu-icon"
+                src="../../images/se-deconnecter.png"
+                alt="Exit Icon"
+              />
+              Déconnexion
+            </button>
           </div>
           <div class="profile-info">
             <h1>Édition du Profil</h1>
@@ -192,41 +226,7 @@
         </nav>
       </div>
     </footer>
-    <script src="../JS/Profil.js"></script>
-    <script>
-     function enregistrerEdition() {
-      var first_name = document.getElementById("first_name").value;
-      var last_name = document.getElementById("last_name").value;
-      var email = document.getElementById("email").value;
-      var phone = document.getElementById("phone").value;
-      var adresse = document.getElementById("adresse").value;
-      var city = document.getElementById("city").value;
+    <script src="../js/Profil.js"></script>
 
-      document.getElementById("Enregistrer").style.display = "none";
-      document.getElementById("Modifier").style.display = "inline-block";
-      // Send the modified data to the PHP script using AJAX
-      $.ajax({
-        url: "update_profile.php",
-        type: "POST",
-        data: {
-          first_name: first_name,
-          last_name: last_name,
-          email: email,
-          phone: phone,
-          adresse: adresse,
-          city: city,
-          
-        },
-        success: function (response) {
-          // Handle the response from the PHP script
-          if (response === "success") {
-            alert("Profile updated successfully!");
-          } else {
-            alert("Failed to update profile.");
-          }
-        },
-      });
-    }
-</script>
   </body>
 </html>
