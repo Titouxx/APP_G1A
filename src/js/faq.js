@@ -107,3 +107,29 @@ var imgDeco = document.getElementById('imgdeco');
 imgDeco.style.maxHeight = footerHeight + 'px';
 
 
+$(document).ready(function(){//partie js du code d'envoi de mail
+  // Déclarez la variable query en dehors du gestionnaire de soumission
+  var query;
+
+  $('#searchForm').submit(function(event){
+      event.preventDefault(); // Empêcher le comportement par défaut du formulaire
+
+      // Utilisez la variable déjà déclarée à l'extérieur
+      query = $('#searchQueryInput').val(); // Récupérer la valeur du champ de recherche
+
+      // Envoyer la valeur à un fichier PHP pour traitement
+      $.ajax({ 
+          url: 'faq_fonctions.php',
+          method: 'POST',
+          data: { searchQueryInput: query },
+          success: function(response){
+              // Traiter la réponse après exécution réussie du fichier PHP
+              alert('E-mail envoyé à l\'utilisateur avec succès !');
+              console.log(response); // Afficher la réponse dans la console (facultatif)
+          },
+          error: function(xhr, status, error) {
+              console.error("Erreur Ajax :", status, error); // Gestion des erreurs
+          }
+      });
+  });
+});
