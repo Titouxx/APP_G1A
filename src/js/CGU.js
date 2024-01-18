@@ -35,17 +35,18 @@ document.getElementById('searchInput').addEventListener('input', function() {
     this.value = '';
   });
   
-  //popup servant a la deconnexion
-  function deconnexion(){
-    var result = confirm("Voulez-vous vraiment vous déconnecter?");
+// Popup servant à la déconnexion
+function deconnexion() {
+  var result = confirm("Voulez-vous vraiment vous déconnecter?");
   if (result == true) {
-  alert("Merci de votre visite");
-  //+Insérer ici code permettant la déconnexion
+    alert("Merci de votre visite");
+    
+    // Effectuer une redirection vers le script PHP de déconnexion
+    window.location.href = 'logout.php';
+  } else {
+    // On ferme juste la popup puisqu'on ne se déconnecte pas en cliquant sur annuler
   }
-  else {
-  //On ferme juste la popup puisqu'on ne se deconnecte pas en cliquant sur annuler
-  }
-  }
+}
 
 
 // JS Hover bouton déconnexion
