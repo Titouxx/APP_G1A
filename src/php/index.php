@@ -28,7 +28,6 @@ session_start(); // Démarre la session au début du script
       </ul>
     </nav>
   </header>
-  <script src="../js/index.js"></script>
   <!--body gere le corp de la page-->
   <body>
     <!--le logo en haut à gauche-->
@@ -82,7 +81,6 @@ if(isset($_SESSION['user_id'])) {
 ?>
       </button>
     </div>
-  </body>
 
   <!--footer gere le bas de page-->
   <img src="../../images/collage.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter"> <!--logo Transnoise-->
@@ -101,4 +99,6 @@ if(isset($_SESSION['user_id'])) {
   </nav>
 </div>
 </footer>
+<script src="../js/index.js"></script>
+</body>
 </html>

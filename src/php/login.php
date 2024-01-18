@@ -37,4 +37,3 @@ try {
 }
 
 $conn = null;
-?>

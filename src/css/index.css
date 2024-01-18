@@ -223,6 +223,32 @@ button.cn:hover {
   color: #d94f5c;
 }
 
+/* CSS image de déconnexion */
+#imgdeco {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: auto;
+  max-width: 100%;
+  margin-bottom: 0.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  z-index: 5;
+}
+
+/* CSS logos de marques */
+#LogosFooter {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  width: auto;
+  margin-bottom: 0.01rem;
+  margin-left: 0.5rem;
+  z-index: 5;
+}
+
+
 /* Définissez les styles pour les appareils mobiles avec une largeur maximale de 767px */
 @media screen and (max-width: 767px) {
   .menu {
@@ -297,34 +323,14 @@ button.cn:hover {
     color: #d94f5c;
   }
 
-  /*CSS image de déconnexion*/
   #imgdeco {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    height: auto;
-    width: 8%; /* Utilisez 'auto' pour conserver les proportions de l'image */
-    max-width: 100%; /* Définissez la largeur maximale pour éviter qu'elle ne devienne trop grande */
-    margin-bottom: 0.5rem;
-    margin-right: 1rem;
-    cursor: pointer;
-    z-index: 5;
+    width: 15%; /* Ajustez la largeur pour les appareils mobiles si nécessaire */
   }
-
-  /*CSS logos de marques*/
-
   #LogosFooter {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 50px; /* Hauteur fixe */
-    max-width: 100%;
-    width: 14.9%;
-    height: auto;
-    margin-bottom: 0.01rem;
-    margin-left: 0.5rem;
-    z-index: 5;
+    width: 15%; /* Ajustez la hauteur pour les appareils mobiles si nécessaire */
   }
+
+  
   /* Définissez les styles pour les appareils mobiles avec une largeur maximale de 767px */
   @media screen and (max-width: 767px) {
     .menu {
