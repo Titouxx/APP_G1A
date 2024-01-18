@@ -1,4 +1,14 @@
 <?php
+// Démarrez la session au début de chaque page PHP
+session_start();
+
+// Assurez-vous que l'utilisateur est connecté avant de procéder
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
+    header("Location: Connexion.php");
+    exit();
+}
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
