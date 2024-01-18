@@ -1,3 +1,7 @@
+<?php
+session_start(); // Démarre la session au début du script
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -5,22 +9,11 @@
     <meta name="viewport" content="width=device-width" />
     <link href="../css/index.css" rel="stylesheet" />
     <script src="../js/jquery.min.js"></script>
+   
     <link rel="icon" type="image/x-icon" href="../../images/TransNoise.ico" />
     <title>TransNoise - EchoKey</title>
-    <style>
-      #scrollButton{
-        visibility: visible;
-      }
-    </style>
-    <?php
-    if(isset($_SESSION['user_id'])) {
-      echo 'la variable existe';
-      echo "<script>
-          console.log('Script exécuté');
-          document.getElementById('scrollButton').style.visibility = 'hidden';
-      </script>";
-  }
-    ?>
+    
+    
   </head>
 
   <!--header gere la barre du haut de l'écran-->
@@ -35,6 +28,7 @@
       </ul>
     </nav>
   </header>
+  <script src="../js/index.js"></script>
   <!--body gere le corp de la page-->
   <body>
     <!--le logo en haut à gauche-->
@@ -75,24 +69,36 @@
       </div>
     </div>
     <div class="buton">
-      <button class="cn" id="scrollButton">
-        <a href="Connexion.php">Connectez Vous !</a>
+     
+<?php
+if(isset($_SESSION['user_id'])) {
+  // Si l'utilisateur est connecté, affichez un message différent
+  echo '<p>Bienvenue ' . $_SESSION['email'] . '</p>';
+  echo '<button class="cn" id="scrollButton"><a href="logout.php">Souhaitez vous vous déconnecter</a></button>';
+} else {
+  // Si l'utilisateur n'est pas connecté, affichez le bouton de connexion
+  echo '<button class="cn" id="scrollButton"><a href="Connexion.php">Connectez Vous !</a></button>';
+}
+?>
       </button>
     </div>
   </body>
 
   <!--footer gere le bas de page-->
-  <footer>
-    <div class="footer">
-      <nav>
-        <ul>
-          <li><a href="CGU.php" target="_blank">C.G.U</a></li>
-          <li>
-            <a href="https://www.isep.fr/" target="_blank">Nos investisseurs</a>
-          </li>
-          <li><a href="faq.php" target="_blank">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </footer>
+  <img src="../../images/collage.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter"> <!--logo Transnoise-->
+  <li>
+  <!--logo déconnexion-->
+  <img src="../../images/déconnexion_test.png" id="imgdeco" alt="logo déconnexion" title="logo déconnexion" onmouseover="changerImage('survol')" onmouseout="changerImage('normal')" onclick="deconnexion()">
+</li>
+<footer>
+  <div class="footer">
+  <nav>
+    <ul>
+      <li><a href="CGU.php" id="ga" target="_blank">C.G.U</a></li>
+      <li><a href="https://www.isep.fr/" id="ga" target="_blank">Nos investisseurs</a></li>
+      <li><a href="faq.php" id="ga" target="_blank">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+</footer>
 </html>
