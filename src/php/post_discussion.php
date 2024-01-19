@@ -9,7 +9,7 @@ $response = ['success' => false]; // Default response
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['username'])) {
     $topicName = filter_var($_POST['topicName'], FILTER_SANITIZE_STRING);
     $openingMessage = filter_var($_POST['openingMessage'], FILTER_SANITIZE_STRING);
-    $username = $_SESSION['username'];
+    $username= $_SESSION['id_User'];
 
     // Check if the username exists in the user table
     $userCheckStmt = $pdo->prepare("SELECT COUNT(*) FROM user WHERE id_User = ?");

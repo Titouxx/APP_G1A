@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include 'db_connect.php';
 
@@ -17,20 +18,55 @@ $stmt = $pdo->prepare("SELECT username, message, timestamp FROM messages WHERE d
 $stmt->execute([$discussionId]);
 $messages = $stmt->fetchAll();
 
+echo "<div id='messagesContainer'>";
 foreach ($messages as $message) {
     echo "<div>";
     echo "<p>" . htmlspecialchars($message['username']) . " (" . $message['timestamp'] . "): </p>";
     echo "<p>" . htmlspecialchars($message['message']) . "</p>";
     echo "</div>";
 }
+echo "</div>";
+
 
 // Form to submit new message
 if (isset($_SESSION['username'])) {
-    echo "<form action='post_message.php' method='post'>";
-    echo "<input type='hidden' name='discussionId' value='" . $discussionId . "'>";
+    echo "<form id='messageForm'>";
+    echo "<input type='hidden' name='discussionId' value='" . htmlspecialchars($discussionId) . "'>";
     echo "<textarea name='message' required></textarea>";
-    echo "<button type='submit'>Post Message</button>";
+    echo "<button type='button' id='postMessageBtn'>Post Message</button>";
     echo "</form>";
 }
+
+
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head></head>
+    <body>
+        <script>
+            document.getElementById('postMessageBtn').addEventListener('click', function() {
+                var formData = new FormData(document.getElementById('messageForm'));
+                
+                fetch('post_message.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+                    // Append the new message to the messages container
+                    var messagesContainer = document.getElementById('messagesContainer');
+                    var newMessage = "<div><p>" + formData.get('username') + ": </p>" +
+                                    "<p>" + formData.get('message') + "</p></div>";
+                    messagesContainer.innerHTML += newMessage;
+
+                    // Clear the message textarea
+                    document.querySelector('[name="message"]').value = '';
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        </script>
+    </body>
+</html>
+
 
