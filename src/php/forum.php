@@ -36,9 +36,9 @@
                 <input type="text" id="discussionTitle" placeholder="Titre" />
                 <textarea id="discussionContent" placeholder="Message"></textarea>
                 <button onclick>Créer Discussion</button>
+                <h2>...ou rejoindre une discussion en cours !</h2>
             </div>
             <div class="discussion-list" id="discussionList">
-                <h2>...ou rejoindre une discussion en cours !</h2>
                 <!-- PHP Script to Load Discussions -->
                 <?php
                     include 'db_connect.php';

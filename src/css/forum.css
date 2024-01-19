@@ -142,3 +142,9 @@ header {
 .discussion-item a:hover {
   text-decoration: underline;
 }
+
+.discussion-list {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-top: 20px; /* Adjust as needed */
+}
