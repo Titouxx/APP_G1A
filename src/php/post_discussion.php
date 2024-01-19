@@ -7,6 +7,8 @@ header('Content-Type: application/json');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $topicName = $_POST['topicName'];
     $openingMessage = $_POST['openingMessage'];
+    $username = $_SESSION['username']; // or whatever session variable you have for the username
+
 
     
     // Validate and sanitize inputs...
