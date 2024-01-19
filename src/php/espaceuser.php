@@ -1,3 +1,13 @@
+<?php
+// Démarrez la session au début de chaque page PHP
+session_start();
+
+// Assurez-vous que l'utilisateur est connecté avant de procéder
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
+    header("Location: Connexion.php");
+    exit();
+}?>
 <?php 
 // // Make sure page can only be accessed when user is connected if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) { // Redirect user to login page if not connected header("Location: Connexion.php"); exit(); }?>
 <!DOCTYPE html>

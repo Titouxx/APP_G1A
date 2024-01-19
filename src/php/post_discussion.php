@@ -1,13 +1,21 @@
 <?php
 include 'db_connect.php';
+session_start();
 
 header('Content-Type: application/json');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $topicName = $_POST['topicName'];
     $openingMessage = $_POST['openingMessage'];
-    $username = 'Guest'; // Since there's no session, we'll use a placeholder
+  
+    if(isset($_SESSION['user_id'])) {
+        // Si l'utilisateur est connecté, affichez un message différent
+        $username = $_SESSION['username'];
+    } else {
+        header("Location: Connexion.php");
+    }
 
+    
     // Validate and sanitize inputs...
     // It's important to sanitize the inputs to prevent SQL injection and other security issues
     $topicName = filter_var($topicName, FILTER_SANITIZE_STRING);
