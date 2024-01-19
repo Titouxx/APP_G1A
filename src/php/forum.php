@@ -31,12 +31,13 @@
 
         <!-- forum section -->
         <div class="forum-section">
+            <h2> Créer une nouvelle discussion ... </h2>
             <form class="post-form" id="newDiscussionForm" action="post_discussion.php" method="post">
                 <input type="text" name="topicName" placeholder="Titre" required />
                 <textarea name="openingMessage" placeholder="Message" required></textarea>
                 <button type="submit">Créer Discussion</button>
             </form>
-
+            <h2> ... ou rejoindre une discussion !</h2>
             <div class="discussion-list" id="discussionList">
                 <!-- PHP Script to Load Discussions -->
                 <?php
