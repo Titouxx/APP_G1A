@@ -7,13 +7,6 @@ header('Content-Type: application/json');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $topicName = $_POST['topicName'];
     $openingMessage = $_POST['openingMessage'];
-  
-    if(isset($_SESSION['user_id'])) {
-        // Si l'utilisateur est connecté, affichez un message différent
-        $username = $_SESSION['username'];
-    } else {
-        header("Location: Connexion.php");
-    }
 
     
     // Validate and sanitize inputs...

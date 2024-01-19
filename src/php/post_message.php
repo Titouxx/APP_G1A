@@ -4,7 +4,6 @@ include 'db_connect.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $discussionId = $_POST['discussionId'];
     $message = $_POST['message'];
-    $username = 'Guest'; // Since there's no session, we'll use a placeholder
 
     // Validate and sanitize inputs...
     // It's important to sanitize the inputs to prevent SQL injection and other security issues
