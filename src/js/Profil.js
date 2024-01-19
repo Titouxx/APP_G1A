@@ -19,6 +19,18 @@ function activerEdition() {
   // Afficher le bouton "Enregistrer" et masquer le bouton "Modifier"
   document.getElementById("Enregistrer").style.display = "inline-block";
   document.getElementById("Modifier").style.display = "none";
+  document.getElementById("Enregistrer").style.marginLeft = "65px";
+}
+
+function desactiverChampsCoordonnees() {
+  var champsCoordonnees = document.querySelectorAll(
+    "#coordonnees input:not([disabled])"
+  );
+  champsCoordonnees.forEach(function (champ) {
+    champ.setAttribute("disabled", true);
+  });
+  document.getElementById("Modifier").style.display = "inline-block";
+  document.getElementById("Enregistrer").style.display = "none";
 }
 
 function showSection(sectionId) {
@@ -31,7 +43,7 @@ function showSection(sectionId) {
     }
   });
 
-  // Mettre à jour l'état du bouton "Modifier"
+  // Mettre à jour l'état du bouton Modifier
   updateModifierButtonState(sectionId);
 }
 
@@ -42,11 +54,10 @@ function enregistrerEdition() {
   var phone = document.getElementById("phone").value;
   var adresse = document.getElementById("adresse").value;
   var city = document.getElementById("city").value;
+  desactiverChampsCoordonnees();
 
-  document.getElementById("Enregistrer").style.display = "none";
-  document.getElementById("Modifier").style.display = "inline-block";
-  // Send the modified data to the PHP script using AJAX
-  $.ajax({
+  // Enregistrer les modifications dans la base de données
+  var request = $.ajax({
     url: "update_profile.php",
     type: "POST",
     data: {
@@ -57,13 +68,42 @@ function enregistrerEdition() {
       adresse: adresse,
       city: city,
     },
-    success: function (response) {
-      // Handle the response from the PHP script
-      if (response === "success") {
-        alert("Profile updated successfully!");
-      } else {
-        alert("Failed to update profile.");
-      }
-    },
   });
 }
+
+$.ajax({
+  url: "update_profile.php",
+  type: "POST",
+  data: {
+    first_name: first_name,
+    last_name: last_name,
+    email: email,
+    phone: phone,
+    adresse: adresse,
+    city: city,
+  },
+  dataType: "json",
+  success: function (response) {
+    if (response.status === "success") {
+      alert("Profile updated successfully!");
+    } else {
+      alert("Failed to update profile.");
+    }
+  },
+  error: function (jqXHR, textStatus, errorThrown) {
+    console.log(textStatus, errorThrown);
+  },
+});
+
+$.ajax({
+  url: "check_user.php",
+  type: "POST",
+  success: function (response) {
+    var responseObject = JSON.parse(response);
+    if (responseObject.logged_in) {
+      // L'utilisateur est connecté, son ID est responseObject.user_id
+    } else {
+      // L'utilisateur n'est pas connecté
+    }
+  },
+});

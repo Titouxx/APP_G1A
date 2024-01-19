@@ -15,8 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     // Récupération et échappement des données POST pour éviter les injections SQL
-    $first_name = $conn->real_escape_string($_POST["first_name"]);
-    $last_name = $conn->real_escape_string($_POST["last_name"]);
+    $first_name = $conn->real_escape_string($_POST["first_name"]); // real_escape_string() permet d'échapper les caractères spéciaux
+    $last_name = $conn->real_escape_string($_POST["last_name"]);   // pour éviter les injections SQL
     $email = $conn->real_escape_string($_POST["email"]);
     $phone = $conn->real_escape_string($_POST["phone"]);
     $adresse = $conn->real_escape_string($_POST["adresse"]);
@@ -33,4 +33,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $conn->close();
 }
+
 ?>

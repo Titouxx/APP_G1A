@@ -39,7 +39,7 @@
         <div class="sidebar">
             <ul class="menu2">
               <li>
-                <label for="Coordonnées">
+                <label for="Coordonnées" class="label_menu">
                   <img
                     class="menu-icon"
                     src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/users.png"
@@ -51,7 +51,7 @@
                 </label>
               </li>
               <li>
-                <label for="Paramètres">
+                <label for="Paramètres" class="label_menu">
                   <img
                     class="menu-icon"
                     src="../../images/parametres-des-engrenages.png"
@@ -63,7 +63,7 @@
                 </label>
               </li>
               <li>
-                <label for="Vos Enregistrement">
+                <label for="Vos Enregistrement" class="label_menu">
                   <img
                     class="menu-icon"
                     src="../../images/message-vocal.png"
@@ -76,7 +76,8 @@
               </li>
               <li></li>
             </ul>
-            <button class="Déconnexion">
+            <a href="logout.php"></a>
+            <button class="Déconnexion" onclick="window.location.href='../logout.php'">  
               <img
                 class="menu-icon"
                 src="../../images/se-deconnecter.png"
@@ -100,7 +101,6 @@
                 die("Connection failed: " . $conn->connect_error);
             }
             
-            // Retrieve user information from the database
             $sql = "SELECT * FROM user WHERE id_User = 1";
             $result = $conn->query($sql);
             
@@ -196,10 +196,11 @@
             <div id="parametres" class="section profile" style="display: none">
               <!-- Champs pour les paramètres -->
             </div>
-            <button type="button" id="Modifier" onclick="activerEdition()">
+            <button class="Edition" type="button" id="Modifier" onclick="activerEdition()">
               Modifier
             </button>
             <button
+              class="Edition"
               type="button"
               id="Enregistrer"
               onclick="enregistrerEdition()"

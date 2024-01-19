@@ -302,13 +302,6 @@ h1 {
 #coordonnees .form-control {
   width: 80%;
 }
-#Modifier {
-  position: fixed;
-  float: left;
-  left: 60%;
-  top: 87%;
-  display: none;
-}
 
 #Enregistrer {
   position: fixed;
@@ -385,4 +378,12 @@ label:hover button {
 
 .footer li:hover a {
   color: #d94f5c;
+}
+#Modifier {
+  display: none;
+  margin-left: 64%;
+}
+
+.label_menu {
+  margin-left: 5px;
 }
