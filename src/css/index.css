@@ -159,6 +159,7 @@ body,
 
 .content-container .paragraphe {
   font-size: 20px;
+  text-align: justify;
 }
 
 .content-container .left,
@@ -235,9 +236,44 @@ button.cn:hover {
   z-index: 5;
 }
 
-
 /* Définissez les styles pour les appareils mobiles avec une largeur maximale de 767px */
 @media screen and (max-width: 767px) {
+  #Logo1 {
+    padding-top: 20px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 0;
+    /* Ajoutez un espace entre le logo et le contenu réorganisé */
+  }
+
+  .content h1 {
+    margin: 0;
+    font-size: 70px; /* Réduisez la taille du titre pour les petits écrans */
+  }
+
+  .content img {
+    max-width: 100%;
+    margin-top: 20px; /* Ajoutez un espace entre le texte et l'image */
+  }
+
+  /* Centrez l'image avec alt="chanteur" */
+  .content img[alt="chanteur"] {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .content img {
+    max-width: 100%;
+    margin-top: 20px; /* Ajoutez un espace entre le texte et l'image */
+  }
+
   .menu {
     flex-direction: row; /* Change la direction des éléments en colonne */
     display: flex;
@@ -264,17 +300,6 @@ button.cn:hover {
   .content-container > div:nth-child(2) {
     flex: 1; /* Takes up all available space */
     margin-left: 20px; /* Adjust the margin as needed */
-  }
-  /* Footer */
-  .footer {
-    position: fixed;
-    right: 0;
-    bottom: 0px;
-    left: 0;
-    padding-top: 0.5rem; /* Augmenter la hauteur en ajustant le padding */
-    padding-bottom: 1px; /* Vous pouvez ajuster ces valeurs selon vos besoins */
-    background-color: #f7eeff;
-    text-align: center;
   }
 
   /* Footer */
