@@ -48,12 +48,7 @@ session_start(); // Démarre la session au début du script
       <div class="left">
         <h1 class="Echokey">Echokey</h1>
         <p class="paragraphe">
-          Beaucoup d'artiste ne dispose pas d'analyse précise de leur
-          performance. Echokey propose une solution innovante, en plaçant des
-          capteurs dernier cri dans les plus grandes salle parisiennes tel que
-          l'Olympia, l'Opera Garnier ou encore le Bataclan. Ces données ainsi
-          collecté par nos capteurs sont analysé et un rapport graphique est
-          directement envoyé a nos clients.
+        Beaucoup d'artistes ne disposent pas d'une analyse précise de leur performance. Echokey propose une solution innovante en plaçant des capteurs dernier cri dans les plus grandes salles parisiennes telles que l'Olympia, l'Opéra Garnier ou encore le Bataclan. Ces données ainsi collectées par nos capteurs sont analysées et un rapport graphique est directement envoyé à nos clients.
         </p>
       </div>
       <div class="right">

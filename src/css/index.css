@@ -159,6 +159,7 @@ body,
 
 .content-container .paragraphe {
   font-size: 20px;
+  text-align: justify;
 }
 
 .content-container .left,
