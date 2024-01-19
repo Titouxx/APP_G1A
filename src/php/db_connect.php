@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db   = 'brouillonsiteweb';
+$db   = 'siteweb';
 $user = 'root';
 $pass = '';
 $charset = 'utf8mb4';
