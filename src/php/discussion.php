@@ -1,41 +1,51 @@
 <?php
-
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 session_start();
-include 'db_connect.php';
 
-$discussionId = $_GET['id'] ?? 0; 
+$_SESSION['test'] = 'Session is working';
 
-// Fetching discussion details
-$stmt = $pdo->prepare("SELECT * FROM discussions WHERE id = ?");
-$stmt->execute([$discussionId]);
-$discussion = $stmt->fetch();
+echo '<pre>';
+print_r($_SESSION);
+echo '</pre>';
+?>
 
-echo "<h2>" . htmlspecialchars($discussion['topic_name']) . "</h2>";
-echo "<p>" . htmlspecialchars($discussion['opening_message']) . "</p>";
+<?php
+    include 'db_connect.php';
 
-// Fetching messages
-$stmt = $pdo->prepare("SELECT username, message, timestamp FROM messages WHERE discussion_id = ? ORDER BY timestamp");
-$stmt->execute([$discussionId]);
-$messages = $stmt->fetchAll();
+    $discussionId = $_GET['id'] ?? 0; 
 
-echo "<div id='messagesContainer'>";
-foreach ($messages as $message) {
-    echo "<div>";
-    echo "<p>" . htmlspecialchars($message['username']) . " (" . $message['timestamp'] . "): </p>";
-    echo "<p>" . htmlspecialchars($message['message']) . "</p>";
+    // Fetching discussion details
+    $stmt = $pdo->prepare("SELECT * FROM discussions WHERE id = ?");
+    $stmt->execute([$discussionId]);
+    $discussion = $stmt->fetch();
+
+    echo "<h2>" . htmlspecialchars($discussion['topic_name']) . "</h2>";
+    echo "<p>" . htmlspecialchars($discussion['opening_message']) . "</p>";
+
+    // Fetching messages
+    $stmt = $pdo->prepare("SELECT username, message, timestamp FROM messages WHERE discussion_id = ? ORDER BY timestamp");
+    $stmt->execute([$discussionId]);
+    $messages = $stmt->fetchAll();
+
+    echo "<div id='messagesContainer'>";
+    foreach ($messages as $message) {
+        echo "<div>";
+        echo "<p>" . htmlspecialchars($message['username']) . " (" . $message['timestamp'] . "): </p>";
+        echo "<p>" . htmlspecialchars($message['message']) . "</p>";
+        echo "</div>";
+    }
     echo "</div>";
-}
-echo "</div>";
 
 
-// Form to submit new message
-if (isset($_SESSION['username'])) {
-    echo "<form id='messageForm'>";
-    echo "<input type='hidden' name='discussionId' value='" . htmlspecialchars($discussionId) . "'>";
-    echo "<textarea name='message' required></textarea>";
-    echo "<button type='button' id='postMessageBtn'>Post Message</button>";
-    echo "</form>";
-}
+    // Form to submit new message
+    if (isset($_SESSION['username'])) {
+        echo "<form id='messageForm'>";
+        echo "<input type='hidden' name='discussionId' value='" . htmlspecialchars($discussionId) . "'>";
+        echo "<textarea name='message' required></textarea>";
+        echo "<button type='button' id='postMessageBtn'>Post Message</button>";
+        echo "</form>";
+    }
 
 
 ?>
