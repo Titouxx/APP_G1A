@@ -31,12 +31,8 @@ session_start(); // Démarre la session au début du script
   <!--body gere le corp de la page-->
   <body>
     <!--le logo en haut à gauche-->
-    <img
-      src="../../images/EchoKey_extrude.png"
-      id="Logo1"
-      alt="Logo EchoKey"
-      title="Logo EchoKey"
-    />
+    <a href="index.php"><img src="../../images/EchoKey_extrude.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey"></a> <!--logo EchoKey-->
+
 
     <!--gere le texte au milieu de la page-->
     <div class="content">

@@ -20,13 +20,8 @@
       </ul>
     </nav>
 
-    <img
-      id="Logo"
-      src="../../images/EchoKey.png"
-      alt="Logo EchoKey"
-      title="Logo EchoKey"
-    />
-    <!--logo EchoKey-->
+    <a href="index.php"><img src="../../images/EchoKey_extrude.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey"></a> <!--logo EchoKey-->
+
     <h1>Analyse de vos performances</h1>
     <table>
       <tr>
