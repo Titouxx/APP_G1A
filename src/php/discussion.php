@@ -1,16 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-session_start();
-
-$_SESSION['test'] = 'Session is working';
-
-echo '<pre>';
-print_r($_SESSION);
-echo '</pre>';
-?>
-
-<?php
     include 'db_connect.php';
 
     $discussionId = $_GET['id'] ?? 0; 
