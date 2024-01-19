@@ -144,3 +144,26 @@ footer nav ul li a {
 footer li:hover a {
   color: #d94f5c;
 }
+
+#titre1 {
+  margin-left: 40%;
+}
+
+#titre3 {
+  margin-left: 30px;
+}
+
+#analyse1 {
+  margin-left: 30%;
+}
+
+#analyse2 {
+  height: 400px;
+  margin-bottom: 100px;
+}
+
+#analyse3 {
+  width: 700px;
+  margin-bottom: 170px;
+  margin-left: 30px;
+}
