@@ -84,10 +84,7 @@ if(isset($_SESSION['user_id'])) {
 
   <!--footer gere le bas de page-->
   <img src="../../images/collage.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter"> <!--logo Transnoise-->
-  <li>
-  <!--logo déconnexion-->
-  <img src="../../images/déconnexion_test.png" id="imgdeco" alt="logo déconnexion" title="logo déconnexion" onmouseover="changerImage('survol')" onmouseout="changerImage('normal')" onclick="deconnexion()">
-</li>
+
 <footer>
   <div class="footer">
   <nav>

@@ -223,19 +223,6 @@ button.cn:hover {
   color: #d94f5c;
 }
 
-/* CSS image de déconnexion */
-#imgdeco {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  width: auto;
-  max-width: 100%;
-  margin-bottom: 0.5rem;
-  margin-right: 1rem;
-  cursor: pointer;
-  z-index: 5;
-}
-
 /* CSS logos de marques */
 #LogosFooter {
   position: fixed;
@@ -323,40 +310,7 @@ button.cn:hover {
     color: #d94f5c;
   }
 
-  #imgdeco {
-    width: 15%; /* Ajustez la largeur pour les appareils mobiles si nécessaire */
-  }
   #LogosFooter {
     width: 15%; /* Ajustez la hauteur pour les appareils mobiles si nécessaire */
-  }
-
-  
-  /* Définissez les styles pour les appareils mobiles avec une largeur maximale de 767px */
-  @media screen and (max-width: 767px) {
-    .menu {
-      flex-direction: row; /* Change la direction des éléments en colonne */
-      display: flex;
-      justify-content: space-around; /* Espacement égal entre les éléments */
-      width: 767px; /* Pour occuper toute la largeur */
-    }
-
-    .menu li {
-      flex: 1 1 calc(50% - 10px); /* Redimensionne la largeur des éléments pour s'adapter au contenu */
-      height: auto; /* Ajuste la hauteur en fonction du contenu */
-      text-align: center; /* Aligne le texte à gauche */
-      padding: 10px; /* Ajoute un peu d'espace autour des éléments */
-      border-bottom: 1px solid #ddd; /* Ajoute une séparation entre les éléments */
-    }
-
-    .menu li:last-child {
-      border-bottom: none; /* Supprime la bordure en bas du dernier élément */
-    }
-
-    body {
-      background-image: url("../../images/backgroundfhdtest.png");
-      background-size: cover;
-      background-repeat: repeat;
-      background-attachment: scroll;
-    }
   }
 }
