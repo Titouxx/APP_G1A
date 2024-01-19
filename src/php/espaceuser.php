@@ -1,8 +1,5 @@
 <?php 
-// Make sure page can only be accessed when user is connected
-if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) { 
-// Redirect user to login page if not connected 
-header("Location: Connexion.php"); exit(); }?>
+// // Make sure page can only be accessed when user is connected if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) { // Redirect user to login page if not connected header("Location: Connexion.php"); exit(); }?>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
