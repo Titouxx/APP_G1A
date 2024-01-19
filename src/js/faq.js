@@ -110,7 +110,7 @@ var imgDeco = document.getElementById('imgdeco');
 imgDeco.style.maxHeight = footerHeight + 'px';
 
 
-$(document).ready(function(){//partie js du code d'envoi de mail
+$(document).ready(function(){
   // Déclarez la variable query en dehors du gestionnaire de soumission
   var query;
 
@@ -119,6 +119,12 @@ $(document).ready(function(){//partie js du code d'envoi de mail
 
       // Utilisez la variable déjà déclarée à l'extérieur
       query = $('#searchQueryInput').val(); // Récupérer la valeur du champ de recherche
+
+      // Vérifier si la barre de recherche est vide
+      if (query.trim() === "") {
+          alert("Veuillez saisir votre question avant d'envoyer l'e-mail.");
+          return;
+      }
 
       // Envoyer la valeur à un fichier PHP pour traitement
       $.ajax({ 
