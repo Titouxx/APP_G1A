@@ -1,13 +1,14 @@
 <?php
-session_start();
 include 'db_connect.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['username'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $discussionId = $_POST['discussionId'];
     $message = $_POST['message'];
-    $username = $_SESSION['username'];
+    $username = 'Guest'; // Since there's no session, we'll use a placeholder
 
     // Validate and sanitize inputs...
+    // It's important to sanitize the inputs to prevent SQL injection and other security issues
+    $message = filter_var($message, FILTER_SANITIZE_STRING);
 
     $stmt = $pdo->prepare("INSERT INTO messages (discussion_id, username, message) VALUES (?, ?, ?)");
     $stmt->execute([$discussionId, $username, $message]);
