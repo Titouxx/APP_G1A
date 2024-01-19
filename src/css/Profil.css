@@ -211,19 +211,23 @@ html {
   height: 100%;
   margin-top: 45px;
 }
+
+.menu-icon {
+  width: 20px;
+  height: 20px;
+}
+
 .container1 {
   position: relative;
   float: left;
   background-color: #f7eeff;
-  border: 2px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
   width: 50%;
-  border-radius: 10px;
-
   height: 420px;
   border-radius: 10px;
   box-shadow: 0 0 100px rgb(113, 53, 99);
-  left: 25%;
+  left: 45%;
+  transform: translateX(-50%);
 }
 
 .content {
@@ -234,13 +238,18 @@ html {
 
 .sidebar {
   position: relative;
+  display: flex;
+  flex-direction: column;
   float: left;
-  left: 0%;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
-  background-color: #050405;
+  background-color: #9763bc;
   height: 100%;
+}
+
+.Déconnexion {
+  margin-top: auto;
 }
 
 .profile-info {
@@ -248,25 +257,22 @@ html {
   float: left;
   width: 70%;
   height: 100%;
-  left: 70px;
+  left: 0px;
 }
 
 h1 {
   color: #000000;
   position: relative;
-  left: 15%;
+  left: 25%;
 }
-
-/* ... (autres styles) ... */
-
-/* ... (autres styles) ... */
-
-/* ... (autres styles) ... */
 
 .menu2 {
   text-align: left;
+  display: flex;
+  flex-direction: column;
   margin-bottom: 20px;
   top: 42px;
+  flex-grow: 1;
 }
 .menu2 ul {
   list-style: none;
@@ -275,6 +281,11 @@ h1 {
 }
 .menu2 li {
   margin-bottom: 10px; /* Ajoutez une marge inférieure pour espacer verticalement */
+  display: block;
+  width: 100%;
+}
+.menu2 li label {
+  width: 100%;
   display: block;
 }
 
@@ -290,13 +301,6 @@ h1 {
 
 #coordonnees .form-control {
   width: 80%;
-}
-#Modifier {
-  position: fixed;
-  float: left;
-  left: 60%;
-  top: 87%;
-  display: none;
 }
 
 #Enregistrer {
@@ -331,9 +335,17 @@ button {
   margin: 0px;
   cursor: pointer;
 }
-
 button:hover {
   background-color: #bfa0d4;
+}
+
+label:hover {
+  background-color: #bfa0d4;
+}
+
+label:hover,
+label:hover button {
+  background-color: #bfa0d4; /* Remplacez #your-color par la couleur que vous voulez */
 }
 
 .footer {
@@ -366,4 +378,12 @@ button:hover {
 
 .footer li:hover a {
   color: #d94f5c;
+}
+#Modifier {
+  display: none;
+  margin-left: 64%;
+}
+
+.label_menu {
+  margin-left: 5px;
 }
