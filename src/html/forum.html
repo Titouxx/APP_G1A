@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!--web banner-->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -11,6 +12,7 @@
     <link rel="icon" type="image/x-icon" href="../../images/TransNoise.ico" />
     <script src="../js/jquery.min.js"></script>
   </head>
+  <!--background and menu bar-->
   <body background="../../images/bgtest2.png">
     <nav>
       <ul class="menu">
@@ -20,9 +22,9 @@
         <li><a href="espaceuser.html">Profil</a></li>
       </ul>
     </nav>
-
+    <!--forum header-->
     <header>
-      <img src="../../images/forum.png" />
+      <img src="../../images/forumpic2.png" />
     </header>
 
     <!-- forum section -->
@@ -31,15 +33,11 @@
         <h1>...commencer une nouvelle discussion !</h1>
         <input type="text" id="discussionTitle" placeholder="Titre" />
         <textarea id="discussionContent" placeholder="Message"></textarea>
-        <input type="text" id="username" placeholder="Votre Username" />
-        <button onclick="createDiscussion()">Créer Discussion</button>
+        <button onclick>Créer Discussion</button>
       </div>
       <div class="discussion-list" id="discussionList">
         <h1>...ou rejoindre une discussion en cours !</h1>
       </div>
     </div>
-
-    <!--à enlever quand on aura une base de donnée-->
-    <script src="../js/forum.js"></script>
   </body>
 </html>
