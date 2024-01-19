@@ -66,10 +66,7 @@
                         type: "POST",
                         url: url,
                         data: form.serialize(), // serializes the form's elements
-                        success: function(response) {
-                            // Assuming the PHP script returns a JSON object
-                            var data = JSON.parse(response);
-                            
+                        success: function(data) {
                             // Construct the HTML for the new discussion item
                             var newDiscussionHtml = '<div class="discussion-item">' +
                                                     '<h3><a href="discussion.php?id=' + data.id + '">' + 
@@ -80,8 +77,10 @@
                             
                             // Append the new discussion HTML to the list of discussions
                             $('#discussionList').append(newDiscussionHtml);
-                        }
 
+                            // Optionally, clear the form fields after submission
+                            $('#newDiscussionForm').find('input[type="text"], textarea').val('');
+                        }
                     });
                 });
             });

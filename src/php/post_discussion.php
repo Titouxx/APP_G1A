@@ -19,14 +19,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // After the discussion has been inserted into the database...
     $lastInsertId = $pdo->lastInsertId(); // Get the last inserted ID
+}
 
-    echo json_encode([
-        'id' => $lastInsertId,
-        'topic_name' => $topicName,
-        'opening_message' => $openingMessage
-    ]);
-    exit();
-    }
+echo json_encode([
+    'id' => $lastInsertId, // This should be the ID of the newly inserted discussion
+    'topic_name' => $topicName,
+    'opening_message' => $openingMessage
+]);
 
 
 ?>
