@@ -1,19 +1,32 @@
 <?php
-session_start();
 include 'db_connect.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['username'])) {
+header('Content-Type: application/json');
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $topicName = $_POST['topicName'];
     $openingMessage = $_POST['openingMessage'];
-    $username = $_SESSION['username']; // Retrieved from session
+    $username = 'Guest'; // Since there's no session, we'll use a placeholder
 
     // Validate and sanitize inputs...
+    // It's important to sanitize the inputs to prevent SQL injection and other security issues
+    $topicName = filter_var($topicName, FILTER_SANITIZE_STRING);
+    $openingMessage = filter_var($openingMessage, FILTER_SANITIZE_STRING);
 
     $stmt = $pdo->prepare("INSERT INTO discussions (topic_name, opening_message, username) VALUES (?, ?, ?)");
     $stmt->execute([$topicName, $openingMessage, $username]);
 
-    // Redirect to discussion list or the newly created discussion page
-    header("Location: discussions_list.php");
+
+    // After the discussion has been inserted into the database...
+    $lastInsertId = $pdo->lastInsertId(); // Get the last inserted ID
+
+    echo json_encode([
+        'id' => $lastInsertId,
+        'topic_name' => $topicName,
+        'opening_message' => $openingMessage
+    ]);
     exit();
-}
+    }
+
+
 ?>

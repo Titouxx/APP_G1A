@@ -31,18 +31,16 @@
 
         <!-- forum section -->
         <div class="forum-section">
-            <div class="post-form">
-                <h2>...commencer une nouvelle discussion !</h2>
-                <input type="text" id="discussionTitle" placeholder="Titre" />
-                <textarea id="discussionContent" placeholder="Message"></textarea>
-                <button onclick>Créer Discussion</button>
-                <h2>...ou rejoindre une discussion en cours !</h2>
-            </div>
+            <form class="post-form" id="newDiscussionForm" action="post_discussion.php" method="post">
+                <input type="text" name="topicName" placeholder="Titre" required />
+                <textarea name="openingMessage" placeholder="Message" required></textarea>
+                <button type="submit">Créer Discussion</button>
+            </form>
+
             <div class="discussion-list" id="discussionList">
                 <!-- PHP Script to Load Discussions -->
                 <?php
                     include 'db_connect.php';
-
 
                     $stmt = $pdo->query("SELECT id, topic_name FROM discussions");
                     $discussions = $stmt->fetchAll();
@@ -56,5 +54,37 @@
                 ?>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                $('#newDiscussionForm').on('submit', function(e) {
+                    e.preventDefault(); // Prevent the form from submitting via the browser
+                    
+                    var form = $(this);
+                    var url = form.attr('action'); // You might need to set this to 'post_discussion.php'
+                    
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: form.serialize(), // serializes the form's elements
+                        success: function(response) {
+                            // Assuming the PHP script returns a JSON object
+                            var data = JSON.parse(response);
+                            
+                            // Construct the HTML for the new discussion item
+                            var newDiscussionHtml = '<div class="discussion-item">' +
+                                                    '<h3><a href="discussion.php?id=' + data.id + '">' + 
+                                                    data.topic_name + 
+                                                    '</a></h3>' +
+                                                    '<p>' + data.opening_message + '</p>' +
+                                                    '</div>';
+                            
+                            // Append the new discussion HTML to the list of discussions
+                            $('#discussionList').append(newDiscussionHtml);
+                        }
+
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
