@@ -44,14 +44,16 @@ document.addEventListener("DOMContentLoaded", function () {
     xhr.send("loginEmail=" + encodeURIComponent(email) + "&loginPassword=" + encodeURIComponent(password));
   });
 
-  // Formulaire d'enregistrement
-  var registerForm = document.getElementById("registerForm");
-  registerForm.addEventListener("submit", function (event) {
+// Formulaire d'enregistrement
+var registerForm = document.getElementById("registerForm");
+registerForm.addEventListener("submit", function (event) {
     event.preventDefault();
-    var emailField = document.getElementById("registerEmail");
+    var firstNameField = document.getElementById("registerFirstName").value;
+    var lastNameField = document.getElementById("registerLastName").value;
+    var emailField = document.getElementById("registerEmail").value;
     var password = document.getElementById("registerPassword").value;
     var repeatPassword = document.getElementById("RepeatPassword").value;
-
+    
     // Vérifiez si les mots de passe correspondent
     if (password !== repeatPassword) {
       alert("Les mots de passe ne correspondent pas.");
@@ -83,6 +85,12 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     // Envoyer le mot de passe en clair dans la requête (non recommandé en production)
-    xhr.send("registerEmail=" + encodeURIComponent(emailField.value) + "&registerPassword=" + encodeURIComponent(password) + "&RepeatPassword=" + encodeURIComponent(repeatPassword));
+    xhr.send(
+      "registerFirstName=" + encodeURIComponent(firstNameField) +
+      "&registerLastName=" + encodeURIComponent(lastNameField) +
+      "&registerEmail=" + encodeURIComponent(emailField) +
+      "&registerPassword=" + encodeURIComponent(password) +
+      "&RepeatPassword=" + encodeURIComponent(repeatPassword)
+    );
   });
 });
