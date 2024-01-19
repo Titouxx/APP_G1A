@@ -1,6 +1,9 @@
 <?php
     session_start();
     include 'db_connect.php';
+
+    header('Content-Type: application/json');
+
  
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $discussionId = $_POST['discussionId'];
@@ -20,7 +23,13 @@
             // Redirect to an error page or display an error message
         }
 
-        header("Location: discussion.php?id=" . $discussionId);
+        // After successful insertion
+        echo json_encode([
+            "username" => $username, // Assuming this is where the username is stored
+            "message" => $message, // Sanitized message
+            "timestamp" => date("Y-m-d H:i:s") // Current timestamp or fetch the latest from the database
+        ]);
+
         exit();
     }
 ?>

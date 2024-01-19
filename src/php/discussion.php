@@ -62,16 +62,20 @@ echo '</pre>';
                     method: 'POST',
                     body: formData
                 })
-                .then(response => response.text())
+                .then(response => response.json()) // Expecting JSON response
                 .then(data => {
-                    // Append the new message to the messages container
-                    var messagesContainer = document.getElementById('messagesContainer');
-                    var newMessage = "<div><p>" + formData.get('username') + ": </p>" +
-                                    "<p>" + formData.get('message') + "</p></div>";
-                    messagesContainer.innerHTML += newMessage;
+                    if (data.username && data.message && data.timestamp) {
+                        // Append the new message to the messages container
+                        var messagesContainer = document.getElementById('messagesContainer');
+                        var newMessage = "<div><p>" + data.username + " (" + data.timestamp + "): </p>" +
+                                        "<p>" + data.message + "</p></div>";
+                        messagesContainer.innerHTML += newMessage;
 
-                    // Clear the message textarea
-                    document.querySelector('[name="message"]').value = '';
+                        // Clear the message textarea
+                        document.querySelector('[name="message"]').value = '';
+                    } else {
+                        console.error('Missing data from response:', data);
+                    }
                 })
                 .catch(error => console.error('Error:', error));
             });
