@@ -5,7 +5,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <title>TransNoise - EchoKey</title>
-        <link rel="stylesheet" href="../css/forum.css" />
+        <link rel="stylesheet" href="../css/forum.css"/>
+
 
         <link rel="stylesheet" href="../css/normalize.css" />
         <link rel="stylesheet" href="../css/espaceuser.css" />
@@ -27,30 +28,33 @@
         <img src="../../images/forumpic2.png" />
         </header>
 
+
         <!-- forum section -->
         <div class="forum-section">
-        <div class="post-form">
-            <h1>...commencer une nouvelle discussion !</h1>
-            <input type="text" id="discussionTitle" placeholder="Titre" />
-            <textarea id="discussionContent" placeholder="Message"></textarea>
-            <button onclick>Créer Discussion</button>
-        </div>
-        <div class="discussion-list" id="discussionList">
-            <h1>...ou rejoindre une discussion en cours !</h1>
-        </div>
-        </div>
-        <!-- PHP Script to Load Discussions -->
-        <?php
-            include 'db_connect.php'; 
+            <div class="post-form">
+                <h2>...commencer une nouvelle discussion !</h2>
+                <input type="text" id="discussionTitle" placeholder="Titre" />
+                <textarea id="discussionContent" placeholder="Message"></textarea>
+                <button onclick>Créer Discussion</button>
+            </div>
+            <div class="discussion-list" id="discussionList">
+                <h2>...ou rejoindre une discussion en cours !</h2>
+                <!-- PHP Script to Load Discussions -->
+                <?php
+                    include 'db_connect.php';
 
-            $stmt = $pdo->query("SELECT id, topic_name FROM discussions");
-            $discussions = $stmt->fetchAll();
 
-            foreach ($discussions as $discussion) {
-                echo "<div class='discussion-item'>";
-                echo "<h3><a href='discussion.php?id=" . $discussion['id'] . "'>" . htmlspecialchars($discussion['topic_name']) . "</a></h3>";
-                echo "</div>";
-            }
-        ?>
+                    $stmt = $pdo->query("SELECT id, topic_name FROM discussions");
+                    $discussions = $stmt->fetchAll();
+
+
+                    foreach ($discussions as $discussion) {
+                        echo "<div class='discussion-item'>";
+                        echo "<h3><a href='discussion.php?id=" . $discussion['id'] . "'>" . htmlspecialchars($discussion['topic_name']) . "</a></h3>";
+                        echo "</div>";
+                    }
+                ?>
+            </div>
+        </div>
     </body>
 </html>
