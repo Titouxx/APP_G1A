@@ -77,7 +77,7 @@
               <li></li>
             </ul>
             <a href="logout.php"></a>
-            <button class="Déconnexion" onclick="window.location.href='../logout.php'">  
+            <button class="Déconnexion" onclick="window.location.href='logout.php'">  
               <img
                 class="menu-icon"
                 src="../../images/se-deconnecter.png"
@@ -90,6 +90,7 @@
             <h1>Édition du Profil</h1>
 
             <?php
+            session_start(); // Démarre la session au début du script
             $servername = "localhost";
             $username = "root";
             $password = "";
@@ -101,8 +102,14 @@
                 die("Connection failed: " . $conn->connect_error);
             }
             
-            $sql = "SELECT * FROM user WHERE id_User = 1";
-            $result = $conn->query($sql);
+            if(isset($_SESSION['user_id'])) {
+              $user_id = $_SESSION['user_id'];
+              $sql = "SELECT * FROM user WHERE id_User = $user_id";
+              $result = $conn->query($sql);
+              // Rest of the code...
+            } else {
+              echo "User ID not found in session.";
+            }
             
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
@@ -112,8 +119,16 @@
                 $phone = $row["telephone"];
                 $adresse = $row["adresse"];
                 $city = $row["ville"];
+                $password = $row["password"];
             } else {
                 echo "No user found.";
+            }
+            if(isset($_SESSION['user_id'])) {
+              // Si l'utilisateur est connecté, affichez un message différent
+
+            } else {
+              // Si l'utilisateur n'est pas connecté, affichez le bouton de connexion
+              echo '<button class="cn" id="scrollButton"><a href="Connexion.php">Connectez Vous !</a></button>';
             }
             
             $conn->close();
@@ -194,7 +209,24 @@
 
             <!-- Section des paramètres (vide dans le code fourni) -->
             <div id="parametres" class="section profile" style="display: none">
-              <!-- Champs pour les paramètres -->
+            <div class="form-group mb-3">
+                <label class="col-md-4 control-label">Mot de passe</label>
+                <div class="col-md-8 inputGroupContainer">
+                  <div class="input-group">
+                    <span class="input-group-addon"
+                      ><i class="glyphicon glyphicon-user"></i
+                    ></span>
+                    <input
+                      name="password"
+                      placeholder="Mot de passe"
+                      class="form-control"
+                      type="password"
+                      value="<?php echo $password; ?>"
+                      disabled
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
             <button class="Edition" type="button" id="Modifier" onclick="activerEdition()">
               Modifier
