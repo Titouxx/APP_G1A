@@ -225,7 +225,7 @@ will-change: opacity, max-height;
 /* css Barre de recherche */
 .wrapper {
   width: 100%;
-  max-width: 31.25rem;
+  max-width: 40rem;
   margin: 2rem auto;
 }
 #searchForm {
@@ -301,64 +301,30 @@ will-change: opacity, max-height;
   color: #d94f5c;
 }
 
-/*CSS image de déconnexion*/
+/* CSS image de déconnexion */
 #imgdeco {
   position: fixed;
   bottom: 0;
   right: 0;
-  height: auto;
-  width: auto; /* Utilisez 'auto' pour conserver les proportions de l'image */
-  max-width: 5%; /* Définissez la largeur maximale pour éviter qu'elle ne devienne trop grande */
+  width: auto;
+  max-width: 100%;
   margin-bottom: 0.5rem;
   margin-right: 1rem;
   cursor: pointer;
   z-index: 5;
 }
 
-
-/*CSS logos de marques*/
-
-#LISEP, #LEVENTS, #LTransnoise, #LEchokey {
+/* CSS logos de marques */
+#LogosFooter {
   position: fixed;
   bottom: 0;
   left: 0;
-  margin-bottom: 0.5rem; /* Ajoutez une marge en bas pour espacer les images */
-  margin-left: 0.5rem; /* Ajoutez une marge à gauche pour espacer les images */
+  max-width: 100%;
+  width: auto;
+  margin-bottom: 0.01rem;
+  margin-left: 0.5rem;
   z-index: 5;
 }
-
-#LISEP{
-  height: 55px;
-  width: auto; /* Utilisez 'auto' pour conserver les proportions de l'image */
-  max-width: 5%; /* Définissez la largeur maximale pour éviter qu'elle ne devienne trop grande */
-  margin-left: 150px;
-}
-
-#LEVENTS, #LTransnoise {
-  height: 55px;
-  width: auto;
-  max-width: 60px;
-}
-
-#LEchokey{
-  height: 62px;
-  width: auto; /* Utilisez 'auto' pour conserver les proportions de l'image */
-  max-width: 5%; /* Définissez la largeur maximale pour éviter qu'elle ne devienne trop grande */
-  margin-left: 280px;/* Ajoutez une marge à gauche pour espacer cette image */
-  
-}
-
-
-#LEVENTS {
-  margin-left: 75px; /* Ajoutez une marge à gauche pour espacer cette image */
-}
-
-#LTransnoise {
-  margin-left: 5px; /* Ajoutez une marge à gauche pour espacer cette image */
-}
-
-
-
 
 /*barre controle f test d'integration */
 /* Styles for the loupebar */
@@ -434,7 +400,7 @@ will-change: opacity, max-height;
   text-shadow: 0 0 10px #f7eeff;
   width: 50px; /* Définit la largeur de la barre de recherche */
   padding: 0;
-  text-indent: 0; /* Réinitialise le décalage du texte */
+  text-indent: 10px; /* Réinitialise le décalage du texte */
   border-radius: 30px;
   box-shadow: 0 0 25px 0 #f7eeff, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
   transition: all 1s;
@@ -523,5 +489,25 @@ will-change: opacity, max-height;
     background-size: cover;
     background-repeat: repeat; /* Active la répétition de l'arrière-plan */
     background-attachment: scroll;
+  }
+
+
+#imgdeco {
+  width: 15%; /* Ajustez la largeur pour les appareils mobiles si nécessaire */
+}
+#LogosFooter {
+  width: 15%; /* Ajustez la hauteur pour les appareils mobiles si nécessaire */
+}
+
+/* Footer */
+.footer {
+position: fixed;
+right: 0;
+bottom: 0;
+left: 0;
+padding-top: 0.5rem; /* Augmenter la hauteur en ajustant le padding */
+padding-bottom: 1px; /* Vous pouvez ajuster ces valeurs selon vos besoins */
+background-color: #f7eeff;
+text-align: center;
   }
 }

@@ -36,152 +36,203 @@
     <div class="ii">
       <div class="container1">
         <div class="content">
-          <div class="sidebar">
+        <div class="sidebar">
             <ul class="menu2">
               <li>
-                <button onclick="showSection('coordonnees')">
-                  Coordonnées
-                </button>
+                <label for="Coordonnées" class="label_menu">
+                  <img
+                    class="menu-icon"
+                    src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/users.png"
+                    alt="Users Icon"
+                  />
+                  <button onclick="showSection('coordonnees')">
+                    Coordonnées
+                  </button>
+                </label>
               </li>
               <li>
-                <button onclick="showSection('parametres')">
-                  . Paramètres .
-                </button>
+                <label for="Paramètres" class="label_menu">
+                  <img
+                    class="menu-icon"
+                    src="../../images/parametres-des-engrenages.png"
+                    alt="Paramètres des engrenages"
+                  />
+                  <button onclick="showSection('parametres')">
+                   Paramètres
+                  </button>
+                </label>
               </li>
-              <!-- ... Ajoutez d'autres sections au besoin -->
+              <li>
+                <label for="Vos Enregistrement" class="label_menu">
+                  <img
+                    class="menu-icon"
+                    src="../../images/message-vocal.png"
+                    alt="Exit Icon"
+                  />
+                  <button onclick="showSection('Enregistrement')">
+                    Enregistrement
+                  </button>
+                </label>
+              </li>
+              <li></li>
             </ul>
+            <a href="logout.php"></a>
+            <button class="Déconnexion" onclick="window.location.href='logout.php'">  
+              <img
+                class="menu-icon"
+                src="../../images/se-deconnecter.png"
+                alt="Exit Icon"
+              />
+              Déconnexion
+            </button>
           </div>
           <div class="profile-info">
             <h1>Édition du Profil</h1>
 
+            <?php
+            session_start(); // Démarre la session au début du script
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "siteweb";
+            
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+            
+            if(isset($_SESSION['user_id'])) {
+              $user_id = $_SESSION['user_id'];
+              $sql = "SELECT * FROM user WHERE id_User = $user_id";
+              $result = $conn->query($sql);
+              // Rest of the code...
+            } else {
+              echo "User ID not found in session.";
+            }
+            
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $first_name = $row["prenom"];
+                $last_name = $row["nom"];
+                $email = $row["email"];
+                $phone = $row["telephone"];
+                $adresse = $row["adresse"];
+                $city = $row["ville"];
+                $password = $row["password"];
+            } else {
+                echo "No user found.";
+            }
+            if(isset($_SESSION['user_id'])) {
+              // Si l'utilisateur est connecté, affichez un message différent
+
+            } else {
+              // Si l'utilisateur n'est pas connecté, affichez le bouton de connexion
+              echo '<button class="cn" id="scrollButton"><a href="Connexion.php">Connectez Vous !</a></button>';
+            }
+            
+            $conn->close();
+            ?>
+            
             <!-- Section de coordonnées (formulaire) -->
             <div id="coordonnees" class="section profile" style="display: none">
               <div class="form-group mb-3">
-                <label class="col-md-4 control-label">Prénom</label>
+                <label class="col-md-4 control-label">Prénoms</label>
                 <div class="col-md-8 inputGroupContainer">
                   <div class="input-group">
-                    <span class="input-group-addon"
-                      ><i class="glyphicon glyphicon-user"></i
-                    ></span>
-                    <input
-                      name="first_name"
-                      placeholder="Prénom"
-                      class="form-control"
-                      type="text"
-                      disabled
-                    />
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input name="first_name" id="first_name" placeholder="Prénoms" class="form-control" type="text" value="<?php echo $first_name; ?>" disabled />
                   </div>
                 </div>
               </div>
-
+            
               <!-- Text input-->
-
+            
               <div class="form-group mb-3">
-                <label class="col-md-4 control-label">Nom</label>
+                <label class="col-md-4 control-label">Noms</label>
                 <div class="col-md-8 inputGroupContainer">
                   <div class="input-group">
-                    <span class="input-group-addon"
-                      ><i class="glyphicon glyphicon-user"></i
-                    ></span>
-                    <input
-                      name="last_name"
-                      placeholder="Nom"
-                      class="form-control"
-                      type="text"
-                      disabled
-                    />
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input name="last_name" id="last_name" placeholder="Nom" class="form-control" type="text" value="<?php echo $last_name; ?>" disabled />
                   </div>
                 </div>
               </div>
-
+            
               <!-- Text input-->
               <div class="form-group">
                 <label class="col-md-4 control-label">E-Mail</label>
                 <div class="col-md-8 inputGroupContainer">
                   <div class="input-group">
-                    <span class="input-group-addon"
-                      ><i class="glyphicon glyphicon-envelope"></i
-                    ></span>
-                    <input
-                      name="email"
-                      placeholder="Addresse E-Mail"
-                      class="form-control"
-                      type="text"
-                      disabled
-                    />
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                    <input name="email" id="email" placeholder="Adresse E-Mail" class="form-control" type="text" value="<?php echo $email; ?>" disabled />
                   </div>
                 </div>
               </div>
-
+            
               <!-- Text input-->
-
+            
               <div class="form-group">
                 <label class="col-md-4 control-label">Téléphone#</label>
                 <div class="col-md-8 inputGroupContainer">
                   <div class="input-group">
-                    <span class="input-group-addon"
-                      ><i class="glyphicon glyphicon-earphone"></i
-                    ></span>
-                    <input
-                      name="phone"
-                      placeholder="Téléphone"
-                      class="form-control"
-                      type="text"
-                      disabled
-                    />
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                    <input name="phone" id="phone" placeholder="Téléphone" class="form-control" type="text" value="<?php echo $phone; ?>" disabled />
                   </div>
                 </div>
               </div>
-
+            
               <!-- Text input-->
-
+            
               <div class="form-group mb-2">
-                <label class="col-md-4 control-label">Addresse</label>
+                <label class="col-md-4 control-label">Adresse</label>
                 <div class="col-md-8 inputGroupContainer">
                   <div class="input-group">
-                    <span class="input-group-addon"
-                      ><i class="glyphicon glyphicon-home"></i
-                    ></span>
-                    <input
-                      name="address"
-                      placeholder="Addresse"
-                      class="form-control"
-                      type="text"
-                      disabled
-                    />
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                    <input name="adresse" id="adresse" placeholder="Adresse" class="form-control" type="text" value="<?php echo $adresse; ?>" disabled />
                   </div>
                 </div>
               </div>
-
+            
               <!-- Text input-->
-
+            
               <div class="form-group">
                 <label class="col-md-4 control-label">Ville</label>
                 <div class="col-md-8 inputGroupContainer">
                   <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                    <input name="city" id="city" placeholder="Ville" class="form-control" type="text" value="<?php echo $city; ?>" disabled />
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+            <!-- Section des paramètres (vide dans le code fourni) -->
+            <div id="parametres" class="section profile" style="display: none">
+            <div class="form-group mb-3">
+                <label class="col-md-4 control-label">Mot de passe</label>
+                <div class="col-md-8 inputGroupContainer">
+                  <div class="input-group">
                     <span class="input-group-addon"
-                      ><i class="glyphicon glyphicon-home"></i
+                      ><i class="glyphicon glyphicon-user"></i
                     ></span>
                     <input
-                      name="city"
-                      placeholder="Ville"
+                      name="password"
+                      placeholder="Mot de passe"
                       class="form-control"
-                      type="text"
+                      type="password"
+                      value="<?php echo $password; ?>"
                       disabled
                     />
                   </div>
                 </div>
               </div>
             </div>
-
-            <!-- Section des paramètres (vide dans le code fourni) -->
-            <div id="parametres" class="section profile" style="display: none">
-              <!-- Champs pour les paramètres -->
-            </div>
-            <button type="button" id="Modifier" onclick="activerEdition()">
+            <button class="Edition" type="button" id="Modifier" onclick="activerEdition()">
               Modifier
             </button>
             <button
+              class="Edition"
               type="button"
               id="Enregistrer"
               onclick="enregistrerEdition()"
@@ -208,6 +259,7 @@
         </nav>
       </div>
     </footer>
-    <script src="../JS/Profil.js"></script>
+    <script src="../js/Profil.js"></script>
+
   </body>
 </html>
