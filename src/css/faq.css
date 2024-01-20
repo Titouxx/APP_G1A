@@ -400,7 +400,7 @@ will-change: opacity, max-height;
   text-shadow: 0 0 10px #f7eeff;
   width: 50px; /* Définit la largeur de la barre de recherche */
   padding: 0;
-  text-indent: 0; /* Réinitialise le décalage du texte */
+  text-indent: 10px; /* Réinitialise le décalage du texte */
   border-radius: 30px;
   box-shadow: 0 0 25px 0 #f7eeff, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
   transition: all 1s;

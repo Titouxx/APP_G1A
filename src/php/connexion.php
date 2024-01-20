@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Connexion</title>
-    <link rel="stylesheet" href="../css/connexion.css" />
+    <link rel="stylesheet" href="../css/Connexion.css" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -44,35 +44,34 @@
     </div>
 
 
-    <div class="wrapper2" id="registerWrapper" style="display: none">
+ <!-- Formulaire d'enregistrement -->
+ <div class="wrapper2" id="registerWrapper" style="display: none">
       <form id="registerForm" action="register.php" method="post">
         <h1>Enregistrement</h1>
+        <div class="name-fields">
+          <div class="input-box">
+            <!-- Champ Prénom -->
+            <input type="text" id="registerFirstName" name="registerFirstName" placeholder="Prénom" required />
+            <i class="bx bxs-user"></i>
+          </div>
+          <div class="input-box">
+            <!-- Champ Nom -->
+            <input type="text" id="registerLastName" name="registerLastName" placeholder="Nom" required />
+            <i class="bx bxs-user"></i>
+          </div>
+        </div>
+
         <div class="input-box">
-          <input
-            type="text"
-            id="registerEmail"
-            name="registerEmail"
-            placeholder="Email"
-            required
-          /><i class="bx bxs-user"></i>
+          <input type="text" id="registerEmail" name="registerEmail" placeholder="Email" required />
+          <i class="bx bxs-user"></i>
         </div>
         <div class="input-box">
-          <input
-            type="password"
-            id="registerPassword"
-            name="registerPassword"
-            placeholder="Mot de passe"
-            required
-          /><i class="bx bxs-lock-alt"></i>
+          <input type="password" id="registerPassword" name="registerPassword" placeholder="Mot de passe" required />
+          <i class="bx bxs-lock-alt"></i>
         </div>
         <div class="input-box">
-          <input
-            type="password"
-            id="RepeatPassword"
-            name="RepeatPassword"
-            placeholder="Repeat Password"
-            required
-          /><i class="bx bxs-lock-alt"></i>
+          <input type="password" id="RepeatPassword" name="RepeatPassword" placeholder="Répéter le mot de passe" required />
+          <i class="bx bxs-lock-alt"></i>
         </div>
 
         <button type="submit" class="btn">S'enregistrer</button>
@@ -80,6 +79,6 @@
         <button type="button" id="loginBtn" class="btn">Se connecter</button>
       </form>
     </div>
-     <script src = "../js/connexion.js"> </script>
+    <script src="../js/connexion.js"></script>
   </body>
 </html>

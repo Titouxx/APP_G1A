@@ -10,7 +10,7 @@ function updateModifierButtonState(sectionId) {
 
 function activerEdition() {
   var champsEditable = document.querySelectorAll(
-    "#coordonnees input[disabled]"
+    "#coordonnees input[disabled], #parametres input[disabled]"
   );
   champsEditable.forEach(function (champ) {
     champ.removeAttribute("disabled");
@@ -22,9 +22,9 @@ function activerEdition() {
   document.getElementById("Enregistrer").style.marginLeft = "65px";
 }
 
-function desactiverChampsCoordonnees() {
+function desactiverChamps() {
   var champsCoordonnees = document.querySelectorAll(
-    "#coordonnees input:not([disabled])"
+    "#coordonnees input:not([disabled]), #parametres input:not([disabled])"
   );
   champsCoordonnees.forEach(function (champ) {
     champ.setAttribute("disabled", true);
@@ -54,7 +54,8 @@ function enregistrerEdition() {
   var phone = document.getElementById("phone").value;
   var adresse = document.getElementById("adresse").value;
   var city = document.getElementById("city").value;
-  desactiverChampsCoordonnees();
+  var password = document.getElementById("password").value;
+  desactiverChamps();
 
   // Enregistrer les modifications dans la base de données
   var request = $.ajax({
@@ -67,6 +68,31 @@ function enregistrerEdition() {
       phone: phone,
       adresse: adresse,
       city: city,
+      password: password,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response.status === "success") {
+        alert("Profile updated successfully!");
+      } else {
+        alert("Failed to update profile.");
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.log(textStatus, errorThrown);
+    },
+  });
+
+  $.ajax({
+    url: "check_user.php",
+    type: "POST",
+    success: function (response) {
+      var responseObject = JSON.parse(response);
+      if (responseObject.logged_in) {
+        // L'utilisateur est connecté, son ID est responseObject.user_id
+      } else {
+        // L'utilisateur n'est pas connecté
+      }
     },
   });
 }
