@@ -21,10 +21,25 @@ try {
         $password = $_POST['registerPassword'];
         $repeatPassword = $_POST['RepeatPassword'];
 
-        // Vérification si les mots de passe correspondent
+        // Vérification si le mot de passe est correct
         if ($password !== $repeatPassword) {
             echo json_encode(["status" => "error", "message" => "Les mots de passe ne correspondent pas."]);
-            exit; // Ajout d'un exit pour arrêter l'exécution après l'envoi de la réponse
+            exit;
+        }
+
+        if (strlen($password) < 10) {
+            echo json_encode(["status" => "error", "message" => "Le mot de passe doit contenir plus de 10 caractères."]);
+            exit;
+        }
+
+        if (!preg_match('/[0-9]/', $password)) {
+            echo json_encode(["status" => "error", "message" => "Le mot de passe doit contenir au moins un chiffre."]);
+            exit;
+        }
+
+        if (!preg_match('/[^A-Za-z0-9]/', $password)) {
+            echo json_encode(["status" => "error", "message" => "Le mot de passe doit contenir au moins un caractère spécial."]);
+            exit;
         }
 
         // Vérification si l'email existe déjà
