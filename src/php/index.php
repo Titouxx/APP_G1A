@@ -35,7 +35,7 @@ session_start(); // Démarre la session au début du script
 
     <?php
 if(isset($_SESSION['user_id'])) {
-  echo '<p style="text-align: center; font-weight: bold; color: rgb(134, 57, 160); font-size: 50px;">Bienvenue ' . $_SESSION['prenom'] . ' !' . '</p>';}
+  echo '<p class="welcome-message">Bienvenue ' . $_SESSION['prenom'] . ' !' . '</p>';}
   ?>
     <!--gere le texte au milieu de la page-->
     <div class="content">

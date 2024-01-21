@@ -99,6 +99,17 @@ body,
   box-sizing: border-box;
 }
 
+.welcome-message {
+  text-align: center;
+  font-weight: bold;
+  color: rgb(150, 20, 160);
+  font-size: 50px;
+  background-color: #f7eeff;
+  padding: 10px;
+  margin: 0 330px;
+  border-radius: 40px;
+}
+
 /* Styles pour la nouvelle section "content" */
 .content {
   display: flex;
@@ -244,6 +255,15 @@ button.cn:hover {
     display: block;
   }
 
+  .welcome-message {
+    /* Réinitialisez les styles pour les écrans plus petits si nécessaire */
+    font-weight: normal;
+    color: rgb(150, 20, 160);
+    background-color: #f7eeff;
+    padding: 0;
+    margin: 0;
+  }
+
   .content {
     flex-direction: column;
     align-items: center;
@@ -254,7 +274,7 @@ button.cn:hover {
   }
 
   .content h1 {
-    margin: 0;
+    margin: 20px;
     font-size: 70px; /* Réduisez la taille du titre pour les petits écrans */
   }
 
