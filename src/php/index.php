@@ -63,7 +63,7 @@ session_start(); // Démarre la session au début du script
 <?php
 if(isset($_SESSION['user_id'])) {
   // Si l'utilisateur est connecté, affichez un message différent
-  echo '<p>Bienvenue ' . $_SESSION['nom'] . '</p>';
+  echo '<p>Bienvenue ' . $_SESSION['prenom'] . '</p>';
   echo '<button class="cn" id="scrollButton"><a href="logout.php">Souhaitez vous vous déconnecter</a></button>';
 } else {
   // Si l'utilisateur n'est pas connecté, affichez le bouton de connexion
