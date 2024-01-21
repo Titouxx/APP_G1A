@@ -47,13 +47,13 @@ document.addEventListener("DOMContentLoaded", function () {
 // Formulaire d'enregistrement
 var registerForm = document.getElementById("registerForm");
 registerForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-    var firstNameField = document.getElementById("registerFirstName").value;
-    var lastNameField = document.getElementById("registerLastName").value;
-    var emailField = document.getElementById("registerEmail").value;
-    var password = document.getElementById("registerPassword").value;
-    var repeatPassword = document.getElementById("RepeatPassword").value;
-    
+  event.preventDefault();
+  var firstNameField = document.getElementById("registerFirstName").value;
+  var lastNameField = document.getElementById("registerLastName").value;
+  var emailField = document.getElementById("registerEmail");
+  var password = document.getElementById("registerPassword").value;
+  var repeatPassword = document.getElementById("RepeatPassword").value;
+
     // Vérifiez si les mots de passe correspondent
     if (password !== repeatPassword) {
       alert("Les mots de passe ne correspondent pas.");
@@ -71,12 +71,10 @@ registerForm.addEventListener("submit", function (event) {
         if (response.status === "success") {
           window.location.href = "../php/index.php";
         } else if (response.status === "error" && response.message === "email_exists") {
-          // Afficher le champ email en rouge
           emailField.style.color = 'red';
           alert("Cet email est déjà utilisé.");
         } else {
-          // Réinitialiser la couleur du champ email
-          emailField.style.color = 'initial';
+          emailField.style.color = 'initial'; 
           alert(response.message || "Une erreur est survenue lors de l'enregistrement");
         }
       } catch (e) {
@@ -84,11 +82,10 @@ registerForm.addEventListener("submit", function (event) {
       }
     };
 
-    // Envoyer le mot de passe en clair dans la requête (non recommandé en production)
     xhr.send(
       "registerFirstName=" + encodeURIComponent(firstNameField) +
       "&registerLastName=" + encodeURIComponent(lastNameField) +
-      "&registerEmail=" + encodeURIComponent(emailField) +
+      "&registerEmail=" + encodeURIComponent(emailField.value) + 
       "&registerPassword=" + encodeURIComponent(password) +
       "&RepeatPassword=" + encodeURIComponent(repeatPassword)
     );
