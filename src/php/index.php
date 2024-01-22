@@ -33,7 +33,10 @@ session_start(); // Démarre la session au début du script
     <!--le logo en haut à gauche-->
     <a href="index.php"><img src="../../images/EchoKey_extrude.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey"></a> <!--logo EchoKey-->
 
-
+    <?php
+if(isset($_SESSION['user_id'])) {
+  echo '<p class="welcome-message">Bienvenue ' . $_SESSION['prenom'] . ' !' . '</p>';}
+  ?>
     <!--gere le texte au milieu de la page-->
     <div class="content">
       <h1>
@@ -62,8 +65,6 @@ session_start(); // Démarre la session au début du script
      
 <?php
 if(isset($_SESSION['user_id'])) {
-  // Si l'utilisateur est connecté, affichez un message différent
-  echo '<p>Bienvenue ' . $_SESSION['username'] . '</p>';
   echo '<button class="cn" id="scrollButton"><a href="logout.php">Souhaitez vous vous déconnecter</a></button>';
 } else {
   // Si l'utilisateur n'est pas connecté, affichez le bouton de connexion

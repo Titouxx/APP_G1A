@@ -25,7 +25,7 @@ try {
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id_User'];
             $_SESSION['email'] = $email;
-            $_SESSION['username'] = $username;
+            $_SESSION['prenom'] = $prenom;
             $_SESSION['logged_in'] = true;
 
             echo json_encode(["status" => "success"]);
