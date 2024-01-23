@@ -114,10 +114,10 @@ h1 {
 }
 
 /* Footer */
-footer {
+.footer {
   position: fixed;
   right: 0;
-  bottom: 0px;
+  bottom: 0;
   left: 0;
   padding-top: 0.5rem; /* Augmenter la hauteur en ajustant le padding */
   padding-bottom: 1px; /* Vous pouvez ajuster ces valeurs selon vos besoins */
@@ -125,25 +125,54 @@ footer {
   text-align: center;
 }
 
-footer nav ul {
+.footer nav ul {
   list-style: none;
   padding: 0;
 }
 
-footer nav ul li {
+.footer nav ul li {
   display: inline;
+
 }
 
-footer nav ul li a {
+.footer nav ul li a {
   text-decoration: none;
   color: #777; /* Couleur du texte pour les liens */
   margin-left: 75px;
   font-size: 15px;
   transition: all 0.45s;
 }
-footer li:hover a {
+
+.footer li:hover a {
   color: #d94f5c;
 }
+
+/* CSS image de déconnexion */
+#imgdeco {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: auto;
+  max-width: 100%;
+  margin-bottom: 0.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  z-index: 5;
+}
+
+/* CSS logos de marques */
+#LogosFooter {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  width: auto;
+  margin-bottom: 0.01rem;
+  margin-left: 0.5rem;
+  z-index: 5;
+}
+
+
 
 #titre1 {
   margin-left: 40%;
@@ -166,4 +195,57 @@ footer li:hover a {
   width: 700px;
   margin-bottom: 170px;
   margin-left: 30px;
+}
+
+
+
+  /* Définissez les styles pour les appareils mobiles avec une largeur maximale de 767px */
+  @media screen and (max-width: 767px) {
+    .menu {
+      flex-direction: row; /* Change la direction des éléments en colonne */
+      display: flex;
+      justify-content: space-around; /* Espacement égal entre les éléments */
+      width: 767px; /* Pour occuper toute la largeur */
+    }
+  
+    .menu li {
+      flex: 1 1 calc(50% - 10px); /* Redimensionne la largeur des éléments pour s'adapter au contenu */
+      height: auto; /* Ajuste la hauteur en fonction du contenu */
+      text-align: center; /* Aligne le texte à gauche */
+      padding: 10px; /* Ajoute un peu d'espace autour des éléments */
+      border-bottom: 1px solid #ddd; /* Ajoute une séparation entre les éléments */
+    }
+  
+    .menu li:last-child {
+      border-bottom: none; /* Supprime la bordure en bas du dernier élément */
+    }
+  
+    .menu li a {
+      font-size: 18px; /* Réduit la taille de la police */
+    }
+    body {
+      /* Arrière-plan spécifique pour les appareils mobiles */
+      background-image: url('../../images/backgroundfhdtest.png');
+      background-size: cover;
+      background-repeat: repeat; /* Active la répétition de l'arrière-plan */
+      background-attachment: scroll;
+    }
+  /* Footer */
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-top: 0.5rem; /* Augmenter la hauteur en ajustant le padding */
+  padding-bottom: 1px; /* Vous pouvez ajuster ces valeurs selon vos besoins */
+  background-color: #f7eeff;
+  text-align: center;
+    }
+
+  #imgdeco {
+    width: 15%; /* Ajustez la largeur pour les appareils mobiles si nécessaire */
+  }
+  #LogosFooter {
+    width: 15%; /* Ajustez la hauteur pour les appareils mobiles si nécessaire */
+  }
 }
