@@ -27,18 +27,17 @@ session_start(); // Démarre la session au début du script
         <li><a href="espaceuser.php">Profil</a></li>
       </ul>
     </nav>
+    <div class="loupebar"> <input type="text" id="searchInput" placeholder="Search..."> <div class="search"></div></div>
   </header>
   <!--body gere le corp de la page-->
   <body>
     <!--le logo en haut à gauche-->
-    <div class="header-container">
         <a href="index.php">
             <img src="../../images/EchoKey_extrude.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey">
         </a>
         <div class="language-selector">
           <a href="../../../EN/src/php/index.php">English</a> | <a href="../../../FR/src/php/index.php">Français</a>
         </div>
-    </div>
     <?php
 if(isset($_SESSION['user_id'])) {
   echo '<p class="welcome-message">Bienvenue ' . $_SESSION['prenom'] . ' !' . '</p>';}
