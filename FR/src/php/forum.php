@@ -61,19 +61,19 @@
                     e.preventDefault(); // Prevent the form from submitting via the browser
                     
                     var form = $(this);
-                    var url = form.attr('action'); // You might need to set this to 'post_discussion.php'
+                    var url = form.attr('action'); 
                     
                     $.ajax({
                         type: "POST",
                         url: url,
-                        data: form.serialize(), // serializes the form's elements
-                        success: function(data) {
+                        response: form.serialize(), // serializes the form's elements
+                        success: function($response) {
                             // Construct the HTML for the new discussion item
                             var newDiscussionHtml = '<div class="discussion-item">' +
-                                                    '<h3><a href="discussion.php?id=' + data.id + '">' + 
-                                                    data.topic_name + 
+                                                    '<h3><a href="discussion.php?id=' + response.id + '">' + 
+                                                    response.topic_name + 
                                                     '</a></h3>' +
-                                                    '<p>' + data.opening_message + '</p>' +
+                                                    '<p>' + response.opening_message + '</p>' +
                                                     '</div>';
                             
                             // Append the new discussion HTML to the list of discussions

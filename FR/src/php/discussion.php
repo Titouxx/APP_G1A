@@ -1,5 +1,14 @@
 <?php
     session_start();
+    
+    // the following code allows me to check session information 
+    //echo "<h3>Session Information:</h3>";
+    //echo "<ul>";
+    //foreach ($_SESSION as $key => $value) {
+    //    echo "<li>" . htmlspecialchars($key) . ": " . htmlspecialchars($value) . "</li>";
+    //}
+    //echo "</ul>";
+
     include 'db_connect.php';
 
     $discussionId = $_GET['id'] ?? 0; 
@@ -28,7 +37,7 @@
 
 
     // Form to submit new message
-    if (isset($_SESSION['username'])) {
+    if (isset($_SESSION['user_id'])) {
         echo "<form id='messageForm'>";
         echo "<input type='hidden' name='discussionId' value='" . htmlspecialchars($discussionId) . "'>";
         echo "<textarea name='message' required></textarea>";
