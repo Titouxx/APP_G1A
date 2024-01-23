@@ -50,8 +50,24 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head></head>
-    <body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>TransNoise - EchoKey</title>
+        <link rel="stylesheet" href="../css/discussion.css"/>
+        <link rel="stylesheet" href="../css/normalize.css" />
+        <link rel="icon" type="image/x-icon" href="../../images/TransNoise.ico" />
+        <script src="../js/jquery.min.js"></script>
+    </head>
+    <body background="../../images/bgtest2.png">
+        <nav>
+            <ul class="menu">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="analyse.php">Analyse</a></li>
+                <li><a href="faq.php">Faq</a></li>
+                <li><a href="espaceuser.php">Profil</a></li>
+            </ul>
+        </nav>
         <script>
             document.getElementById('postMessageBtn').addEventListener('click', function() {
                 var formData = new FormData(document.getElementById('messageForm'));
