@@ -14,7 +14,7 @@
   <body>
     <nav>
       <ul class="menu">
-        <li><a href="Page_dacueil.php">Home</a></li>
+        <li><a href="index.php">Home</a></li>
         <li><a href="analyse.php">Analyse</a></li>
         <li><a href="faq.php">Faq</a></li>
         <li><a href="espaceuser.php">Profil</a></li>

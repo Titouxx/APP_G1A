@@ -131,6 +131,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         </p>
       </div>
     </div>
+    
     <img src="../../images/collage.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter"> <!--logo Transnoise-->
   <li>
     <!--logo déconnexion-->

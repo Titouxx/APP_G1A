@@ -20,7 +20,6 @@
         <li><a href="espaceuser.php">Profile</a></li>
       </ul>
     </nav>
-    </nav>
 
     <!--logo EchoKey-->
 
@@ -249,6 +248,8 @@
         </div>
       </div>
     </div>
+
+    
     <img src="../../images/collage.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter"> <!--logo Transnoise-->
   <li>
     <!--logo déconnexion-->

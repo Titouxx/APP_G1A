@@ -31,9 +31,9 @@ tab.addEventListener("click", (event) => {
 //footer
 // Popup servant à la déconnexion
 function deconnexion() {
-  var result = confirm("Voulez-vous vraiment vous déconnecter?");
+  var result = confirm("Do you really wish to disconnect?");
   if (result == true) {
-    alert("Merci de votre visite");
+    alert("See you soon!");
     
     // Effectuer une redirection vers le script PHP de déconnexion
     window.location.href = 'logout.php';
