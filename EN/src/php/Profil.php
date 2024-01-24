@@ -249,17 +249,22 @@
         </div>
       </div>
     </div>
-    <footer>
-      <div class="footer">
-        <nav>
-          <ul>
-            <li><a href="CGU.php" id="ga" target="_blank">T&Cs</a></li>
-            <li><a href="https://www.isep.fr/" id="ga" target="_blank">Our Investors</a></li>
-            <li><a href="faq.php" id="ga" target="_blank">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </footer>
+    <img src="../../images/collage.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter"> <!--logo Transnoise-->
+  <li>
+    <!--logo déconnexion-->
+    <img src="../../images/déconnexion_test.png" id="imgdeco" alt="logo déconnexion" title="logo déconnexion" onmouseover="changerImage('survol')" onmouseout="changerImage('normal')" onclick="deconnexion()">
+  </li>
+<footer>
+  <div class="footer">
+  <nav>
+    <ul>
+      <li><a href="CGU.php" id="ga" target="_blank">T&Cs</a></li>
+      <li><a href="https://www.isep.fr/" id="ga" target="_blank">Our Investors</a></li>
+      <li><a href="faq.php" id="ga" target="_blank">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+</footer>
     <script src="../js/Profil.js"></script>
 
   </body>
