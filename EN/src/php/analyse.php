@@ -29,7 +29,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         <ul class="menu">
             <li><a href="index.php">Home</a></li>
             <li><a href="analyse.php">Analysis</a></li>
-            <li><a href="faq.php">Faq</a></li>
+            <li><a href="faq.php">FAQ</a></li>
             <li><a href="espaceuser.php">Profile</a></li>
         </ul>
     </nav>
