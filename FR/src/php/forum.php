@@ -72,9 +72,9 @@
                             // Construct the HTML for the new discussion item
                             var newDiscussionHtml = '<div class="discussion-item">' +
                                                     '<h3><a href="discussion.php?id=' + response.id + '">' + 
-                                                    response.topic_name + 
+                                                    response.topicName + 
                                                     '</a></h3>' +
-                                                    '<p>' + response.opening_message + '</p>' +
+                                                    '<p>'  +
                                                     '</div>';
                             
                             // Append the new discussion HTML to the list of discussions
