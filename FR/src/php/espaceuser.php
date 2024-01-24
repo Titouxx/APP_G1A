@@ -148,8 +148,8 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
   <div class="footer">
   <nav>
     <ul>
-      <li><a href="CGU.php" id="ga" target="_blank">T&Cs</a></li>
-      <li><a href="https://www.isep.fr/" id="ga" target="_blank">Our Investors</a></li>
+      <li><a href="CGU.php" id="ga" target="_blank">CGU</a></li>
+      <li><a href="https://www.isep.fr/" id="ga" target="_blank">Nos investisseurs</a></li>
       <li><a href="faq.php" id="ga" target="_blank">Contact</a></li>
     </ul>
   </nav>
