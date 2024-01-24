@@ -19,12 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $adresse = $conn->real_escape_string($_POST["adresse"]);
     $city = $conn->real_escape_string($_POST["city"]);
     
-    // Mise à jour des informations dans la base de données
-    $session_id = session_id();
-    $id_User = $_SESSION['id_User']; // Get the user ID from the session
+
 
     
-    $sql = "UPDATE user SET  telephone = '$phone', adresse = '$adresse', ville = '$city' WHERE id_User = '$id_User'";
+    $sql = "UPDATE user SET  telephone = '$phone', adresse = '$adresse', ville = '$city' WHERE id_User = '33'";
     
     if ($conn->query($sql) !== FALSE) {
         echo json_encode(["status" => "success"]);

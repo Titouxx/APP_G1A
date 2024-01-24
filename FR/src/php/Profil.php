@@ -109,20 +109,14 @@ session_start();
                 die("Connection failed: " . $conn->connect_error);
             }
           
-            echo '<pre>';
-            print_r($_SESSION); // Print the session data
-            echo '</pre>';
+           
           
-          if (isset($_SESSION['user_id'])) {
-            $user_id = $_SESSION['user_id']; // Get the user ID from the session
         
-            // Now you can use $user_id in your code
-            echo "User ID is: " . $user_id;
-        } else {
-            echo "No user ID found in session.";
-        }
+        
+      
+      
 
-            $sql = "SELECT * FROM user WHERE id_User = '$id_User'";
+            $sql = "SELECT * FROM user WHERE id_User = '33'";
             $result = $conn->query($sql);
             
             if ($result->num_rows > 0) {

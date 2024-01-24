@@ -22,7 +22,7 @@ $oldPassword = $_POST['oldPassword'];
 $newPassword = $_POST['newPassword'];
 $id_User = $_SESSION['id_User']; // Get the user ID from the session
 
-$result = mysqli_query($conn, "SELECT password FROM user WHERE id_User = '$id_User'");
+$result = mysqli_query($conn, "SELECT password FROM user WHERE id_User = '33'");
 
 if (!$result) {
     echo json_encode(['status' => 'fail', 'message' => 'Erreur de requête SQL : ' . mysqli_error($conn)]);
@@ -39,7 +39,7 @@ $hashedPasswordFromDatabase = $user['password'];
 if (password_verify($oldPassword,$hashedPasswordFromDatabase)) {
     $hashedNewPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 
-    $updateResult = mysqli_query($conn, "UPDATE user SET password = '$hashedNewPassword' WHERE id_User = '$id_User'");
+    $updateResult = mysqli_query($conn, "UPDATE user SET password = '$hashedNewPassword' WHERE id_User = '33'");
 
     if ($updateResult) {
         echo json_encode(['status' => 'success']);
