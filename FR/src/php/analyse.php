@@ -24,6 +24,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 </head>
 
 <body>
+    <header>
     <nav>
         <ul class="menu">
             <li><a href="index.php">Home</a></li>
@@ -32,7 +33,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
             <li><a href="espaceuser.php">Profil</a></li>
         </ul>
     </nav>
-
+    </header>
     <a href="index.php"><img src="../../images/EchoKey_extrude.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey"></a> <!--logo EchoKey-->
     
     <h1>Analyse de vos performances</h1>
