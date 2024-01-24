@@ -66,8 +66,9 @@
                     $.ajax({
                         type: "POST",
                         url: url,
-                        response: form.serialize(), // serializes the form's elements
-                        success: function($response) {
+                        data: form.serialize(), // serializes the form's elements
+                        dataType: 'json',
+                        success: function(response) {
                             // Construct the HTML for the new discussion item
                             var newDiscussionHtml = '<div class="discussion-item">' +
                                                     '<h3><a href="discussion.php?id=' + response.id + '">' + 
