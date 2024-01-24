@@ -272,18 +272,19 @@ body,
   justify-content: center; /* Centre les éléments horizontalement */
   align-items: center; /* Centre les éléments verticalement */
   text-align: left;
+  margin-left: 100px;
 }
 
 .content h1 {
   font-weight: bold;
   font-size: 80px;
   letter-spacing: 2px;
-  margin-right: 60px; /* Supprime la marge à droite du titre */
+  margin-right: 90px; /* Supprime la marge à droite du titre */
 }
 
 .content img {
   max-width: 100%;
-  margin-left: 60px; /* Ajoute une marge à gauche de l'image si nécessaire */
+  margin-left: 90px; /* Ajoute une marge à gauche de l'image si nécessaire */
 }
 
 /* Ajoutez ces styles pour centrer le texte "Echokey" */
@@ -426,7 +427,7 @@ button.cn:hover {
   }
 
   .content h1 {
-    margin: 20px;
+    margin: 0px;
     font-size: 70px; /* Réduisez la taille du titre pour les petits écrans */
   }
 
