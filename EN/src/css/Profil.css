@@ -45,7 +45,8 @@ html {
 }
 
 #Logo1 {
-  margin-top: 30px; /* Ajoute de l'espace au-dessus de l'image */
+  margin-top: 50px; /* Ajoute de l'espace au-dessus de l'image */
+  position: absolute;
 }
 
 .menu {
@@ -142,46 +143,29 @@ html {
 }
 
 /*CSS logos de marques*/
-
-#LISEP,
-#LEVENTS,
-#LTransnoise,
-#LEchokey {
+/* CSS image de déconnexion */
+#imgdeco {
   position: fixed;
   bottom: 0;
-  left: 0;
-  margin-bottom: 0.5rem; /* Ajoutez une marge en bas pour espacer les images */
-  margin-left: 0.5rem; /* Ajoutez une marge à gauche pour espacer les images */
+  right: 0;
+  width: auto;
+  max-width: 100%;
+  margin-bottom: 0.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
   z-index: 5;
 }
 
-#LISEP {
-  height: 55px;
-  width: auto; /* Utilisez 'auto' pour conserver les proportions de l'image */
-  max-width: 5%; /* Définissez la largeur maximale pour éviter qu'elle ne devienne trop grande */
-  margin-left: 150px;
-}
-
-#LEVENTS,
-#LTransnoise {
-  height: 55px;
+/* CSS logos de marques */
+#LogosFooter {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
   width: auto;
-  max-width: 60px;
-}
-
-#LEchokey {
-  height: 62px;
-  width: auto; /* Utilisez 'auto' pour conserver les proportions de l'image */
-  max-width: 5%; /* Définissez la largeur maximale pour éviter qu'elle ne devienne trop grande */
-  margin-left: 280px; /* Ajoutez une marge à gauche pour espacer cette image */
-}
-
-#LEVENTS {
-  margin-left: 75px; /* Ajoutez une marge à gauche pour espacer cette image */
-}
-
-#LTransnoise {
-  margin-left: 5px; /* Ajoutez une marge à gauche pour espacer cette image */
+  margin-bottom: 0.01rem;
+  margin-left: 0.5rem;
+  z-index: 5;
 }
 
 .background {

@@ -1,13 +1,7 @@
 <?php
 // Démarrez la session au début de chaque page PHP
 session_start();
-
-// Assurez-vous que l'utilisateur est connecté avant de procéder
-if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-    // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
-    header("Location: Connexion.php");
-    exit();
-}?>
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -71,10 +65,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     </footer>
 
     <img src="../../images/collage.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter"> <!--logo Transnoise-->
-  <li>
-    <!--logo déconnexion-->
-    <img src="../../images/déconnexion_test.png" id="imgdeco" alt="logo déconnexion" title="logo déconnexion" onmouseover="changerImage('survol')" onmouseout="changerImage('normal')" onclick="deconnexion()">
-  </li>
 <footer>
   <div class="footer">
   <nav>
