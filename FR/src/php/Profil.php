@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -77,7 +84,7 @@
               <li></li>
             </ul>
             <a href="logout.php"></a>
-            <button class="Déconnexion" onclick="window.location.href='logout.php'">  
+            <button class="Déconnexion" onclick="window.location.href='../logout.php'">  
               <img
                 class="menu-icon"
                 src="../../images/se-deconnecter.png"
@@ -90,49 +97,44 @@
             <h1>Édition du Profil</h1>
 
             <?php
-            include 'config.php';
-            session_start(); // Démarre la session au début du script
-            // $servername = "localhost";
-            // $username = "root";
-            // $password = "";
-            // $dbname = "siteweb";
-            
-            // $conn = new mysqli($servername, $username, $password, $dbname);
-            
-            // if ($conn->connect_error) {
-            //     die("Connection failed: " . $conn->connect_error);
-            // }
-            try{
-              if(isset($_SESSION['user_id'])) {
-                $user_id = $_SESSION['user_id'];
-                $sql = "SELECT * FROM user WHERE id_User = $user_id";
-                $result = $conn->query($sql);
-                // Rest of the code...
-              } else {
-                echo "User ID not found in session.";
-              }
-              
-              if ($result->num_rows > 0) {
-                  $row = $result->fetch_assoc();
-                  $first_name = $row["prenom"];
-                  $last_name = $row["nom"];
-                  $email = $row["email"];
-                  $phone = $row["telephone"];
-                  $adresse = $row["adresse"];
-                  $city = $row["ville"];
-                  $password = $row["password"];
-              } else {
-                  echo "No user found.";
-              }
-              if(isset($_SESSION['user_id'])) {
-                // Si l'utilisateur est connecté, affichez un message différent
 
-              } else {
-                // Si l'utilisateur n'est pas connecté, affichez le bouton de connexion
-                echo '<button class="cn" id="scrollButton"><a href="Connexion.php">Connectez Vous !</a></button>';
-              }
-            } catch (PDOException $e) {
-              echo json_encode(["status" => "error", "message" => $e->getMessage()]);
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "siteweb";
+            
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+          
+            echo '<pre>';
+            print_r($_SESSION); // Print the session data
+            echo '</pre>';
+          
+          if (isset($_SESSION['user_id'])) {
+            $user_id = $_SESSION['user_id']; // Get the user ID from the session
+        
+            // Now you can use $user_id in your code
+            echo "User ID is: " . $user_id;
+        } else {
+            echo "No user ID found in session.";
+        }
+
+            $sql = "SELECT * FROM user WHERE id_User = '$id_User'";
+            $result = $conn->query($sql);
+            
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $first_name = $row["prenom"];
+                $last_name = $row["nom"];
+                $email = $row["email"];
+                $phone = $row["telephone"];
+                $adresse = $row["adresse"];
+                $city = $row["ville"];
+            } else {
+                echo "No user found.";
             }
             
             $conn->close();
@@ -141,11 +143,11 @@
             <!-- Section de coordonnées (formulaire) -->
             <div id="coordonnees" class="section profile" style="display: none">
               <div class="form-group mb-3">
-                <label class="col-md-4 control-label">Prénoms</label>
+                <label class="col-md-4 control-label">Prénom</label>
                 <div class="col-md-8 inputGroupContainer">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input name="first_name" id="first_name" placeholder="Prénoms" class="form-control" type="text" value="<?php echo $first_name; ?>" disabled />
+                    <input name="first_name" id="first_name" placeholder="Prénom" class="form-control" type="text" value="<?php echo $first_name; ?>" disabled />
                   </div>
                 </div>
               </div>
@@ -153,7 +155,7 @@
               <!-- Text input-->
             
               <div class="form-group mb-3">
-                <label class="col-md-4 control-label">Noms</label>
+                <label class="col-md-4 control-label">Nom</label>
                 <div class="col-md-8 inputGroupContainer">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -176,7 +178,7 @@
               <!-- Text input-->
             
               <div class="form-group">
-                <label class="col-md-4 control-label">Téléphone#</label>
+                <label class="col-md-4 control-label">Téléphone</label>
                 <div class="col-md-8 inputGroupContainer">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
@@ -213,24 +215,37 @@
 
             <!-- Section des paramètres (vide dans le code fourni) -->
             <div id="parametres" class="section profile" style="display: none">
-            <div class="form-group mb-3">
-                <label class="col-md-4 control-label">Mot de passe</label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group">
-                    <span class="input-group-addon"
-                      ><i class="glyphicon glyphicon-user"></i
-                    ></span>
-                    <input
-                      name="password"
-                      placeholder="Mot de passe"
-                      class="form-control"
-                      type="password"
-                      value="<?php echo $password; ?>"
-                      disabled
-                    />
+              <p div="mdp">Modifier votre Mot de Passe en toute sécurité</p>
+                <div class="form-group mb-5">
+                  <div class="col-md-12 inputGroupContainer">
+                    <label class="control-label">Mot de passe actuel</label>
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                      <input id="current_password" name="current_password" placeholder="Mot de passe actuel" class="form-control" type="password"  />
+                    </div>
                   </div>
                 </div>
+                <div class="form-group mb-5">
+                  <div class="col-md-12 inputGroupContainer">
+                    <label class="control-label">Nouveau mot de passe</label>
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                      <input id="new_password" name="new_password" placeholder="Nouveau mot de passe" class="form-control" type="password"  />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group mb-0">
+                  <div class="col-md-12 inputGroupContainer">
+                    <label class="control-label">Confirmer le nouveau mot de passe</label>
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                      <input id="confirm_password" name="confirm_password" placeholder="Confirmer le nouveau mot de passe" class="form-control" type="password"  />
+                      <span id="passwordError" style="color: red;"></span>
+                    </div>
+                </div>
               </div>
+            
+
             </div>
             <button class="Edition" type="button" id="Modifier" onclick="activerEdition()">
               Modifier
@@ -243,6 +258,12 @@
               style="display: none"
             >
               Enregistrer
+            </button>
+            <button class="Edition" type="button" id="Maj" style="display: none" onclick="majPassword()">
+            Mettre à jour
+          </button>
+            <button class="Edition" type="button" id="AnnulerEdition" style="display: none" onclick="annulerEdition()">
+              Annuler
             </button>
           </div>
         </div>
