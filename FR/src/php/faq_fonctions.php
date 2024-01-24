@@ -37,7 +37,7 @@ if (isset($_POST['searchQueryInput']) && !empty($_POST['searchQueryInput'])) {
 
     try{
         // Requête SQL pour récupérer le nom et le prénom de l'utilisateur
-        $stmtInfo = $connexion->prepare("SELECT prenom, nom FROM user WHERE email = ?");
+        $stmtInfo = $conn->prepare("SELECT prenom, nom FROM user WHERE email = ?");
         $stmtInfo->bind_param("s", $userEmail);
         $stmtInfo->execute();
         $resultatInfo = $stmtInfo->get_result();
@@ -99,7 +99,7 @@ if (isset($_POST['searchQueryInput']) && !empty($_POST['searchQueryInput'])) {
 
     // Fermer la connexion à la base de données
     $connexion->close();
-    
+
 } else {
     // Aucune donnée de recherche reçue
     echo "Aucune donnée de recherche reçue.\n";
