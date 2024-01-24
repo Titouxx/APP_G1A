@@ -96,8 +96,8 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 
   <img src="../../images/collage.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter"> <!-- TransNoise logo -->
   <li>
-    <!-- Logout logo -->
-    <img src="../../images/déconnexion_test.png" id="imgdeco" alt="Logout logo" title="Logout logo" onmouseover="changeImage('hover')" onmouseout="changeImage('normal')" onclick="logout()">
+    <!--logo déconnexion-->
+    <img src="../../images/déconnexion_test.png" id="imgdeco" alt="logo déconnexion" title="logo déconnexion" onmouseover="changerImage('survol')" onmouseout="changerImage('normal')" onclick="deconnexion()">
   </li>
 <footer>
   <div class="footer">

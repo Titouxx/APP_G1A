@@ -131,60 +131,22 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         </p>
       </div>
     </div>
-    <a href="https://www.isep.fr/" target="_blank">
-      <img
-        src="../../images/logo_isep.png"
-        id="LISEP"
-        alt="Logo ISEP"
-        title="Logo ISEP"
-      />
-    </a>
-    <img
-      src="../../images/logo-events-IT.png"
-      id="LEVENTS"
-      alt="Logo EVENTS-IT"
-      title="Logo EVENTS-IT"
-    />
-    <!--logo EVENTS-IT-->
-    <img
-      src="../../images/TransNoise.png"
-      id="LTransnoise"
-      alt="Logo Transnoise"
-      title="Logo Transnoise"
-    />
-    <!--logo Transnoise-->
-    <a href="index.php"
-      ><img
-        src="../../images/EchoKey_extrude.png"
-        id="LEchokey"
-        alt="Logo EchoKey"
-        title="Logo EchoKey"
-    /></a>
-    <!--logo EchoKey-->
-    <li>
-      <!--logo déconnexion-->
-      <img
-        src="../../images/déconnexion.png"
-        id="imgdeco"
-        alt="logo déconnexion"
-        title="logo déconnexion"
-        onmouseover="changerImage('survol')"
-        onmouseout="changerImage('normal')"
-        onclick="deconnexion()"
-        onclick="deconnexion()"
-      />
-    </li>
-    <footer>
-      <div class="footer">
-        <nav>
-          <ul>
-            <li><a href="CGU.php" target="_blank">T&Cs</a></li>
-            <li><a href="https://www.isep.fr/" target="_blank">Our Investors</a></li>
-            <li><a href="faq.php" target="_blank">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </footer>
+    <img src="../../images/collage.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter"> <!--logo Transnoise-->
+  <li>
+    <!--logo déconnexion-->
+    <img src="../../images/déconnexion_test.png" id="imgdeco" alt="logo déconnexion" title="logo déconnexion" onmouseover="changerImage('survol')" onmouseout="changerImage('normal')" onclick="deconnexion()">
+  </li>
+<footer>
+  <div class="footer">
+  <nav>
+    <ul>
+      <li><a href="CGU.php" id="ga" target="_blank">T&Cs</a></li>
+      <li><a href="https://www.isep.fr/" id="ga" target="_blank">Our Investors</a></li>
+      <li><a href="faq.php" id="ga" target="_blank">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+</footer>
     <script src="../js/espaceuser.js"></script>
   </body>
 </html>
