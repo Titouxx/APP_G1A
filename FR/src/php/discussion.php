@@ -1,7 +1,7 @@
 <?php
     session_start();
     
-    // the following code allows me to check session information 
+    //the following code allows me to check session information 
     //echo "<h3>Session Information:</h3>";
     //echo "<ul>";
     //foreach ($_SESSION as $key => $value) {
