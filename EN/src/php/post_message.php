@@ -1,8 +1,7 @@
 <?php
-    include 'config.php';
     session_start();
     // include 'db_connect.php';
-
+    include 'config.php';
     header('Content-Type: application/json');
 
  
