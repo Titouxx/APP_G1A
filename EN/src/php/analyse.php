@@ -24,17 +24,18 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 </head>
 
 <body>
+    <header>
     <nav>
         <ul class="menu">
             <li><a href="index.php">Home</a></li>
             <li><a href="analyse.php">Analysis</a></li>
-            <li><a href="faq.php">Faq</a></li>
+            <li><a href="faq.php">FAQ</a></li>
             <li><a href="espaceuser.php">Profile</a></li>
         </ul>
     </nav>
+    </header>
 
-    <img id="Logo" src="../../images/EchoKey.png" alt="Logo EchoKey" title="Logo EchoKey" />
-    <!--logo EchoKey-->
+    <a href="index.php"><img src="../../images/EchoKey_extrude.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey"></a> <!--logo EchoKey-->
     <h1>Analysis of Your Performances</h1>
     <table>
         <tr>
@@ -119,20 +120,26 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         </tr>
     </table>
 
-    <script src="../js/analyse.js"> </script>
-</body>
+
+
+
+    <img src="../../images/collage.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter"> <!--logo Transnoise-->
+  <li>
+    <!--logo déconnexion-->
+    <img src="../../images/déconnexion_test.png" id="imgdeco" alt="logo déconnexion" title="logo déconnexion" onmouseover="changerImage('survol')" onmouseout="changerImage('normal')" onclick="deconnexion()">
+  </li>
 <footer>
-    <div>
-        <nav>
-            <ul>
-                <li><a href="CGU.php" target="_blank">T&Cs</a></li>
-                <li>
-                    <a href="https://www.isep.fr/" target="_blank">Our Investors</a>
-                </li>
-                <li><a href="faq.php" target="_blank">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
+  <div class="footer">
+  <nav>
+    <ul>
+      <li><a href="CGU.php" id="ga" target="_blank">T&Cs</a></li>
+      <li><a href="https://www.isep.fr/" id="ga" target="_blank">Our Investors</a></li>
+      <li><a href="faq.php" id="ga" target="_blank">Contact</a></li>
+    </ul>
+  </nav>
+</div>
 </footer>
 
+    <script src="../js/analyse.js"> </script>
+</body>
 </html>

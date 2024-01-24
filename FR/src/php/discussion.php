@@ -18,22 +18,28 @@
     $stmt = $conn->prepare("SELECT * FROM discussions WHERE id = ?");
     $stmt->execute([$discussionId]);
     $discussion = $stmt->fetch();
-
-    echo "<h2>" . htmlspecialchars($discussion['topic_name']) . "</h2>";
-    echo "<p>" . htmlspecialchars($discussion['opening_message']) . "</p>";
+   
 
     // Fetching messages
     $stmt = $conn->prepare("SELECT username, message, timestamp FROM messages WHERE discussion_id = ? ORDER BY timestamp");
     $stmt->execute([$discussionId]);
     $messages = $stmt->fetchAll();
 
+
+
     echo "<div id='messagesContainer'>";
-    foreach ($messages as $message) {
-        echo "<div>";
-        echo "<p>" . htmlspecialchars($message['username']) . " (" . $message['timestamp'] . "): </p>";
-        echo "<p>" . htmlspecialchars($message['message']) . "</p>";
-        echo "</div>";
-    }
+        echo "<h2>" . htmlspecialchars($discussion['topic_name']) . "</h2>";
+        echo "<p>" . htmlspecialchars($discussion['username']) . " (" . $discussion['created_at'] . "): </p>";
+        echo "<p>" . htmlspecialchars($_SESSION['nom']) . " " . $_SESSION['prenom'] . ": </p>";
+        echo "<p>" . htmlspecialchars($discussion['opening_message']) . "</p>";
+        foreach ($messages as $message) {
+            echo "<div>";
+            echo "<p>" . htmlspecialchars($message['username']) . " (" . $message['timestamp'] . "): </p>";
+            echo "<p>" . htmlspecialchars($_SESSION['nom']) . " " . $_SESSION['prenom'] . ": </p>";
+            echo "<p>" . htmlspecialchars($message['message']) . "</p>";
+            echo "</div>";
+        }
+        
     echo "</div>";
 
 

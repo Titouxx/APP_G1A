@@ -26,6 +26,7 @@ session_start(); // Start the session at the beginning of the script
         <li><a href="espaceuser.php">Profile</a></li>
       </ul>
     </nav>
+    <div class="loupebar"> <input type="text" id="searchInput" placeholder="Search..."> <div class="search"></div></div>
   </header>
   <!-- Body manages the body of the page -->
   <body>
