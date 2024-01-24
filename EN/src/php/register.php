@@ -43,6 +43,12 @@ try {
             exit;
         }
 
+        // Vérification du format de l'e-mail
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            echo json_encode(["status" => "error", "message" => "Format d'email invalide."]);
+            exit;
+        }
+
         // Vérification si l'email existe déjà
         $checkEmail = $conn->prepare("SELECT email FROM user WHERE email = :email");
         $checkEmail->execute(['email' => $email]);
