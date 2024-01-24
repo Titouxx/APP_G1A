@@ -22,7 +22,7 @@
                 ':username' => $username
             ]);
 
-            $lastInsertId = $pdo->lastInsertId(); // Get the last inserted ID
+            $lastInsertId = $conn->lastInsertId(); // Get the last inserted ID
 
             // Successful operation
             $response = [
