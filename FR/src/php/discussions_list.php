@@ -1,5 +1,6 @@
 <?php
     include 'db_connect.php';
+    include 'post_discussion.php'
     session_start();
 
     $stmt = $pdo->query("SELECT id, topic_name, username FROM discussions");
