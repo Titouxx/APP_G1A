@@ -87,5 +87,21 @@
                 });
             });
         </script>
+        <li>
+            <img src="../../images/déconnexion_test.png" id="imgdeco" alt="logo déconnexion" title="logo déconnexion" onmouseover="changerImage('survol')" onmouseout="changerImage('normal')" onclick="deconnexion()">
+        </li>
+        <footer>
+        <div class="footer">
+            <nav>
+                <img src="../../images/collage.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter"> 
+                <ul>
+                <li><a href="CGU.php" id="ga" target="_blank">C.G.U</a></li>
+                <li><a href="https://www.isep.fr/" id="ga" target="_blank">Nos investisseurs</a></li>
+                <li><a href="faq.php" id="ga" target="_blank">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        </footer>
+        <script src="../js/forum.js"></script>
     </body>
 </html>
