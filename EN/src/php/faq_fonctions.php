@@ -36,18 +36,20 @@ if (isset($_POST['searchQueryInput']) && !empty($_POST['searchQueryInput'])) {
     //     die("La connexion a échoué : " . $connexion->connect_error);
     // }
     try{
-
         // Requête SQL pour récupérer le nom et le prénom de l'utilisateur
-        $stmtInfo = $connexion->prepare("SELECT prenom, nom FROM user WHERE email = ?");
-        $stmtInfo->bind_param("s", $userEmail);
+        $stmtInfo = $conn->prepare("SELECT prenom, nom FROM user WHERE email = :userEmail");
+        $stmtInfo->bindParam(':userEmail', $userEmail, PDO::PARAM_STR);
         $stmtInfo->execute();
-        $resultatInfo = $stmtInfo->get_result();
+        $resultatInfo = $stmtInfo->fetch(PDO::FETCH_ASSOC);        
 
-        if ($resultatInfo->num_rows > 0) {
-            while ($rowInfo = $resultatInfo->fetch_assoc()) {
-                $prenom_utilisateur = $rowInfo['prenom'];
-                $nom_utilisateur = $rowInfo['nom'];
-            }
+        // if ($resultatInfo->num_rows > 0) {
+        //     while ($rowInfo = $resultatInfo->fetch_assoc()) {
+        //         $prenom_utilisateur = $rowInfo['prenom'];
+        //         $nom_utilisateur = $rowInfo['nom'];
+        //     }
+        if ($resultatInfo) {
+            $prenom_utilisateur = $resultatInfo['prenom'];
+            $nom_utilisateur = $resultatInfo['nom'];
 
             // Envoi de l'e-mail à l'utilisateur
             $mail = new PHPMailer(true);
@@ -100,7 +102,7 @@ if (isset($_POST['searchQueryInput']) && !empty($_POST['searchQueryInput'])) {
     }
 
     // Fermer la connexion à la base de données
-    $connexion->close();
+    $conn->close();
 } else {
     // Aucune donnée de recherche reçue
     echo "Aucune donnée de recherche reçue.\n";
