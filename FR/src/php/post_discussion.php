@@ -1,5 +1,6 @@
 <?php
-    include 'db_connect.php';
+    // include 'db_connect.php';
+    include 'config.php';
     session_start();
 
     header('Content-Type: application/json');
@@ -13,7 +14,7 @@
 
         try {
             // Using prepared statements with placeholders
-            $stmt = $pdo->prepare("INSERT INTO discussions (topic_name, opening_message, username) VALUES (:topicName, :openingMessage, :username)");
+            $stmt = $conn->prepare("INSERT INTO discussions (topic_name, opening_message, username) VALUES (:topicName, :openingMessage, :username)");
             // Binding parameters
             $stmt->execute([
                 ':topicName' => $topicName,

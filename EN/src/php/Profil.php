@@ -91,45 +91,49 @@
             <h1>Edit Profile</h1>
 
             <?php
+            include 'config.php';
             session_start(); // Démarre la session au début du script
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "siteweb";
+            // $servername = "localhost";
+            // $username = "root";
+            // $password = "";
+            // $dbname = "siteweb";
             
-            $conn = new mysqli($servername, $username, $password, $dbname);
+            // $conn = new mysqli($servername, $username, $password, $dbname);
             
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-            
-            if(isset($_SESSION['user_id'])) {
-              $user_id = $_SESSION['user_id'];
-              $sql = "SELECT * FROM user WHERE id_User = $user_id";
-              $result = $conn->query($sql);
-              // Rest of the code...
-            } else {
-              echo "User ID not found in session.";
-            }
-            
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc();
-                $first_name = $row["prenom"];
-                $last_name = $row["nom"];
-                $email = $row["email"];
-                $phone = $row["telephone"];
-                $adresse = $row["adresse"];
-                $city = $row["ville"];
-                $password = $row["password"];
-            } else {
-                echo "No user found.";
-            }
-            if(isset($_SESSION['user_id'])) {
-              // Si l'utilisateur est connecté, affichez un message différent
+            // if ($conn->connect_error) {
+            //     die("Connection failed: " . $conn->connect_error);
+            // }
+            try{
+              if(isset($_SESSION['user_id'])) {
+                $user_id = $_SESSION['user_id'];
+                $sql = "SELECT * FROM user WHERE id_User = $user_id";
+                $result = $conn->query($sql);
+                // Rest of the code...
+              } else {
+                echo "User ID not found in session.";
+              }
+              
+              if ($result->num_rows > 0) {
+                  $row = $result->fetch_assoc();
+                  $first_name = $row["prenom"];
+                  $last_name = $row["nom"];
+                  $email = $row["email"];
+                  $phone = $row["telephone"];
+                  $adresse = $row["adresse"];
+                  $city = $row["ville"];
+                  $password = $row["password"];
+              } else {
+                  echo "No user found.";
+              }
+              if(isset($_SESSION['user_id'])) {
+                // Si l'utilisateur est connecté, affichez un message différent
 
-            } else {
-              // Si l'utilisateur n'est pas connecté, affichez le bouton de connexion
-              echo '<button class="cn" id="scrollButton"><a href="Connexion.php">Connectez Vous !</a></button>';
+              } else {
+                // Si l'utilisateur n'est pas connecté, affichez le bouton de connexion
+                echo '<button class="cn" id="scrollButton"><a href="Connexion.php">Connectez Vous !</a></button>';
+              }
+            } catch (PDOException $e) {
+                echo json_encode(["status" => "error", "message" => $e->getMessage()]);
             }
             
             $conn->close();

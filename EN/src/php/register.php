@@ -1,18 +1,19 @@
 <?php
+include 'config.php';
 session_start();
 
 header('Content-Type: application/json');
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-$servername = "localhost";
-$username = "root";
-$passwordDB = "";
-$dbname = "siteweb";
+// $servername = "localhost";
+// $username = "root";
+// $passwordDB = "";
+// $dbname = "siteweb";
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $passwordDB);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $passwordDB);
+    // $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $prenom = $_POST['registerFirstName'];
