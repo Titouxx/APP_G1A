@@ -1,18 +1,20 @@
 <?php
+include 'config.php';
 session_start();
 
 header('Content-Type: application/json');
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-$servername = "localhost";
-$username = "root";
-$passwordDB = "";
+// $servername = "localhost";
+// $username = "root";
+// $passwordDB = "";
+
+// try {
+//     $conn = new PDO("mysql:host=$servername;dbname=siteweb", $username, $passwordDB);
+//     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=siteweb", $username, $passwordDB);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST['loginEmail'];
         $password = $_POST['loginPassword'];
@@ -26,8 +28,8 @@ try {
             $_SESSION['user_id'] = $user['id_User'];
             $_SESSION['email'] = $email;
             $_SESSION['prenom'] = $user['prenom'];
-            $_SESSION['nom'] = $user['nom']; 
-            $_SESSION['logged_in'] = true;        
+            $_SESSION['nom'] = $user['nom'];
+            $_SESSION['logged_in'] = true;
 
             echo json_encode(["status" => "success"]);
         } else {
@@ -37,5 +39,12 @@ try {
 } catch (PDOException $e) {
     echo json_encode(["status" => "error", "message" => $e->getMessage()]);
 }
+// } catch (PDOException $e) {
+//     echo json_encode(["status" => "error", "message" => $e->getMessage()]);
+// }
 
+// $conn = null;
 $conn = null;
+?>
+
+

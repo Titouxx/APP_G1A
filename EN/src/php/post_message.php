@@ -1,6 +1,7 @@
 <?php
+    include 'config.php';
     session_start();
-    include 'db_connect.php';
+    // include 'db_connect.php';
 
     header('Content-Type: application/json');
 
@@ -15,7 +16,7 @@
 
 
         try {
-            $stmt = $pdo->prepare("INSERT INTO messages (discussion_id, username, message) VALUES (?, ? , ?)");
+            $stmt = $conn->prepare("INSERT INTO messages (discussion_id, username, message) VALUES (?, ? , ?)");
             $stmt->execute([$discussionId, $username, $message]);
         } catch (PDOException $e) {
             // Handle exception

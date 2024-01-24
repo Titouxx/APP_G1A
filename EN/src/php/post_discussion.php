@@ -1,5 +1,6 @@
 <?php
-    include 'db_connect.php';
+    // include 'db_connect.php';
+    include 'config.php';
     session_start();
 
     header('Content-Type: application/json');
@@ -12,14 +13,14 @@
         $username= isset($_SESSION['user_id']) ? $_SESSION['user_id'] :'';
 
         // Check if the username exists in the user table
-        $userCheckStmt = $pdo->prepare("SELECT COUNT(*) FROM user WHERE id_User = ?");
+        $userCheckStmt = $conn->prepare("SELECT COUNT(*) FROM user WHERE id_User = ?");
         $userCheckStmt->execute([$username]);
         if ($userCheckStmt->fetchColumn() > 0) {
             try {
-                $stmt = $pdo->prepare("INSERT INTO discussions (topic_name, opening_message, username) VALUES ($topicName, $openingMessage, $username)");
+                $stmt = $conn->prepare("INSERT INTO discussions (topic_name, opening_message, username) VALUES ($topicName, $openingMessage, $username)");
                 $stmt->execute([$topicName, $openingMessage, $username]);
 
-                $lastInsertId = $pdo->lastInsertId(); // Get the last inserted ID
+                $lastInsertId = $conn->lastInsertId(); // Get the last inserted ID
 
                 // Successful operation
                 $response = [

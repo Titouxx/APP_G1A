@@ -9,12 +9,13 @@
     //}
     //echo "</ul>";
 
-    include 'db_connect.php';
+    // include 'db_connect.php';
+    include 'config.php';
 
     $discussionId = $_GET['id'] ?? 0; 
 
     // Fetching discussion details
-    $stmt = $pdo->prepare("SELECT * FROM discussions WHERE id = ?");
+    $stmt = $conn->prepare("SELECT * FROM discussions WHERE id = ?");
     $stmt->execute([$discussionId]);
     $discussion = $stmt->fetch();
 
@@ -22,7 +23,7 @@
     echo "<p>" . htmlspecialchars($discussion['opening_message']) . "</p>";
 
     // Fetching messages
-    $stmt = $pdo->prepare("SELECT username, message, timestamp FROM messages WHERE discussion_id = ? ORDER BY timestamp");
+    $stmt = $conn->prepare("SELECT username, message, timestamp FROM messages WHERE discussion_id = ? ORDER BY timestamp");
     $stmt->execute([$discussionId]);
     $messages = $stmt->fetchAll();
 

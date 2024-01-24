@@ -1,8 +1,9 @@
 <?php
-    include 'db_connect.php';
+    // include 'db_connect.php';
+    include 'config.php';
     session_start();
 
-    $stmt = $pdo->query("SELECT id, topic_name, username FROM discussions");
+    $stmt = $conn->query("SELECT id, topic_name, username FROM discussions");
     $discussions = $stmt->fetchAll();
 
     foreach ($discussions as $discussion) {

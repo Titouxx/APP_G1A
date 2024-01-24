@@ -39,9 +39,10 @@
       <div class="discussion-list" id="discussionList">
         <!-- PHP Script to Load Discussions -->
         <?php
-          include 'db_connect.php';
+          // include 'db_connect.php';
+          include 'config.php';
 
-          $stmt = $pdo->query("SELECT id, topic_name FROM discussions");
+          $stmt = $conn->query("SELECT id, topic_name FROM discussions");
           $discussions = $stmt->fetchAll();
 
           foreach ($discussions as $discussion) {
