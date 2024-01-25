@@ -20,9 +20,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $city = $conn->real_escape_string($_POST["city"]);
     
 
-
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+  
+    if (!isset($_SESSION['user_id'])) {
+      // Redirigez vers la page de connexion ou gérez le cas où l'utilisateur n'est pas connecté
+      header("Location: login.php");
+      exit();
+  }
+  
+  // Récupérez l'identifiant de l'utilisateur à partir de la session
+     $user_id = $_SESSION['user_id'];
     
-    $sql = "UPDATE user SET  telephone = '$phone', adresse = '$adresse', ville = '$city' WHERE id_User = '33'";
+    $sql = "UPDATE user SET  telephone = '$phone', adresse = '$adresse', ville = '$city' WHERE id_User = '$user_id'";
     
     if ($conn->query($sql) !== FALSE) {
         echo json_encode(["status" => "success"]);

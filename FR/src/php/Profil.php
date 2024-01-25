@@ -84,7 +84,7 @@ session_start();
               <li></li>
             </ul>
             <a href="logout.php"></a>
-            <button class="Déconnexion" onclick="window.location.href='../logout.php'">  
+            <button class="Déconnexion" onclick="window.location.href='logout.php'">  
               <img
                 class="menu-icon"
                 src="../../images/se-deconnecter.png"
@@ -109,15 +109,24 @@ session_start();
                 die("Connection failed: " . $conn->connect_error);
             }
           
-           
+            if (!isset($_SESSION['user_id'])) {
+              // Redirigez vers la page de connexion ou gérez le cas où l'utilisateur n'est pas connecté
+              header("Location: login.php");
+              exit();
+          }
+          
+          // Récupérez l'identifiant de l'utilisateur à partir de la session
+          $user_id = $_SESSION['user_id'];
+          
           
         
         
       
       
 
-            $sql = "SELECT * FROM user WHERE id_User = '33'";
+            $sql = "SELECT * FROM user WHERE id_User = '$user_id'";
             $result = $conn->query($sql);
+            
             
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
@@ -209,7 +218,8 @@ session_start();
 
             <!-- Section des paramètres (vide dans le code fourni) -->
             <div id="parametres" class="section profile" style="display: none">
-              <p div="mdp">Modifier votre Mot de Passe en toute sécurité</p>
+              
+              <h5 div="mdp">Modifier votre Mot de Passe en toute sécurité</h5>
                 <div class="form-group mb-5">
                   <div class="col-md-12 inputGroupContainer">
                     <label class="control-label">Mot de passe actuel</label>
@@ -263,8 +273,13 @@ session_start();
         </div>
       </div>
     </div>
+    
     <footer>
       <div class="footer">
+      <img src="../../images/collage.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter"> <!--logo Transnoise-->
+  <li>
+    <!--logo déconnexion-->
+  </li>
         <nav>
           <ul>
             <li><a href="CGU.php" id="ga" target="_blank">C.G.U</a></li>
