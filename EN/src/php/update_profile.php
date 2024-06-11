@@ -1,0 +1,41 @@
+<?php
+header('Content-Type: application/json');
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // $servername = "localhost";
+    // $username = "root";
+    // $password = "";
+    // $dbname = "siteweb";
+    
+    // // Connexion à la base de données
+    // $conn = new mysqli($servername, $username, $password, $dbname);
+    // if ($conn->connect_error) {
+    //     echo json_encode(["status" => "error", "message" => "Connection failed: " . $conn->connect_error]);
+    //     exit;
+    // }
+    
+    try{
+        // Récupération et échappement des données POST pour éviter les injections SQL
+        $first_name = $conn->real_escape_string($_POST["first_name"]); // real_escape_string() permet d'échapper les caractères spéciaux
+        $last_name = $conn->real_escape_string($_POST["last_name"]);   // pour éviter les injections SQL
+        $email = $conn->real_escape_string($_POST["email"]);
+        $phone = $conn->real_escape_string($_POST["phone"]);
+        $adresse = $conn->real_escape_string($_POST["adresse"]);
+        $city = $conn->real_escape_string($_POST["city"]);
+        $password = $conn->real_escape_string($_POST["password"]);
+        // Mise à jour des informations dans la base de données
+        $sql = "UPDATE user SET prenom = '$first_name', nom = '$last_name', email = '$email', telephone = '$phone', adresse = '$adresse', ville = '$city', password = '$password' WHERE id_User = 1";
+        
+        if ($conn->query($sql) !== FALSE) {
+            echo json_encode(["status" => "success"]);
+        } else {
+            echo json_encode(["status" => "error", "message" => "Error updating record: " . $conn->error]);
+        }
+    } catch (PDOException $e) {
+        echo json_encode(["status" => "error", "message" => $e->getMessage()]);
+    }
+    
+    $conn->close();
+}
+
+?>
