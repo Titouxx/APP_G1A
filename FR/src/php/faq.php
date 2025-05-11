@@ -9,8 +9,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     exit();
 }?>
 
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,27 +17,27 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     <link href="../css/faq.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/normalize.css">
     <script src="../js/jquery.min.js"></script>
-    
 
-
-    <link rel="icon" type="image/x-icon" href="../../images/TransNoise.ico">
-    <title>TransNoise - EchoKey</title>
+    <link rel="icon" type="image/x-icon" href="../../images/logonutritium%20-%20Copie.ico" />
+    <title>Akatsuki - Nutritium</title>
 </head>
+
 <body>
   <header>
     <nav>
         <ul class="menu">
             <li><a href="index.php">Home</a></li>
-            <li><a href="analyse.php">Analyse</a></li>
-            <li><a href="faq.php">Faq</a></li>
-            <li><a href="espaceuser.php">Profil</a></li>  
+            <li><a href="analyse.php">Commander un panier</a></li>
+            <li><a href="espaceuser.php">Profil</a></li>
         </ul>
     </nav>
-    <div class="loupebar"> <input type="text" id="searchInput" placeholder="Search..."> <div class="search"></div></div>
+
     </header>
 
-    <a href="index.php"><img src="../../images/EchoKey_extrude.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey"></a> <!--logo EchoKey-->
-
+  <!--le logo en haut à gauche-->
+  <a href="index.php">
+      <img src="../../images/logonutritium.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey">
+  </a>
 <div class="container"><!--barre de recherche-->
   <h2 style="text-align: center; font-size: 60.724px;">Posez votre question:</h2>  <!--titre question-->
 

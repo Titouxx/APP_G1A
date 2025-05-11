@@ -10,8 +10,8 @@ session_start(); // Démarre la session au début du script
     <link href="../css/index.css" rel="stylesheet" />
     <script src="../js/jquery.min.js"></script>
    
-    <link rel="icon" type="image/x-icon" href="../../images/TransNoise.ico" />
-    <title>TransNoise - EchoKey</title>
+    <link rel="icon" type="image/x-icon" href="../../images/logonutritium%20-%20Copie.ico" />
+    <title>Akatsuki - Nutritium</title>
     
     
   </head>
@@ -22,18 +22,17 @@ session_start(); // Démarre la session au début du script
     <nav>
       <ul class="menu">
         <li><a href="index.php">Home</a></li>
-        <li><a href="analyse.php">Analyse</a></li>
-        <li><a href="faq.php">Faq</a></li>
+        <li><a href="analyse.php">Commander un panier</a></li>
         <li><a href="espaceuser.php">Profil</a></li>
       </ul>
     </nav>
-    <div class="loupebar"> <input type="text" id="searchInput" placeholder="Search..."> <div class="search"></div></div>
+
   </header>
   <!--body gere le corp de la page-->
   <body>
     <!--le logo en haut à gauche-->
         <a href="index.php">
-            <img src="../../images/EchoKey_extrude.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey">
+            <img src="../../images/logonutritium.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey">
         </a>
         <div class="language-selector">
           <a href="../../../EN/src/php/index.php">English</a> | <a href="../../../FR/src/php/index.php">Français</a>
@@ -45,25 +44,20 @@ if(isset($_SESSION['user_id'])) {
     <!--gere le texte au milieu de la page-->
     <div class="content">
       <h1>
-        Trouvez
-        <br />
-        Votre <br />
-        Voix
+        Nutritium
       </h1>
-      <img src="../../images/Image_index.jpeg" alt="chanteur" height="300px" />
+      <img src="../../images/homepic.jpg" alt="chanteur" height="300px" />
     </div>
     <div class="content-container">
       <div class="left">
-        <h1 class="Echokey">Echokey</h1>
+        <h1 class="Nutritium">Apporter une solution durable <br /> A la précarité étudiante </h1>
         <p class="paragraphe">
-        Beaucoup d'artistes ne disposent pas d'une analyse précise de leur performance. Echokey propose une solution innovante en plaçant des capteurs dernier cri dans les plus grandes salles parisiennes telles que l'Olympia, l'Opéra Garnier ou encore le Bataclan. Ces données ainsi collectées par nos capteurs sont analysées et un rapport graphique est directement envoyé à nos clients.
+            <br /> Chaque année, les files d’étudiants devant les banques alimentaires s’allongent. Ces scènes sont d’autant plus marquantes lorsque des mesures comme les repas à 1 € pour tous au CROUS sont rejetées. Face à ce constat alarmant, nous avons décidé de proposer une solution moderne et pérenne : Nutritium, une structure conçue pour répondre efficacement à ce problème grâce à des modèles de financement actuels et des partenariats stratégiques.
         </p>
-      </div>
-      <div class="right">
-        <h1>
-          Déjà plus de<br /><span>7 098 personnes </span><br />ont confiance
-          en notre expertise
-        </h1>
+    <br />
+    <p class="paragraphe"> C’est avec ambition et détermination que nous portons le projet de Nutritium, une structure conçue pour aider un maximum de personnes à se nourrir dignement à un coût minimal, tout en répondant de manière durable à une problématique sociale urgente.</p>
+<br />
+        <p class="paragraphe"> Géographiquement basés à l’incubateur ISEP d’ Issy-Les-Moulineaux, notre démarche commencera à Paris et sa banlieue, avec l'ambition de nous étendre progressivement à l'échelle nationale d’ici 3 ans.</p><br />
       </div>
     </div>
     <div class="buton">
