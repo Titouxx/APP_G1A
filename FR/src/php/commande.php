@@ -15,7 +15,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="../css/analyse.css" />
+    <link rel="stylesheet" href="../css/commande.css" />
     <link rel="stylesheet" href="../css/normalize.css" />
     <script src="../js/jquery.min.js"></script>
 
@@ -28,7 +28,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         <nav>
             <ul class="menu">
                 <li><a href="index.php">Home</a></li>
-                <li><a href="analyse.php">Commander un panier</a></li>
+                <li><a href="commande.php">Commander un panier</a></li>
                 <li><a href="espaceuser.php">Profil</a></li>
             </ul>
         </nav>
@@ -55,6 +55,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 </div>
 </footer>
 
-<script src="../js/analyse.js"> </script>
+<script src="../js/commande.js"> </script>
 </body>
 </html>

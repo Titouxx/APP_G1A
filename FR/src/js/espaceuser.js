@@ -1,33 +1,3 @@
-const tab = document.getElementById("pullTab");
-const image = document.getElementById("img-news");
-const content = document.querySelector(".news");
-
-let isActive = false;
-
-image.addEventListener("click", (event) => {
-  isActive = !isActive;
-  if (isActive) {
-    tab.classList.add("active");
-  } else {
-    tab.classList.remove("active");
-  }
-  event.stopPropagation(); // Prevents the click from propagating to the document
-});
-
-// Hide tab when clicking outside of the content area or image
-document.addEventListener("click", (event) => {
-  const isClickInsideContent = content.contains(event.target);
-  if (!isClickInsideContent && isActive) {
-    tab.classList.remove("active");
-    isActive = false;
-  }
-});
-
-// Prevent tab from hiding when clicking on the tab itself
-tab.addEventListener("click", (event) => {
-  event.stopPropagation();
-});
-
 //footer
 // Popup servant à la déconnexion
 function deconnexion() {
@@ -47,14 +17,14 @@ function deconnexion() {
 function changerImage(etat) {
   var img = document.getElementById("imgdeco");
   if (etat === "survol") {
-    img.src = "../../images/déconnexion-hover_test.png"; // Chemin vers l'image au survol
+    img.src = "../../images/déconnexion2-hover.png"; // Chemin vers l'image au survol
   } else {
-    img.src = "../../images/déconnexion_test.png"; // Chemin vers l'image normale
+    img.src = "../../images/déconnexion2.png"; // Chemin vers l'image normale
   }
 }
 
 
-  // Récupérer la hauteur du footer
+// Récupérer la hauteur du footer
 var footerHeight = document.querySelector('.footer').offsetHeight;
 
 // Appliquer la hauteur du footer comme max-height au LogosFooter
@@ -67,3 +37,4 @@ var footerHeight = document.querySelector('.footer').offsetHeight;
 // Appliquer la hauteur du footer comme max-height à l'élément avec l'id "imgdeco"
 var imgDeco = document.getElementById('imgdeco');
 imgDeco.style.maxHeight = footerHeight + 'px';
+

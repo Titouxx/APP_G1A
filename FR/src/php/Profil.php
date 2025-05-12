@@ -22,7 +22,7 @@ session_start();
     <nav>
       <ul class="menu">
         <li><a href="index.php">Home</a></li>
-        <li><a href="analyse.php">Analyse</a></li>
+        <li><a href="commande.php">Analyse</a></li>
         <li><a href="faq.php">Faq</a></li>
         <li><a href="espaceuser.php">Profil</a></li>
       </ul>
