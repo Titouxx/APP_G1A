@@ -74,7 +74,7 @@ if(isset($_SESSION['user_id'])) {
     </div>
 
   <!--footer gere le bas de page-->
-  <img src="../../images/collage.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter"> <!--logo Transnoise-->
+  <img src="../../images/footernutritium.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter"> <!--logo Transnoise-->
 
 <footer>
   <div class="footer">

@@ -1,3 +1,3 @@
-# APP_G1A
+# NUTRITIUM
 
-Répertoire du groupe G1A pour le projet ECHOKEY de l'entreprise fictive TransNoise
+Répertoire du groupe AKATSUKI pour le projet Nutritium de l'entreprise fictive du même nom.

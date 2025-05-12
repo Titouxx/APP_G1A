@@ -98,7 +98,7 @@ session_start(); // Démarrez la session au début de chaque page PHP
     <p>La SAS Nutritium est responsable du traitement des données conformément aux lois en vigueur. <br /><br /><br /><br /></p>
 </footer>
 
-    <img src="../../images/collage.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter"> <!--logo Transnoise-->
+    <img src="../../images/footernutritium.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter"> <!--logo Nutritium-->
 
 <footer>
   <div class="footer">

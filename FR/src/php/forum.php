@@ -93,7 +93,7 @@
         <footer>
         <div class="footer">
             <nav>
-                <img src="../../images/collage.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter"> 
+                <img src="../../images/footernutritium.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter">
                 <ul>
                 <li><a href="CGU.php" id="ga" target="_blank">C.G.U</a></li>
                 <li><a href="https://www.isep.fr/" id="ga" target="_blank">Nos investisseurs</a></li>

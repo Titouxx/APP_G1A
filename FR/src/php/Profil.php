@@ -276,7 +276,7 @@ session_start();
     
     <footer>
       <div class="footer">
-      <img src="../../images/collage.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter"> <!--logo Transnoise-->
+      <img src="../../images/footernutritium.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter"> <!--logo Nutritium-->
   <li>
     <!--logo déconnexion-->
   </li>

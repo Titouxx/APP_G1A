@@ -308,7 +308,7 @@ will-change: opacity, max-height;
   right: 0;
   width: auto;
   max-width: 100%;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.1rem;
   margin-right: 1rem;
   cursor: pointer;
   z-index: 5;
@@ -352,7 +352,7 @@ will-change: opacity, max-height;
   }
   body {
     /* Arrière-plan spécifique pour les appareils mobiles */
-    background-image: url('../../images/backgroundfhdtest.png');
+    background-image: url('../../images/Nutritium_Background1.png');
     background-size: cover;
     background-repeat: repeat; /* Active la répétition de l'arrière-plan */
     background-attachment: scroll;
@@ -374,7 +374,7 @@ bottom: 0;
 left: 0;
 padding-top: 0.5rem; /* Augmenter la hauteur en ajustant le padding */
 padding-bottom: 1px; /* Vous pouvez ajuster ces valeurs selon vos besoins */
-background-color: #f7eeff;
+background-color: rgba(26, 227, 1, 0.54);
 text-align: center;
   }
 }

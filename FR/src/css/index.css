@@ -271,7 +271,7 @@ button.cn:hover {
     /* Réinitialisez les styles pour les écrans plus petits si nécessaire */
     font-weight: normal;
     color: #4fa9d9;
-    background-color: #f7eeff;
+    background-color: rgba(26, 227, 1, 0.54);
     padding: 0;
     margin: 0;
   }
@@ -342,7 +342,7 @@ button.cn:hover {
     left: 0;
     padding-top: 0.5rem; /* Augmenter la hauteur en ajustant le padding */
     padding-bottom: 1px; /* Vous pouvez ajuster ces valeurs selon vos besoins */
-    background-color: #f7eeff;
+    background-color: rgba(26, 227, 1, 0.54);
     text-align: center;
   }
 

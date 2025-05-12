@@ -6,21 +6,31 @@
   font-style: normal;
 }
 
+body {
+  background-image: url("../../images/Nutritium_Background1.png");
+  background-size: cover;
+  background-repeat: repeat; /* Empêche la répétition de l'image */
+  background-attachment: fixed; /* Fixe l'image pour qu'elle reste en place lorsque l'utilisateur fait défiler la page */
+}
+
 /* Espace entre menu et logo EchoKey */
 nav {
   margin-bottom: 20px; /* Ajoute de l'espace en bas de la balise <nav> */
 }
 
+/* HEADER EN DESSUS */
 #Logo1 {
-  margin-top: 30px; /* Ajoute de l'espace au-dessus de l'image */
+  margin-top: 30px;   /* espace au-dessus */
+  width: 150px;       /* ajustez cette valeur à ce qui vous convient */
+  height: auto;       /* conserve le ratio */
 }
 
-/* Css Barre de menu */
+
+*,/* css Barre de menu */
 *:before,
 *:after {
   box-sizing: inherit;
   padding: 0;
-  margin: 0;
   letter-spacing: 1.1px;
 }
 
@@ -34,6 +44,7 @@ html {
   font-family: "Maven Pro";
 }
 
+/*gere le menu dans l'index*/
 .menu {
   padding: 0;
   margin: 0;
@@ -52,7 +63,7 @@ html {
   list-style: none;
   height: 50px;
   text-align: center;
-  background-color: #f7eeff;
+  background-color: rgba(26, 227, 1, 0.54);
 }
 
 .menu li a {
@@ -62,14 +73,16 @@ html {
   transition: all 0.45s;
 }
 
+
+/*l'animation de vague*/
 .menu li:hover {
-  background: url("../../images/faq_onde.svg");
+  background: url("../../images/testonde.png");
   animation: line 1s;
-  background-color: #f7eeff;
+  background-color: rgba(26, 227, 1, 0.54);
 }
 
 .menu li:hover a {
-  color: #d94f5c;
+  color: #4fa9d9;
 }
 
 .menu li:not(:last-child) {
@@ -83,32 +96,6 @@ html {
 }
 
 /* Css de la page */
-body {
-  background-image: url("../../images/backgroundfhdtest.png");
-  background-size: cover;
-  background-repeat: repeat; /* Empêche la répétition de l'image */
-  background-attachment: fixed; /* Fixe l'image pour qu'elle reste en place lorsque l'utilisateur fait défiler la page */
-}
-
-#icon {
-  padding-top: 5px;
-  cursor: pointer;
-  background-color: transparent;
-  border: 1px solid transparent;
-  transition: 0.3s;
-}
-
-#icon:hover {
-  border-color: lightgray;
-  background-color: lightgray;
-}
-
-table {
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 20px;
-}
-
 h1 {
   text-align: center;
 }
@@ -117,11 +104,11 @@ h1 {
 .footer {
   position: fixed;
   right: 0;
-  bottom: 0;
+  bottom: 0px;
   left: 0;
   padding-top: 0.5rem; /* Augmenter la hauteur en ajustant le padding */
   padding-bottom: 1px; /* Vous pouvez ajuster ces valeurs selon vos besoins */
-  background-color: #f7eeff;
+  background-color: rgba(26, 227, 1, 0.54);
   text-align: center;
 }
 
@@ -132,7 +119,6 @@ h1 {
 
 .footer nav ul li {
   display: inline;
-
 }
 
 .footer nav ul li a {
@@ -142,9 +128,8 @@ h1 {
   font-size: 15px;
   transition: all 0.45s;
 }
-
 .footer li:hover a {
-  color: #d94f5c;
+  color: #4fa9d9;
 }
 
 /* CSS image de déconnexion */
@@ -154,7 +139,7 @@ h1 {
   right: 0;
   width: auto;
   max-width: 100%;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.1rem;
   margin-right: 1rem;
   cursor: pointer;
   z-index: 5;
@@ -172,80 +157,55 @@ h1 {
   z-index: 5;
 }
 
+/* Définissez les styles pour les appareils mobiles avec une largeur maximale de 767px */
+@media screen and (max-width: 767px) {
+  .menu {
+    flex-direction: row; /* Change la direction des éléments en colonne */
+    display: flex;
+    justify-content: space-around; /* Espacement égal entre les éléments */
+    width: 767px; /* Pour occuper toute la largeur */
+  }
 
+  .menu li {
+    flex: 1 1 calc(50% - 10px); /* Redimensionne la largeur des éléments pour s'adapter au contenu */
+    height: auto; /* Ajuste la hauteur en fonction du contenu */
+    text-align: center; /* Aligne le texte à gauche */
+    padding: 10px; /* Ajoute un peu d'espace autour des éléments */
+    border-bottom: 1px solid #ddd; /* Ajoute une séparation entre les éléments */
+  }
 
-#titre1 {
-  margin-left: 40%;
-}
+  .menu li:last-child {
+    border-bottom: none; /* Supprime la bordure en bas du dernier élément */
+  }
 
-#titre3 {
-  margin-left: 30px;
-}
+  .menu li a {
+    font-size: 18px; /* Réduit la taille de la police */
+  }
+  body {
+    /* Arrière-plan spécifique pour les appareils mobiles */
+    background-image: url('../../images/Nutritium_Background1.png');
+    background-size: cover;
+    background-repeat: repeat; /* Active la répétition de l'arrière-plan */
+    background-attachment: scroll;
+  }
 
-#analyse1 {
-  margin-left: 30%;
-}
-
-#analyse2 {
-  height: 400px;
-  margin-bottom: 100px;
-}
-
-#analyse3 {
-  width: 700px;
-  margin-bottom: 170px;
-  margin-left: 30px;
-}
-
-
-
-  /* Définissez les styles pour les appareils mobiles avec une largeur maximale de 767px */
-  @media screen and (max-width: 767px) {
-    .menu {
-      flex-direction: row; /* Change la direction des éléments en colonne */
-      display: flex;
-      justify-content: space-around; /* Espacement égal entre les éléments */
-      width: 767px; /* Pour occuper toute la largeur */
-    }
-  
-    .menu li {
-      flex: 1 1 calc(50% - 10px); /* Redimensionne la largeur des éléments pour s'adapter au contenu */
-      height: auto; /* Ajuste la hauteur en fonction du contenu */
-      text-align: center; /* Aligne le texte à gauche */
-      padding: 10px; /* Ajoute un peu d'espace autour des éléments */
-      border-bottom: 1px solid #ddd; /* Ajoute une séparation entre les éléments */
-    }
-  
-    .menu li:last-child {
-      border-bottom: none; /* Supprime la bordure en bas du dernier élément */
-    }
-  
-    .menu li a {
-      font-size: 18px; /* Réduit la taille de la police */
-    }
-    body {
-      /* Arrière-plan spécifique pour les appareils mobiles */
-      background-image: url('../../images/backgroundfhdtest.png');
-      background-size: cover;
-      background-repeat: repeat; /* Active la répétition de l'arrière-plan */
-      background-attachment: scroll;
-    }
-  /* Footer */
-.footer {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding-top: 0.5rem; /* Augmenter la hauteur en ajustant le padding */
-  padding-bottom: 1px; /* Vous pouvez ajuster ces valeurs selon vos besoins */
-  background-color: #f7eeff;
-  text-align: center;
-    }
 
   #imgdeco {
     width: 15%; /* Ajustez la largeur pour les appareils mobiles si nécessaire */
   }
   #LogosFooter {
     width: 15%; /* Ajustez la hauteur pour les appareils mobiles si nécessaire */
+  }
+
+  /* Footer */
+  .footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-top: 0.5rem; /* Augmenter la hauteur en ajustant le padding */
+    padding-bottom: 1px; /* Vous pouvez ajuster ces valeurs selon vos besoins */
+    background-color: rgba(26, 227, 1, 0.54);
+    text-align: center;
   }
 }
