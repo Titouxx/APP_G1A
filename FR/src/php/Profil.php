@@ -1,44 +1,38 @@
 <?php
 session_start();
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <title>Édition du Profil</title>
-    <link rel="stylesheet" href="../css/Profil.css" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    />
+    <title>Akatsuki - Nutritium</title>
+      <link rel="stylesheet" href="../css/normalize.css">
+      <link rel="stylesheet" href="../css/Profil.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <link rel="icon" type="image/x-icon" href="../../images/logonutritium%20-%20Copie.ico" />
   </head>
 
   <body>
-    <nav>
+  <header>
+  <nav>
       <ul class="menu">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="commande.php">Analyse</a></li>
-        <li><a href="faq.php">Faq</a></li>
-        <li><a href="espaceuser.php">Profil</a></li>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="commande.php">Commander un panier</a></li>
+          <li><a href="espaceuser.php">Profil</a></li>
       </ul>
-    </nav>
+  </nav>
+</header>
 
-    <!--logo EchoKey-->
+<!--logo Nutritium-->
 
     <div class="background"></div>
     <div class="logo-container">
-      <a href="index.php" id="Logo1">
-        <img
-          src="../../images/EchoKey_extrude.png"
-          alt="Logo EchoKey"
-          title="Logo EchoKey"
-        />
-      </a>
+        <!--le logo en haut à gauche-->
+        <a href="index.php">
+            <img src="../../images/logonutritium.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey">
+        </a>
     </div>
     <div class="ii">
       <div class="container1">
@@ -49,7 +43,7 @@ session_start();
                 <label for="Coordonnées" class="label_menu">
                   <img
                     class="menu-icon"
-                    src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/users.png"
+                    src="../../images/profil.png"
                     alt="Users Icon"
                   />
                   <button onclick="showSection('coordonnees')">
@@ -69,18 +63,7 @@ session_start();
                   </button>
                 </label>
               </li>
-              <li>
-                <label for="Vos Enregistrement" class="label_menu">
-                  <img
-                    class="menu-icon"
-                    src="../../images/message-vocal.png"
-                    alt="Exit Icon"
-                  />
-                  <button onclick="showSection('Enregistrement')">
-                    Enregistrement
-                  </button>
-                </label>
-              </li>
+
               <li></li>
             </ul>
             <a href="logout.php"></a>

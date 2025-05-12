@@ -1,8 +1,15 @@
+@font-face {
+    font-family: 'Maven Pro';
+    src: url('../../fonts/Maven_Pro/Maven-Pro-regular.woff') format('woff');
+    /* Ajoutez d'autres formats si nécessaire */
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Fira Sans", Arial, sans-serif;
 }
 
 body {
@@ -10,14 +17,14 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  /* background: url("../../images/background.png") no-repeat; */
+  background-image: url("../../images/Nutritium_Background1.png");
   background-position: center;
   background-size: 1590px;
 }
 
 .wrapper {
   width: 420px;
-  box-shadow: 0 0 100px rgb(113, 53, 99); 
+  box-shadow: 0 0 100px rgba(26, 227, 1, 0.54);
   background: transparent; 
   border: 2px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
@@ -25,6 +32,7 @@ body {
   color: #392734;
   border-radius: 10px;
   padding: 70px 40px;
+  font-family: 'Maven Pro';
 }
 
 .wrapper h1 {
@@ -50,6 +58,7 @@ body {
   font-size: 16px;
   color: #9e9e9e;
   padding: 20px 45px 20px 20px;
+  font-family: 'Maven Pro';
 }
 
 .input-box input::placeholder {
@@ -62,6 +71,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
   font-size: 20px;
+  font-family: 'Maven Pro';
 }
 
 .wrapper .remember-forgot {
@@ -97,11 +107,13 @@ body {
   font-size: 16px;
   color: #333;
   font-weight: 600;
+  font-family: 'Maven Pro';
 }
 
 .wrapper p {
   text-align: center;
   margin: 20px 0 0px;
+  font-family: 'Maven Pro';
 }
 
 /*******************************SIGN UP*****************************/

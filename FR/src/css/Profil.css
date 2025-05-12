@@ -1,26 +1,36 @@
 @font-face {
-  font-family: "Maven Pro";
-  src: url("../../fonts/Maven_Pro/Maven-Pro-regular.woff") format("woff");
+  font-family: 'Maven Pro';
+  src: url('../../fonts/Maven_Pro/Maven-Pro-regular.woff') format('woff');
   /* Ajoutez d'autres formats si nécessaire */
   font-weight: normal;
   font-style: normal;
 }
 
+
 body {
-  background-image: url("../../images/backgroundfhdtest.png");
+  background-image: url("../../images/Nutritium_Background1.png");
   background-size: cover;
   background-repeat: repeat; /* Empêche la répétition de l'image */
   background-attachment: fixed; /* Fixe l'image pour qu'elle reste en place lorsque l'utilisateur fait défiler la page */
   display: flex;
   align-items: center;
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   overflow-x: auto;
 }
 
+
+
+
 /* Espace entre menu et logo EchoKey */
+/* HEADER EN DESSUS */
+#Logo1 {
+  margin-top: 30px;   /* espace au-dessus */
+  width: 150px;       /* ajustez cette valeur à ce qui vous convient */
+  height: auto;       /* conserve le ratio */
+}
+
 nav {
   margin-bottom: 20px; /* Ajoute de l'espace en bas de la balise <nav> */
 }
@@ -28,13 +38,12 @@ nav {
 *,/* css Barre de menu */
 *:before,
 *:after {
+  font-family: "Maven Pro", sans-serif !important;
   box-sizing: inherit;
   padding: 0;
-  margin: 0;
   letter-spacing: 1.1px;
 }
 
-/*Gere la globalité du body*/
 body,
 html {
   width: 100%;
@@ -45,12 +54,7 @@ html {
   font-family: "Maven Pro";
 }
 
-#Logo1 {
-  position: relative;
-  float: left;
-  margin-top: 20px;
-}
-
+/*gere le menu dans l'index*/
 .menu {
   padding: 0;
   margin: 0;
@@ -69,7 +73,7 @@ html {
   list-style: none;
   height: 50px;
   text-align: center;
-  background-color: #f7eeff;
+  background-color: rgba(26, 227, 1, 0.54);
 }
 
 .menu li a {
@@ -79,14 +83,16 @@ html {
   transition: all 0.45s;
 }
 
+
+/*l'animation de vague*/
 .menu li:hover {
-  background: url("../../images/faq_onde.svg");
+  background: url("../../images/testonde.png");
   animation: line 1s;
-  background-color: #f7eeff;
+  background-color: rgba(26, 227, 1, 0.54);
 }
 
 .menu li:hover a {
-  color: #d94f5c;
+  color: #4fa9d9;
 }
 
 .menu li:not(:last-child) {
@@ -99,19 +105,11 @@ html {
   }
 }
 
-.background {
-  position: fixed;
-  background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la fenêtre */
-  background-position: center; /* Centre l'image */
-  background-repeat: no-repeat; /* Empêche la répétition de l'image */
 
-  z-index: -1;
-}
 
 .ii {
   position: relative;
   float: left;
-  max-width: auto;
   width: 100%;
 }
 
@@ -135,7 +133,7 @@ html {
   width: 800px;
   height: 420px;
   border-radius: 10px;
-  box-shadow: 0 0 100px rgb(113, 53, 99);
+  box-shadow: 0 0 100px rgba(26, 227, 1, 0.54);
   left: 45%;
   transform: translateX(-50%);
 }
@@ -155,7 +153,7 @@ html {
   border-top-left-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
-  background-color: #9763bc;
+  background-color: #4fa9d9;
   height: 100%;
 }
 
@@ -239,7 +237,7 @@ h1 {
 }
 
 button {
-  background-color: #9763bc;
+  background-color: #4fa9d9;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -247,16 +245,16 @@ button {
   cursor: pointer;
 }
 button:hover {
-  background-color: #bfa0d4;
+  background-color: rgba(79, 169, 217, 0.51)
 }
 
 label:hover {
-  background-color: #bfa0d4;
+  background-color: rgba(79, 169, 217, 0.51)
 }
 
 label:hover,
 label:hover button {
-  background-color: #bfa0d4; /* Remplacez #your-color par la couleur que vous voulez */
+  background-color: rgba(79, 169, 217, 0.51) /* Remplacez #your-color par la couleur que vous voulez */
 }
 
 .menu2 .label_menu img {
@@ -316,15 +314,15 @@ h1 {
   left: 185px;
 }
 
+/* Footer */
 .footer {
   position: fixed;
-  height: auto;
   right: 0;
-  bottom: 0;
+  bottom: 0px;
   left: 0;
   padding-top: 0.5rem; /* Augmenter la hauteur en ajustant le padding */
   padding-bottom: 1px; /* Vous pouvez ajuster ces valeurs selon vos besoins */
-  background-color: #f7eeff;
+  background-color: rgba(26, 227, 1, 0.54);
   text-align: center;
 }
 
@@ -344,29 +342,13 @@ h1 {
   font-size: 15px;
   transition: all 0.45s;
 }
-
 .footer li:hover a {
-  color: #d94f5c;
-}
-
-/* CSS image de déconnexion */
-#imgdeco {
-  position: fixed;
-  height: 20px;
-  bottom: 0;
-  right: 0;
-  width: auto;
-  max-width: 100%;
-  margin-bottom: 0.5rem;
-  margin-right: 1rem;
-  cursor: pointer;
-  z-index: 5;
+  color: #4fa9d9;
 }
 
 /* CSS logos de marques */
 #LogosFooter {
   position: fixed;
-  height: 8%;
   bottom: 0;
   left: 0;
   max-width: 100%;
@@ -375,3 +357,4 @@ h1 {
   margin-left: 0.5rem;
   z-index: 5;
 }
+
