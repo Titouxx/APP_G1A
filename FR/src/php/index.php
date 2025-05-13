@@ -34,9 +34,6 @@ session_start(); // Démarre la session au début du script
         <a href="index.php">
             <img src="../../images/logonutritium.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey">
         </a>
-        <div class="language-selector">
-          <a href="../../../EN/src/php/index.php">English</a> | <a href="../../../FR/src/php/index.php">Français</a>
-        </div>
     <?php
 if(isset($_SESSION['user_id'])) {
   echo '<p class="welcome-message">Bienvenue ' . $_SESSION['prenom'] . ' !' . '</p>';}
