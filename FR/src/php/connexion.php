@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -10,17 +14,16 @@
       rel="stylesheet"
     />
   </head>
+
   <body background="../../images/background.png">
 
-    
     <!--Formulaire de connexion-->
     <div class="wrapper" id="loginWrapper">
       <form id="loginForm" action="login.php" method="post">
         <h1>Se connecter</h1>
         <div class="input-box">
-          <input type="text" id="loginEmail" name="loginEmail" placeholder="Email" required /><i
-            class="bx bxs-user"
-          ></i>
+          <input type="text" id="loginEmail" name="loginEmail" placeholder="Email" required />
+          <i class="bx bxs-user"></i>
         </div>
         <div class="input-box">
           <input
@@ -29,7 +32,8 @@
             name="loginPassword"
             placeholder="Mot de passe"
             required
-          /><i class="bx bxs-lock-alt"></i>
+          />
+          <i class="bx bxs-lock-alt"></i>
         </div>
 
         <div class="remember-forgot">
@@ -43,19 +47,16 @@
       </form>
     </div>
 
-
- <!-- Formulaire d'enregistrement -->
- <div class="wrapper2" id="registerWrapper" style="display: none">
+    <!-- Formulaire d'enregistrement -->
+    <div class="wrapper2" id="registerWrapper" style="display: none">
       <form id="registerForm" action="register.php" method="post">
         <h1>Enregistrement</h1>
         <div class="name-fields">
           <div class="input-box">
-            <!-- Champ Prénom -->
             <input type="text" id="registerFirstName" name="registerFirstName" placeholder="Prénom" required />
             <i class="bx bxs-user"></i>
           </div>
           <div class="input-box">
-            <!-- Champ Nom -->
             <input type="text" id="registerLastName" name="registerLastName" placeholder="Nom" required />
             <i class="bx bxs-user"></i>
           </div>
@@ -74,11 +75,15 @@
           <i class="bx bxs-lock-alt"></i>
         </div>
 
+        <!-- Champ caché pour définir le statut par défaut -->
+        <input type="hidden" name="statut" value="etudiant" />
+
         <button type="submit" class="btn">S'enregistrer</button>
         <p>J'ai déjà un compte</p>
         <button type="button" id="loginBtn" class="btn">Se connecter</button>
       </form>
     </div>
+
     <script src="../js/connexion.js"></script>
   </body>
 </html>

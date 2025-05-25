@@ -22,7 +22,11 @@ session_start(); // Démarre la session au début du script
     <nav>
       <ul class="menu">
         <li><a href="index.php">Home</a></li>
-        <li><a href="commande.php">Commander un panier</a></li>
+          <?php if (isset($_SESSION['statut']) && $_SESSION['statut'] === 'admin'): ?>
+              <li><a href="admin.php">Administration</a></li>
+          <?php else: ?>
+              <li><a href="commande.php">Commander un panier</a></li>
+          <?php endif; ?>
         <li><a href="espaceuser.php">Profil</a></li>
       </ul>
     </nav>

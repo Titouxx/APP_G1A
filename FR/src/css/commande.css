@@ -154,12 +154,14 @@ h1 {
   background-color: rgb(20, 180, 5);
 }
 
-/* FOOTER - corrigé */
+/* Footer pour commande.php identique à celui de l'accueil */
 .footer {
-  position: relative;
-  margin-top: 50px;
+  position: fixed;
+  right: 0;
+  bottom: 0px;
+  left: 0;
   padding-top: 0.5rem;
-  padding-bottom: 1rem;
+  padding-bottom: 1px;
   background-color: rgba(26, 227, 1, 0.54);
   text-align: center;
 }
@@ -185,25 +187,30 @@ h1 {
   color: #4fa9d9;
 }
 
-/* IMAGES FIXES - remplacées par position absolue */
+/* Logos dans le footer */
+#LogosFooter {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  width: auto;
+  margin-bottom: 0.01rem;
+  margin-left: 0.5rem;
+  z-index: 5;
+}
+
 #imgdeco {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
   width: auto;
   max-width: 100%;
+  margin-bottom: 0.1rem;
+  margin-right: 1rem;
   cursor: pointer;
   z-index: 5;
 }
 
-#LogosFooter {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  max-width: 100%;
-  width: auto;
-  z-index: 5;
-}
 
 /* RESPONSIVE */
 @media screen and (max-width: 767px) {
