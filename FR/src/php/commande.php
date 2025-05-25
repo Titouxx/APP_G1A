@@ -4,6 +4,26 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     header("Location: Connexion.php");
     exit();
 }
+
+// Connexion à la base de données (adaptée à ton environnement local)
+$host = 'localhost';
+$db   = 'siteweb';
+$user = 'root';
+$pass = ''; // ou 'root' selon XAMPP/MAMP
+$charset = 'utf8mb4';
+
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+
+try {
+    $pdo = new PDO($dsn, $user, $pass);
+} catch (PDOException $e) {
+    echo "Erreur de connexion à la base : " . $e->getMessage();
+    exit();
+}
+
+// Récupération des partenaires
+$stmt = $pdo->query("SELECT * FROM partenaires");
+$partenaires = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -11,8 +31,8 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="../css/commande.css" />
     <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/commande.css" />
     <script src="../js/jquery.min.js"></script>
     <link rel="icon" type="image/x-icon" href="../../images/logonutritium.ico" />
     <title>Akatsuki - Nutritium</title>
@@ -23,84 +43,74 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul class="menu">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="commande.php">Commander un panier</a></li>
-                <li><a href="espaceuser.php">Profil</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <nav>
+        <ul class="menu">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="commande.php">Commander un panier</a></li>
+            <li><a href="espaceuser.php">Profil</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <a href="index.php">
-        <img src="../../images/logonutritium.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey">
-    </a>
+<a href="index.php">
+    <img src="../../images/logonutritium.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey">
+</a>
 
-    <h1>Nos partenaires les plus proches</h1>
+<h1>Nos partenaires les plus proches</h1>
 
-    <div class="partenaires-container">
-        <div id="mapid"></div>
+<div class="partenaires-container-row">
+    <div class="partenaires-liste">
+        <h2>Nos partenaires</h2>
 
-        <div class="partenaires-liste">
-            <h2>Nos partenaires</h2>
-
+        <?php foreach ($partenaires as $p): ?>
             <div class="partenaire">
-                <strong>Marché Bio Paris</strong><br>
-                12 Rue de Rivoli, 75001 Paris<br>
-                Produits bio & locaux
+                <strong><?= htmlspecialchars($p['nom']) ?></strong><br>
+                <?= htmlspecialchars($p['adresse']) ?><br>
+                <?= htmlspecialchars($p['description']) ?><br>
+                <form action="reservation.php" method="GET">
+                    <input type="hidden" name="partenaire" value="<?= htmlspecialchars($p['nom']) ?>">
+                    <button type="submit" class="bouton-reserver">Réserver</button>
+                </form>
             </div>
-
-            <div class="partenaire">
-                <strong>Épicerie Verte</strong><br>
-                8 Boulevard Voltaire, 75011 Paris<br>
-                Produits zéro déchet
-            </div>
-
-            <div class="partenaire">
-                <strong>Fruits&Co</strong><br>
-                25 Rue Saint-Honoré, 75008 Paris<br>
-                Fruits frais toute l'année
-            </div>
-        </div>
+        <?php endforeach; ?>
     </div>
 
+    <div id="mapid"></div>
+</div>
 
-    <img src="../../images/footernutritium.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter">
-    <img src="../../images/déconnexion2.png" id="imgdeco" alt="logo déconnexion" title="logo déconnexion" onmouseover="changerImage('survol')" onmouseout="changerImage('normal')" onclick="deconnexion()">
+<img src="../../images/footernutritium.png" id="LogosFooter" alt="LogosFooter" title="LogosFooter">
+<img src="../../images/déconnexion2.png" id="imgdeco" alt="logo déconnexion" title="logo déconnexion" onmouseover="changerImage('survol')" onmouseout="changerImage('normal')" onclick="deconnexion()">
 
-    <footer>
-        <div class="footer">
-            <nav>
-                <ul>
-                    <li><a href="CGU.php" id="ga" target="_blank">C.G.U</a></li>
-                    <li><a href="https://www.isep.fr/" id="ga" target="_blank">Nos investisseurs</a></li>
-                    <li><a href="faq.php" id="ga" target="_blank">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </footer>
+<footer>
+    <div class="footer">
+        <nav>
+            <ul>
+                <li><a href="CGU.php" id="ga" target="_blank">C.G.U</a></li>
+                <li><a href="https://www.isep.fr/" id="ga" target="_blank">Nos investisseurs</a></li>
+                <li><a href="faq.php" id="ga" target="_blank">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</footer>
 
-    <script src="../js/commande.js"></script>
+<script src="../js/commande.js"></script>
 
-    <script>
-        // Initialisation de la carte
-        var map = L.map('mapid').setView([48.8566, 2.3522], 12); // Centre Paris
+<script>
+    var map = L.map('mapid').setView([48.8566, 2.3522], 12); // Centre Paris
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
 
-        // Ajout des marqueurs (à adapter selon les partenaires réels)
-        const partenaires = [
-            { nom: "Marché Bio Paris", lat: 48.8606, lon: 2.3376 },
-            { nom: "Épicerie Verte", lat: 48.8500, lon: 2.3600 },
-            { nom: "Fruits&Co", lat: 48.8700, lon: 2.3000 }
-        ];
+    // Marqueurs PHP → JavaScript
+    const partenaires = <?= json_encode($partenaires) ?>;
 
-        partenaires.forEach(p => {
-            L.marker([p.lat, p.lon]).addTo(map).bindPopup(p.nom);
-        });
-    </script>
+    partenaires.forEach(p => {
+        L.marker([p.latitude, p.longitude])
+            .addTo(map)
+            .bindPopup(p.nom);
+    });
+</script>
 </body>
 </html>
