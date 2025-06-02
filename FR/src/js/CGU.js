@@ -1,26 +1,27 @@
-// Popup servant à la déconnexion
+// Popup pour la déconnexion
 function deconnexion() {
-  var result = confirm("Voulez-vous vraiment vous déconnecter?");
-  if (result == true) {
+  const result = confirm("Voulez-vous vraiment vous déconnecter ?");
+  if (result) {
     alert("Merci de votre visite");
-    
-    // Effectuer une redirection vers le script PHP de déconnexion
     window.location.href = 'logout.php';
-  } else {
-    // On ferme juste la popup puisqu'on ne se déconnecte pas en cliquant sur annuler
   }
 }
 
-  // Récupérer la hauteur du footer
-var footerHeight = document.querySelector('.footer').offsetHeight;
+// Appliquer la hauteur du footer comme max-height au logo et à imgdeco si présents
+document.addEventListener("DOMContentLoaded", function () {
+  const footer = document.querySelector('.footer');
+  const footerHeight = footer ? footer.offsetHeight : 0;
 
-// Appliquer la hauteur du footer comme max-height au LogosFooter
-var logosFooter = document.getElementById('LogosFooter');
-logosFooter.style.maxHeight = footerHeight + 'px';
+  const logosFooter = document.getElementById('LogosFooter');
+  if (logosFooter) {
+    logosFooter.style.maxHeight = footerHeight + 'px';
+  }
 
-// Récupérer la hauteur du footer
-var footerHeight = document.querySelector('.footer').offsetHeight;
+  const imgDeco = document.getElementById('imgdeco');
+  if (imgDeco) {
+    imgDeco.style.maxHeight = footerHeight + 'px';
 
-// Appliquer la hauteur du footer comme max-height à l'élément avec l'id "imgdeco"
-var imgDeco = document.getElementById('imgdeco');
-imgDeco.style.maxHeight = footerHeight + 'px';
+    // Optionnel : ajout du clic de déconnexion ici
+    imgDeco.addEventListener('click', deconnexion);
+  }
+});

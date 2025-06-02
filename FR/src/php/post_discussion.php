@@ -1,41 +1,46 @@
 <?php
-    // include 'db_connect.php';
-    include 'config.php';
-    session_start();
+session_start();
+header('Content-Type: application/json');
 
-    header('Content-Type: application/json');
+require_once 'connectSQL.php';
+$pdo = getPDOConnection(); // Connexion centralisée
 
-    $response = ['success' => false]; // Default response
+$response = ['success' => false];
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $topicName = $_POST['topicName'];
-        $openingMessage = $_POST['openingMessage'];
-        $username = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $topicName = $_POST['topicName'] ?? '';
+    $openingMessage = $_POST['openingMessage'] ?? '';
+    $userId = $_SESSION['user_id'] ?? null;
 
-        try {
-            // Using prepared statements with placeholders
-            $stmt = $conn->prepare("INSERT INTO discussions (topic_name, opening_message, username) VALUES (:topicName, :openingMessage, :username)");
-            // Binding parameters
-            $stmt->execute([
-                ':topicName' => $topicName,
-                ':openingMessage' => $openingMessage,
-                ':username' => $username
-            ]);
-
-            $lastInsertId = $conn->lastInsertId(); // Get the last inserted ID
-
-            // Successful operation
-            $response = [
-                'success' => true,
-                'id' => $lastInsertId,
-                'topicName' => $topicName,
-                'openingMessage' => $openingMessage
-            ];
-        } catch (PDOException $e) {
-            // Handle database errors (e.g., constraint violations)
-            $response['error'] = $e->getMessage();
-        }
-
+    if (empty($topicName) || empty($openingMessage) || !$userId) {
+        $response['error'] = "Champs requis manquants ou utilisateur non connecté.";
         echo json_encode($response);
+        exit;
     }
+
+    try {
+        $stmt = $pdo->prepare("
+            INSERT INTO discussions (topic_name, opening_message, username)
+            VALUES (:topicName, :openingMessage, :username)
+        ");
+        $stmt->execute([
+            ':topicName' => $topicName,
+            ':openingMessage' => $openingMessage,
+            ':username' => $userId
+        ]);
+
+        $lastInsertId = $pdo->lastInsertId();
+
+        $response = [
+            'success' => true,
+            'id' => $lastInsertId,
+            'topicName' => $topicName,
+            'openingMessage' => $openingMessage
+        ];
+    } catch (PDOException $e) {
+        $response['error'] = $e->getMessage();
+    }
+}
+
+echo json_encode($response);
 ?>

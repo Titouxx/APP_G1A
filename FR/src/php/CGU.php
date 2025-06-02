@@ -11,8 +11,10 @@ session_start(); // Démarrez la session au début de chaque page PHP
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="icon" type="image/x-icon" href="../../images/logonutritium%20-%20Copie.ico" />
     <title>Akatsuki - Nutritium</title>
+    <img src="../../images/deconnexion.png" id="imgdeco" alt="Déconnexion" title="Se déconnecter">
 
 </head>
+
 <body>
 <header>
 <nav>

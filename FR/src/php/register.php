@@ -1,35 +1,35 @@
 <?php
-include 'config.php';
+require_once 'connectSQL.php';
 session_start();
 
 header('Content-Type: application/json');
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-// $servername = "localhost";
-// $username = "root";
-// $passwordDB = "";
-// $dbname = "siteweb";
+$pdo = getPDOConnection();
 
 try {
-//     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $passwordDB);
-//     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $prenom = $_POST['registerFirstName'];
-        $nom = $_POST['registerLastName'];
-        $email = $_POST['registerEmail'];
-        $password = $_POST['registerPassword'];
-        $repeatPassword = $_POST['RepeatPassword'];
+        $prenom          = trim($_POST['registerFirstName'] ?? '');
+        $nom             = trim($_POST['registerLastName'] ?? '');
+        $email           = trim($_POST['registerEmail'] ?? '');
+        $password        = $_POST['registerPassword'] ?? '';
+        $repeatPassword  = $_POST['RepeatPassword'] ?? '';
 
-        // Vérification si le mot de passe est correct
+        // Champs requis
+        if (empty($prenom) || empty($nom) || empty($email) || empty($password) || empty($repeatPassword)) {
+            echo json_encode(["status" => "error", "message" => "Tous les champs sont requis."]);
+            exit;
+        }
+
+        // Validation du mot de passe
         if ($password !== $repeatPassword) {
             echo json_encode(["status" => "error", "message" => "Les mots de passe ne correspondent pas."]);
             exit;
         }
 
         if (strlen($password) < 10) {
-            echo json_encode(["status" => "error", "message" => "Le mot de passe doit contenir plus de 10 caractères."]);
+            echo json_encode(["status" => "error", "message" => "Le mot de passe doit contenir au moins 10 caractères."]);
             exit;
         }
 
@@ -43,42 +43,43 @@ try {
             exit;
         }
 
-        // Vérification du format de l'e-mail
+        // Email valide ?
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            echo json_encode(["status" => "error", "message" => "Format d'email invalide."]);
+            echo json_encode(["status" => "error", "message" => "Format d'e-mail invalide."]);
             exit;
         }
-        
-        // Vérification si l'email existe déjà
-        $checkEmail = $conn->prepare("SELECT email FROM user WHERE email = :email");
-        $checkEmail->execute(['email' => $email]);
-        if ($checkEmail->rowCount() > 0) {
+
+        // Email déjà utilisé ?
+        $stmt = $pdo->prepare("SELECT 1 FROM user WHERE email = :email");
+        $stmt->execute(['email' => $email]);
+        if ($stmt->fetch()) {
             echo json_encode(["status" => "error", "message" => "email_exists"]);
-            exit; 
+            exit;
         }
 
-        // Hachage du mot de passe
+        // Hash du mot de passe
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        // Insertion des données dans la base de données
-        $sql = "INSERT INTO user (prenom, nom, email, password) VALUES (:prenom, :nom, :email, :hashed_password)";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute(['prenom' => $prenom, 'nom' => $nom, 'email' => $email, 'hashed_password' => $hashed_password]);
+        // Insertion
+        $stmt = $pdo->prepare("INSERT INTO user (prenom, nom, email, password) VALUES (:prenom, :nom, :email, :password)");
+        $stmt->execute([
+            'prenom'   => $prenom,
+            'nom'      => $nom,
+            'email'    => $email,
+            'password' => $hashed_password
+        ]);
 
-        // Stockage des informations dans la session
-        $_SESSION['user_id'] = $conn->lastInsertId();
-        $_SESSION['prenom'] = $prenom;
-        $_SESSION['nom'] = $nom;
-        $_SESSION['email'] = $email;
+        // Démarrage session
+        $_SESSION['user_id']   = $pdo->lastInsertId();
+        $_SESSION['prenom']    = $prenom;
+        $_SESSION['nom']       = $nom;
+        $_SESSION['email']     = $email;
         $_SESSION['logged_in'] = true;
 
-        // Réponse en cas de succès
         echo json_encode(["status" => "success"]);
+    } else {
+        echo json_encode(["status" => "error", "message" => "Méthode non autorisée."]);
     }
 } catch (PDOException $e) {
-    echo json_encode(["status" => "error", "message" => "Erreur lors de l'enregistrement : " . $e->getMessage()]);
-    exit; 
+    echo json_encode(["status" => "error", "message" => "Erreur PDO : " . $e->getMessage()]);
 }
-
-$conn = null;
-?>

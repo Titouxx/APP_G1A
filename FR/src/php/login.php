@@ -1,28 +1,27 @@
 <?php
-include 'config.php';
 session_start();
 
 header('Content-Type: application/json');
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-// $servername = "localhost";
-// $username = "root";
-// $passwordDB = "";
-
-// try {
-//     $conn = new PDO("mysql:host=$servername;dbname=siteweb", $username, $passwordDB);
-//     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+require_once 'connectSQL.php';
+$pdo = getPDOConnection(); // Utilisation centralisée de PDO
 
 try {
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $email = $_POST['loginEmail'];
-        $password = $_POST['loginPassword'];
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        $email = $_POST['loginEmail'] ?? '';
+        $password = $_POST['loginPassword'] ?? '';
+
+        if (empty($email) || empty($password)) {
+            echo json_encode(["status" => "error", "message" => "Champs requis manquants."]);
+            exit;
+        }
 
         $sql = "SELECT id_User, prenom, nom, password FROM user WHERE email = :email";
-        $stmt = $conn->prepare($sql);
+        $stmt = $pdo->prepare($sql);
         $stmt->execute(['email' => $email]);
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        $user = $stmt->fetch();
 
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id_User'];
@@ -35,16 +34,10 @@ try {
         } else {
             echo json_encode(["status" => "error", "message" => "Identifiants invalides"]);
         }
+    } else {
+        echo json_encode(["status" => "error", "message" => "Requête non autorisée"]);
     }
 } catch (PDOException $e) {
     echo json_encode(["status" => "error", "message" => $e->getMessage()]);
 }
-// } catch (PDOException $e) {
-//     echo json_encode(["status" => "error", "message" => $e->getMessage()]);
-// }
-
-// $conn = null;
-$conn = null;
 ?>
-
-

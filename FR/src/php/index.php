@@ -67,7 +67,6 @@ if(isset($_SESSION['user_id'])) {
   echo '<button class="cn" id="scrollButton"><a href="Connexion.php">Connectez Vous !</a></button>';
 }
 ?>
-      </button>
     </div>
 
   <!--footer gere le bas de page-->
