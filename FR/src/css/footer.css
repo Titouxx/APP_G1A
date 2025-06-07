@@ -1,0 +1,80 @@
+/* === FOOTER === */
+.footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0.5rem 0 1rem;
+    background-color: rgba(26, 227, 1, 0.54);
+    text-align: center;
+    z-index: 1;
+}
+
+.footer nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+.footer nav ul li a {
+    text-decoration: none;
+    color: #777;
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+.footer nav ul li a:hover {
+    color: #4fa9d9;
+}
+
+/* === LOGO MARQUE EN BAS À GAUCHE === */
+#LogosFooter {
+    position: fixed;
+    bottom: 0.3rem;
+    left: 0.5rem;
+    max-width: 100px;
+    height: auto;
+    z-index: 2;
+}
+
+
+
+/* === ESPACE EN BAS DU CONTENU POUR NE PAS ÊTRE CACHÉ PAR LE FOOTER === */
+body {
+    padding-bottom: 120px; /* ou ajoute une div .spacer dans le HTML juste avant le footer */
+}
+
+#imgdeco {
+    position: fixed;
+    bottom: 0.5rem;
+    right: 1rem;
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    z-index: 10;
+}
+
+
+/* === RESPONSIVE FOOTER === */
+@media screen and (max-width: 767px) {
+    .footer nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #LogosFooter,
+    #imgdeco {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        margin: 10px auto;
+        display: block;
+        max-width: 60px;
+    }
+}

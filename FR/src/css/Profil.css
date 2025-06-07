@@ -1,360 +1,128 @@
-@font-face {
-  font-family: 'Maven Pro';
-  src: url('../../fonts/Maven_Pro/Maven-Pro-regular.woff') format('woff');
-  /* Ajoutez d'autres formats si nécessaire */
-  font-weight: normal;
-  font-style: normal;
-}
-
-
-body {
-  background-image: url("../../images/Nutritium_Background1.png");
-  background-size: cover;
-  background-repeat: repeat; /* Empêche la répétition de l'image */
-  background-attachment: fixed; /* Fixe l'image pour qu'elle reste en place lorsque l'utilisateur fait défiler la page */
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  overflow-x: auto;
-}
-
-
-
-
-/* Espace entre menu et logo EchoKey */
-/* HEADER EN DESSUS */
-#Logo1 {
-  margin-top: 30px;   /* espace au-dessus */
-  width: 150px;       /* ajustez cette valeur à ce qui vous convient */
-  height: auto;       /* conserve le ratio */
-}
-
-nav {
-  margin-bottom: 20px; /* Ajoute de l'espace en bas de la balise <nav> */
-}
-
-*,/* css Barre de menu */
-*:before,
-*:after {
-  font-family: "Maven Pro", sans-serif !important;
-  box-sizing: inherit;
-  padding: 0;
-  letter-spacing: 1.1px;
-}
-
-body,
-html {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Maven Pro";
-}
-
-/*gere le menu dans l'index*/
-.menu {
-  padding: 0;
-  margin: 0;
-  display: flex;
-  position: absolute;
-  top: 0px;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 0;
-  list-style: none;
-}
-
-.menu li {
-  width: 100%;
-  list-style: none;
-  height: 50px;
-  text-align: center;
-  background-color: rgba(26, 227, 1, 0.54);
-}
-
-.menu li a {
-  font-size: 30px;
-  color: #777;
-  text-decoration: none;
-  transition: all 0.45s;
-}
-
-
-/*l'animation de vague*/
-.menu li:hover {
-  background: url("../../images/testonde.png");
-  animation: line 1s;
-  background-color: rgba(26, 227, 1, 0.54);
-}
-
-.menu li:hover a {
-  color: #4fa9d9;
-}
-
-.menu li:not(:last-child) {
-  margin: 0 auto;
-}
-
-@keyframes line {
-  0% {
-    background-position-x: 390px;
-  }
-}
-
-
+/* === CONTENU DU PROFIL === */
 
 .ii {
   position: relative;
-  float: left;
   width: 100%;
 }
 
-.logo-container {
-  position: relative;
-  float: left;
-  height: 100%;
-  margin-top: 45px;
-}
-
-.menu-icon {
-  width: 20px;
-  height: 20px;
-}
-
 .container1 {
-  position: relative;
-  float: left;
   background-color: #f7eeff;
   backdrop-filter: blur(20px);
   width: 800px;
   height: 420px;
   border-radius: 10px;
   box-shadow: 0 0 100px rgba(26, 227, 1, 0.54);
-  left: 45%;
-  transform: translateX(-50%);
+  margin: 80px auto 0; /* Centré + espace top */
+  display: flex;
 }
 
 .content {
-  float: left;
+  display: flex;
   width: 100%;
-  height: 420px;
+  height: 100%;
 }
 
+/* === SIDEBAR GAUCHE === */
 .sidebar {
-  position: relative;
   display: flex;
   flex-direction: column;
-  float: left;
-  border-bottom-left-radius: 10px;
-  border-top-left-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
+  justify-content: space-between;
   background-color: #4fa9d9;
-  height: 100%;
-}
-
-.Déconnexion {
-  margin-top: auto;
-}
-
-.profile-info {
-  position: relative;
-  float: left;
-  width: 70%;
-  height: 100%;
-  left: 0px;
-}
-
-h1 {
-  color: #000000;
-  position: relative;
-  left: 25%;
+  border-radius: 10px 0 0 10px;
+  padding: 10px;
+  width: 30%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .menu2 {
-  text-align: left;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
-  top: 42px;
-  flex-grow: 1;
+  gap: 10px;
 }
-.menu2 ul {
-  list-style: none;
-  padding: 0; /* Supprimer le padding par défaut de la liste */
-  margin: 0; /* Supprimer la marge par défaut de la liste */
-}
+
 .menu2 li {
-  margin-bottom: 10px; /* Ajoutez une marge inférieure pour espacer verticalement */
-  display: block;
-  width: 100%;
+  list-style: none;
 }
+
 .menu2 li label {
-  width: 100%;
-  display: block;
-}
-
-#coordonnees form {
-  position: relative;
-  float: left;
-}
-
-#coordonnees .form-group {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
-#coordonnees .form-control {
-  width: 80%;
+.menu-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
 }
 
-#Enregistrer {
-  display: none;
-  position: fixed;
-  margin-left: 54%;
+/* === SECTION INFO UTILISATEUR === */
+.profile-info {
+  width: 70%;
+  padding: 20px;
 }
 
-#coordonnees label {
-  position: relative;
-  float: left;
-  left: 50px;
-}
-#coordonnees .form-control {
-  height: 34px; /* Ajustez la valeur selon vos préférences */
+.profile-info h1 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #000;
 }
 
-#coordonnees .form-group label {
-  margin-bottom: 10px; /* Ajustez la valeur selon vos préférences */
-  line-height: 0px; /* Ajustez la valeur selon vos préférences pour aligner verticalement */
+.section.profile {
+  margin-top: 20px;
 }
 
-#coordonnees button {
-  margin-top: 10px; /* Ajouter une marge au-dessus du bouton */
+.form-group {
+  margin-bottom: 15px;
 }
 
+.input-group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-group span {
+  margin-right: 10px;
+}
+
+.form-control {
+  width: 100%;
+  height: 34px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* === BOUTONS === */
 button {
   background-color: #4fa9d9;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  margin: 0px;
+  margin: 5px;
   cursor: pointer;
+  color: white;
+  font-weight: bold;
 }
+
 button:hover {
-  background-color: rgba(79, 169, 217, 0.51)
+  background-color: rgba(79, 169, 217, 0.7);
 }
 
-label:hover {
-  background-color: rgba(79, 169, 217, 0.51)
+.Edition {
+  margin-top: 15px;
 }
 
-label:hover,
-label:hover button {
-  background-color: rgba(79, 169, 217, 0.51) /* Remplacez #your-color par la couleur que vous voulez */
-}
-
-.menu2 .label_menu img {
-  margin-left: 5px;
-}
-
-#Modifier {
-  display: none;
-  position: fixed;
-  margin-left: 56%;
-}
-
-#Maj {
-  position: relative;
-  float: left;
-  left: 67%;
-  margin-top: 10px;
-  display: none;
-}
+#Enregistrer,
+#Maj,
 #AnnulerEdition {
-  position: relative;
-  float: left;
-  left: 39%;
-  margin-top: 0px;
   display: none;
 }
 
-.input-group {
-  width: 400px; /* Largeur fixe en pixels */
-  margin-left: 20px; /* Position fixe (marge à gauche) en pixels */
-  /* Ajoutez d'autres styles au besoin */
-}
-
-/* Ajustement des paramètres vers la droite */
-
-#parametres .input-group,
-#parametres label {
-  margin-left: 95px; /* Ajustez selon vos besoins */
-  margin-top: 7px;
-}
-
-#parametres .form-group.mb-5 .control-label:first-child {
-  margin-top: 13px; /* Ajustez selon vos besoins */
-}
-
+/* === TEXTE PARAMÈTRES === */
 h5 {
-  position: relative;
-  float: left;
-  left: 110px;
+  margin-bottom: 10px;
+  font-size: 1rem;
 }
-#coordonnees label #coordonnees .input-group {
-  left: 100px;
-  margin-top: 20px;
-}
-
-h1 {
-  left: 185px;
-}
-
-/* Footer */
-.footer {
-  position: fixed;
-  right: 0;
-  bottom: 0px;
-  left: 0;
-  padding-top: 0.5rem; /* Augmenter la hauteur en ajustant le padding */
-  padding-bottom: 1px; /* Vous pouvez ajuster ces valeurs selon vos besoins */
-  background-color: rgba(26, 227, 1, 0.54);
-  text-align: center;
-}
-
-.footer nav ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer nav ul li {
-  display: inline;
-}
-
-.footer nav ul li a {
-  text-decoration: none;
-  color: #777; /* Couleur du texte pour les liens */
-  margin-left: 75px;
-  font-size: 15px;
-  transition: all 0.45s;
-}
-.footer li:hover a {
-  color: #4fa9d9;
-}
-
-/* CSS logos de marques */
-#LogosFooter {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  max-width: 100%;
-  width: auto;
-  margin-bottom: 0.01rem;
-  margin-left: 0.5rem;
-  z-index: 5;
-}
-

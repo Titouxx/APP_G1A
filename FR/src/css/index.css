@@ -1,4 +1,7 @@
+<<<<<<< Updated upstream
 /*responsive*/
+=======
+>>>>>>> Stashed changes
 @font-face {
   font-family: "Maven Pro";
   src: url("../../fonts/Maven_Pro/Maven-Pro-regular.woff") format("woff");
@@ -27,6 +30,7 @@ body {
   overflow-x: hidden;
 }
 
+<<<<<<< Updated upstream
 /* NAVIGATION */
 nav {
   margin-bottom: 20px;
@@ -96,6 +100,8 @@ nav {
   color: #4fa9d9;
 }
 
+=======
+>>>>>>> Stashed changes
 /* WELCOME SECTION */
 .welcome-message {
   text-align: center;
@@ -189,6 +195,7 @@ button.cn:hover {
   background-color: rgba(26, 227, 1, 0.9);
 }
 
+<<<<<<< Updated upstream
 /* FOOTER */
 .footer {
   width: 100%;
@@ -237,6 +244,10 @@ button.cn:hover {
     padding: 10px;
   }
 
+=======
+/* RESPONSIVE */
+@media (max-width: 767px) {
+>>>>>>> Stashed changes
   .welcome-message {
     font-size: 2rem;
     padding: 1rem;
@@ -254,6 +265,7 @@ button.cn:hover {
     font-size: 1rem;
     text-align: center;
   }
+<<<<<<< Updated upstream
 
   .language-selector {
     font-size: 14px;
@@ -271,4 +283,6 @@ button.cn:hover {
     display: block;
     margin: 10px 0;
   }
+=======
+>>>>>>> Stashed changes
 }

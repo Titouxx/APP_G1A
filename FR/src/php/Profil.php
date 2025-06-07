@@ -1,5 +1,11 @@
 <?php
+<<<<<<< Updated upstream
 session_start();
+=======
+$pageCSS = '../css/Profil.css';
+$pageTitle = 'Profil - Nutritium';
+include '../include/header.php';
+>>>>>>> Stashed changes
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: Connexion.php");
@@ -19,14 +25,23 @@ try {
 
     if (!$user) {
         echo "Aucun utilisateur trouvé.";
+<<<<<<< Updated upstream
+=======
+        include '../include/footer.php';
+>>>>>>> Stashed changes
         exit();
     }
 } catch (PDOException $e) {
     echo "Erreur SQL : " . $e->getMessage();
+<<<<<<< Updated upstream
+=======
+    include '../include/footer.php';
+>>>>>>> Stashed changes
     exit();
 }
 ?>
 
+<<<<<<< Updated upstream
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -54,6 +69,9 @@ try {
     <img src="../../images/logonutritium.png" id="Logo1" alt="Logo EchoKey" title="Logo EchoKey">
 </a>
 
+=======
+
+>>>>>>> Stashed changes
 <div class="ii">
     <div class="container1">
         <div class="content">
@@ -82,6 +100,7 @@ try {
                 <h1>Édition du Profil</h1>
 
                 <div id="coordonnees" class="section profile" style="display: none">
+<<<<<<< Updated upstream
                     <div class="form-group mb-3">
                         <label class="col-md-4 control-label">Prénom</label>
                         <div class="col-md-8 inputGroupContainer">
@@ -141,6 +160,21 @@ try {
                             </div>
                         </div>
                     </div>
+=======
+                    <?php foreach (['prenom', 'nom', 'email', 'telephone', 'adresse', 'ville'] as $field): ?>
+                        <div class="form-group mb-3">
+                            <label class="col-md-4 control-label"><?= ucfirst($field) ?></label>
+                            <div class="col-md-8 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-<?= $field === 'email' ? 'envelope' : ($field === 'telephone' ? 'earphone' : 'user') ?>"></i>
+                                    </span>
+                                    <input class="form-control" type="text" value="<?= htmlspecialchars($user[$field]) ?>" disabled />
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+>>>>>>> Stashed changes
                 </div>
 
                 <div id="parametres" class="section profile" style="display: none">
@@ -169,6 +203,7 @@ try {
     </div>
 </div>
 
+<<<<<<< Updated upstream
 <footer>
     <div class="footer">
         <img src="../../images/footernutritium.png" id="LogosFooter" alt="LogosFooter" />
@@ -184,3 +219,7 @@ try {
 <script src="../js/Profil.js"></script>
 </body>
 </html>
+=======
+<script src="../js/Profil.js"></script>
+<?php include '../include/footer.php'; ?>
+>>>>>>> Stashed changes
