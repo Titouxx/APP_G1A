@@ -9,10 +9,6 @@ if (isset($_SESSION['user_id'])) {
     echo '<p class="welcome-message">Bienvenue ' . htmlspecialchars($_SESSION['prenom']) . ' !</p>';
 }
 ?>
-<<<<<<< Updated upstream
-    </div>
-=======
->>>>>>> Stashed changes
 
 <!-- Contenu principal -->
 <div class="content">
@@ -24,15 +20,19 @@ if (isset($_SESSION['user_id'])) {
     <div class="left">
         <h1 class="Nutritium">Apporter une solution durable <br /> à la précarité étudiante</h1>
         <p class="paragraphe">
-            <br /> Chaque année, les files d’étudiants devant les banques alimentaires s’allongent. Ces scènes sont d’autant plus marquantes lorsque des mesures comme les repas à 1 € pour tous au CROUS sont rejetées.
+            <br /> Chaque année, les files d’étudiants devant les banques alimentaires s’allongent. Ces scènes sont
+            d’autant plus marquantes lorsque des mesures comme les repas à 1 € pour tous au CROUS sont rejetées.
         </p>
         <br />
         <p class="paragraphe">
-            C’est avec ambition et détermination que nous portons le projet de Nutritium, une structure conçue pour aider un maximum de personnes à se nourrir dignement à un coût minimal, tout en répondant de manière durable à une problématique sociale urgente.
+            C’est avec ambition et détermination que nous portons le projet de Nutritium, une structure conçue pour
+            aider un maximum de personnes à se nourrir dignement à un coût minimal, tout en répondant de manière durable
+            à une problématique sociale urgente.
         </p>
         <br />
         <p class="paragraphe">
-            Géographiquement basés à l’incubateur ISEP d’Issy-Les-Moulineaux, notre démarche commencera à Paris et sa banlieue, avec l'ambition de nous étendre progressivement à l'échelle nationale d’ici 3 ans.
+            Géographiquement basés à l’incubateur ISEP d’Issy-Les-Moulineaux, notre démarche commencera à Paris et sa
+            banlieue, avec l'ambition de nous étendre progressivement à l'échelle nationale d’ici 3 ans.
         </p>
     </div>
 </div>

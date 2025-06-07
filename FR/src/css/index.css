@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-/*responsive*/
-=======
->>>>>>> Stashed changes
 @font-face {
   font-family: "Maven Pro";
   src: url("../../fonts/Maven_Pro/Maven-Pro-regular.woff") format("woff");
@@ -30,78 +26,6 @@ body {
   overflow-x: hidden;
 }
 
-<<<<<<< Updated upstream
-/* NAVIGATION */
-nav {
-  margin-bottom: 20px;
-}
-
-#Logo1 {
-  display: block;
-  margin: 30px auto;
-  width: 150px;
-  height: auto;
-}
-
-.language-selector {
-  font-size: 16px;
-  position: fixed;
-  right: 10px;
-  top: 10px;
-  color: #777;
-  display: flex;
-  gap: 10px;
-  z-index: 10;
-}
-
-.language-selector a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.language-selector a:hover {
-  color: #4fa9d9;
-}
-
-/* MENU */
-.menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  width: 100%;
-  background-color: rgba(26, 227, 1, 0.54);
-  position: sticky;
-  top: 0;
-  z-index: 5;
-}
-
-.menu li {
-  flex: 1 1 auto;
-  text-align: center;
-}
-
-.menu li a {
-  display: block;
-  padding: 12px;
-  font-size: 20px;
-  color: #777;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.menu li:hover {
-  background: url("../../images/testonde.png");
-  background-color: rgba(26, 227, 1, 0.54);
-}
-
-.menu li:hover a {
-  color: #4fa9d9;
-}
-
-=======
->>>>>>> Stashed changes
 /* WELCOME SECTION */
 .welcome-message {
   text-align: center;
@@ -195,59 +119,8 @@ button.cn:hover {
   background-color: rgba(26, 227, 1, 0.9);
 }
 
-<<<<<<< Updated upstream
-/* FOOTER */
-.footer {
-  width: 100%;
-  background-color: rgba(26, 227, 1, 0.54);
-  text-align: center;
-  padding: 1rem 0;
-  margin-top: 3rem;
-}
-
-.footer nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer nav ul li {
-  display: inline-block;
-  margin: 0 20px;
-}
-
-.footer nav ul li a {
-  text-decoration: none;
-  color: #777;
-  font-size: 14px;
-  transition: all 0.3s;
-}
-
-.footer nav ul li a:hover {
-  color: #4fa9d9;
-}
-
-#LogosFooter {
-  max-width: 100px;
-  height: auto;
-  margin-top: 1rem;
-}
-
 /* RESPONSIVE */
 @media (max-width: 767px) {
-  .menu {
-    flex-direction: column;
-  }
-
-  .menu li a {
-    font-size: 18px;
-    padding: 10px;
-  }
-
-=======
-/* RESPONSIVE */
-@media (max-width: 767px) {
->>>>>>> Stashed changes
   .welcome-message {
     font-size: 2rem;
     padding: 1rem;
@@ -265,24 +138,4 @@ button.cn:hover {
     font-size: 1rem;
     text-align: center;
   }
-<<<<<<< Updated upstream
-
-  .language-selector {
-    font-size: 14px;
-    flex-direction: column;
-    align-items: flex-end;
-    right: 10px;
-  }
-
-  #LogosFooter {
-    width: 60px;
-    margin: auto;
-  }
-
-  .footer nav ul li {
-    display: block;
-    margin: 10px 0;
-  }
-=======
->>>>>>> Stashed changes
 }
