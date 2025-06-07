@@ -104,5 +104,5 @@ try {
     </div>
 </div>
 
-<script src="../js/Profil.js"></script>
+<script src="js/Profil.js"></script>
 <?php include '../include/footer.php'; ?>

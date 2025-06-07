@@ -21,7 +21,7 @@ if (!isset($pageTitle)) {
     <!-- Footer CSS -->
     <link rel="stylesheet" href="../css/footer.css">
 
-    <link rel="icon" type="image/x-icon" href="../../images/logonutritium.ico">
+    <link rel="icon" type="image/x-icon" href="../../../images/logonutritium.ico">
     <script src="../js/jquery.min.js"></script>
 
     <?php if (!empty($useLeaflet)) : ?>
@@ -37,7 +37,7 @@ if (!isset($pageTitle)) {
         <!-- Logo -->
         <div class="logo-container">
             <a href="index.php">
-                <img src="../../images/logonutritium.png" alt="Logo Nutritium">
+                <img src="../../../images/logonutritium.png" alt="Logo Nutritium">
             </a>
         </div>
 
