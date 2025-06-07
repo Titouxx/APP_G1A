@@ -1,5 +1,5 @@
 <!-- Image déconnexion en bas à droite -->
-<img src="../../images/déconnexion2.png" id="imgdeco" alt="Déconnexion" title="Se déconnecter"
+<img src="/src/images/déconnexion2.png" id="imgdeco" alt="Déconnexion" title="Se déconnecter"
      onmouseover="changerImage('survol')" onmouseout="changerImage('normal')" onclick="deconnexion()">
 
 <!-- Footer global -->
