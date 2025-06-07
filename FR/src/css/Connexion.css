@@ -1,209 +1,241 @@
 @font-face {
     font-family: 'Maven Pro';
     src: url('../../fonts/Maven_Pro/Maven-Pro-regular.woff') format('woff');
-    /* Ajoutez d'autres formats si nécessaire */
     font-weight: normal;
     font-style: normal;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-image: url("../../images/Nutritium_Background1.png");
-  background-position: center;
-  background-size: 1590px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("../../images/Nutritium_Background1.png");
+    background-position: center;
+    background-size: cover;
+    overflow-x: hidden;
 }
 
 .wrapper {
-  width: 420px;
-  box-shadow: 0 0 100px rgba(26, 227, 1, 0.54);
-  background: transparent; 
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(20px);
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
-  color: #392734;
-  border-radius: 10px;
-  padding: 70px 40px;
-  font-family: 'Maven Pro';
+    width: 420px;
+    box-shadow: 0 0 100px rgba(26, 227, 1, 0.54);
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    color: #392734;
+    border-radius: 10px;
+    padding: 70px 40px;
+    font-family: 'Maven Pro';
 }
 
 .wrapper h1 {
-  font-size: 36px;
-  text-align: center;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .wrapper .input-box {
-  position: relative;
-  width: 100%;
-  height: 50px;
-  margin: 30px 0;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
 }
 
 .input-box input {
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  border: none;
-  outline: none;
-  border: 2px solid rgba(5, 5, 5, 0.2);
-  border-radius: 10px;
-  font-size: 16px;
-  color: #9e9e9e;
-  padding: 20px 45px 20px 20px;
-  font-family: 'Maven Pro';
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(5, 5, 5, 0.2);
+    border-radius: 10px;
+    font-size: 16px;
+    color: #9e9e9e;
+    padding: 20px 45px 20px 20px;
+    font-family: 'Maven Pro';
+    outline: none;
 }
 
 .input-box input::placeholder {
-  color: #bbabab;
+    color: #bbabab;
 }
 
 .input-box i {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 20px;
-  font-family: 'Maven Pro';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
 }
 
 .wrapper .remember-forgot {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14.5px;
-  margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
 }
 
 .remember-forgot label input {
-  accent-color: #000000;
-  text-decoration: none;
+    accent-color: #000000;
 }
 
 .remember-forgot a {
-  color: #000000;
-  /* text-decoration: none; */
+    color: #000000;
 }
 
 .remember-forgot a:hover {
-  text-decoration: underline;
-} 
+    text-decoration: underline;
+}
 
 .wrapper .btn {
-  width: 100%;
-  height: 45px;
-  background: #ffffff;
-  border: none;
-  outline: none;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  font-size: 16px;
-  color: #333;
-  font-weight: 600;
-  font-family: 'Maven Pro';
+    width: 100%;
+    height: 45px;
+    background: #ffffff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
 }
 
 .wrapper p {
-  text-align: center;
-  margin: 20px 0 0px;
-  font-family: 'Maven Pro';
+    text-align: center;
+    margin: 20px 0 0;
 }
 
-/*******************************SIGN UP*****************************/
+/* === SIGN UP WRAPPER === */
+.wrapper2 {
+    width: 500px;
+    box-shadow: 0 0 100px rgb(113, 53, 99);
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    color: #392734;
+    border-radius: 10px;
+    padding: 70px 40px;
+}
 
- .wrapper2 {
-  position: relative;
-  width: 500px;
-  box-shadow: 0 0 100px rgb(113, 53, 99); 
-  background: transparent; 
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(20px);
-  /* box-shadow: 0 0 100px rgb(113, 53, 99); */
-  color: #392734;
-  border-radius: 10px;
-  padding: 70px 40px;
- }
- 
 .wrapper2 h1 {
-  font-size: 36px;
-  position: relative;
-  left: 70%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 30px;
 }
- 
- .wrapper2 .name-fields {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  width: 100%;
 
+.wrapper2 .name-fields {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 .wrapper2 .name-fields .input-box {
-  flex: 1 1 45%; 
-  margin-right: 10px;
+    flex: 1 1 45%;
 }
 
-.wrapper2 .name-fields .input-box:last-child {
-  margin-right: 0;
+.wrapper2 .input-box {
+    position: relative;
+    height: 50px;
+    margin: 10px 0;
 }
- 
- .wrapper2 .input-box {
-  position: relative;
-  height: 50px;
-  margin: 10px 0;
- }
- 
- .wrapper2 .input-box input {
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  border: none;
-  outline: none;
-  border: 2px solid rgba(5, 5, 5, 0.2);
-  border-radius: 10px;
-  font-size: 16px;
-  color: #9e9e9e;
-  padding: 20px 45px 20px 20px;
-  margin-bottom: 10px;
- }
- 
- .wrapper2 .input-box input::placeholder {
-  color: #bbabab;
- }
- 
- .wrapper2 .input-box i {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 20px;
- }
- 
- .wrapper2 .btn {
-  width: 100%;
-  height: 45px;
-  background: #ffffff;
-  border: none;
-  outline: none;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  font-size: 16px;
-  color: #333;
-  font-weight: 600;
- }
- 
- .wrapper2 p {
-  text-align: center;
-  margin: 20px 0 0px;
- }
+
+.wrapper2 .input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(5, 5, 5, 0.2);
+    border-radius: 10px;
+    font-size: 16px;
+    color: #9e9e9e;
+    padding: 20px 45px 20px 20px;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+.wrapper2 .input-box input::placeholder {
+    color: #bbabab;
+}
+
+.wrapper2 .input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.wrapper2 .btn {
+    width: 100%;
+    height: 45px;
+    background: #ffffff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.wrapper2 p {
+    text-align: center;
+    margin: 20px 0 0;
+}
+
+/* === RESPONSIVE === */
+@media screen and (max-width: 767px) {
+    body {
+        padding: 20px;
+        align-items: flex-start;
+    }
+
+    .wrapper,
+    .wrapper2 {
+        width: 95%;
+        padding: 40px 20px;
+    }
+
+    .wrapper h1,
+    .wrapper2 h1 {
+        font-size: 24px;
+    }
+
+    .wrapper2 .name-fields {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .input-box input {
+        font-size: 14px;
+        padding: 15px 35px 15px 15px;
+    }
+
+    .input-box i {
+        font-size: 16px;
+        right: 12px;
+    }
+
+    .wrapper .btn,
+    .wrapper2 .btn {
+        font-size: 14px;
+        height: 40px;
+    }
+
+    .remember-forgot {
+        flex-direction: column;
+        font-size: 13px;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .wrapper p,
+    .wrapper2 p {
+        font-size: 14px;
+    }
+}

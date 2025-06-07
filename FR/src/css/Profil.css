@@ -126,3 +126,78 @@ h5 {
   margin-bottom: 10px;
   font-size: 1rem;
 }
+/* === RESPONSIVE DESIGN === */
+
+/*  Tablettes & petits écrans */
+@media screen and (max-width: 850px) {
+  .container1 {
+    flex-direction: column;
+    width: 95%;
+    height: auto;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px 10px 0 0;
+    padding: 10px 0;
+  }
+
+  .menu2 {
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .menu2 li {
+    display: flex;
+    align-items: center;
+  }
+
+  .menu2 li label {
+    flex-direction: row;
+    font-size: 14px;
+  }
+
+  .profile-info {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .profile-info h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/*  Téléphones très petits */
+@media screen and (max-width: 480px) {
+  .menu-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .profile-info h1 {
+    font-size: 1.2rem;
+  }
+
+  .form-control {
+    height: 30px;
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .menu2 {
+    gap: 10px;
+  }
+}

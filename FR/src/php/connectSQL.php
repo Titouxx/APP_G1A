@@ -3,7 +3,7 @@ function getPDOConnection(): PDO {
     $hostname = "localhost";
     $base = "siteweb";
     $loginBD = "root";
-    $passBD = "root";
+    $passBD = ""; //root for mac
 
     try {
         $dsn = "mysql:host=$hostname;dbname=$base;charset=utf8";

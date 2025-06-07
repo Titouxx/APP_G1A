@@ -12,15 +12,13 @@ if (!isset($pageTitle)) {
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- 1. CSS du Header -->
+    <!-- Header CSS -->
     <link rel="stylesheet" href="../css/header.css">
-
-    <!-- 2. CSS spécifique à la page -->
+    <!-- Page-specific CSS -->
     <link rel="stylesheet" href="<?= htmlspecialchars($pageCSS); ?>">
-
-    <!-- 3. CSS du Footer -->
+    <!-- Footer CSS -->
     <link rel="stylesheet" href="../css/footer.css">
 
     <link rel="icon" type="image/x-icon" href="../../images/logonutritium.ico">
@@ -33,20 +31,26 @@ if (!isset($pageTitle)) {
     <title><?= htmlspecialchars($pageTitle) ?></title>
 </head>
 <body>
-<header class="main-header">
-    <div class="header-container">
-        <a href="index.php">
-            <img src="../../images/logonutritium.png" id="Logo1" alt="Logo Nutritium" title="Logo Nutritium">
-        </a>
 
-        <nav>
-            <ul class="menu">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="commande.php">Commander un panier</a></li>
-                <li><a href="espaceuser.php">Profil</a></li>
-            </ul>
+<header class="main-header">
+    <div class="header-bar">
+        <!-- Logo -->
+        <div class="logo-container">
+            <a href="index.php">
+                <img src="../../images/logonutritium.png" alt="Logo Nutritium">
+            </a>
+        </div>
+
+        <!-- Navigation links -->
+        <nav class="menu">
+            <a href="index.php">Home</a>
+            <a href="commande.php">Commander un panier</a>
+            <a href="espaceuser.php">Mon espace</a>
         </nav>
+
+        <!-- User greeting -->
+        <?php if (isset($_SESSION['prenom'])) : ?>
+            <div class="user-greeting">Hi <?= htmlspecialchars($_SESSION['prenom']) ?> !</div>
+        <?php endif; ?>
     </div>
 </header>
-
-

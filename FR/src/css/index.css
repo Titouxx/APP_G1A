@@ -26,20 +26,22 @@ body {
   overflow-x: hidden;
 }
 
-/* WELCOME SECTION */
+/* === WELCOME SECTION === */
 .welcome-message {
   text-align: center;
   font-weight: bold;
   color: #4fa9d9;
   font-size: 3rem;
   background-color: rgba(26, 227, 1, 0.54);
-  padding: 1rem;
-  margin: 1rem auto;
+  padding: 1.5rem 2rem;
+  margin: 1.5rem auto;
   border-radius: 40px;
-  max-width: 90%;
+  max-width: 600px; /* Limite de largeur */
+  width: 90%; /* adaptatif */
 }
 
-/* MAIN CONTENT */
+
+/* === MAIN CONTENT === */
 .content {
   display: flex;
   flex-wrap: wrap;
@@ -60,14 +62,16 @@ body {
 }
 
 .content img {
-  max-width: 100%;
+  max-width: 600px;
+  width: 90%;
   height: auto;
-  flex: 1 1 100%;
   display: block;
-  margin: auto;
+  margin: 2rem auto 0;
+  border-radius: 15px;
 }
 
-/* CONTENT CONTAINER */
+
+/* === CONTENT CONTAINER === */
 .content-container {
   display: flex;
   flex-wrap: wrap;
@@ -91,9 +95,10 @@ body {
   text-align: justify;
   flex: 1 1 100%;
   margin-top: 1rem;
+  padding: 0 1rem;
 }
 
-/* BUTTONS */
+/* === BUTTONS === */
 .buton {
   text-align: center;
   margin-top: 2rem;
@@ -108,6 +113,7 @@ button.cn {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  border-radius: 10px;
 }
 
 button.cn a {
@@ -119,15 +125,41 @@ button.cn:hover {
   background-color: rgba(26, 227, 1, 0.9);
 }
 
-/* RESPONSIVE */
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 991px) {
+  .content {
+    padding: 3rem 1.5rem;
+  }
+
+  .content h1 {
+    font-size: 3rem;
+  }
+
+  .content-container .Nutritium {
+    font-size: 2.5rem;
+  }
+
+  .content-container .paragraphe {
+    font-size: 1.1rem;
+  }
+}
+
 @media (max-width: 767px) {
   .welcome-message {
     font-size: 2rem;
     padding: 1rem;
   }
 
+  .content {
+    padding: 2rem 1rem;
+  }
+
   .content h1 {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
+  }
+
+  .content-container {
+    padding: 1.5rem 1rem;
   }
 
   .content-container .Nutritium {
@@ -137,5 +169,39 @@ button.cn:hover {
   .content-container .paragraphe {
     font-size: 1rem;
     text-align: center;
+    padding: 0 0.5rem;
+  }
+
+  .buton {
+    padding-bottom: 2rem;
+  }
+
+  button.cn {
+    font-size: 15px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-message {
+    font-size: 1.7rem;
+    padding: 0.8rem;
+  }
+
+  .content h1 {
+    font-size: 2rem;
+  }
+
+  .content-container .Nutritium {
+    font-size: 1.8rem;
+  }
+
+  .content-container .paragraphe {
+    font-size: 0.95rem;
+  }
+
+  button.cn {
+    font-size: 14px;
+    padding: 7px 14px;
   }
 }

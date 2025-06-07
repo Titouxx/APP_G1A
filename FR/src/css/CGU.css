@@ -65,20 +65,51 @@ h1 {
 }
 
 /* Responsive design */
-@media screen and (max-width: 767px) {
+/* ✅ Responsive tablette (768px à 991px) */
+@media screen and (max-width: 991px) {
   h1 {
-    font-size: 1.6rem;
-    margin-top: 20px;
-    padding: 10px;
+    font-size: 2rem;
+    padding: 30px 15px 15px;
   }
 
   .section,
   .mentions-legales {
-    padding: 0 1rem;
-    font-size: 16px;
+    font-size: 17px;
+    padding: 0 1.5rem;
   }
 
+  .section h2,
   .mentions-legales h2 {
-    font-size: 20px;
+    font-size: 1.3rem;
   }
 }
+
+/*  Responsive mobile (moins de 480px) */
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.4rem;
+    padding: 20px 10px 10px;
+  }
+
+  .section,
+  .mentions-legales {
+    font-size: 15px;
+    padding: 0 1rem;
+  }
+
+  .section h2,
+  .mentions-legales h2 {
+    font-size: 1.1rem;
+  }
+
+  .mentions-legales {
+    margin: 20px auto;
+  }
+
+  .section p,
+  .mentions-legales p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+}
+

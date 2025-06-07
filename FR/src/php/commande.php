@@ -58,12 +58,19 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        map.invalidateSize();
+    }, 200);
+});
 const partenaires = <?= json_encode($partenaires) ?>;
 partenaires.forEach(p => {
     L.marker([p.latitude, p.longitude])
         .addTo(map)
         .bindPopup(p.nom);
 });
+
+
 </script>
 
 <!-- Script spécifique à cette page -->
