@@ -1,6 +1,6 @@
 <?php
-$pageCSS = '../css/index.css';
-include '../include/header.php';
+$pageCSS = 'css/index.css';
+include 'include/header_index.php';
 ?>
 
 
@@ -13,7 +13,7 @@ if (isset($_SESSION['user_id'])) {
 <!-- Contenu principal -->
 <div class="content">
     <h1>Nutritium</h1>
-    <img src="../../images/homepic.jpg" alt="image d’accueil" height="300px" />
+    <img src="../images/homepic.jpg" alt="image d’accueil" height="300px" />
 </div>
 
 <div class="content-container">
@@ -47,4 +47,4 @@ if (isset($_SESSION['user_id'])) {
     ?>
 </div>
 
-<?php include '../include/footer.php'; ?>
+<?php include 'include/footer_index.php'; ?>

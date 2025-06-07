@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($pageCSS)) {
-    $pageCSS = '../css/index.css';
+    $pageCSS = 'css/index.css';
 }
 if (!isset($pageTitle)) {
     $pageTitle = 'Akatsuki - Nutritium';
@@ -16,14 +16,14 @@ if (!isset($pageTitle)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Header CSS -->
-    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="css/header.css">
     <!-- Page-specific CSS -->
     <link rel="stylesheet" href="<?= htmlspecialchars($pageCSS); ?>">
     <!-- Footer CSS -->
-    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="css/footer.css">
 
-    <link rel="icon" type="image/x-icon" href="../../images/logonutritium.ico">
-    <script src="../js/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="images/logonutritium.ico">
+    <script src="js/jquery.min.js"></script>
 
     <?php if (!empty($useLeaflet)) : ?>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
@@ -38,16 +38,16 @@ if (!isset($pageTitle)) {
         <div class="header-bar">
             <!-- Logo -->
             <div class="logo-container">
-                <a href="../index.php">
-                    <img src="../../images/logonutritium.png" alt="Logo Nutritium">
+                <a href="index.php">
+                    <img src="../images/logonutritium.png" alt="Logo Nutritium">
                 </a>
             </div>
 
             <!-- Navigation links -->
             <nav class="menu">
-                <a href="../index.php">Home</a>
-                <a href="commande.php">Commander un panier</a>
-                <a href="espaceuser.php">Mon espace</a>
+                <a href="index.php">Home</a>
+                <a href="php/commande.php">Commander un panier</a>
+                <a href="php/espaceuser.php">Mon espace</a>
             </nav>
 
             <!-- User greeting -->
