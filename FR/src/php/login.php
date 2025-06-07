@@ -28,6 +28,7 @@ try {
             $_SESSION['email'] = $email;
             $_SESSION['prenom'] = $user['prenom'];
             $_SESSION['nom'] = $user['nom'];
+            $_SESSION['statut'] = $user['statut'];
             $_SESSION['logged_in'] = true;
 
             echo json_encode(["status" => "success"]);
