@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var response = JSON.parse(this.responseText);
         console.log(response);
         if (response.status === "success") {
-          window.location.href = "../index.php";
+          window.location.href = "../php/index.php";
         } else {
           alert(response.message || "Une erreur est survenue");
         }
@@ -69,7 +69,7 @@ registerForm.addEventListener("submit", function (event) {
         var response = JSON.parse(this.responseText);
         console.log(response);
         if (response.status === "success") {
-          window.location.href = "../index.php";
+          window.location.href = "../php/index.php";
         } else if (response.status === "error" && response.message === "email_exists") {
           emailField.style.color = 'red';
           alert("Cet email est déjà utilisé.");

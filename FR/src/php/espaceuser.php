@@ -39,4 +39,4 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 </div>
 
 <?php include '../include/footer.php'; ?>
-<script src="js/espaceuser.js"></script>
+<script src="../js/espaceuser.js"></script>

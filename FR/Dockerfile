@@ -7,4 +7,4 @@ WORKDIR /app
 
 EXPOSE 10000
 
-CMD ["php", "-S", "0.0.0.0:10000", "-t", "src/php"]
+CMD ["php", "-S", "0.0.0.0:10000", "-t", "/app"]

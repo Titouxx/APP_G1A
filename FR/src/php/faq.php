@@ -75,5 +75,5 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     </div>
 </div>
 
-<script src="js/faq.js"></script>
+<script src="../js/faq.js"></script>
 <?php include '../include/footer.php'; ?>

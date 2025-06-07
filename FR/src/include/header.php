@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($pageCSS)) {
-    $pageCSS = 'css/index.css';
+    $pageCSS = '../css/index.css';
 }
 if (!isset($pageTitle)) {
     $pageTitle = 'Akatsuki - Nutritium';
@@ -15,13 +15,13 @@ if (!isset($pageTitle)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Header CSS -->
-    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="../css/header.css">
     <!-- Page-specific CSS -->
     <link rel="stylesheet" href="<?= htmlspecialchars($pageCSS); ?>">
     <!-- Footer CSS -->
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="../css/footer.css">
 
-    <link rel="icon" type="image/x-icon" href="images/logonutritium.ico">
+    <link rel="icon" type="image/x-icon" href="../../images/logonutritium.ico">
     <script src="../js/jquery.min.js"></script>
 
     <?php if (!empty($useLeaflet)) : ?>
@@ -37,7 +37,7 @@ if (!isset($pageTitle)) {
         <!-- Logo -->
         <div class="logo-container">
             <a href="index.php">
-                <img src="../../../images/logonutritium.png" alt="Logo Nutritium">
+                <img src="../../images/logonutritium.png" alt="Logo Nutritium">
             </a>
         </div>
 

@@ -45,9 +45,9 @@ $users = $pdo->query("SELECT * FROM user")->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Interface Admin - Nutritium</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/commande.css">
-    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/commande.css">
+    <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
 
@@ -121,6 +121,6 @@ $users = $pdo->query("SELECT * FROM user")->fetchAll(PDO::FETCH_ASSOC);
     </section>
 </main>
 
-<script src="js/commande.js"></script>
+<script src="../js/commande.js"></script>
 </body>
 </html>

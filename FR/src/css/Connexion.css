@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Maven Pro';
-    src: url('../../../fonts/Maven_Pro/Maven-Pro-regular.woff') format('woff');
+    src: url('../../fonts/Maven_Pro/Maven-Pro-regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -16,7 +16,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url("../../../images/Nutritium_Background1.png");
+    background-image: url("../../images/Nutritium_Background1.png");
     background-position: center;
     background-size: cover;
     overflow-x: hidden;

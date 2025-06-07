@@ -8,7 +8,7 @@ session_start();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Akatsuki - Nutritium</title>
-    <link rel="stylesheet" href="css/Connexion.css" />
+    <link rel="stylesheet" href="../css/Connexion.css" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -84,6 +84,6 @@ session_start();
       </form>
     </div>
 
-    <script src="js/connexion.js"></script>
+    <script src="../js/connexion.js"></script>
   </body>
 </html>

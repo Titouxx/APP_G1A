@@ -75,5 +75,5 @@ include '../include/header.php';
     </footer>
 </div>
 
-<script src="js/CGU.js"></script>
+<script src="../js/CGU.js"></script>
 <?php include '../include/footer.php'; ?>

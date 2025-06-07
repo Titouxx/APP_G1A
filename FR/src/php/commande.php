@@ -74,6 +74,6 @@ partenaires.forEach(p => {
 </script>
 
 <!-- Script spécifique à cette page -->
-<script src="js/commande.js"></script>
+<script src="../js/commande.js"></script>
 
 <?php include '../include/footer.php'; ?>
