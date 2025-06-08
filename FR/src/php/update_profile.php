@@ -10,24 +10,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Connexion à la base via la fonction centralisée
     $pdo = getPDOConnection();
-
     $user_id = $_SESSION['user_id'];
-    $phone = $_POST["phone"] ?? '';
+
+    // Utilise les bons noms de champs depuis le formulaire
+    $prenom = $_POST["prenom"] ?? '';
+    $nom = $_POST["nom"] ?? '';
+    $email = $_POST["email"] ?? '';
+    $telephone = $_POST["telephone"] ?? '';
     $adresse = $_POST["adresse"] ?? '';
-    $city = $_POST["city"] ?? '';
+    $ville = $_POST["ville"] ?? '';
 
     try {
-        $stmt = $pdo->prepare("UPDATE user SET telephone = :phone, adresse = :adresse, ville = :city WHERE id_User = :user_id");
+        $stmt = $pdo->prepare("
+            UPDATE user SET 
+                prenom = :prenom,
+                nom = :nom,
+                email = :email,
+                telephone = :telephone,
+                adresse = :adresse,
+                ville = :ville
+            WHERE id_User = :user_id
+        ");
+
         $stmt->execute([
-            ':phone' => $phone,
+            ':prenom' => $prenom,
+            ':nom' => $nom,
+            ':email' => $email,
+            ':telephone' => $telephone,
             ':adresse' => $adresse,
-            ':city' => $city,
+            ':ville' => $ville,
             ':user_id' => $user_id
         ]);
 
-        echo json_encode(["status" => "success"]);
+        // Redirection avec succès
+        header('Location: Profil.php?success=1');
+        exit();
     } catch (PDOException $e) {
         echo json_encode([
             "status" => "error",

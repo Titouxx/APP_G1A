@@ -16,7 +16,7 @@ html, body {
   background-size: cover;
   background-repeat: repeat;
   background-attachment: fixed;
-  padding-bottom: 120px;
+  padding-bottom: 80px;
 }
 
 *, *::before, *::after {
@@ -27,12 +27,35 @@ html, body {
 /* === SECTION DE BIENVENUE === */
 .welcome-section {
   text-align: center;
-  margin-top: 40px;
+  margin: 20px 0 10px;
 }
 
 .welcome-section h1 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   color: #4fa9d9;
+}
+
+/* === RÉSUMÉ UTILISATEUR === */
+.user-summary {
+  text-align: center;
+  background-color: #f2faff;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px auto;
+  max-width: 600px;
+  box-shadow: 0 0 10px rgba(0, 160, 200, 0.1);
+}
+
+.user-summary h2 {
+  color: #333;
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.user-summary p {
+  margin: 4px 0;
+  font-size: 1rem;
+  color: #444;
 }
 
 /* === CONTENU PRINCIPAL === */
@@ -40,10 +63,10 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 100px;
+  gap: 50px;
   flex-wrap: wrap;
-  min-height: 400px;
-  margin: 60px auto;
+  margin: 25px auto;
+  max-width: 600px;
 }
 
 .img1, .img2 {
@@ -53,44 +76,71 @@ html, body {
 }
 
 .img1 img, .img2 img {
-  width: 200px;
-  height: 200px;
-  transition: opacity 0.3s ease;
+  width: 150px;
+  height: 150px;
+  transition: transform 0.3s ease;
 }
 
 .img1:hover img,
 .img2:hover img {
-  opacity: 0.5;
+  transform: scale(1.05);
 }
 
-.image-text,
+
 .image-text2 {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: rgb(11, 11, 11);
   opacity: 0;
   transition: opacity 0.3s ease;
   font-size: 1.1rem;
   font-weight: bold;
 }
-
+.image-text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(180, 171, 171);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
 .img1:hover .image-text,
 .img2:hover .image-text2 {
   opacity: 1;
 }
 
+/* === HISTORIQUE / RÉSUMÉ === */
+.history-preview {
+  background: #fffbe7;
+  border-left: 5px solid #f1c40f;
+  padding: 15px 20px;
+  margin: 30px auto;
+  max-width: 600px;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.1);
+  text-align: center;
+}
+
 /* === RESPONSIVE === */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .welcome-section h1 {
     font-size: 1.6rem;
     padding: 0 1rem;
   }
 
+  .user-summary h2 {
+    font-size: 1.4rem;
+  }
+
   .main {
-    flex-wrap: nowrap;
     flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: center;
     gap: 20px;
     overflow-x: auto;
@@ -99,14 +149,17 @@ html, body {
 
   .img1 img,
   .img2 img {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
   }
 
   .image-text,
   .image-text2 {
     font-size: 0.9rem;
   }
+
+  .history-preview {
+    font-size: 0.95rem;
+    margin: 20px auto;
+  }
 }
-
-
