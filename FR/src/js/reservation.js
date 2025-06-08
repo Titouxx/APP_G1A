@@ -12,6 +12,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!confirm("Confirmer cette réservation ?")) {
           e.preventDefault();
         }
+      } else if (button.name === "archiver") {
+        if (
+          !confirm(
+            "Attention à ne pas archiver la réservation avant d'avoir présenté le QR code."
+          )
+        ) {
+          e.preventDefault();
+        }
       }
     });
   });

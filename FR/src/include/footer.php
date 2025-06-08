@@ -14,11 +14,6 @@
             </ul>
         </nav>
     </div>
-    <div class="logo-container">
-        <a href="../index.php">
-            <img src="../../images/logonutritium.png" alt="Logo Nutritium">
-        </a>
-    </div>
 </footer>
 
 <script src="../js/index.js"></script>
