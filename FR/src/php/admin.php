@@ -1,17 +1,15 @@
 <?php
-session_start();
+$pageCSS = '../css/admin.css';
+$pageTitle = 'Administration - Nutritium';
+include '../include/header.php';
+
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSION['statut'] !== 'admin') {
     header("Location: Connexion.php");
     exit();
 }
 
-$host = 'localhost';
-$db   = 'siteweb';
-$user = 'root';
-$pass = '';
-$charset = 'utf8mb4';
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-$pdo = new PDO($dsn, $user, $pass);
+require_once 'connectSQL.php';
+$pdo = getPDOConnection();
 
 // Suppression d’un partenaire
 if (isset($_GET['delete_id'])) {
@@ -40,48 +38,17 @@ $partenaires = $pdo->query("SELECT * FROM partenaires")->fetchAll(PDO::FETCH_ASS
 $users = $pdo->query("SELECT * FROM user")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Interface Admin - Nutritium</title>
-    <link rel="stylesheet" href="../css/normalize.css">
-    <link rel="stylesheet" href="../css/commande.css">
-    <link rel="stylesheet" href="../css/admin.css">
-</head>
-<body>
-
-<!-- MENU + LOGO -->
-<header>
-    <nav>
-        <ul class="menu">
-            <li><a href="../index.php">Home</a></li>
-            <?php if (isset($_SESSION['statut']) && $_SESSION['statut'] === 'admin'): ?>
-                <li><a href="admin.php">Administration</a></li>
-            <?php else: ?>
-                <li><a href="commande.php">Commander un panier</a></li>
-            <?php endif; ?>
-            <li><a href="espaceuser.php">Profil</a></li>
-        </ul>
-    </nav>
-</header>
-
-<a href="../index.php">
-    <img src="../../images/logonutritium.png" id="Logo1" alt="Logo Nutritium" title="Logo Nutritium">
-</a>
-
-
 <!-- CONTENU ADMIN -->
 <main class="admin-container">
     <section class="left-panel">
         <h2>Partenaires</h2>
         <ul>
             <?php foreach ($partenaires as $p): ?>
-                <li>
-                    <strong><?= htmlspecialchars($p['nom']) ?></strong><br>
-                    <small><?= htmlspecialchars($p['adresse']) ?></small><br>
-                    <a href="?delete_id=<?= $p['id'] ?>" class="delete-btn">Supprimer</a>
-                </li>
+            <li>
+                <strong><?= htmlspecialchars($p['nom']) ?></strong><br>
+                <small><?= htmlspecialchars($p['adresse']) ?></small><br>
+                <a href="?delete_id=<?= $p['id'] ?>" class="delete-btn">Supprimer</a>
+            </li>
             <?php endforeach; ?>
         </ul>
 
@@ -109,18 +76,17 @@ $users = $pdo->query("SELECT * FROM user")->fetchAll(PDO::FETCH_ASSOC);
             </thead>
             <tbody>
                 <?php foreach ($users as $u): ?>
-                    <tr>
-                        <td><?= htmlspecialchars($u['nom']) ?></td>
-                        <td><?= htmlspecialchars($u['prenom']) ?></td>
-                        <td><?= htmlspecialchars($u['email']) ?></td>
-                        <td><?= htmlspecialchars($u['statut']) ?></td>
-                    </tr>
+                <tr>
+                    <td><?= htmlspecialchars($u['nom']) ?></td>
+                    <td><?= htmlspecialchars($u['prenom']) ?></td>
+                    <td><?= htmlspecialchars($u['email']) ?></td>
+                    <td><?= htmlspecialchars($u['statut']) ?></td>
+                </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
     </section>
 </main>
 
+<?php include '../include/footer.php'; ?>
 <script src="../js/commande.js"></script>
-</body>
-</html>
