@@ -40,9 +40,9 @@ if (isset($_SESSION['user_id'])) {
 <div class="buton">
     <?php
     if (isset($_SESSION['user_id'])) {
-        echo '<button class="cn" id="scrollButton"><a href="logout.php">Souhaitez-vous vous déconnecter</a></button>';
+        echo '<button class="cn" id="scrollButton"><a href="php/logout.php">Souhaitez-vous vous déconnecter</a></button>';
     } else {
-        echo '<button class="cn" id="scrollButton"><a href="Connexion.php">Connectez-vous !</a></button>';
+        echo '<button class="cn" id="scrollButton"><a href="php/Connexion.php">Connectez-vous !</a></button>';
     }
     ?>
 </div>

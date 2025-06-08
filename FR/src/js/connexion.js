@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var response = JSON.parse(this.responseText);
         console.log(response);
         if (response.status === "success") {
-          window.location.href = "../php/index.php";
+          window.location.href = "../index.php";
         } else {
           alert(response.message || "Une erreur est survenue");
         }
