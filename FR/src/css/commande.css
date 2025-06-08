@@ -5,7 +5,8 @@
   font-style: normal;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -138,12 +139,10 @@ h1 {
 
 /* === RESPONSIVE MOBILE === */
 @media screen and (max-width: 480px) {
-
   .bouton-reserver {
     font-size: 13px;
     padding: 6px 12px;
   }
-
 
   .partenaires-container-row {
     flex-direction: column;
@@ -155,8 +154,8 @@ h1 {
   }
 
   #mapid {
-    min-height: 300px ;
-    height: 300px ;
+    min-height: 300px;
+    height: 300px;
     background-color: lightgray; /* temporaire pour vérifier */
   }
 
@@ -164,4 +163,30 @@ h1 {
     font-size: 1.6rem;
     margin: 40px 1rem 20px;
   }
+}
+
+#reservation-alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  border-radius: 5px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.alert-hidden {
+  opacity: 0;
+  visibility: hidden;
+  background-color: transparent;
+  color: transparent;
+}
+
+.alert-visible {
+  opacity: 1;
+  visibility: visible;
+  background-color: #ff6b6b;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

@@ -1,5 +1,4 @@
 <?php
-session_start();
 $pageCSS = '../css/espaceuser.css';
 include '../include/header.php';
 
@@ -9,8 +8,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     exit();
 }
 ?>
-
-
 
 <!-- Titre de l'espace utilisateur -->
 <div class="welcome-section">

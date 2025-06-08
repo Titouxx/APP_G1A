@@ -4,14 +4,13 @@ function deconnexion() {
   var result = confirm("Voulez-vous vraiment vous déconnecter?");
   if (result == true) {
     alert("Merci de votre visite");
-    
+
     // Effectuer une redirection vers le script PHP de déconnexion
-    window.location.href = 'logout.php';
+    window.location.href = "logout.php";
   } else {
     // On ferme juste la popup puisqu'on ne se déconnecte pas en cliquant sur annuler
   }
 }
-
 
 // JS Hover bouton déconnexion
 function changerImage(etat) {
@@ -23,18 +22,19 @@ function changerImage(etat) {
   }
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  var footer = document.querySelector(".footer");
+  if (footer) {
+    var footerHeight = footer.offsetHeight;
 
-// Récupérer la hauteur du footer
-var footerHeight = document.querySelector('.footer').offsetHeight;
+    var logosFooter = document.getElementById("LogosFooter");
+    if (logosFooter) {
+      logosFooter.style.maxHeight = footerHeight + "px";
+    }
 
-// Appliquer la hauteur du footer comme max-height au LogosFooter
-var logosFooter = document.getElementById('LogosFooter');
-logosFooter.style.maxHeight = footerHeight + 'px';
-
-// Récupérer la hauteur du footer
-var footerHeight = document.querySelector('.footer').offsetHeight;
-
-// Appliquer la hauteur du footer comme max-height à l'élément avec l'id "imgdeco"
-var imgDeco = document.getElementById('imgdeco');
-imgDeco.style.maxHeight = footerHeight + 'px';
-
+    var imgDeco = document.getElementById("imgdeco");
+    if (imgDeco) {
+      imgDeco.style.maxHeight = footerHeight + "px";
+    }
+  }
+});

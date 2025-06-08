@@ -55,7 +55,7 @@ $users = $pdo->query("SELECT * FROM user")->fetchAll(PDO::FETCH_ASSOC);
 <header>
     <nav>
         <ul class="menu">
-            <li><a href="index.php">Home</a></li>
+            <li><a href="../index.php">Home</a></li>
             <?php if (isset($_SESSION['statut']) && $_SESSION['statut'] === 'admin'): ?>
                 <li><a href="admin.php">Administration</a></li>
             <?php else: ?>
@@ -66,7 +66,7 @@ $users = $pdo->query("SELECT * FROM user")->fetchAll(PDO::FETCH_ASSOC);
     </nav>
 </header>
 
-<a href="index.php">
+<a href="../index.php">
     <img src="../../images/logonutritium.png" id="Logo1" alt="Logo Nutritium" title="Logo Nutritium">
 </a>
 

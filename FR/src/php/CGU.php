@@ -1,5 +1,4 @@
 <?php
-session_start();
 $pageCSS = '../css/CGU.css';
 include '../include/header.php';
 ?>

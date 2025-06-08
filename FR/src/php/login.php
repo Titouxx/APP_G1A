@@ -18,7 +18,7 @@ try {
             exit;
         }
 
-        $sql = "SELECT id_User, prenom, nom, password FROM user WHERE email = :email";
+        $sql = "SELECT id_User, prenom, nom, password, statut FROM user WHERE email = :email";
         $stmt = $pdo->prepare($sql);
         $stmt->execute(['email' => $email]);
         $user = $stmt->fetch();
