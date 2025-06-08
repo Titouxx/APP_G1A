@@ -3,36 +3,64 @@ function deconnexion() {
   var result = confirm("Voulez-vous vraiment vous déconnecter?");
   if (result == true) {
     alert("Merci de votre visite");
-
-    // Effectuer une redirection vers le script PHP de déconnexion
-    window.location.href = 'logout.php';
-  } else {
-    // On ferme juste la popup puisqu'on ne se déconnecte pas en cliquant sur annuler
+    window.location.href = "logout.php";
   }
 }
-
 
 // JS Hover bouton déconnexion
 function changerImage(etat) {
   var img = document.getElementById("imgdeco");
-  if (etat === "survol") {
-    img.src = "../../images/déconnexion2-hover.png"; // Chemin vers l'image au survol
-  } else {
-    img.src = "../../images/déconnexion2.png"; // Chemin vers l'image normale
+  if (img) {
+    // Vérifie si l'élément existe
+    if (etat === "survol") {
+      img.src = "../../images/déconnexion2-hover.png";
+    } else {
+      img.src = "../../images/déconnexion2.png";
+    }
   }
 }
 
-// Récupérer la hauteur du footer
-var footerHeight = document.querySelector('.footer').offsetHeight;
+document.addEventListener("DOMContentLoaded", function () {
+  const forms = document.querySelectorAll(".form-reservation");
+  const alertDiv = document.getElementById("reservation-alert");
 
-// Appliquer la hauteur du footer comme max-height au LogosFooter
-var logosFooter = document.getElementById('LogosFooter');
-logosFooter.style.maxHeight = footerHeight + 'px';
+  forms.forEach((form) => {
+    form.addEventListener("submit", function (e) {
+      if (!reservationData.peutReserver || reservationData.panierEnCours) {
+        e.preventDefault();
 
-// Récupérer la hauteur du footer
-var footerHeight = document.querySelector('.footer').offsetHeight;
+        let message = "";
+        if (!reservationData.peutReserver) {
+          message = "Vous avez déjà réservé un panier cette semaine.";
+        } else if (reservationData.panierEnCours) {
+          message = `Vous avez déjà un panier en cours de réservation chez ${reservationData.dernierPartenaire}.`;
+        }
 
-// Appliquer la hauteur du footer comme max-height à l'élément avec l'id "imgdeco"
-var imgDeco = document.getElementById('imgdeco');
-imgDeco.style.maxHeight = footerHeight + 'px';
+        // Afficher l'alerte
+        alertDiv.textContent = message;
+        alertDiv.classList.remove("alert-hidden");
+        alertDiv.classList.add("alert-visible");
 
+        // Masquer après 3 secondes
+        setTimeout(() => {
+          alertDiv.classList.remove("alert-visible");
+          alertDiv.classList.add("alert-hidden");
+        }, 3000);
+      }
+    });
+  });
+  var footer = document.querySelector(".footer");
+  if (footer) {
+    var footerHeight = footer.offsetHeight;
+
+    var logosFooter = document.getElementById("LogosFooter");
+    if (logosFooter) {
+      logosFooter.style.maxHeight = footerHeight + "px";
+    }
+
+    var imgDeco = document.getElementById("imgdeco");
+    if (imgDeco) {
+      imgDeco.style.maxHeight = footerHeight + "px";
+    }
+  }
+});

@@ -55,6 +55,76 @@ INSERT INTO partenaires (nom, adresse, description, latitude, longitude) VALUES
 ('Épicerie Verte', '8 Boulevard Voltaire, 75011 Paris', 'Produits zéro déchet', 48.8500, 2.3600),
 ('Fruits&Co', '25 Rue Saint-Honoré, 75008 Paris', 'Fruits frais toute l''année', 48.8700, 2.3000);
 
+CREATE TABLE reservations (
+  id INT NOT NULL AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  partenaire_id INT NOT NULL,
+  qr_code VARCHAR(255) NOT NULL,
+  date_reservation DATETIME NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES user(id_User),
+  FOREIGN KEY (partenaire_id) REFERENCES partenaires(id)
+);
+
+-- Table paniers
+CREATE TABLE paniers (
+  id INT NOT NULL AUTO_INCREMENT,
+  partenaire_id INT NOT NULL,
+  nom VARCHAR(255) NOT NULL,
+  description TEXT NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (partenaire_id) REFERENCES partenaires(id)
+);
+
+-- Table articles
+CREATE TABLE articles (
+  id INT NOT NULL AUTO_INCREMENT,
+  panier_id INT NOT NULL,
+  nom VARCHAR(255) NOT NULL,
+  quantite VARCHAR(50) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (panier_id) REFERENCES paniers(id)
+);
+
+-- Modifiez la table reservations pour ajouter panier_id
+ALTER TABLE reservations ADD COLUMN panier_id INT NOT NULL AFTER partenaire_id;
+ALTER TABLE reservations ADD FOREIGN KEY (panier_id) REFERENCES paniers(id);
+
+INSERT INTO paniers (partenaire_id, nom, description) VALUES
+(1, 'Panier repas', 'Comporte tous les aliments nécessaires à une semaine de repas pour une personne.'),
+(2, 'Panier repas', 'Comporte tous les aliments nécessaires à une semaine de repas pour une personne.'),
+(3, 'Panier repas', 'Comporte tous les aliments nécessaires à une semaine de repas pour une personne.');
+
+INSERT INTO articles (panier_id, nom, quantite) VALUES
+(1, 'Légumes de saison', '3 kg'),
+(1, 'Fruits frais', '2 kg'),
+(1, 'Pâtes complètes', '1 kg'),
+(1, 'Riz bio', '1 kg'),
+(1, 'Légumineuses', '1 kg'),
+(1, 'Huile d\'olive', '1 L'),
+(2, 'Légumes de saison', '3 kg'),
+(2, 'Fruits frais', '2 kg'),
+(2, 'Pâtes complètes', '1 kg'),
+(3, 'Légumes de saison', '3 kg'),
+(3, 'Fruits frais', '2 kg');
+
+-- Ajoutez cette commande à votre fichier siteweb.sql
+CREATE TABLE reservations_archive (
+  id INT NOT NULL AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  partenaire_id INT NOT NULL,
+  panier_id INT NOT NULL,
+  qr_code VARCHAR(255) NOT NULL,
+  date_reservation DATETIME NOT NULL,
+  date_archivage DATETIME NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES user(id_User),
+  FOREIGN KEY (partenaire_id) REFERENCES partenaires(id),
+  FOREIGN KEY (panier_id) REFERENCES paniers(id)
+);
+
+ALTER TABLE user ADD COLUMN statut VARCHAR(50) NOT NULL DEFAULT 'etudiant';
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

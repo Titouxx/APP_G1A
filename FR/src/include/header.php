@@ -48,6 +48,7 @@ if (!isset($pageTitle)) {
                 <a href="../index.php">Home</a>
                 <a href="commande.php">Commander un panier</a>
                 <a href="espaceuser.php">Mon espace</a>
+                <a href="reservation.php">Mon panier</a>
             </nav>
 
             <!-- User greeting -->

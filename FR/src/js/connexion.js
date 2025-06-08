@@ -41,18 +41,23 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     // Envoyer le mot de passe en clair dans la requête (non recommandé en production)
-    xhr.send("loginEmail=" + encodeURIComponent(email) + "&loginPassword=" + encodeURIComponent(password));
+    xhr.send(
+      "loginEmail=" +
+        encodeURIComponent(email) +
+        "&loginPassword=" +
+        encodeURIComponent(password)
+    );
   });
 
-// Formulaire d'enregistrement
-var registerForm = document.getElementById("registerForm");
-registerForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  var firstNameField = document.getElementById("registerFirstName").value;
-  var lastNameField = document.getElementById("registerLastName").value;
-  var emailField = document.getElementById("registerEmail");
-  var password = document.getElementById("registerPassword").value;
-  var repeatPassword = document.getElementById("RepeatPassword").value;
+  // Formulaire d'enregistrement
+  var registerForm = document.getElementById("registerForm");
+  registerForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    var firstNameField = document.getElementById("registerFirstName").value;
+    var lastNameField = document.getElementById("registerLastName").value;
+    var emailField = document.getElementById("registerEmail");
+    var password = document.getElementById("registerPassword").value;
+    var repeatPassword = document.getElementById("RepeatPassword").value;
 
     // Vérifiez si les mots de passe correspondent
     if (password !== repeatPassword) {
@@ -69,13 +74,19 @@ registerForm.addEventListener("submit", function (event) {
         var response = JSON.parse(this.responseText);
         console.log(response);
         if (response.status === "success") {
-          window.location.href = "../php/index.php";
-        } else if (response.status === "error" && response.message === "email_exists") {
-          emailField.style.color = 'red';
+          window.location.href = "../index.php";
+        } else if (
+          response.status === "error" &&
+          response.message === "email_exists"
+        ) {
+          emailField.style.color = "red";
           alert("Cet email est déjà utilisé.");
         } else {
-          emailField.style.color = 'initial'; 
-          alert(response.message || "Une erreur est survenue lors de l'enregistrement");
+          emailField.style.color = "initial";
+          alert(
+            response.message ||
+              "Une erreur est survenue lors de l'enregistrement"
+          );
         }
       } catch (e) {
         console.error("Erreur de parsing JSON : ", e);
@@ -83,11 +94,16 @@ registerForm.addEventListener("submit", function (event) {
     };
 
     xhr.send(
-      "registerFirstName=" + encodeURIComponent(firstNameField) +
-      "&registerLastName=" + encodeURIComponent(lastNameField) +
-      "&registerEmail=" + encodeURIComponent(emailField.value) + 
-      "&registerPassword=" + encodeURIComponent(password) +
-      "&RepeatPassword=" + encodeURIComponent(repeatPassword)
+      "registerFirstName=" +
+        encodeURIComponent(firstNameField) +
+        "&registerLastName=" +
+        encodeURIComponent(lastNameField) +
+        "&registerEmail=" +
+        encodeURIComponent(emailField.value) +
+        "&registerPassword=" +
+        encodeURIComponent(password) +
+        "&RepeatPassword=" +
+        encodeURIComponent(repeatPassword)
     );
   });
 });

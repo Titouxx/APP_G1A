@@ -1,6 +1,7 @@
 <!-- Image déconnexion en bas à droite -->
-<img src="../images/déconnexion2.png" id="imgdeco" alt="Déconnexion" title="Se déconnecter"
-    onmouseover="changerImage('survol')" onmouseout="changerImage('normal')" onclick="deconnexion()">
+<a href="php/logout.php">
+    <img src="../images/déconnexion2.png" id="imgdeco" alt="Déconnexion" title="Se déconnecter">
+</a>
 
 <!-- Footer global -->
 <footer>

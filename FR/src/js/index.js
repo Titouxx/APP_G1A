@@ -1,5 +1,10 @@
 // JS Footer
-var footerHeight = document.querySelector('.footer').offsetHeight; // Récupérer la hauteur du footer
-
-var logosFooter = document.getElementById('LogosFooter'); // Appliquer la hauteur du footer comme max-height au LogosFooter
-logosFooter.style.maxHeight = footerHeight + 'px';
+document.addEventListener("DOMContentLoaded", function () {
+  var footer = document.querySelector(".footer");
+  if (footer) {
+    var logosFooter = document.getElementById("LogosFooter");
+    if (logosFooter) {
+      logosFooter.style.maxHeight = footer.offsetHeight + "px";
+    }
+  }
+});
