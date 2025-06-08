@@ -46,7 +46,11 @@ if (!isset($pageTitle)) {
             <!-- Navigation links -->
             <nav class="menu">
                 <a href="../index.php">Home</a>
+                <?php if (isset($_SESSION['statut']) && $_SESSION['statut'] === 'admin'): ?>
+                <a href="admin.php">Administration</a>
+                <?php else: ?>
                 <a href="commande.php">Commander un panier</a>
+                <?php endif; ?>
                 <a href="espaceuser.php">Mon espace</a>
                 <a href="reservation.php">Mon panier</a>
             </nav>
