@@ -55,12 +55,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['confirmer']) && $panierEnCours) {
             
         if ($panier) {
-            $qrDir = '../../qrcodes/';
+            $qrDir = '../qrcodes/';
             if (!file_exists($qrDir)) {
                 mkdir($qrDir, 0755, true);
             }
 
-            require_once '../../lib/phpqrcode/qrlib.php';
+            require_once '../lib/phpqrcode/qrlib.php';
             $qrContent = "Nutritium|".$_SESSION['user_id']."|".$partenaire['id']."|".$panier['id']."|".time();
             $qrFile = $qrDir.md5($qrContent).'.png';
 
