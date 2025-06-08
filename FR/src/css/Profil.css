@@ -5,6 +5,7 @@
   background-color: #f9f9ff;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0, 200, 120, 0.15);
+  box-sizing: border-box;
 }
 
 .profile-container h1 {
@@ -42,6 +43,8 @@
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-actions {
@@ -49,6 +52,8 @@
   justify-content: space-between;
   margin-top: 25px;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 button[type="submit"] {
@@ -88,4 +93,50 @@ button[type="submit"]:hover {
   border-radius: 6px;
   text-align: center;
   font-weight: bold;
+}
+
+/* === Responsive Design === */
+@media screen and (max-width: 768px) {
+  .profile-container {
+    padding: 20px;
+    margin: 30px 15px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  button[type="submit"],
+  .logout-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .profile-container h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .form-group input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  button[type="submit"],
+  .logout-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .profile-container h1 {
+    font-size: 1.3rem;
+  }
 }
