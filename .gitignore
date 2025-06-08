@@ -1,4 +1,4 @@
 **/.vs/
 **/.idea/
 **/.DS_Store
-**/connectSQL.php
+FR/src/php/connectSQL.php
