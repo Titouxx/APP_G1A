@@ -50,18 +50,6 @@ try {
     <p>Statut : <?= htmlspecialchars($_SESSION['statut'] ?? 'non défini') ?></p>
 </div>
 
-<!--Historique ou résumé
-<div class="history-preview">
-    <h3>Votre dernière réservation</h3>
-    <?php if ($lastReservation): ?>
-        <p><strong>Panier :</strong> <?= htmlspecialchars($lastReservation['panier_nom']) ?></p>
-        <p><strong>Partenaire :</strong> <?= htmlspecialchars($lastReservation['partenaire_nom']) ?></p>
-        <p><strong>Date :</strong> <?= date('d/m/Y H:i', strtotime($lastReservation['date_reservation'])) ?></p>
-    <?php else: ?>
-        <p>Aucune réservation récente.</p>
-    <?php endif; ?>
-</div>-->
-
 <!-- Actions principales en image -->
 <div class="main">
     <div class="img1">
@@ -73,6 +61,7 @@ try {
         </figure>
     </div>
 
+    <?php if (isset($_SESSION['statut']) && $_SESSION['statut'] !== 'admin'): ?>
     <div class="img2">
         <figure>
             <a href="reservation.php">
@@ -81,6 +70,7 @@ try {
             </a>
         </figure>
     </div>
+    <?php endif; ?>
 </div>
 
 <?php include '../include/footer.php'; ?>
