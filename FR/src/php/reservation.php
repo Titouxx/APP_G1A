@@ -109,6 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             $pdo->commit();
             
+            unset($_SESSION['panier_en_cours']);
             header("Location: reservation.php");
             exit();
         } catch (Exception $e) {
@@ -116,6 +117,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             error_log("Erreur lors de l'archivage: " . $e->getMessage());
             die("Une erreur est survenue lors de l'archivage de la réservation.");
         }
+    }
+}
+
+$peutReserver = true;
+
+if (isset($_SESSION['user_id'])) {
+    try {
+        $stmt = $pdo->prepare("SELECT date_reservation FROM reservations_archive 
+                             WHERE user_id = ? AND date_reservation >= DATE_SUB(NOW(), INTERVAL 7 DAY)
+                             ORDER BY date_reservation DESC LIMIT 1");
+        $stmt->execute([$_SESSION['user_id']]);
+        $reservation_archivee = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        $peutReserver = !$reservation_archivee;
+    } catch (PDOException $e) {
+        error_log("Erreur SQL : " . $e->getMessage());
     }
 }
 ?>
@@ -186,6 +203,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p>Attention : Vous n'avez le droit qu'à un panier par semaine.</p>
         </div>
     </div>
+    <?php elseif (!$peutReserver): ?>
+    <div class="no-reservation">
+        <h2>Vous avez déjà réservé un panier cette semaine</h2>
+        <?php $dateProchaineReservation = date('d/m/Y à H:i', strtotime($reservation_archivee['date_reservation'] . ' + 7 days'));?>
+        <p>Veuillez attendre jusqu'au <?= $dateProchaineReservation ?> pour réserver un nouveau panier.</p>
+    </div>
     <?php else: ?>
     <div class="no-reservation">
         <h2>Aucune réservation active</h2>
@@ -197,3 +220,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
 <?php include '../include/footer.php'; ?>
+<script src="../js/reservation.js" defer></script>
