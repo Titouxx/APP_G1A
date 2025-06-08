@@ -42,33 +42,33 @@ try {
         <div class="form-row">
             <div class="form-group">
                 <label>Prénom</label>
-                <input type="text" name="prenom" value="<?= htmlspecialchars($user['prenom'] ?? '') ?>" required>
+                <input type="text" name="prenom" value="<?= htmlspecialchars($user['prenom']) ?>" required>
             </div>
             <div class="form-group">
                 <label>Nom</label>
-                <input type="text" name="nom" value="<?= htmlspecialchars($user['nom'] ?? '') ?>" required>
+                <input type="text" name="nom" value="<?= htmlspecialchars($user['nom']) ?>" required>
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" name="email" value="<?= htmlspecialchars($user['email'] ?? '') ?>" required>
+                <input type="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" required>
             </div>
             <div class="form-group">
                 <label>Téléphone</label>
-                <input type="text" name="telephone" value="<?= htmlspecialchars($user['telephone'] ?? '') ?>">
+                <input type="text" name="telephone" value="<?= htmlspecialchars($user['telephone']) ?>">
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group">
                 <label>Adresse</label>
-                <input type="text" name="adresse" value="<?= htmlspecialchars($user['adresse'] ?? '') ?>">
+                <input type="text" name="adresse" value="<?= htmlspecialchars($user['adresse']) ?>">
             </div>
             <div class="form-group">
                 <label>Ville</label>
-                <input type="text" name="ville" value="<?= htmlspecialchars($user['ville'] ?? '') ?>">
+                <input type="text" name="ville" value="<?= htmlspecialchars($user['ville']) ?>">
             </div>
         </div>
 
@@ -76,6 +76,61 @@ try {
             <button type="submit">Enregistrer les modifications</button>
         </div>
     </form>
+
+    <hr>
+
+    <h2>Changer le mot de passe</h2>
+
+<div class="password-update-form">
+    <form id="passwordForm">
+        <div class="form-group">
+            <label>Mot de passe actuel</label>
+            <input type="password" name="oldPassword" required>
+        </div>
+        <div class="form-group">
+            <label>Nouveau mot de passe</label>
+            <input type="password" name="newPassword" id="newPassword" required>
+        </div>
+        <div class="form-group">
+            <label>Confirmer le nouveau mot de passe</label>
+            <input type="password" name="confirmPassword" id="confirmPassword" required>
+        </div>
+        <div class="form-actions">
+            <button type="submit">Modifier le mot de passe</button>
+        </div>
+    </form>
+    <div id="passwordMessage" style="margin-top: 10px;"></div>
 </div>
+
+<script>
+document.getElementById('passwordForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const newPassword = document.getElementById('newPassword').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    const msg = document.getElementById('passwordMessage');
+
+    if (newPassword !== confirmPassword) {
+        msg.innerHTML = '<span style="color: red;">Les mots de passe ne correspondent pas.</span>';
+        return;
+    }
+
+    const form = new FormData(this);
+    const response = await fetch('update_password.php', {
+        method: 'POST',
+        body: form
+    });
+
+    const data = await response.json();
+
+    if (data.status === 'success') {
+        msg.innerHTML = '<span style="color: green;">Mot de passe mis à jour avec succès.</span>';
+        this.reset();
+    } else {
+        msg.innerHTML = '<span style="color: red;">' + data.message + '</span>';
+    }
+});
+</script>
+
 
 <?php include '../include/footer.php'; ?>
